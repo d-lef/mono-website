@@ -143,6 +143,7 @@ class CtaCard extends HTMLElement {
                     'value': 50
                 });
             }
+            if (typeof ma === 'function') ma('buy_click', { label: 'blog_cta', value: 50 });
         });
 
         downloadBtn.addEventListener('click', () => {
@@ -153,6 +154,7 @@ class CtaCard extends HTMLElement {
                     'platform': 'free_trial'
                 });
             }
+            if (typeof ma === 'function') ma('download_click', { label: 'blog_cta', platform: 'free_trial' });
         });
     }
 }
