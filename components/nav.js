@@ -173,6 +173,41 @@ class SiteNav extends HTMLElement {
                 .lang-option.active {
                     color: var(--nav-text-secondary);
                 }
+
+                /* Mobile: larger touch targets, adjusted spacing */
+                @media (max-width: 768px) {
+                    .nav-btn {
+                        width: 44px;
+                        height: 44px;
+                    }
+
+                    .nav-btn svg {
+                        width: 22px;
+                        height: 22px;
+                    }
+
+                    /* Reposition for mobile - wider spacing */
+                    .theme-toggle { left: calc(50% - 100px); }
+                    .home-btn { left: calc(50% - 50px); }
+                    .buy-btn { left: 50%; }
+                    .blog-btn { left: calc(50% + 50px); }
+                    .lang-selector { left: calc(50% + 100px); }
+
+                    .lang-button {
+                        width: 44px;
+                        height: 44px;
+                        font-size: 12px;
+                    }
+                }
+
+                /* Small phones: even tighter but still usable */
+                @media (max-width: 380px) {
+                    .theme-toggle { left: calc(50% - 80px); }
+                    .home-btn { left: calc(50% - 40px); }
+                    .buy-btn { left: 50%; }
+                    .blog-btn { left: calc(50% + 40px); }
+                    .lang-selector { left: calc(50% + 80px); }
+                }
             </style>
 
             <div class="top-fade"></div>
