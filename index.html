@@ -168,7 +168,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <script src="/components/nav.js" defer></script>
     <script src="/components/waveform-bg.js" defer></script>
     <style>
@@ -216,12 +216,13 @@
         html {
             scroll-behavior: smooth;
             touch-action: pan-x pan-y;
+            background-color: var(--bg-primary);
         }
 
         body {
             font-family: 'Comfortaa', sans-serif;
             font-weight: 400;
-            background-color: var(--bg-primary);
+            background: transparent;
             color: var(--text-primary);
             height: 100vh;
             overflow: hidden;
@@ -1034,8 +1035,15 @@
             </div>
         </div>
 
-        <!-- YouTube video section (iframe injected lazily on first view) -->
+        <!-- YouTube video section -->
         <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/Imy_H4gUr8I?rel=0"
+                title="mono demo"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
         </div>
 
         <!-- Buy section -->
@@ -1257,7 +1265,6 @@
             } else if (currentState === 4) {
                 logoGroup.classList.add('hidden');
                 videoContainer.classList.add('visible');
-                ensureVideoIframe();
             } else if (currentState === 5) {
                 logoGroup.classList.add('hidden');
                 buyContainer.classList.add('visible');
@@ -1547,18 +1554,7 @@
         const tagline2a = group2.querySelector('.tagline:first-child');
         const tagline2b = group2.querySelector('.tagline:last-child');
         const compareTable = group3.querySelector('.compare-table');
-        let currentVideoId = 'Imy_H4gUr8I';
-        function ensureVideoIframe() {
-            if (videoContainer.querySelector('iframe')) return;
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${currentVideoId}?rel=0`;
-            iframe.title = 'mono demo';
-            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-            iframe.allowFullscreen = true;
-            iframe.style.cssText = 'width:100%;height:100%;border:none;border-radius:12px';
-            videoContainer.appendChild(iframe);
-        }
+        const videoIframe = videoContainer.querySelector('iframe');
         const privacyLink = document.querySelector('.privacy-link');
         const downloadLabel = document.getElementById('downloadLabel');
         const downloadWindows = document.getElementById('downloadWindows').querySelector('span');
@@ -1596,9 +1592,8 @@
             privacyLink.textContent = t.privacyPolicy;
 
             // Update video (fallback to English if no video for this language)
-            currentVideoId = t.video || translations.en.video;
-            const existingIframe = videoContainer.querySelector('iframe');
-            if (existingIframe) existingIframe.src = `https://www.youtube.com/embed/${currentVideoId}?rel=0`;
+            const videoId = t.video || translations.en.video;
+            videoIframe.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
 
             // Update buy button text
             buyText.innerHTML = t.buyText;
