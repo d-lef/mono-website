@@ -66,8 +66,10 @@ class SiteNav extends HTMLElement {
                     text-decoration: none;
                 }
 
-                .nav-btn:hover {
-                    background-color: var(--nav-bg-hover);
+                @media (hover: hover) {
+                    .nav-btn:hover {
+                        background-color: var(--nav-bg-hover);
+                    }
                 }
 
                 .nav-btn:active {
@@ -123,8 +125,10 @@ class SiteNav extends HTMLElement {
                     text-transform: uppercase;
                 }
 
-                .lang-button:hover {
-                    background-color: var(--nav-bg-hover);
+                @media (hover: hover) {
+                    .lang-button:hover {
+                        background-color: var(--nav-bg-hover);
+                    }
                 }
 
                 .lang-button:active {
@@ -166,8 +170,10 @@ class SiteNav extends HTMLElement {
                     white-space: nowrap;
                 }
 
-                .lang-option:hover {
-                    background-color: var(--nav-bg-hover);
+                @media (hover: hover) {
+                    .lang-option:hover {
+                        background-color: var(--nav-bg-hover);
+                    }
                 }
 
                 .lang-option.active {
