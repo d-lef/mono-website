@@ -411,22 +411,25 @@
                 left: 16px;
                 top: 50%;
                 transform: translateY(-50%);
-                gap: 12px;
+                gap: 10px;
                 z-index: 99;
             }
 
             .mobile-progress-dot {
                 width: 6px;
                 height: 6px;
-                border-radius: 50%;
+                border-radius: 3px;
                 background: var(--text-secondary);
-                opacity: 0.3;
-                transition: opacity 0.2s ease, transform 0.2s ease;
+                opacity: 0.25;
+                transition: opacity 0.35s ease, transform 0.35s ease, width 0.35s ease, height 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
             }
 
             .mobile-progress-dot.active {
                 opacity: 1;
-                transform: scale(1.5);
+                width: 6px;
+                height: 20px;
+                border-radius: 3px;
+                box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
             }
 
             /* Hide on buy screen */
@@ -457,6 +460,43 @@
             flex-direction: column;
             align-items: center;
             transition: transform 0.5s ease, opacity 0.3s ease;
+            position: relative;
+        }
+
+        .logo-group::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 50%, transparent 70%);
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            opacity: 1;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .logo-group::before {
+                background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.01) 50%, transparent 70%);
+            }
+        }
+
+        :root.light .logo-group::before {
+            background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.01) 50%, transparent 70%);
+        }
+
+        .logo-group.at-top::before {
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .logo-group::before {
+                width: 280px;
+                height: 280px;
+            }
         }
 
         .logo-group.at-top {
@@ -550,6 +590,25 @@
             cursor: pointer;
             text-decoration: none;
             transition: transform 0.15s ease, opacity 0.15s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .buy-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { left: -100%; }
+            50% { left: 150%; }
         }
 
         .buy-button:hover {
