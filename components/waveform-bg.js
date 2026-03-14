@@ -13,118 +13,12 @@
         return;
     }
 
-    const isMobile = window.innerWidth < 768;
-
-    if (isMobile) {
-        initParticles();
-    } else {
-        initWaveform();
+    // Disable on mobile
+    if (window.innerWidth < 768) {
+        return;
     }
 
-    // ========== MOBILE: FLOATING PARTICLES ==========
-    function initParticles() {
-        const canvas = document.createElement('canvas');
-        canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.5s ease';
-        document.body.appendChild(canvas);
-
-        const ctx = canvas.getContext('2d');
-        const dpr = window.devicePixelRatio || 1;
-        let W, H;
-        const PARTICLE_COUNT = 35;
-        const particles = [];
-
-        function resize() {
-            W = window.innerWidth;
-            H = window.innerHeight;
-            canvas.width = W * dpr;
-            canvas.height = H * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
-
-        function isDark() {
-            const root = document.documentElement;
-            if (root.classList.contains('light')) return false;
-            if (root.classList.contains('dark')) return true;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches;
-        }
-
-        function spawn(y) {
-            return {
-                x: Math.random() * W,
-                y: y != null ? y : Math.random() * H,
-                r: 1.5 + Math.random() * 2,
-                speed: 0.15 + Math.random() * 0.35,
-                drift: (Math.random() - 0.5) * 0.3,
-                opacity: 0.15 + Math.random() * 0.25,
-                phase: Math.random() * Math.PI * 2,
-                wobbleSpeed: 0.003 + Math.random() * 0.005,
-            };
-        }
-
-        for (let i = 0; i < PARTICLE_COUNT; i++) {
-            particles.push(spawn());
-        }
-
-        let animId = null;
-        let visible = true;
-
-        function draw() {
-            if (!visible) return;
-
-            ctx.clearRect(0, 0, W, H);
-            const dark = isDark();
-            const base = dark ? 180 : 120;
-
-            for (const p of particles) {
-                p.y -= p.speed;
-                p.phase += p.wobbleSpeed;
-                const wx = Math.sin(p.phase) * 0.4;
-                p.x += p.drift + wx;
-
-                // Fade out near top and bottom edges
-                let fade = 1;
-                if (p.y < H * 0.15) fade = p.y / (H * 0.15);
-                if (p.y > H * 0.85) fade = (H - p.y) / (H * 0.15);
-                fade = Math.max(0, Math.min(1, fade));
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${base},${base},${base},${p.opacity * fade})`;
-                ctx.fill();
-
-                // Respawn at bottom when off top
-                if (p.y < -10) {
-                    Object.assign(p, spawn(H + 10));
-                }
-                // Wrap horizontally
-                if (p.x < -10) p.x = W + 10;
-                if (p.x > W + 10) p.x = -10;
-            }
-
-            animId = requestAnimationFrame(draw);
-        }
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                visible = false;
-                if (animId) { cancelAnimationFrame(animId); animId = null; }
-            } else {
-                visible = true;
-                if (!animId) draw();
-            }
-        });
-
-        window.addEventListener('resize', resize);
-        resize();
-
-        requestAnimationFrame(() => {
-            canvas.style.opacity = '1';
-            draw();
-        });
-    }
-
-    // ========== DESKTOP: WAVEFORM ==========
-    function initWaveform() {
+    (function initWaveform() {
         const CONFIG = {
             barWidth: 3,
             barGap: 4,
