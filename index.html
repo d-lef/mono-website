@@ -1246,21 +1246,35 @@
             document.body.classList.add('state-' + currentState);
             updateMobileProgress();
 
+            const mobile = window.innerWidth < 768;
+
             if (currentState === 0) {
                 scrollIndicator.classList.add('visible');
                 logoGroup.classList.remove('hidden', 'at-top');
             } else if (currentState === 1) {
                 group1.classList.add('visible');
-                logoGroup.classList.remove('hidden');
-                logoGroup.classList.add('at-top');
+                if (mobile) {
+                    logoGroup.classList.add('hidden');
+                } else {
+                    logoGroup.classList.remove('hidden');
+                    logoGroup.classList.add('at-top');
+                }
             } else if (currentState === 2) {
                 group2.classList.add('visible');
-                logoGroup.classList.remove('hidden');
-                logoGroup.classList.add('at-top');
+                if (mobile) {
+                    logoGroup.classList.add('hidden');
+                } else {
+                    logoGroup.classList.remove('hidden');
+                    logoGroup.classList.add('at-top');
+                }
             } else if (currentState === 3) {
                 group3.classList.add('visible');
-                logoGroup.classList.remove('hidden');
-                logoGroup.classList.add('at-top');
+                if (mobile) {
+                    logoGroup.classList.add('hidden');
+                } else {
+                    logoGroup.classList.remove('hidden');
+                    logoGroup.classList.add('at-top');
+                }
             } else if (currentState === 4) {
                 logoGroup.classList.add('hidden');
                 videoContainer.classList.add('visible');
