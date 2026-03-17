@@ -39,7 +39,7 @@
                 width: 100%;
                 height: 300px;
                 transform: translateY(-50%);
-                z-index: -1;
+                z-index: 0;
                 pointer-events: none;
                 opacity: 0;
                 transition: opacity 1s ease;
@@ -58,9 +58,8 @@
         let phase = 0;
         let animationId = null;
         let isVisible = true;
-        let mouseX = -1000;
-        let mouseY = -1000;
-        let isMouseNear = false;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
         let screenCenterX = window.innerWidth / 2;
 
         function isDarkTheme() {
@@ -81,27 +80,30 @@
         }
 
         function getBarHeight(index, totalBars, maxHeight, barX) {
-            const canvasRect = canvas.getBoundingClientRect();
-            const canvasCenterY = canvasRect.top + canvasRect.height / 2;
-            const dx = barX - mouseX;
-            const dy = canvasCenterY - mouseY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance >= CONFIG.mouseSoundRadius) return 0;
-
-            const influence = 1 - (distance / CONFIG.mouseSoundRadius);
-            const smoothInfluence = influence * influence;
             const x = index / totalBars;
 
+            // Three overlapping sine waves for organic swimming motion
             const wave1 = Math.sin((x * 4 * Math.PI) - phase) * 0.25;
             const wave2 = Math.sin((x * 2 * Math.PI) - phase * 0.7) * 0.15;
             const wave3 = Math.sin((x * 8 * Math.PI) - phase * 1.3) * 0.08;
             const noise = Math.sin(index * 0.7 + phase * 0.3) * 0.05;
 
             let amplitude = CONFIG.baseAmplitude + wave1 + wave2 + wave3 + noise;
-            amplitude = Math.max(0.1, Math.min(0.95, amplitude));
 
-            return amplitude * maxHeight * smoothInfluence;
+            // Mouse proximity boosts amplitude
+            const canvasRect = canvas.getBoundingClientRect();
+            const canvasCenterY = canvasRect.top + canvasRect.height / 2;
+            const dx = barX - mouseX;
+            const dy = canvasCenterY - mouseY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < CONFIG.mouseSoundRadius) {
+                const influence = 1 - (distance / CONFIG.mouseSoundRadius);
+                amplitude += influence * 0.4;
+            }
+
+            amplitude = Math.max(0.1, Math.min(0.95, amplitude));
+            return amplitude * maxHeight;
         }
 
         function getCenterFadeOpacity(barX) {
@@ -157,7 +159,7 @@
 
         function animate() {
             if (!isVisible) return;
-            if (isMouseNear) phase += CONFIG.animationSpeed;
+            phase += CONFIG.animationSpeed;
             draw();
             animationId = requestAnimationFrame(animate);
         }
@@ -175,9 +177,6 @@
         function handleMouseMove(e) {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            const canvasRect = canvas.getBoundingClientRect();
-            const canvasCenterY = canvasRect.top + canvasRect.height / 2;
-            isMouseNear = Math.abs(e.clientY - canvasCenterY) < 250;
         }
 
         function watchThemeChanges() {
