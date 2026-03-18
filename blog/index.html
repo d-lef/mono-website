@@ -190,12 +190,8 @@
 
         /* Hero section - centered title */
         .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            padding: 80px 24px 48px;
+            text-align: center;
         }
 
         .hero h1 {
@@ -203,31 +199,10 @@
             font-weight: 500;
             font-size: clamp(48px, 10vw, 72px);
             color: var(--text-primary);
-            text-align: center;
             user-select: none;
             -webkit-user-select: none;
             position: relative;
             z-index: 1;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 32px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0.4;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .scroll-indicator svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--text-secondary);
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
         }
 
         /* Main content */
@@ -373,11 +348,6 @@
     <!-- Hero section -->
     <section class="hero">
         <h1>blog</h1>
-        <div class="scroll-indicator">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
-        </div>
     </section>
 
     <!-- Main content -->
