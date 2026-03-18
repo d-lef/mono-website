@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61BNYMZ7FD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-61BNYMZ7FD');
+    </script>
+    <!-- Mono Analytics -->
+    <script>
+    (function(){if(localStorage.getItem("_ma_optout"))return;var u="https://t.mono-ai.uk/api/event",v=localStorage.getItem("_ma_vid");if(!v){v=crypto.randomUUID().slice(0,12);localStorage.setItem("_ma_vid",v)}var s=sessionStorage.getItem("_ma_sid");if(!s){s=crypto.randomUUID().slice(0,12);sessionStorage.setItem("_ma_sid",s)}var p=new URLSearchParams(location.search),t={};["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var val=p.get(k);if(val){t[k]=val;sessionStorage.setItem("_ma_"+k,val)}else{t[k]=sessionStorage.getItem("_ma_"+k)||""}});var r=document.referrer||"";function ma(e,o){var d=Object.assign({session_id:s,visitor_id:v,event_name:e,page_path:location.pathname,label:null,platform:null,value:null,utm_source:t.utm_source,utm_medium:t.utm_medium,utm_campaign:t.utm_campaign,utm_content:t.utm_content,utm_term:t.utm_term,referrer:r,screen_width:screen.width},o||{});if(navigator.sendBeacon)navigator.sendBeacon(u,JSON.stringify(d));else fetch(u,{method:"POST",body:JSON.stringify(d),keepalive:true})}ma("pageview");window.ma=ma})();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Record Microsoft Teams Meetings in 2026</title>
+    <meta name="description" content="How to record Microsoft Teams meetings without a bot joining. Local Teams recording methods with transcription — no visible bot, no cloud upload required.">
+    <link rel="canonical" href="https://mono-ai.uk/blog/how-to-record-microsoft-teams">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Record Microsoft Teams Meetings in 2026">
+    <meta property="og:description" content="Record Microsoft Teams meetings without a bot joining. Local recording with transcription.">
+    <meta property="og:url" content="https://mono-ai.uk/blog/how-to-record-microsoft-teams">
+    <meta property="og:site_name" content="Mono">
+    <meta property="og:image" content="https://mono-ai.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-03-18T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Record Microsoft Teams Without a Bot">
+    <meta name="twitter:description" content="4 ways to record Microsoft Teams meetings without a bot joining.">
+    <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Record Microsoft Teams Meetings in 2026",
+      "description": "How to record Microsoft Teams meetings without a bot joining. Local recording methods with transcription.",
+      "datePublished": "2026-03-18",
+      "dateModified": "2026-03-18",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "Mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "url": "https://mono-ai.uk/blog/how-to-record-microsoft-teams"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you record a Teams meeting without everyone knowing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tools like Mono record Microsoft Teams by capturing system audio locally — no bot joins and no recording notification appears to other participants. Teams' built-in recording shows a notification to all participants." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I record a Teams meeting without a bot?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use Mono or OBS Studio to capture system audio directly from your computer. These tools don't join the meeting as a participant, so there's no visible bot." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Microsoft Teams have built-in recording?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, but Teams' built-in recording notifies all participants and requires Microsoft 365 Business or Enterprise licenses for most features. Recordings are stored in OneDrive or SharePoint. Third-party tools like Mono can record without these limitations." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are Teams meeting recordings saved?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Teams built-in recordings are saved to OneDrive (for non-channel meetings) or SharePoint (for channel meetings). Third-party tools like Mono save recordings locally on your computer." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/nav.js" defer></script>
+    <script src="/components/fold-effect.js" defer></script>
+    <script src="/components/cta-card.js" defer></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-primary: #252525; --bg-secondary: #2D2D2D; --bg-hover: #3A3A3A; --bg-pressed: #454545; --text-primary: #FFFFFF; --text-secondary: #B0B0B0; }
+        @media (prefers-color-scheme: light) { :root:not(.dark) { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; } }
+        :root.light { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; }
+        html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-width: none; }
+        html::-webkit-scrollbar { display: none; }
+        body { font-family: 'Comfortaa', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
+        .back-link { display: inline-block; font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; }
+        .back-link:hover { color: var(--text-primary); }
+        .article-category { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 16px; }
+        .article-title { font-weight: 500; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; margin-bottom: 12px; }
+        .article-meta { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+        .article-disclosure { font-size: 12px; color: var(--text-secondary); opacity: 0.7; font-style: italic; margin-bottom: 48px; }
+        .article-body { font-size: 16px; }
+        .article-body p { margin-bottom: 20px; }
+        .article-body h2 { font-weight: 500; font-size: 24px; margin-top: 48px; margin-bottom: 16px; }
+        .article-body h3 { font-weight: 500; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
+        .article-body strong { font-weight: 700; }
+        .article-body a { color: var(--text-primary); }
+        .tldr { background: var(--bg-secondary); border-left: 3px solid rgba(255,255,255,0.15); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; }
+        .tldr-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+        .tldr ul { list-style: none; padding: 0; margin: 0; }
+        .tldr li { font-size: 15px; padding: 4px 0; }
+        .table-wrap { overflow-x: auto; margin-bottom: 24px; }
+        .compare-table { border-collapse: collapse; width: 100%; min-width: 400px; }
+        .compare-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
+        .compare-table td { font-size: 14px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .compare-table tr.mono-row td { background: rgba(255,255,255,0.04); font-weight: 700; }
+        .steps-list { list-style: none; counter-reset: step; padding: 0; margin-bottom: 24px; }
+        .steps-list li { counter-increment: step; position: relative; padding: 10px 0 10px 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 12px; width: 22px; height: 22px; background: rgba(255,255,255,0.08); border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); }
+        .steps-list li:last-child { border-bottom: none; }
+        .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
+        .tip-box p { margin-bottom: 0; }
+
+        /* Related articles */
+        .related-articles { margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); }
+        :root.light .related-articles { border-top-color: rgba(0,0,0,0.1); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .related-articles { border-top-color: rgba(0,0,0,0.1); } }
+        .related-title { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 20px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+        .related-card { display: block; text-decoration: none; background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; transition: background 0.2s ease, border-color 0.2s ease; }
+        .related-card:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.14); }
+        :root.light .related-card { border-color: rgba(0,0,0,0.08); }
+        :root.light .related-card:hover { border-color: rgba(0,0,0,0.16); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .related-card { border-color: rgba(0,0,0,0.08); } :root:not(.dark) .related-card:hover { border-color: rgba(0,0,0,0.16); } }
+        .related-card-title { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 6px; line-height: 1.3; }
+        .related-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <site-nav base-path="../"></site-nav>
+
+    <main class="article-wrap">
+        <a href="./" class="back-link" data-i18n="back_link">← blog</a>
+
+        <header>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Record Microsoft Teams Meetings</h1>
+            <p class="article-meta" data-i18n="meta">Mar 18, 2026 · 8 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+        </header>
+
+        <div class="article-body">
+
+            <p data-i18n="intro_p1">Microsoft Teams has become the default video conferencing tool for millions of businesses. But recording Teams meetings isn't always straightforward — the built-in recording requires specific Microsoft 365 licenses, notifies all participants, and uploads everything to OneDrive or SharePoint. If you need to record without these limitations, there are better options.</p>
+
+            <p data-i18n="intro_p2">This guide covers how to record Microsoft Teams meetings in 2026, including methods that keep your recordings completely private with local audio capture and transcription.</p>
+
+            <div class="tldr">
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
+                <ul>
+                    <li data-i18n="tldr_1"><strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once</li>
+                    <li data-i18n="tldr_2"><strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription</li>
+                    <li data-i18n="tldr_3"><strong>Built-in (visible):</strong> Teams native recording — notifies all, requires M365 license</li>
+                    <li data-i18n="tldr_4"><strong>Bot-based:</strong> Otter.ai, Fireflies, Fathom — visible bot joins meeting</li>
+                </ul>
+            </div>
+
+            <h2 data-i18n="h2_why">Why Record Teams Meetings?</h2>
+
+            <p data-i18n="why_p1">Teams meetings contain critical business information. Project managers record standups for documentation. Sales teams capture client calls for CRM updates and training. HR records interviews for compliance. Legal teams document discussions for audit trails. Remote workers record meetings they can't attend live.</p>
+
+            <p data-i18n="why_p2">The challenge is that Teams' built-in recording requires Microsoft 365 Business Basic or higher, stores recordings in the cloud (OneDrive or SharePoint), and shows a "Recording started" notification to everyone. For personal notes, sensitive conversations, or when you lack admin permissions, you need an alternative approach.</p>
+
+            <h2 data-i18n="h2_comparison">Quick Comparison</h2>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th_method">Method</th>
+                            <th data-i18n="th_price">Price</th>
+                            <th data-i18n="th_bot">Bot/Visible?</th>
+                            <th data-i18n="th_transcription">Transcription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="mono-row">
+                            <td>Mono</td>
+                            <td data-i18n="price_mono">$50 once</td>
+                            <td data-i18n="no">No</td>
+                            <td data-i18n="yes_local">Yes (local)</td>
+                        </tr>
+                        <tr>
+                            <td>OBS Studio</td>
+                            <td data-i18n="price_free">Free</td>
+                            <td data-i18n="no2">No</td>
+                            <td data-i18n="no3">No</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="teams_builtin">Teams Built-in</td>
+                            <td data-i18n="price_teams">M365 license</td>
+                            <td data-i18n="notification_shown">Notification shown</td>
+                            <td data-i18n="yes_cloud">Yes (cloud)</td>
+                        </tr>
+                        <tr>
+                            <td>Otter.ai</td>
+                            <td>$16.99/mo</td>
+                            <td data-i18n="yes_bot_joins">Yes (bot joins)</td>
+                            <td data-i18n="yes_cloud2">Yes (cloud)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 data-i18n="h2_method1">Method 1: Mono (Recommended)</h2>
+
+            <p data-i18n="method1_p1">Mono records Teams by capturing audio directly from your computer's sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you don't have admin permissions or want to keep notes private.</p>
+
+            <p data-i18n="method1_p2">After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript.</p>
+
+            <h3 data-i18n="h3_mono_steps">How to record Teams with Mono</h3>
+
+            <ol class="steps-list">
+                <li data-i18n="mono_step1">Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li data-i18n="mono_step2">Open Mono and click the Record button to begin recording</li>
+                <li data-i18n="mono_step3">Join your Microsoft Teams meeting normally</li>
+                <li data-i18n="mono_step4">Participate in the meeting as usual</li>
+                <li data-i18n="mono_step5">When the meeting ends, click Stop in Mono</li>
+                <li data-i18n="mono_step6">Wait for the automatic transcription to complete</li>
+                <li data-i18n="mono_step7">Review your transcript with speaker labels and timestamps</li>
+            </ol>
+
+            <p data-i18n="method1_p3">Mono works with both the Teams desktop app and Teams in a browser. It captures everything playing through your speakers or headphones, so you'll get all participants' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or action items.</p>
+
+            <p data-i18n="mono_pros"><strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with speaker identification, works without admin permissions, searchable recordings, one-time $50 payment with no subscription.</p>
+
+            <p data-i18n="mono_cons"><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
+
+            <h2 data-i18n="h2_method2">Method 2: OBS Studio (Free)</h2>
+
+            <p data-i18n="method2_p1">OBS Studio is a free, open-source screen recorder that can capture system audio and optionally your screen. It doesn't join the Teams meeting as a participant, so it's completely invisible to others. OBS is popular with streamers but works just as well for recording Teams calls.</p>
+
+            <p data-i18n="method2_p2">The main limitation is that OBS outputs raw audio or video files without any transcription. You'll need to process the recording yourself if you want searchable text.</p>
+
+            <h3 data-i18n="h3_obs_steps">How to record Teams with OBS</h3>
+
+            <ol class="steps-list">
+                <li data-i18n="obs_step1">Download OBS Studio from obsproject.com and install it</li>
+                <li data-i18n="obs_step2">Open OBS and go to Settings → Audio</li>
+                <li data-i18n="obs_step3">Set "Desktop Audio" to your playback device (speakers or headphones)</li>
+                <li data-i18n="obs_step4">In the main window, click + under Sources</li>
+                <li data-i18n="obs_step5">Add an "Audio Output Capture" source for audio-only recording</li>
+                <li data-i18n="obs_step6">Optionally add "Window Capture" and select Microsoft Teams for video</li>
+                <li data-i18n="obs_step7">Click "Start Recording" before joining your Teams meeting</li>
+                <li data-i18n="obs_step8">Join and participate in your Teams meeting</li>
+                <li data-i18n="obs_step9">Click "Stop Recording" when the meeting ends</li>
+                <li data-i18n="obs_step10">Find your recording in the output folder (usually Videos)</li>
+            </ol>
+
+            <p data-i18n="obs_pros"><strong>Pros:</strong> Completely free and open source, no bot visible, can record video with window capture, highly configurable with advanced audio settings.</p>
+
+            <p data-i18n="obs_cons"><strong>Cons:</strong> Requires initial setup, you must manually start and stop recording for each meeting, no transcription — produces raw audio/video files only.</p>
+
+            <h2 data-i18n="h2_method3">Method 3: Teams Built-in Recording</h2>
+
+            <p data-i18n="method3_p1">Microsoft Teams has native recording functionality, but with significant limitations. You need a Microsoft 365 Business Basic, Business Standard, or Enterprise license. The meeting organizer or someone in the same organization must start the recording. All participants see a "Recording has started" notification — there's no way to record discreetly.</p>
+
+            <p data-i18n="method3_p2">Recordings are stored in OneDrive (for non-channel meetings) or SharePoint (for channel meetings). They're available for 120 days by default before expiration. Teams also offers live transcription, but it requires additional licensing and administrator setup.</p>
+
+            <h3 data-i18n="h3_teams_steps">How to use Teams built-in recording</h3>
+
+            <ol class="steps-list">
+                <li data-i18n="teams_step1">Join or start a Microsoft Teams meeting</li>
+                <li data-i18n="teams_step2">Click the three dots (More actions) in the meeting controls</li>
+                <li data-i18n="teams_step3">Select "Start recording" from the menu</li>
+                <li data-i18n="teams_step4">A notification appears to all participants that recording has started</li>
+                <li data-i18n="teams_step5">When finished, click More actions → Stop recording</li>
+                <li data-i18n="teams_step6">Find the recording in the meeting chat or your OneDrive</li>
+            </ol>
+
+            <p data-i18n="teams_pros"><strong>Pros:</strong> No additional software needed, includes cloud transcription on supported plans, recordings saved to OneDrive/SharePoint with sharing options, integrates with Microsoft 365 ecosystem.</p>
+
+            <p data-i18n="teams_cons"><strong>Cons:</strong> Requires M365 Business/Enterprise license, visible notification to all participants, recordings expire after 120 days by default, stored in cloud (privacy concern for some), requires admin to enable transcription.</p>
+
+            <h2 data-i18n="h2_method4">Method 4: Bot-Based Recorders (Otter.ai, Fireflies, Fathom)</h2>
+
+            <p data-i18n="method4_p1">Tools like Otter.ai, Fireflies, and Fathom work by joining your Teams meeting as a bot participant. The bot appears in the participant list with a name like "Otter.ai's Notetaker" or "Fireflies.ai Notetaker." Your audio is uploaded to their servers for transcription.</p>
+
+            <p data-i18n="method4_p2">These tools offer team features, CRM integrations, and AI-generated summaries. However, everyone in the meeting sees the bot, which can be problematic in client calls or sensitive discussions. Some organizations block these bots entirely.</p>
+
+            <p data-i18n="bot_pros"><strong>Pros:</strong> Easy setup, high-quality transcription, AI summaries and action items, team collaboration features, integrations with Salesforce, HubSpot, and other tools.</p>
+
+            <p data-i18n="bot_cons"><strong>Cons:</strong> Bot is visible to all participants, audio uploaded to third-party cloud servers, monthly subscription fees ($10–30/month), may be blocked by IT policies, creates awkwardness in client meetings.</p>
+
+            <h2 data-i18n="h2_permissions">Teams Recording Permissions</h2>
+
+            <p data-i18n="permissions_p1">Microsoft Teams has specific policies about who can record:</p>
+
+            <p data-i18n="permissions_p2"><strong>Organizers and co-organizers:</strong> Can always start recording if enabled by admin.</p>
+
+            <p data-i18n="permissions_p3"><strong>Presenters:</strong> Can record if the organizer grants permission or if admin policy allows.</p>
+
+            <p data-i18n="permissions_p4"><strong>Attendees:</strong> Cannot use built-in recording, but can use third-party tools like Mono or OBS.</p>
+
+            <p data-i18n="permissions_p5"><strong>External guests:</strong> Cannot use built-in recording. Third-party tools work regardless of your role in the meeting.</p>
+
+            <h2 data-i18n="h2_video_vs_audio">Recording Video vs Audio Only</h2>
+
+            <p data-i18n="video_audio_p1">Teams meetings include video, but you don't always need video recording:</p>
+
+            <p data-i18n="video_audio_p2"><strong>Audio-only (Mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.</p>
+
+            <p data-i18n="video_audio_p3"><strong>Full video recording (OBS/Teams built-in):</strong> Captures video of participants or shared screens. Useful for training sessions, presentations with visual content, or when you need to reference what was shown. Files are much larger.</p>
+
+            <h2 data-i18n="h2_legal">Legal Considerations</h2>
+
+            <p data-i18n="legal_p1">Before recording Teams meetings, understand the legal requirements:</p>
+
+            <p data-i18n="legal_p2"><strong>One-party consent:</strong> Many jurisdictions allow recording meetings you're participating in without notifying others.</p>
+
+            <p data-i18n="legal_p3"><strong>All-party consent:</strong> Some regions require everyone to agree. This includes California, Illinois (BIPA), Germany, and other areas.</p>
+
+            <p data-i18n="legal_p4">Many organizations have internal policies requiring disclosure when recording. Check your company's guidelines and consider the nature of the meeting — internal team standups have different expectations than client calls or interviews.</p>
+
+            <h2 data-i18n="h2_tips">Tips for Recording Teams Meetings</h2>
+
+            <div class="tip-box">
+                <p data-i18n="tips_box"><strong>Use headphones</strong> to prevent echo and feedback. <strong>Close other applications</strong> that might produce notification sounds. <strong>Test your setup</strong> before important meetings with a quick recording.</p>
+            </div>
+
+            <p data-i18n="tips_audio"><strong>Check audio levels:</strong> Make a short test recording to ensure all participants are audible. Teams sometimes has inconsistent volume levels between speakers.</p>
+
+            <p data-i18n="tips_connection"><strong>Stable connection:</strong> Poor internet affects Teams audio quality, which affects recording quality. Use a wired connection for important meetings when possible.</p>
+
+            <p data-i18n="tips_browser"><strong>Desktop app vs browser:</strong> Both work with third-party recording tools. The desktop app typically has better audio quality and lower latency.</p>
+
+            <h2 data-i18n="h2_which">Which Method Should You Use?</h2>
+
+            <p data-i18n="which_p1"><strong>Need transcription without a bot?</strong> Mono records locally and transcribes automatically without anyone knowing. Best for personal notes, sales calls, or when you don't have recording permissions.</p>
+
+            <p data-i18n="which_p2"><strong>Want free and don't need transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.</p>
+
+            <p data-i18n="which_p3"><strong>Have M365 license and transparency is fine?</strong> Teams' built-in recording is simplest if you're the organizer and everyone expects recording.</p>
+
+            <p data-i18n="which_p4"><strong>Team with CRM integration needs?</strong> Bot-based tools like Fathom or Otter.ai offer team features and integrations, but everyone sees the bot and your audio goes to their servers.</p>
+
+            <p data-i18n="which_p5"><strong>Recording as a guest or external participant?</strong> Mono or OBS are your only options — Teams built-in recording isn't available to external users.</p>
+
+            <cta-card base-path="../"></cta-card>
+
+            <section class="related-articles">
+                <h2 class="related-title" data-i18n="related_title">Related Guides</h2>
+                <div class="related-grid">
+                    <a href="how-to-record-zoom-calls" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_zoom_title">How to Record Zoom Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_zoom_desc">4 ways to record Zoom meetings without a bot joining.</p>
+                    </a>
+                    <a href="how-to-record-google-meet" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_gmeet_title">How to Record Google Meet</h3>
+                        <p class="related-card-desc" data-i18n="related_gmeet_desc">4 ways to record Google Meet without a bot joining.</p>
+                    </a>
+                    <a href="otter-ai-alternatives-2026" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_otter_title">Otter.ai Alternatives in 2026</h3>
+                        <p class="related-card-desc" data-i18n="related_otter_desc">Compare Otter, Fireflies, Fathom, and other meeting recorders.</p>
+                    </a>
+                    <a href="ai-meeting-privacy-lawsuits-2026" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_lawsuits_title">AI Meeting Recorder Lawsuits</h3>
+                        <p class="related-card-desc" data-i18n="related_lawsuits_desc">Why AI meeting bots are facing legal challenges in 2026.</p>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+<script>
+const translations = {
+    en: {
+        'back_link': '← blog',
+        'category': '[Guide]',
+        'title': 'How to Record Microsoft Teams Meetings',
+        'meta': 'Mar 18, 2026 · 8 min read · By Daniil Lefanov',
+        'disclosure': 'Disclosure: Mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+        'intro_p1': 'Microsoft Teams has become the default video conferencing tool for millions of businesses. But recording Teams meetings isn\'t always straightforward — the built-in recording requires specific Microsoft 365 licenses, notifies all participants, and uploads everything to OneDrive or SharePoint. If you need to record without these limitations, there are better options.',
+        'intro_p2': 'This guide covers how to record Microsoft Teams meetings in 2026, including methods that keep your recordings completely private with local audio capture and transcription.',
+        'tldr_label': 'TL;DR',
+        'tldr_1': '<strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once',
+        'tldr_2': '<strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription',
+        'tldr_3': '<strong>Built-in (visible):</strong> Teams native recording — notifies all, requires M365 license',
+        'tldr_4': '<strong>Bot-based:</strong> Otter.ai, Fireflies, Fathom — visible bot joins meeting',
+        'h2_why': 'Why Record Teams Meetings?',
+        'why_p1': 'Teams meetings contain critical business information. Project managers record standups for documentation. Sales teams capture client calls for CRM updates and training. HR records interviews for compliance. Legal teams document discussions for audit trails. Remote workers record meetings they can\'t attend live.',
+        'why_p2': 'The challenge is that Teams\' built-in recording requires Microsoft 365 Business Basic or higher, stores recordings in the cloud (OneDrive or SharePoint), and shows a "Recording started" notification to everyone. For personal notes, sensitive conversations, or when you lack admin permissions, you need an alternative approach.',
+        'h2_comparison': 'Quick Comparison',
+        'th_method': 'Method',
+        'th_price': 'Price',
+        'th_bot': 'Bot/Visible?',
+        'th_transcription': 'Transcription',
+        'price_mono': '$50 once',
+        'no': 'No',
+        'yes_local': 'Yes (local)',
+        'price_free': 'Free',
+        'no2': 'No',
+        'no3': 'No',
+        'teams_builtin': 'Teams Built-in',
+        'price_teams': 'M365 license',
+        'notification_shown': 'Notification shown',
+        'yes_cloud': 'Yes (cloud)',
+        'yes_bot_joins': 'Yes (bot joins)',
+        'yes_cloud2': 'Yes (cloud)',
+        'h2_method1': 'Method 1: Mono (Recommended)',
+        'method1_p1': 'Mono records Teams by capturing audio directly from your computer\'s sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you don\'t have admin permissions or want to keep notes private.',
+        'method1_p2': 'After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript.',
+        'h3_mono_steps': 'How to record Teams with Mono',
+        'mono_step1': 'Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
+        'mono_step2': 'Open Mono and click the Record button to begin recording',
+        'mono_step3': 'Join your Microsoft Teams meeting normally',
+        'mono_step4': 'Participate in the meeting as usual',
+        'mono_step5': 'When the meeting ends, click Stop in Mono',
+        'mono_step6': 'Wait for the automatic transcription to complete',
+        'mono_step7': 'Review your transcript with speaker labels and timestamps',
+        'method1_p3': 'Mono works with both the Teams desktop app and Teams in a browser. It captures everything playing through your speakers or headphones, so you\'ll get all participants\' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or action items.',
+        'mono_pros': '<strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with speaker identification, works without admin permissions, searchable recordings, one-time $50 payment with no subscription.',
+        'mono_cons': '<strong>Cons:</strong> Paid software (one free recording available to try before purchasing).',
+        'h2_method2': 'Method 2: OBS Studio (Free)',
+        'method2_p1': 'OBS Studio is a free, open-source screen recorder that can capture system audio and optionally your screen. It doesn\'t join the Teams meeting as a participant, so it\'s completely invisible to others. OBS is popular with streamers but works just as well for recording Teams calls.',
+        'method2_p2': 'The main limitation is that OBS outputs raw audio or video files without any transcription. You\'ll need to process the recording yourself if you want searchable text.',
+        'h3_obs_steps': 'How to record Teams with OBS',
+        'obs_step1': 'Download OBS Studio from obsproject.com and install it',
+        'obs_step2': 'Open OBS and go to Settings → Audio',
+        'obs_step3': 'Set "Desktop Audio" to your playback device (speakers or headphones)',
+        'obs_step4': 'In the main window, click + under Sources',
+        'obs_step5': 'Add an "Audio Output Capture" source for audio-only recording',
+        'obs_step6': 'Optionally add "Window Capture" and select Microsoft Teams for video',
+        'obs_step7': 'Click "Start Recording" before joining your Teams meeting',
+        'obs_step8': 'Join and participate in your Teams meeting',
+        'obs_step9': 'Click "Stop Recording" when the meeting ends',
+        'obs_step10': 'Find your recording in the output folder (usually Videos)',
+        'obs_pros': '<strong>Pros:</strong> Completely free and open source, no bot visible, can record video with window capture, highly configurable with advanced audio settings.',
+        'obs_cons': '<strong>Cons:</strong> Requires initial setup, you must manually start and stop recording for each meeting, no transcription — produces raw audio/video files only.',
+        'h2_method3': 'Method 3: Teams Built-in Recording',
+        'method3_p1': 'Microsoft Teams has native recording functionality, but with significant limitations. You need a Microsoft 365 Business Basic, Business Standard, or Enterprise license. The meeting organizer or someone in the same organization must start the recording. All participants see a "Recording has started" notification — there\'s no way to record discreetly.',
+        'method3_p2': 'Recordings are stored in OneDrive (for non-channel meetings) or SharePoint (for channel meetings). They\'re available for 120 days by default before expiration. Teams also offers live transcription, but it requires additional licensing and administrator setup.',
+        'h3_teams_steps': 'How to use Teams built-in recording',
+        'teams_step1': 'Join or start a Microsoft Teams meeting',
+        'teams_step2': 'Click the three dots (More actions) in the meeting controls',
+        'teams_step3': 'Select "Start recording" from the menu',
+        'teams_step4': 'A notification appears to all participants that recording has started',
+        'teams_step5': 'When finished, click More actions → Stop recording',
+        'teams_step6': 'Find the recording in the meeting chat or your OneDrive',
+        'teams_pros': '<strong>Pros:</strong> No additional software needed, includes cloud transcription on supported plans, recordings saved to OneDrive/SharePoint with sharing options, integrates with Microsoft 365 ecosystem.',
+        'teams_cons': '<strong>Cons:</strong> Requires M365 Business/Enterprise license, visible notification to all participants, recordings expire after 120 days by default, stored in cloud (privacy concern for some), requires admin to enable transcription.',
+        'h2_method4': 'Method 4: Bot-Based Recorders (Otter.ai, Fireflies, Fathom)',
+        'method4_p1': 'Tools like Otter.ai, Fireflies, and Fathom work by joining your Teams meeting as a bot participant. The bot appears in the participant list with a name like "Otter.ai\'s Notetaker" or "Fireflies.ai Notetaker." Your audio is uploaded to their servers for transcription.',
+        'method4_p2': 'These tools offer team features, CRM integrations, and AI-generated summaries. However, everyone in the meeting sees the bot, which can be problematic in client calls or sensitive discussions. Some organizations block these bots entirely.',
+        'bot_pros': '<strong>Pros:</strong> Easy setup, high-quality transcription, AI summaries and action items, team collaboration features, integrations with Salesforce, HubSpot, and other tools.',
+        'bot_cons': '<strong>Cons:</strong> Bot is visible to all participants, audio uploaded to third-party cloud servers, monthly subscription fees ($10–30/month), may be blocked by IT policies, creates awkwardness in client meetings.',
+        'h2_permissions': 'Teams Recording Permissions',
+        'permissions_p1': 'Microsoft Teams has specific policies about who can record:',
+        'permissions_p2': '<strong>Organizers and co-organizers:</strong> Can always start recording if enabled by admin.',
+        'permissions_p3': '<strong>Presenters:</strong> Can record if the organizer grants permission or if admin policy allows.',
+        'permissions_p4': '<strong>Attendees:</strong> Cannot use built-in recording, but can use third-party tools like Mono or OBS.',
+        'permissions_p5': '<strong>External guests:</strong> Cannot use built-in recording. Third-party tools work regardless of your role in the meeting.',
+        'h2_video_vs_audio': 'Recording Video vs Audio Only',
+        'video_audio_p1': 'Teams meetings include video, but you don\'t always need video recording:',
+        'video_audio_p2': '<strong>Audio-only (Mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.',
+        'video_audio_p3': '<strong>Full video recording (OBS/Teams built-in):</strong> Captures video of participants or shared screens. Useful for training sessions, presentations with visual content, or when you need to reference what was shown. Files are much larger.',
+        'h2_legal': 'Legal Considerations',
+        'legal_p1': 'Before recording Teams meetings, understand the legal requirements:',
+        'legal_p2': '<strong>One-party consent:</strong> Many jurisdictions allow recording meetings you\'re participating in without notifying others.',
+        'legal_p3': '<strong>All-party consent:</strong> Some regions require everyone to agree. This includes California, Illinois (BIPA), Germany, and other areas.',
+        'legal_p4': 'Many organizations have internal policies requiring disclosure when recording. Check your company\'s guidelines and consider the nature of the meeting — internal team standups have different expectations than client calls or interviews.',
+        'h2_tips': 'Tips for Recording Teams Meetings',
+        'tips_box': '<strong>Use headphones</strong> to prevent echo and feedback. <strong>Close other applications</strong> that might produce notification sounds. <strong>Test your setup</strong> before important meetings with a quick recording.',
+        'tips_audio': '<strong>Check audio levels:</strong> Make a short test recording to ensure all participants are audible. Teams sometimes has inconsistent volume levels between speakers.',
+        'tips_connection': '<strong>Stable connection:</strong> Poor internet affects Teams audio quality, which affects recording quality. Use a wired connection for important meetings when possible.',
+        'tips_browser': '<strong>Desktop app vs browser:</strong> Both work with third-party recording tools. The desktop app typically has better audio quality and lower latency.',
+        'h2_which': 'Which Method Should You Use?',
+        'which_p1': '<strong>Need transcription without a bot?</strong> Mono records locally and transcribes automatically without anyone knowing. Best for personal notes, sales calls, or when you don\'t have recording permissions.',
+        'which_p2': '<strong>Want free and don\'t need transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.',
+        'which_p3': '<strong>Have M365 license and transparency is fine?</strong> Teams\' built-in recording is simplest if you\'re the organizer and everyone expects recording.',
+        'which_p4': '<strong>Team with CRM integration needs?</strong> Bot-based tools like Fathom or Otter.ai offer team features and integrations, but everyone sees the bot and your audio goes to their servers.',
+        'which_p5': '<strong>Recording as a guest or external participant?</strong> Mono or OBS are your only options — Teams built-in recording isn\'t available to external users.',
+        'related_title': 'Related Guides',
+        'related_zoom_title': 'How to Record Zoom Calls',
+        'related_zoom_desc': '4 ways to record Zoom meetings without a bot joining.',
+        'related_gmeet_title': 'How to Record Google Meet',
+        'related_gmeet_desc': '4 ways to record Google Meet without a bot joining.',
+        'related_otter_title': 'Otter.ai Alternatives in 2026',
+        'related_otter_desc': 'Compare Otter, Fireflies, Fathom, and other meeting recorders.',
+        'related_lawsuits_title': 'AI Meeting Recorder Lawsuits',
+        'related_lawsuits_desc': 'Why AI meeting bots are facing legal challenges in 2026.'
+    }
+};
+</script>
+</body>
+</html>
