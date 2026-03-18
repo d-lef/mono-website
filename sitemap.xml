@@ -26,9 +26,21 @@
   </url>
   <url>
     <loc>https://mono-ai.uk/blog/</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mono-ai.uk/blog/how-to-record-microsoft-teams</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mono-ai.uk/blog/ai-meeting-privacy-lawsuits-2026</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mono-ai.uk/blog/save-on-ai-subscriptions-local-models</loc>
