@@ -1400,7 +1400,7 @@
             const now = Date.now();
             if (now - lastClickTrigger < 400) return;
 
-            if (currentState < 5) {
+            if (currentState < 4) {
                 currentState++;
                 updateVisibility();
                 lastClickTrigger = now;
@@ -1416,7 +1416,7 @@
             const now = Date.now();
             if (now - lastKeyTrigger < 400) return;
 
-            if (e.key === 'ArrowDown' && currentState < 5) {
+            if (e.key === 'ArrowDown' && currentState < 4) {
                 currentState++;
                 updateVisibility();
                 lastKeyTrigger = now;
