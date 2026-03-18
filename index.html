@@ -412,9 +412,14 @@
                 margin-top: -10vh;
             }
 
-            /* Keep tagline centered on mobile */
+            /* Shift tagline up to visually center below nav bar */
             .tagline-container {
-                top: 50%;
+                top: calc(50% - 5vh);
+            }
+
+            /* Shift buy container up to visually center below nav bar */
+            .buy-container {
+                padding-bottom: 10vh;
             }
 
             /* Shield text from ripples */
@@ -500,7 +505,7 @@
             }
 
             /* Hide on buy screen */
-            body.state-5 .mobile-progress {
+            body.state-4 .mobile-progress {
                 display: none !important;
             }
         }
