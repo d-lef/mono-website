@@ -545,42 +545,6 @@
             pointer-events: none;
         }
 
-        /* YouTube container */
-        .video-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: min(85vw, 960px);
-            aspect-ratio: 16 / 9;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .video-container.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .video-container {
-                width: 70vw;
-                top: 45%;
-            }
-
-            .video-container iframe {
-                border-radius: 8px;
-            }
-        }
-
         /* Buy container */
         .buy-container {
             position: absolute;
@@ -746,6 +710,51 @@
             height: 14px;
         }
 
+        /* Demo button */
+        .demo-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 13px;
+            color: var(--text-secondary);
+            background-color: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+            opacity: 0.7;
+            margin-top: 12px;
+        }
+
+        .demo-button:hover {
+            background-color: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: rgba(255,255,255,0.25);
+            opacity: 1;
+        }
+
+        .demo-button svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        :root.light .demo-button {
+            border-color: rgba(0,0,0,0.15);
+        }
+        :root.light .demo-button:hover {
+            border-color: rgba(0,0,0,0.25);
+        }
+        @media (prefers-color-scheme: light) {
+            :root:not(.dark) .demo-button {
+                border-color: rgba(0,0,0,0.15);
+            }
+            :root:not(.dark) .demo-button:hover {
+                border-color: rgba(0,0,0,0.25);
+            }
+        }
 
         /* Privacy link */
         .privacy-link {
@@ -1074,17 +1083,6 @@
             </div>
         </div>
 
-        <!-- YouTube video section -->
-        <div class="video-container">
-            <iframe
-                src="https://www.youtube.com/embed/Imy_H4gUr8I?rel=0"
-                title="mono demo"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-            </iframe>
-        </div>
-
         <!-- Buy section -->
         <div class="buy-container">
             <h2 class="sr-only">Buy Mono — $50 one-time</h2>
@@ -1132,6 +1130,16 @@
                         <span>Mac (Intel)</span>
                     </a>
                 </div>
+                <a href="https://www.youtube.com/watch?v=Imy_H4gUr8I"
+                   class="demo-button"
+                   id="demoButton"
+                   target="_blank"
+                   rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <span id="demoButtonText">Watch demo</span>
+                </a>
             </div>
 
             <div class="buy-notes" id="buyNotes">
@@ -1204,7 +1212,6 @@
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
-        <span class="mobile-progress-dot"></span>
     </div>
 
     <!-- Discount popup -->
@@ -1233,8 +1240,8 @@
         const scrollIndicator = document.querySelector('.scroll-indicator');
         const logoGroup = document.querySelector('.logo-group');
         const logoSubtitle = document.querySelector('.logo-subtitle');
-        const videoContainer = document.querySelector('.video-container');
         const buyContainer = document.querySelector('.buy-container');
+        const demoButton = document.getElementById('demoButton');
         const buyButton = document.getElementById('buyButton');
         const buyText = buyButton.querySelector('.buy-text');
         const buyPrice = document.getElementById('buyPrice');
@@ -1250,11 +1257,11 @@
 
         siteNav.addEventListener('nav-buy', (e) => {
             e.preventDefault();
-            currentState = 5;
+            currentState = 4;
             updateVisibility();
         });
 
-        // States: 0 = nothing, 1 = group1, 2 = group2, 3 = group3 (positioning), 4 = video, 5 = form
+        // States: 0 = nothing, 1 = group1, 2 = group2, 3 = group3 (positioning), 4 = buy
         let currentState = 0;
 
         // Mobile: progress dots
@@ -1278,11 +1285,10 @@
             group2.classList.remove('visible');
             group3.classList.remove('visible');
             scrollIndicator.classList.remove('visible');
-            videoContainer.classList.remove('visible');
             buyContainer.classList.remove('visible');
 
             // Update body class for CSS state targeting
-            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4', 'state-5');
+            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4');
             document.body.classList.add('state-' + currentState);
             updateMobileProgress();
 
@@ -1317,9 +1323,6 @@
                 }
             } else if (currentState === 4) {
                 logoGroup.classList.add('hidden');
-                videoContainer.classList.add('visible');
-            } else if (currentState === 5) {
-                logoGroup.classList.add('hidden');
                 buyContainer.classList.add('visible');
                 // Track pricing screen view
                 gtag('event', 'view_pricing', {
@@ -1333,7 +1336,7 @@
         // Set initial state on load; jump to buy screen if ?buy param present
         document.fonts.ready.then(() => {
             if (location.search.includes('buy')) {
-                currentState = 5;
+                currentState = 4;
             }
             updateVisibility();
         });
@@ -1353,7 +1356,7 @@
             const threshold = lastTriggerTime === 0 ? INITIAL_THRESHOLD : RETRIGGER_THRESHOLD;
             if (Math.abs(e.deltaY) < threshold) return;
 
-            if (e.deltaY > 0 && currentState < 5) {
+            if (e.deltaY > 0 && currentState < 4) {
                 currentState++;
                 updateVisibility();
                 lastTriggerTime = now;
@@ -1377,7 +1380,7 @@
             if (now - lastTouchTrigger < 400) return;
 
             const deltaY = touchStartY - e.changedTouches[0].clientY;
-            if (deltaY > 50 && currentState < 5) {
+            if (deltaY > 50 && currentState < 4) {
                 currentState++;
                 updateVisibility();
                 lastTouchTrigger = now;
@@ -1453,7 +1456,8 @@
                 downloadLabel: "or try free (1 recording limit)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)"
+                downloadMacIntel: "Mac (Intel)",
+                watchDemo: "Watch demo"
             },
             es: {
                 subtitle: "Graba reuniones desde cualquier app",
@@ -1482,7 +1486,8 @@
                 downloadLabel: "o prueba gratis (límite 1 grabación)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)"
+                downloadMacIntel: "Mac (Intel)",
+                watchDemo: "Ver demo"
             },
             ru: {
                 subtitle: "Записывай встречи из любого приложения",
@@ -1511,7 +1516,8 @@
                 downloadLabel: "или попробуйте бесплатно (лимит 1 запись)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)"
+                downloadMacIntel: "Mac (Intel)",
+                watchDemo: "Смотреть демо"
             },
             fr: {
                 subtitle: "Enregistrez vos réunions depuis n'importe quelle app",
@@ -1540,7 +1546,8 @@
                 downloadLabel: "ou essayez gratuitement (limite 1 enregistrement)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)"
+                downloadMacIntel: "Mac (Intel)",
+                watchDemo: "Voir la démo"
             },
             de: {
                 subtitle: "Meetings aus jeder App aufnehmen",
@@ -1569,7 +1576,8 @@
                 downloadLabel: "oder kostenlos testen (1 Aufnahme Limit)",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)"
+                downloadMacIntel: "Mac (Intel)",
+                watchDemo: "Demo ansehen"
             },
             zh: {
                 subtitle: "录制会议，来自任何应用",
@@ -1598,7 +1606,8 @@
                 downloadLabel: "或免费试用（限1个录音）",
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
-                downloadMacIntel: "Mac (Intel)"
+                downloadMacIntel: "Mac (Intel)",
+                watchDemo: "观看演示"
             }
         };
 
@@ -1607,7 +1616,7 @@
         const tagline2a = group2.querySelector('.tagline:first-child');
         const tagline2b = group2.querySelector('.tagline:last-child');
         const compareTable = group3.querySelector('.compare-table');
-        const videoIframe = videoContainer.querySelector('iframe');
+        const demoButtonText = document.getElementById('demoButtonText');
         const privacyLink = document.querySelector('.privacy-link');
         const downloadLabel = document.getElementById('downloadLabel');
         const downloadWindows = document.getElementById('downloadWindows').querySelector('span');
@@ -1644,9 +1653,10 @@
             });
             privacyLink.textContent = t.privacyPolicy;
 
-            // Update video (fallback to English if no video for this language)
+            // Update demo button (fallback to English if no video for this language)
             const videoId = t.video || translations.en.video;
-            videoIframe.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
+            demoButton.href = `https://www.youtube.com/watch?v=${videoId}`;
+            demoButtonText.textContent = t.watchDemo || 'Watch demo';
 
             // Update buy button text
             buyText.innerHTML = t.buyText;
