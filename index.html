@@ -1142,6 +1142,7 @@
                 </a>
             </div>
 
+<!-- Removed for experiment
             <div class="buy-notes" id="buyNotes">
                 <div class="buy-note-group">
                     <span class="buy-note-symbol">①</span>
@@ -1160,6 +1161,7 @@
                     <p class="buy-note">Your purchase supports independent development. Your system may ask for permission to run an unverified app.</p>
                 </div>
             </div>
+            -->
         </div>
     </section>
 
@@ -1661,10 +1663,12 @@
             // Update buy button text
             buyText.innerHTML = t.buyText;
             buyPrice.textContent = t.buyPrice;
-            const noteElements = buyNotesContainer.querySelectorAll('.buy-note');
-            t.buyNotes.forEach((note, i) => {
-                if (noteElements[i]) noteElements[i].textContent = note;
-            });
+            if (buyNotesContainer) {
+                const noteElements = buyNotesContainer.querySelectorAll('.buy-note');
+                t.buyNotes.forEach((note, i) => {
+                    if (noteElements[i]) noteElements[i].textContent = note;
+                });
+            }
 
             // Update download labels
             downloadLabel.textContent = t.downloadLabel;
