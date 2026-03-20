@@ -1614,10 +1614,10 @@
             }
         };
 
-        const tagline1a = group1.querySelector('.tagline:first-child');
-        const tagline1b = group1.querySelector('.tagline:last-child');
-        const tagline2a = group2.querySelector('.tagline:first-child');
-        const tagline2b = group2.querySelector('.tagline:last-child');
+        const tagline1a = group1.querySelector('.tagline:nth-of-type(1)');
+        const tagline1b = group1.querySelector('.tagline:nth-of-type(2)');
+        const tagline2a = group2.querySelector('.tagline:nth-of-type(1)');
+        const tagline2b = group2.querySelector('.tagline:nth-of-type(2)');
         const compareTable = group3.querySelector('.compare-table');
         const demoButtonText = document.getElementById('demoButtonText');
         const privacyLink = document.querySelector('.privacy-link');
