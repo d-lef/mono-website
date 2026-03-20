@@ -356,28 +356,41 @@ class SiteNav extends HTMLElement {
             en: 'EN', es: 'ES', fr: 'FR', de: 'DE', zh: '中', ru: 'RU'
         };
 
+        const setLanguage = (lang, save = true) => {
+            // Update button text
+            langButton.textContent = langCodes[lang] || lang.toUpperCase();
+
+            // Update active state
+            langOptions.forEach(opt => {
+                opt.classList.toggle('active', opt.dataset.lang === lang);
+            });
+
+            // Save to localStorage
+            if (save) {
+                localStorage.setItem('mono-lang', lang);
+            }
+
+            // Dispatch event for the page to handle
+            this.dispatchEvent(new CustomEvent('language-change', {
+                detail: { language: lang },
+                bubbles: true,
+                composed: true
+            }));
+        };
+
         langOptions.forEach(option => {
             option.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const lang = option.dataset.lang;
-
-                // Update button text
-                langButton.textContent = langCodes[lang] || lang.toUpperCase();
-
-                // Update active state
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-
                 langSelector.classList.remove('open');
-
-                // Dispatch event for the page to handle
-                this.dispatchEvent(new CustomEvent('language-change', {
-                    detail: { language: lang },
-                    bubbles: true,
-                    composed: true
-                }));
+                setLanguage(option.dataset.lang);
             });
         });
+
+        // Restore saved language on load
+        const savedLang = localStorage.getItem('mono-lang');
+        if (savedLang && savedLang !== 'en') {
+            setLanguage(savedLang, false);
+        }
     }
 }
 
