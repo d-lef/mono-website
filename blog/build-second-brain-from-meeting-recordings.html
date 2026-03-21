@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61BNYMZ7FD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-61BNYMZ7FD');
+    </script>
+    <!-- Mono Analytics -->
+    <script>
+    (function(){if(localStorage.getItem("_ma_optout"))return;var u="https://t.mono-ai.uk/api/event",v=localStorage.getItem("_ma_vid");if(!v){v=crypto.randomUUID().slice(0,12);localStorage.setItem("_ma_vid",v)}var s=sessionStorage.getItem("_ma_sid");if(!s){s=crypto.randomUUID().slice(0,12);sessionStorage.setItem("_ma_sid",s)}var p=new URLSearchParams(location.search),t={};["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var val=p.get(k);if(val){t[k]=val;sessionStorage.setItem("_ma_"+k,val)}else{t[k]=sessionStorage.getItem("_ma_"+k)||""}});var r=document.referrer||"";function ma(e,o){var d=Object.assign({session_id:s,visitor_id:v,event_name:e,page_path:location.pathname,label:null,platform:null,value:null,utm_source:t.utm_source,utm_medium:t.utm_medium,utm_campaign:t.utm_campaign,utm_content:t.utm_content,utm_term:t.utm_term,referrer:r,screen_width:screen.width},o||{});if(navigator.sendBeacon)navigator.sendBeacon(u,JSON.stringify(d));else fetch(u,{method:"POST",body:JSON.stringify(d),keepalive:true})}ma("pageview");window.ma=ma})();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Build a Second Brain from Your Meeting Recordings — Mono</title>
+    <meta name="description" content="Your meetings are the richest source of knowledge you never capture. Learn how to record, transcribe, vectorize, and query your meetings to build a second brain that actually remembers.">
+    <link rel="canonical" href="https://mono-ai.uk/blog/build-second-brain-from-meeting-recordings">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Build a Second Brain from Your Meeting Recordings">
+    <meta property="og:description" content="Your meetings are the richest source of knowledge you never capture. Record, transcribe, vectorize, and query them to build a second brain.">
+    <meta property="og:url" content="https://mono-ai.uk/blog/build-second-brain-from-meeting-recordings">
+    <meta property="og:site_name" content="Mono">
+    <meta property="og:image" content="https://mono-ai.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-03-21T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Build a Second Brain from Your Meeting Recordings">
+    <meta name="twitter:description" content="Record, transcribe, vectorize, and query your meetings to build a second brain that actually remembers.">
+    <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Build a Second Brain from Your Meeting Recordings",
+      "description": "Your meetings are the richest source of knowledge you never capture. Learn how to record, transcribe, vectorize, and query your meetings to build a second brain.",
+      "datePublished": "2026-03-21",
+      "dateModified": "2026-03-21",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "Mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "url": "https://mono-ai.uk/blog/build-second-brain-from-meeting-recordings"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a second brain?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A second brain is a personal knowledge management system that captures, organizes, and makes retrievable the information you encounter. The concept was popularized by Tiago Forte and follows the CODE framework: Capture, Organize, Distill, Express." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I build a second brain from meetings?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Record your meetings, transcribe the audio to text, embed the transcripts into a vector database for semantic search, then query them with AI. This turns hours of conversations into a searchable, always-available knowledge base." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is vectorization and why does it matter for meeting notes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Vectorization converts text into numerical representations that capture meaning, not just keywords. This means you can search your meeting transcripts by concept — asking 'what did we decide about pricing' will find the relevant discussion even if the word 'pricing' wasn't used." }
+        },
+        {
+          "@type": "Question",
+          "name": "What tools do I need to build a meeting-based second brain?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You need a recording tool (like Mono), a transcription engine (like Whisper), a vector database (like ChromaDB), and an LLM for querying. Mono handles recording and transcription in one tool, and can be combined with open-source vector databases and local LLMs." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/nav.js" defer></script>
+    <script src="/components/fold-effect.js" defer></script>
+    <script src="/components/cta-card.js" defer></script>
+    <script src="/components/lightbox.js" defer></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-primary: #252525; --bg-secondary: #2D2D2D; --bg-hover: #3A3A3A; --bg-pressed: #454545; --text-primary: #FFFFFF; --text-secondary: #B0B0B0; }
+        @media (prefers-color-scheme: light) { :root:not(.dark) { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; } }
+        :root.light { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; }
+        html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-width: none; }
+        html::-webkit-scrollbar { display: none; }
+        body { font-family: 'Comfortaa', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
+        .back-link { display: inline-block; font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; }
+        .back-link:hover { color: var(--text-primary); }
+        .article-category { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 16px; }
+        .article-title { font-weight: 500; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; margin-bottom: 12px; }
+        .article-meta { font-size: 13px; color: var(--text-secondary); margin-bottom: 48px; }
+        .article-body { font-size: 16px; }
+        .article-body p { margin-bottom: 20px; }
+        .article-body h2 { font-weight: 500; font-size: 24px; margin-top: 48px; margin-bottom: 16px; }
+        .article-body h3 { font-weight: 500; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
+        .article-body strong { font-weight: 700; }
+        .article-body a { color: var(--text-primary); }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; }
+        .article-body li { margin-bottom: 8px; }
+        .tldr { background: var(--bg-secondary); border-left: 3px solid rgba(255,255,255,0.15); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; }
+        :root.light .tldr { border-left-color: rgba(0,0,0,0.12); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .tldr { border-left-color: rgba(0,0,0,0.12); } }
+        .tldr-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+        .tldr ul { list-style: none; padding: 0; margin: 0; }
+        .tldr li { font-size: 15px; padding: 4px 0; }
+        .table-wrap { overflow-x: auto; margin-bottom: 24px; }
+        .compare-table { border-collapse: collapse; width: 100%; min-width: 500px; }
+        .compare-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
+        .compare-table td { font-size: 14px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .compare-table tr.highlight-row td { background: rgba(255,255,255,0.04); }
+        :root.light .compare-table th { border-bottom-color: rgba(0,0,0,0.1); }
+        :root.light .compare-table td { border-bottom-color: rgba(0,0,0,0.06); }
+        :root.light .compare-table tr.highlight-row td { background: rgba(0,0,0,0.03); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .compare-table th { border-bottom-color: rgba(0,0,0,0.1); } :root:not(.dark) .compare-table td { border-bottom-color: rgba(0,0,0,0.06); } :root:not(.dark) .compare-table tr.highlight-row td { background: rgba(0,0,0,0.03); } }
+        .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
+        .tip-box p { margin-bottom: 0; }
+        .cta-card { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; margin-top: 48px; text-align: center; }
+        :root.light .cta-card { border-color: rgba(0,0,0,0.08); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .cta-card { border-color: rgba(0,0,0,0.08); } }
+        .cta-title { font-weight: 500; font-size: 22px; margin-bottom: 8px; }
+        .cta-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; }
+        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn-primary, .article-body .cta-btn-primary { display: inline-block; background: var(--text-primary); color: var(--bg-primary); padding: 10px 24px; border-radius: 8px; font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.15s ease, transform 0.15s ease; }
+        .cta-btn-primary:hover { opacity: 0.88; transform: scale(1.02); }
+        .cta-btn-secondary { display: inline-block; background: transparent; color: var(--text-secondary); padding: 10px 24px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 400; text-decoration: none; transition: border-color 0.15s ease, color 0.15s ease; }
+        .cta-btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: var(--text-primary); }
+        :root.light .cta-btn-secondary { border-color: rgba(0,0,0,0.2); }
+        :root.light .cta-btn-secondary:hover { border-color: rgba(0,0,0,0.4); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .cta-btn-secondary { border-color: rgba(0,0,0,0.2); } :root:not(.dark) .cta-btn-secondary:hover { border-color: rgba(0,0,0,0.4); } }
+
+        .pipeline-step { background: var(--bg-secondary); border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+        .pipeline-step-number { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px; }
+        .pipeline-step-title { font-weight: 500; font-size: 17px; margin-bottom: 8px; }
+        .pipeline-step p { margin-bottom: 0; font-size: 15px; color: var(--text-secondary); }
+
+        blockquote { border-left: 3px solid rgba(255,255,255,0.15); padding: 12px 20px; margin: 24px 0; font-style: italic; color: var(--text-secondary); }
+        :root.light blockquote { border-left-color: rgba(0,0,0,0.12); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) blockquote { border-left-color: rgba(0,0,0,0.12); } }
+    </style>
+</head>
+<body>
+    <site-nav base-path="../"></site-nav>
+
+    <main class="article-wrap">
+        <a href="./" class="back-link" data-i18n="back_link">&larr; blog</a>
+
+        <header>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Build a Second Brain from Your Meeting Recordings</h1>
+            <p class="article-meta" data-i18n="meta">Mar 21, 2026 · 8 min read · By Daniil Lefanov</p>
+        </header>
+
+        <div class="article-body">
+
+            <p data-i18n="intro_p1">The average professional spends 15 or more hours a week in meetings. Most of what gets said — decisions, context, reasoning, action items — disappears within hours. You take incomplete notes, or no notes at all. A week later, someone asks "what did we decide about X?" and nobody quite remembers.</p>
+
+            <p data-i18n="intro_p2">The problem isn't the meetings themselves. It's that conversations are the highest-density knowledge source in your work, and you're letting them evaporate. Every meeting contains original, first-hand information that doesn't exist anywhere else: the reasoning behind a decision, the nuance in a disagreement, the context that never made it into the Jira ticket.</p>
+
+            <p data-i18n="intro_p3">What if you could capture all of it — automatically — and make it searchable by meaning, not just keywords? That's what building a second brain from your meetings looks like.</p>
+
+            <div class="tldr">
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
+                <ul>
+                    <li data-i18n="tldr_1"><strong>Meetings are knowledge:</strong> They contain decisions, context, and reasoning that exist nowhere else</li>
+                    <li data-i18n="tldr_2"><strong>The pipeline:</strong> Record &rarr; Transcribe &rarr; Vectorize &rarr; Query with AI</li>
+                    <li data-i18n="tldr_3"><strong>Vector search:</strong> Find information by meaning, not keywords — "that pricing discussion" actually works</li>
+                    <li data-i18n="tldr_4"><strong>Compound effect:</strong> Value grows exponentially as more meetings accumulate</li>
+                    <li data-i18n="tldr_5"><strong>Start simple:</strong> Record one recurring meeting, build the habit, then expand</li>
+                </ul>
+            </div>
+
+            <h2 data-i18n="h2_problem">The Problem: Your Best Thinking Disappears in Meetings</h2>
+
+            <p data-i18n="problem_p1">Think about the last important meeting you had. Can you recall the specific reasoning behind the main decision? The alternative that was rejected, and why? The follow-up that someone volunteered for?</p>
+
+            <p data-i18n="problem_p2">Most people can't. And it's not because the meeting was unmemorable — it's because human memory is fundamentally unsuited for retaining conversational detail. Studies on meeting recall show that participants forget 50% of discussed content within 24 hours, and up to 90% within a week.</p>
+
+            <p data-i18n="problem_p3">What's worse, the information lost in meetings is often <strong>the most valuable kind</strong>. Written documents capture conclusions. Meetings capture the reasoning, the trade-offs, the "we tried X but it didn't work because Y." That context is irreplaceable — and it vanishes every single day.</p>
+
+            <p data-i18n="problem_p4">The cost isn't just forgetfulness. It's the repeated discussions, the re-explained decisions, the new team member who has to piece together months of context from scattered Slack threads. It's institutional knowledge that exists only in people's heads, and walks out the door when they leave.</p>
+
+            <h2 data-i18n="h2_second_brain">What Is a Second Brain (and Why Meetings Are Its Best Input)</h2>
+
+            <p data-i18n="sb_p1">The concept of a "second brain" was popularized by Tiago Forte. It's a personal knowledge management system built on a simple framework called CODE: <strong>Capture</strong> what resonates, <strong>Organize</strong> by where you'll use it, <strong>Distill</strong> to the essentials, and <strong>Express</strong> by putting it to work.</p>
+
+            <p data-i18n="sb_p2">The core principle is ruthlessly practical: <strong>"Knowledge is usable content. If it's not usable, it's not knowledge."</strong></p>
+
+            <p data-i18n="sb_p3">Most people who build a second brain feed it with articles, highlights, bookmarks, and podcast notes — passive consumption from the internet. That's useful, but it misses the richest source sitting right in front of you.</p>
+
+            <p data-i18n="sb_p4"><strong>Meetings are different from every other input.</strong> They contain original, first-hand knowledge that's unique to your work:</p>
+
+            <ul>
+                <li data-i18n="sb_li1"><strong>Decisions and their reasoning</strong> — not just "we chose option A" but why, and what was rejected</li>
+                <li data-i18n="sb_li2"><strong>Action items with real owners</strong> — who committed to what, in their own words</li>
+                <li data-i18n="sb_li3"><strong>Context and nuance</strong> — the things that never make it into the meeting notes or the Confluence page</li>
+                <li data-i18n="sb_li4"><strong>Relationships and dynamics</strong> — who knows what, who cares about which topics, who disagrees with whom</li>
+                <li data-i18n="sb_li5"><strong>Evolving thinking</strong> — how the team's understanding of a problem changes over weeks and months</li>
+            </ul>
+
+            <p data-i18n="sb_p5">Yet meetings are the one source almost nobody captures properly. The irony is hard to overstate: you spend hours generating this knowledge, then let it disappear.</p>
+
+            <h2 data-i18n="h2_pipeline">The Pipeline: Record, Transcribe, Vectorize, Query</h2>
+
+            <p data-i18n="pipeline_p1">Building a second brain from meetings requires four steps. Each one is straightforward on its own — the power comes from connecting them into an automated pipeline.</p>
+
+            <div class="pipeline-step">
+                <p class="pipeline-step-number" data-i18n="step1_label">Step 1</p>
+                <p class="pipeline-step-title" data-i18n="step1_title">Record</p>
+                <p data-i18n="step1_p">Capture the audio from your meetings — any platform, any app. The key is making this effortless enough that you do it every time, not just when you remember. Tools like Mono capture system audio and microphone simultaneously, so they work across Zoom, Meet, Teams, Discord, or any other app without joining as a visible bot.</p>
+            </div>
+
+            <div class="pipeline-step">
+                <p class="pipeline-step-number" data-i18n="step2_label">Step 2</p>
+                <p class="pipeline-step-title" data-i18n="step2_title">Transcribe</p>
+                <p data-i18n="step2_p">Turn audio into searchable text. Modern transcription engines like Whisper handle multiple speakers, accents, and technical jargon with high accuracy. The transcript becomes the raw material for everything that follows — a full, faithful record of what was actually said.</p>
+            </div>
+
+            <div class="pipeline-step">
+                <p class="pipeline-step-number" data-i18n="step3_label">Step 3</p>
+                <p class="pipeline-step-title" data-i18n="step3_title">Vectorize</p>
+                <p data-i18n="step3_p">Embed transcript chunks into a vector database. This is the step that transforms a pile of text files into something genuinely useful. Vectorization converts text into numerical representations that capture meaning — so when you search later, you're searching by concept, not by exact words.</p>
+            </div>
+
+            <div class="pipeline-step">
+                <p class="pipeline-step-number" data-i18n="step4_label">Step 4</p>
+                <p class="pipeline-step-title" data-i18n="step4_title">Query</p>
+                <p data-i18n="step4_p">Ask natural language questions and get answers grounded in your actual meetings. "What did we decide about the API redesign?" "What's the latest on the hiring timeline?" "Prep me for my 1:1 with Sarah." The AI retrieves the relevant transcript chunks and synthesizes an answer from what was actually discussed.</p>
+            </div>
+
+            <p data-i18n="pipeline_p2">The result: hours of conversations become an always-available, queryable knowledge base. You don't need to take notes, organize files, or remember where something was discussed. You just ask.</p>
+
+            <h2 data-i18n="h2_transcripts">From Raw Transcripts to Actionable Knowledge</h2>
+
+            <p data-i18n="transcripts_p1">A raw transcript is useful, but it's not yet a second brain. The real value comes from what you extract and how you structure it. This is where Forte's concept of <strong>progressive summarization</strong> applies — layering increasing levels of distillation on top of the source material.</p>
+
+            <p data-i18n="transcripts_p2">For meeting transcripts, that looks like:</p>
+
+            <ul>
+                <li data-i18n="transcripts_li1"><strong>Layer 1 — Full transcript:</strong> The complete record of what was said. Verbose, but complete.</li>
+                <li data-i18n="transcripts_li2"><strong>Layer 2 — Key points:</strong> The important moments highlighted — decisions made, questions raised, commitments given.</li>
+                <li data-i18n="transcripts_li3"><strong>Layer 3 — Action items and decisions:</strong> Extracted and structured. Who owns what. What was decided and why.</li>
+                <li data-i18n="transcripts_li4"><strong>Layer 4 — Executive summary:</strong> A 3-5 sentence overview that captures the meeting's significance in the broader context of the project.</li>
+            </ul>
+
+            <p data-i18n="transcripts_p3">AI can handle most of this automatically. Given a transcript, a language model can extract:</p>
+
+            <ul>
+                <li data-i18n="transcripts_li5"><strong>Decisions made</strong> — with the reasoning that led to them</li>
+                <li data-i18n="transcripts_li6"><strong>Action items</strong> — with owners and deadlines, in participants' own words</li>
+                <li data-i18n="transcripts_li7"><strong>Open questions</strong> — things raised but not resolved</li>
+                <li data-i18n="transcripts_li8"><strong>Follow-up triggers</strong> — topics that need revisiting at a specific time or condition</li>
+                <li data-i18n="transcripts_li9"><strong>Person context</strong> — updated understanding of each participant's concerns, expertise, and current focus</li>
+            </ul>
+
+            <p data-i18n="transcripts_p4">Forte calls these outputs <strong>"intermediate packets"</strong> — reusable building blocks that can be recombined for future work. Each meeting doesn't just produce a transcript; it produces a decision log entry, updated action items, refined person profiles, and accumulated project context. These packets feed directly into your second brain, organized not by when you captured them but by where you'll use them.</p>
+
+            <div class="tip-box">
+                <p data-i18n="tip_hemingway"><strong>The Hemingway Bridge:</strong> One of Forte's most practical ideas is ending each work session by noting your current status and next steps. Applied to meetings, this means every transcript automatically generates a bridge — here's where we left off, here's what needs to happen next. You never lose the thread between meetings.</p>
+            </div>
+
+            <h2 data-i18n="h2_vectorization">Why Vectorization Changes Everything</h2>
+
+            <p data-i18n="vector_p1">If you've ever searched your notes for something you know is there and come up empty, you understand the limits of keyword search. You remember the concept, but not the exact words. You know a decision was made about pricing, but the transcript uses the phrase "revenue model" instead.</p>
+
+            <p data-i18n="vector_p2"><strong>Vector search solves this.</strong> Instead of matching exact strings, it matches meaning. When you embed your transcripts into a vector database, each chunk of text is converted into a numerical representation — a point in a high-dimensional space where similar concepts cluster together.</p>
+
+            <p data-i18n="vector_p3">In practice, this means:</p>
+
+            <ul>
+                <li data-i18n="vector_li1"><strong>"That conversation about pricing"</strong> finds the discussion about the revenue model, the fee structure debate, and the discount strategy — all in one search</li>
+                <li data-i18n="vector_li2"><strong>"What does Alex think about the migration?"</strong> surfaces every mention of Alex's position on database migrations, even across multiple meetings, even if Alex used different terms each time</li>
+                <li data-i18n="vector_li3"><strong>"Prep me for the board meeting"</strong> retrieves every relevant strategic discussion, decision, and metric from the past month — context you'd never assemble manually</li>
+            </ul>
+
+            <p data-i18n="vector_p4">But the most powerful feature of vector search isn't individual queries — it's <strong>cross-meeting connections</strong>. When your database spans dozens or hundreds of meetings, the AI can surface patterns you'd never notice on your own: recurring blockers that keep coming up in different contexts, decisions that contradict earlier ones, priorities that have silently shifted over time.</p>
+
+            <p data-i18n="vector_p5">Your second brain doesn't just store. It connects.</p>
+
+            <h2 data-i18n="h2_building">Building Your Own System</h2>
+
+            <p data-i18n="building_p1">The stack for a meeting-based second brain has four components:</p>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th_component">Component</th>
+                            <th data-i18n="th_purpose">Purpose</th>
+                            <th data-i18n="th_options">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="td_recording">Recording</td>
+                            <td data-i18n="td_recording_purpose">Capture meeting audio</td>
+                            <td>Mono, OBS Studio</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="td_transcription">Transcription</td>
+                            <td data-i18n="td_transcription_purpose">Convert audio to text</td>
+                            <td>Whisper, Mono (built-in)</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="td_vectordb">Vector database</td>
+                            <td data-i18n="td_vectordb_purpose">Store and search by meaning</td>
+                            <td>ChromaDB, Qdrant, Weaviate</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="td_llm">LLM</td>
+                            <td data-i18n="td_llm_purpose">Query and synthesize answers</td>
+                            <td>Claude, GPT-4, Llama 3 (local)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p data-i18n="building_p2"><strong>Start simple.</strong> Pick one recurring meeting — a weekly standup, a 1:1, a project sync. Record it for a week. Get comfortable with the capture step before building the rest. The habit matters more than the tooling.</p>
+
+            <p data-i18n="building_p3">Once you have a few transcripts, the vectorization step opens up. Tools like ChromaDB are open-source and can run locally. Embedding models (like those from Sentence Transformers or OpenAI) convert your transcript chunks into vectors. A simple Python script can automate the ingestion pipeline: new transcript appears, gets chunked, embedded, and stored.</p>
+
+            <p data-i18n="building_p4">For the organization layer, Forte's <strong>PARA method</strong> works well: organize knowledge by <strong>Projects</strong> (active efforts with deadlines), <strong>Areas</strong> (ongoing responsibilities), <strong>Resources</strong> (topics of interest), and <strong>Archive</strong> (completed or inactive). The key insight: organize by where you'll <em>use</em> the information, not where you <em>found</em> it.</p>
+
+            <p data-i18n="building_p5"><strong>The compound effect is real.</strong> A second brain with 5 meetings in it is a curiosity. With 50 meetings, it starts becoming useful. With 500 meetings across a year, it becomes indispensable — a searchable institutional memory that makes you dramatically more effective in every conversation, every decision, every onboarding.</p>
+
+            <h2 data-i18n="h2_changes">What Changes When You Have Total Recall</h2>
+
+            <p data-i18n="changes_p1">Once your second brain is accumulating meeting knowledge, a few things shift:</p>
+
+            <p data-i18n="changes_p2"><strong>You never lose context between meetings.</strong> That thread from three weeks ago? Instantly retrievable. The decision from the off-site? Searchable, with the full reasoning attached. You stop being the person who has to ask "can someone remind me what we decided about...?"</p>
+
+            <p data-i18n="changes_p3"><strong>Meeting prep takes seconds, not minutes.</strong> Before a 1:1, you ask your second brain: "summarize my last three conversations with this person, including open action items." Before a project review, you ask: "what are the unresolved decisions and current blockers?" You walk into every meeting with complete context, effortlessly.</p>
+
+            <p data-i18n="changes_p4"><strong>Onboarding becomes instant.</strong> Instead of months of "you had to be there" context that new team members slowly absorb, you hand them access to the institutional memory. They can query it like a senior colleague who was in every meeting.</p>
+
+            <p data-i18n="changes_p5"><strong>Your knowledge compounds instead of decaying.</strong> Every meeting adds to the base. Patterns emerge over time — recurring blockers, shifting priorities, evolving team dynamics. You move from reacting to anticipating, because you have a system that remembers everything and forgets nothing.</p>
+
+            <p data-i18n="changes_p6">The real shift isn't about remembering more. It's about <strong>externalizing memory so you can focus on thinking</strong>. When you don't have to hold context in your head, you can be fully present in the conversation. The system captures everything in the background; your job is to think, decide, and create.</p>
+
+            <div class="tip-box">
+                <p data-i18n="tip_disclosure"><strong>Disclosure:</strong> Mono is our product. We've included it in this guide because it handles the recording and transcription steps of the pipeline. We've tried to be fair about the full stack, but you should know we have a stake in it.</p>
+            </div>
+
+            <div class="cta-card">
+                <p class="cta-title" data-i18n="cta_title">Start building your second brain</p>
+                <p class="cta-sub" data-i18n="cta_sub">Mono handles the first two steps — recording and transcription — across any meeting app. One recording free, no account needed.</p>
+                <div class="cta-buttons">
+                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
+                       class="cta-btn-primary" target="_blank" rel="noopener sponsored" data-i18n="cta_buy">Buy Mono — $50</a>
+                    <a href="../?buy" class="cta-btn-secondary" data-i18n="cta_download">Download free</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Fold effect
+        if (window.initFoldEffect) window.initFoldEffect();
+    </script>
+
+<script>
+const translations = {
+    en: {
+        'back_link': '&larr; blog',
+        'category': '[Guide]',
+        'title': 'How to Build a Second Brain from Your Meeting Recordings',
+        'meta': 'Mar 21, 2026 · 8 min read · By Daniil Lefanov',
+        'intro_p1': 'The average professional spends 15 or more hours a week in meetings. Most of what gets said — decisions, context, reasoning, action items — disappears within hours. You take incomplete notes, or no notes at all. A week later, someone asks "what did we decide about X?" and nobody quite remembers.',
+        'intro_p2': 'The problem isn\'t the meetings themselves. It\'s that conversations are the highest-density knowledge source in your work, and you\'re letting them evaporate. Every meeting contains original, first-hand information that doesn\'t exist anywhere else: the reasoning behind a decision, the nuance in a disagreement, the context that never made it into the Jira ticket.',
+        'intro_p3': 'What if you could capture all of it — automatically — and make it searchable by meaning, not just keywords? That\'s what building a second brain from your meetings looks like.',
+        'tldr_label': 'TL;DR',
+        'tldr_1': '<strong>Meetings are knowledge:</strong> They contain decisions, context, and reasoning that exist nowhere else',
+        'tldr_2': '<strong>The pipeline:</strong> Record &rarr; Transcribe &rarr; Vectorize &rarr; Query with AI',
+        'tldr_3': '<strong>Vector search:</strong> Find information by meaning, not keywords — "that pricing discussion" actually works',
+        'tldr_4': '<strong>Compound effect:</strong> Value grows exponentially as more meetings accumulate',
+        'tldr_5': '<strong>Start simple:</strong> Record one recurring meeting, build the habit, then expand',
+        'h2_problem': 'The Problem: Your Best Thinking Disappears in Meetings',
+        'problem_p1': 'Think about the last important meeting you had. Can you recall the specific reasoning behind the main decision? The alternative that was rejected, and why? The follow-up that someone volunteered for?',
+        'problem_p2': 'Most people can\'t. And it\'s not because the meeting was unmemorable — it\'s because human memory is fundamentally unsuited for retaining conversational detail. Studies on meeting recall show that participants forget 50% of discussed content within 24 hours, and up to 90% within a week.',
+        'problem_p3': 'What\'s worse, the information lost in meetings is often <strong>the most valuable kind</strong>. Written documents capture conclusions. Meetings capture the reasoning, the trade-offs, the "we tried X but it didn\'t work because Y." That context is irreplaceable — and it vanishes every single day.',
+        'problem_p4': 'The cost isn\'t just forgetfulness. It\'s the repeated discussions, the re-explained decisions, the new team member who has to piece together months of context from scattered Slack threads. It\'s institutional knowledge that exists only in people\'s heads, and walks out the door when they leave.',
+        'h2_second_brain': 'What Is a Second Brain (and Why Meetings Are Its Best Input)',
+        'sb_p1': 'The concept of a "second brain" was popularized by Tiago Forte. It\'s a personal knowledge management system built on a simple framework called CODE: <strong>Capture</strong> what resonates, <strong>Organize</strong> by where you\'ll use it, <strong>Distill</strong> to the essentials, and <strong>Express</strong> by putting it to work.',
+        'sb_p2': 'The core principle is ruthlessly practical: <strong>"Knowledge is usable content. If it\'s not usable, it\'s not knowledge."</strong>',
+        'sb_p3': 'Most people who build a second brain feed it with articles, highlights, bookmarks, and podcast notes — passive consumption from the internet. That\'s useful, but it misses the richest source sitting right in front of you.',
+        'sb_p4': '<strong>Meetings are different from every other input.</strong> They contain original, first-hand knowledge that\'s unique to your work:',
+        'sb_li1': '<strong>Decisions and their reasoning</strong> — not just "we chose option A" but why, and what was rejected',
+        'sb_li2': '<strong>Action items with real owners</strong> — who committed to what, in their own words',
+        'sb_li3': '<strong>Context and nuance</strong> — the things that never make it into the meeting notes or the Confluence page',
+        'sb_li4': '<strong>Relationships and dynamics</strong> — who knows what, who cares about which topics, who disagrees with whom',
+        'sb_li5': '<strong>Evolving thinking</strong> — how the team\'s understanding of a problem changes over weeks and months',
+        'sb_p5': 'Yet meetings are the one source almost nobody captures properly. The irony is hard to overstate: you spend hours generating this knowledge, then let it disappear.',
+        'h2_pipeline': 'The Pipeline: Record, Transcribe, Vectorize, Query',
+        'pipeline_p1': 'Building a second brain from meetings requires four steps. Each one is straightforward on its own — the power comes from connecting them into an automated pipeline.',
+        'step1_label': 'Step 1',
+        'step1_title': 'Record',
+        'step1_p': 'Capture the audio from your meetings — any platform, any app. The key is making this effortless enough that you do it every time, not just when you remember. Tools like Mono capture system audio and microphone simultaneously, so they work across Zoom, Meet, Teams, Discord, or any other app without joining as a visible bot.',
+        'step2_label': 'Step 2',
+        'step2_title': 'Transcribe',
+        'step2_p': 'Turn audio into searchable text. Modern transcription engines like Whisper handle multiple speakers, accents, and technical jargon with high accuracy. The transcript becomes the raw material for everything that follows — a full, faithful record of what was actually said.',
+        'step3_label': 'Step 3',
+        'step3_title': 'Vectorize',
+        'step3_p': 'Embed transcript chunks into a vector database. This is the step that transforms a pile of text files into something genuinely useful. Vectorization converts text into numerical representations that capture meaning — so when you search later, you\'re searching by concept, not by exact words.',
+        'step4_label': 'Step 4',
+        'step4_title': 'Query',
+        'step4_p': 'Ask natural language questions and get answers grounded in your actual meetings. "What did we decide about the API redesign?" "What\'s the latest on the hiring timeline?" "Prep me for my 1:1 with Sarah." The AI retrieves the relevant transcript chunks and synthesizes an answer from what was actually discussed.',
+        'pipeline_p2': 'The result: hours of conversations become an always-available, queryable knowledge base. You don\'t need to take notes, organize files, or remember where something was discussed. You just ask.',
+        'h2_transcripts': 'From Raw Transcripts to Actionable Knowledge',
+        'transcripts_p1': 'A raw transcript is useful, but it\'s not yet a second brain. The real value comes from what you extract and how you structure it. This is where Forte\'s concept of <strong>progressive summarization</strong> applies — layering increasing levels of distillation on top of the source material.',
+        'transcripts_p2': 'For meeting transcripts, that looks like:',
+        'transcripts_li1': '<strong>Layer 1 — Full transcript:</strong> The complete record of what was said. Verbose, but complete.',
+        'transcripts_li2': '<strong>Layer 2 — Key points:</strong> The important moments highlighted — decisions made, questions raised, commitments given.',
+        'transcripts_li3': '<strong>Layer 3 — Action items and decisions:</strong> Extracted and structured. Who owns what. What was decided and why.',
+        'transcripts_li4': '<strong>Layer 4 — Executive summary:</strong> A 3-5 sentence overview that captures the meeting\'s significance in the broader context of the project.',
+        'transcripts_p3': 'AI can handle most of this automatically. Given a transcript, a language model can extract:',
+        'transcripts_li5': '<strong>Decisions made</strong> — with the reasoning that led to them',
+        'transcripts_li6': '<strong>Action items</strong> — with owners and deadlines, in participants\' own words',
+        'transcripts_li7': '<strong>Open questions</strong> — things raised but not resolved',
+        'transcripts_li8': '<strong>Follow-up triggers</strong> — topics that need revisiting at a specific time or condition',
+        'transcripts_li9': '<strong>Person context</strong> — updated understanding of each participant\'s concerns, expertise, and current focus',
+        'transcripts_p4': 'Forte calls these outputs <strong>"intermediate packets"</strong> — reusable building blocks that can be recombined for future work. Each meeting doesn\'t just produce a transcript; it produces a decision log entry, updated action items, refined person profiles, and accumulated project context. These packets feed directly into your second brain, organized not by when you captured them but by where you\'ll use them.',
+        'tip_hemingway': '<strong>The Hemingway Bridge:</strong> One of Forte\'s most practical ideas is ending each work session by noting your current status and next steps. Applied to meetings, this means every transcript automatically generates a bridge — here\'s where we left off, here\'s what needs to happen next. You never lose the thread between meetings.',
+        'h2_vectorization': 'Why Vectorization Changes Everything',
+        'vector_p1': 'If you\'ve ever searched your notes for something you know is there and come up empty, you understand the limits of keyword search. You remember the concept, but not the exact words. You know a decision was made about pricing, but the transcript uses the phrase "revenue model" instead.',
+        'vector_p2': '<strong>Vector search solves this.</strong> Instead of matching exact strings, it matches meaning. When you embed your transcripts into a vector database, each chunk of text is converted into a numerical representation — a point in a high-dimensional space where similar concepts cluster together.',
+        'vector_p3': 'In practice, this means:',
+        'vector_li1': '<strong>"That conversation about pricing"</strong> finds the discussion about the revenue model, the fee structure debate, and the discount strategy — all in one search',
+        'vector_li2': '<strong>"What does Alex think about the migration?"</strong> surfaces every mention of Alex\'s position on database migrations, even across multiple meetings, even if Alex used different terms each time',
+        'vector_li3': '<strong>"Prep me for the board meeting"</strong> retrieves every relevant strategic discussion, decision, and metric from the past month — context you\'d never assemble manually',
+        'vector_p4': 'But the most powerful feature of vector search isn\'t individual queries — it\'s <strong>cross-meeting connections</strong>. When your database spans dozens or hundreds of meetings, the AI can surface patterns you\'d never notice on your own: recurring blockers that keep coming up in different contexts, decisions that contradict earlier ones, priorities that have silently shifted over time.',
+        'vector_p5': 'Your second brain doesn\'t just store. It connects.',
+        'h2_building': 'Building Your Own System',
+        'building_p1': 'The stack for a meeting-based second brain has four components:',
+        'th_component': 'Component',
+        'th_purpose': 'Purpose',
+        'th_options': 'Options',
+        'td_recording': 'Recording',
+        'td_recording_purpose': 'Capture meeting audio',
+        'td_transcription': 'Transcription',
+        'td_transcription_purpose': 'Convert audio to text',
+        'td_vectordb': 'Vector database',
+        'td_vectordb_purpose': 'Store and search by meaning',
+        'td_llm': 'LLM',
+        'td_llm_purpose': 'Query and synthesize answers',
+        'building_p2': '<strong>Start simple.</strong> Pick one recurring meeting — a weekly standup, a 1:1, a project sync. Record it for a week. Get comfortable with the capture step before building the rest. The habit matters more than the tooling.',
+        'building_p3': 'Once you have a few transcripts, the vectorization step opens up. Tools like ChromaDB are open-source and can run locally. Embedding models (like those from Sentence Transformers or OpenAI) convert your transcript chunks into vectors. A simple Python script can automate the ingestion pipeline: new transcript appears, gets chunked, embedded, and stored.',
+        'building_p4': 'For the organization layer, Forte\'s <strong>PARA method</strong> works well: organize knowledge by <strong>Projects</strong> (active efforts with deadlines), <strong>Areas</strong> (ongoing responsibilities), <strong>Resources</strong> (topics of interest), and <strong>Archive</strong> (completed or inactive). The key insight: organize by where you\'ll <em>use</em> the information, not where you <em>found</em> it.',
+        'building_p5': '<strong>The compound effect is real.</strong> A second brain with 5 meetings in it is a curiosity. With 50 meetings, it starts becoming useful. With 500 meetings across a year, it becomes indispensable — a searchable institutional memory that makes you dramatically more effective in every conversation, every decision, every onboarding.',
+        'h2_changes': 'What Changes When You Have Total Recall',
+        'changes_p1': 'Once your second brain is accumulating meeting knowledge, a few things shift:',
+        'changes_p2': '<strong>You never lose context between meetings.</strong> That thread from three weeks ago? Instantly retrievable. The decision from the off-site? Searchable, with the full reasoning attached. You stop being the person who has to ask "can someone remind me what we decided about...?"',
+        'changes_p3': '<strong>Meeting prep takes seconds, not minutes.</strong> Before a 1:1, you ask your second brain: "summarize my last three conversations with this person, including open action items." Before a project review, you ask: "what are the unresolved decisions and current blockers?" You walk into every meeting with complete context, effortlessly.',
+        'changes_p4': '<strong>Onboarding becomes instant.</strong> Instead of months of "you had to be there" context that new team members slowly absorb, you hand them access to the institutional memory. They can query it like a senior colleague who was in every meeting.',
+        'changes_p5': '<strong>Your knowledge compounds instead of decaying.</strong> Every meeting adds to the base. Patterns emerge over time — recurring blockers, shifting priorities, evolving team dynamics. You move from reacting to anticipating, because you have a system that remembers everything and forgets nothing.',
+        'changes_p6': 'The real shift isn\'t about remembering more. It\'s about <strong>externalizing memory so you can focus on thinking</strong>. When you don\'t have to hold context in your head, you can be fully present in the conversation. The system captures everything in the background; your job is to think, decide, and create.',
+        'tip_disclosure': '<strong>Disclosure:</strong> Mono is our product. We\'ve included it in this guide because it handles the recording and transcription steps of the pipeline. We\'ve tried to be fair about the full stack, but you should know we have a stake in it.',
+        'cta_title': 'Start building your second brain',
+        'cta_sub': 'Mono handles the first two steps — recording and transcription — across any meeting app. One recording free, no account needed.',
+        'cta_buy': 'Buy Mono — $50',
+        'cta_download': 'Download free'
+    },
+    es: {
+        'back_link': '&larr; blog',
+        'category': '[Guia]',
+        'title': 'Como construir un segundo cerebro a partir de las grabaciones de tus reuniones',
+        'meta': '21 mar 2026 · 8 min de lectura · Por Daniil Lefanov',
+        'intro_p1': 'El profesional promedio pasa 15 o mas horas a la semana en reuniones. La mayor parte de lo que se dice — decisiones, contexto, razonamiento, tareas — desaparece en horas. Tomas notas incompletas, o ninguna. Una semana despues, alguien pregunta "que decidimos sobre X?" y nadie recuerda bien.',
+        'intro_p2': 'El problema no son las reuniones en si. Es que las conversaciones son la fuente de conocimiento de mayor densidad en tu trabajo, y las estas dejando evaporar. Cada reunion contiene informacion original y de primera mano que no existe en ningun otro lugar.',
+        'intro_p3': 'Y si pudieras capturar todo eso — automaticamente — y hacerlo buscable por significado, no solo por palabras clave? Asi es como se ve construir un segundo cerebro a partir de tus reuniones.',
+        'tldr_label': 'Resumen',
+        'tldr_1': '<strong>Las reuniones son conocimiento:</strong> Contienen decisiones, contexto y razonamiento que no existen en ningun otro lugar',
+        'tldr_2': '<strong>El pipeline:</strong> Grabar &rarr; Transcribir &rarr; Vectorizar &rarr; Consultar con IA',
+        'tldr_3': '<strong>Busqueda vectorial:</strong> Encuentra informacion por significado, no por palabras clave',
+        'tldr_4': '<strong>Efecto compuesto:</strong> El valor crece exponencialmente a medida que se acumulan reuniones',
+        'tldr_5': '<strong>Empieza simple:</strong> Graba una reunion recurrente, construye el habito, luego expande',
+        'h2_problem': 'El problema: tu mejor pensamiento desaparece en las reuniones',
+        'problem_p1': 'Piensa en la ultima reunion importante que tuviste. Puedes recordar el razonamiento especifico detras de la decision principal? La alternativa que fue rechazada, y por que?',
+        'problem_p2': 'La mayoria no puede. Y no es porque la reunion fuera olvidable — es porque la memoria humana es fundamentalmente inadecuada para retener detalles conversacionales. Los estudios muestran que los participantes olvidan el 50% del contenido discutido en 24 horas, y hasta el 90% en una semana.',
+        'problem_p3': 'Lo peor es que la informacion perdida en reuniones es a menudo <strong>la mas valiosa</strong>. Los documentos escritos capturan conclusiones. Las reuniones capturan el razonamiento, las compensaciones, el "intentamos X pero no funciono porque Y."',
+        'problem_p4': 'El costo no es solo el olvido. Son las discusiones repetidas, las decisiones re-explicadas, el nuevo miembro del equipo que tiene que armar meses de contexto a partir de hilos dispersos de Slack.',
+        'h2_second_brain': 'Que es un segundo cerebro (y por que las reuniones son su mejor entrada)',
+        'sb_p1': 'El concepto de "segundo cerebro" fue popularizado por Tiago Forte. Es un sistema de gestion del conocimiento personal construido sobre un marco simple llamado CODE: <strong>Capturar</strong> lo que resuena, <strong>Organizar</strong> por donde lo usaras, <strong>Destilar</strong> a lo esencial, y <strong>Expresar</strong> poniendolo a trabajar.',
+        'sb_p2': 'El principio central es despiadadamente practico: <strong>"El conocimiento es contenido utilizable. Si no es utilizable, no es conocimiento."</strong>',
+        'sb_p3': 'La mayoria de personas que construyen un segundo cerebro lo alimentan con articulos, subrayados, marcadores y notas de podcasts — consumo pasivo de internet. Eso es util, pero se pierde la fuente mas rica que tienes frente a ti.',
+        'sb_p4': '<strong>Las reuniones son diferentes de cualquier otra entrada.</strong> Contienen conocimiento original y de primera mano que es unico de tu trabajo:',
+        'sb_li1': '<strong>Decisiones y su razonamiento</strong> — no solo "elegimos la opcion A" sino por que, y que se rechazo',
+        'sb_li2': '<strong>Tareas con duenos reales</strong> — quien se comprometio a que, en sus propias palabras',
+        'sb_li3': '<strong>Contexto y matices</strong> — las cosas que nunca llegan a las notas de la reunion ni a la pagina de Confluence',
+        'sb_li4': '<strong>Relaciones y dinamicas</strong> — quien sabe que, a quien le importa que temas',
+        'sb_li5': '<strong>Pensamiento en evolucion</strong> — como cambia la comprension del equipo sobre un problema a lo largo de semanas y meses',
+        'sb_p5': 'Sin embargo, las reuniones son la unica fuente que casi nadie captura correctamente.',
+        'h2_pipeline': 'El pipeline: grabar, transcribir, vectorizar, consultar',
+        'pipeline_p1': 'Construir un segundo cerebro a partir de reuniones requiere cuatro pasos. Cada uno es sencillo por si solo — el poder viene de conectarlos en un pipeline automatizado.',
+        'step1_label': 'Paso 1',
+        'step1_title': 'Grabar',
+        'step1_p': 'Captura el audio de tus reuniones — cualquier plataforma, cualquier app. La clave es hacerlo lo suficientemente facil como para que lo hagas siempre. Herramientas como Mono capturan audio del sistema y microfono simultaneamente, funcionando en Zoom, Meet, Teams, Discord o cualquier otra app sin unirse como un bot visible.',
+        'step2_label': 'Paso 2',
+        'step2_title': 'Transcribir',
+        'step2_p': 'Convierte el audio en texto buscable. Los motores de transcripcion modernos como Whisper manejan multiples hablantes, acentos y jerga tecnica con alta precision.',
+        'step3_label': 'Paso 3',
+        'step3_title': 'Vectorizar',
+        'step3_p': 'Incrusta fragmentos de transcripcion en una base de datos vectorial. La vectorizacion convierte texto en representaciones numericas que capturan significado — asi cuando buscas despues, buscas por concepto, no por palabras exactas.',
+        'step4_label': 'Paso 4',
+        'step4_title': 'Consultar',
+        'step4_p': 'Haz preguntas en lenguaje natural y obtén respuestas basadas en tus reuniones reales. "Que decidimos sobre el rediseno de la API?" "Cual es lo ultimo sobre la linea de tiempo de contratacion?" La IA recupera los fragmentos relevantes y sintetiza una respuesta.',
+        'pipeline_p2': 'El resultado: horas de conversaciones se convierten en una base de conocimiento siempre disponible y consultable.',
+        'h2_transcripts': 'De transcripciones brutas a conocimiento accionable',
+        'transcripts_p1': 'Una transcripcion bruta es util, pero aun no es un segundo cerebro. El valor real viene de lo que extraes y como lo estructuras. Aqui es donde se aplica el concepto de <strong>resumen progresivo</strong> de Forte.',
+        'transcripts_p2': 'Para transcripciones de reuniones, eso se ve asi:',
+        'transcripts_li1': '<strong>Capa 1 — Transcripcion completa:</strong> El registro completo de lo que se dijo.',
+        'transcripts_li2': '<strong>Capa 2 — Puntos clave:</strong> Los momentos importantes resaltados — decisiones, preguntas, compromisos.',
+        'transcripts_li3': '<strong>Capa 3 — Tareas y decisiones:</strong> Extraidas y estructuradas. Quien es responsable de que.',
+        'transcripts_li4': '<strong>Capa 4 — Resumen ejecutivo:</strong> Una vision general de 3-5 oraciones.',
+        'transcripts_p3': 'La IA puede manejar la mayor parte de esto automaticamente. Dado una transcripcion, un modelo de lenguaje puede extraer:',
+        'transcripts_li5': '<strong>Decisiones tomadas</strong> — con el razonamiento que las condujo',
+        'transcripts_li6': '<strong>Tareas</strong> — con responsables y plazos',
+        'transcripts_li7': '<strong>Preguntas abiertas</strong> — temas planteados pero no resueltos',
+        'transcripts_li8': '<strong>Disparadores de seguimiento</strong> — temas que necesitan revision',
+        'transcripts_li9': '<strong>Contexto de personas</strong> — comprension actualizada de cada participante',
+        'transcripts_p4': 'Forte llama a estos resultados <strong>"paquetes intermedios"</strong> — bloques de construccion reutilizables. Cada reunion no solo produce una transcripcion; produce una entrada de registro de decisiones, tareas actualizadas, perfiles de personas refinados y contexto de proyecto acumulado.',
+        'tip_hemingway': '<strong>El Puente de Hemingway:</strong> Una de las ideas mas practicas de Forte es terminar cada sesion de trabajo anotando tu estado actual y proximos pasos. Aplicado a reuniones, cada transcripcion genera automaticamente un puente — aqui es donde quedamos, esto es lo que sigue.',
+        'h2_vectorization': 'Por que la vectorizacion lo cambia todo',
+        'vector_p1': 'Si alguna vez buscaste en tus notas algo que sabes que esta ahi y no lo encontraste, entiendes los limites de la busqueda por palabras clave.',
+        'vector_p2': '<strong>La busqueda vectorial resuelve esto.</strong> En lugar de coincidir cadenas exactas, coincide por significado.',
+        'vector_p3': 'En la practica, esto significa:',
+        'vector_li1': '<strong>"Esa conversacion sobre precios"</strong> encuentra la discusion sobre el modelo de ingresos, el debate de estructura de tarifas y la estrategia de descuentos — todo en una busqueda',
+        'vector_li2': '<strong>"Que piensa Alex sobre la migracion?"</strong> muestra cada mencion de la posicion de Alex sobre migraciones de bases de datos, incluso a traves de multiples reuniones',
+        'vector_li3': '<strong>"Preparame para la reunion de directorio"</strong> recupera cada discusion estrategica relevante del ultimo mes',
+        'vector_p4': 'Pero la caracteristica mas poderosa no son las consultas individuales — son las <strong>conexiones entre reuniones</strong>. Cuando tu base de datos abarca docenas de reuniones, la IA puede revelar patrones que nunca notarias por tu cuenta.',
+        'vector_p5': 'Tu segundo cerebro no solo almacena. Conecta.',
+        'h2_building': 'Construyendo tu propio sistema',
+        'building_p1': 'El stack para un segundo cerebro basado en reuniones tiene cuatro componentes:',
+        'th_component': 'Componente',
+        'th_purpose': 'Proposito',
+        'th_options': 'Opciones',
+        'td_recording': 'Grabacion',
+        'td_recording_purpose': 'Capturar audio de reuniones',
+        'td_transcription': 'Transcripcion',
+        'td_transcription_purpose': 'Convertir audio a texto',
+        'td_vectordb': 'Base de datos vectorial',
+        'td_vectordb_purpose': 'Almacenar y buscar por significado',
+        'td_llm': 'LLM',
+        'td_llm_purpose': 'Consultar y sintetizar respuestas',
+        'building_p2': '<strong>Empieza simple.</strong> Elige una reunion recurrente. Grabala por una semana. Acostumbrate al paso de captura antes de construir el resto.',
+        'building_p3': 'Una vez que tengas algunas transcripciones, se abre el paso de vectorizacion. Herramientas como ChromaDB son de codigo abierto y pueden ejecutarse localmente.',
+        'building_p4': 'Para la capa de organizacion, el <strong>metodo PARA</strong> de Forte funciona bien: organiza el conocimiento por <strong>Proyectos</strong>, <strong>Areas</strong>, <strong>Recursos</strong> y <strong>Archivo</strong>.',
+        'building_p5': '<strong>El efecto compuesto es real.</strong> Un segundo cerebro con 5 reuniones es una curiosidad. Con 50, empieza a ser util. Con 500 a lo largo de un ano, se vuelve indispensable.',
+        'h2_changes': 'Que cambia cuando tienes memoria total',
+        'changes_p1': 'Una vez que tu segundo cerebro acumula conocimiento de reuniones, algunas cosas cambian:',
+        'changes_p2': '<strong>Nunca pierdes contexto entre reuniones.</strong> Ese hilo de hace tres semanas? Recuperable al instante.',
+        'changes_p3': '<strong>La preparacion para reuniones toma segundos, no minutos.</strong> Antes de un 1:1, le preguntas a tu segundo cerebro: "resume mis ultimas tres conversaciones con esta persona."',
+        'changes_p4': '<strong>La incorporacion se vuelve instantanea.</strong> En lugar de meses de contexto que los nuevos miembros absorben lentamente, les das acceso a la memoria institucional.',
+        'changes_p5': '<strong>Tu conocimiento se acumula en lugar de decaer.</strong> Cada reunion agrega a la base. Los patrones emergen con el tiempo.',
+        'changes_p6': 'El cambio real no es recordar mas. Es <strong>externalizar la memoria para poder enfocarte en pensar</strong>.',
+        'tip_disclosure': '<strong>Divulgacion:</strong> Mono es nuestro producto. Lo hemos incluido en esta guia porque maneja los pasos de grabacion y transcripcion. Hemos intentado ser justos, pero debes saber que tenemos un interes en ello.',
+        'cta_title': 'Empieza a construir tu segundo cerebro',
+        'cta_sub': 'Mono maneja los primeros dos pasos — grabacion y transcripcion — en cualquier app de reuniones. Una grabacion gratis, sin cuenta necesaria.',
+        'cta_buy': 'Comprar Mono — $50',
+        'cta_download': 'Descargar gratis'
+    },
+    ru: {
+        'back_link': '&larr; блог',
+        'category': '[Руководство]',
+        'title': 'Как построить второй мозг из записей ваших встреч',
+        'meta': '21 мар 2026 · 8 мин чтения · Автор: Даниил Лефанов',
+        'intro_p1': 'Средний профессионал проводит 15 и более часов в неделю на встречах. Большая часть сказанного — решения, контекст, аргументация, задачи — исчезает за часы. Вы делаете неполные заметки или не делаете их вовсе. Через неделю кто-то спрашивает "что мы решили по X?" и никто толком не помнит.',
+        'intro_p2': 'Проблема не в самих встречах. Дело в том, что разговоры — это самый насыщенный источник знаний в вашей работе, и вы позволяете им испаряться. Каждая встреча содержит оригинальную информацию из первых рук, которой нет больше нигде.',
+        'intro_p3': 'А что, если бы вы могли захватить все это — автоматически — и сделать поиск по смыслу, а не только по ключевым словам? Именно так выглядит построение второго мозга из ваших встреч.',
+        'tldr_label': 'Кратко',
+        'tldr_1': '<strong>Встречи — это знания:</strong> Они содержат решения, контекст и аргументацию, которых нет больше нигде',
+        'tldr_2': '<strong>Пайплайн:</strong> Запись &rarr; Транскрипция &rarr; Векторизация &rarr; Запрос к ИИ',
+        'tldr_3': '<strong>Векторный поиск:</strong> Находите информацию по смыслу, а не по ключевым словам',
+        'tldr_4': '<strong>Эффект накопления:</strong> Ценность растёт экспоненциально по мере накопления встреч',
+        'tldr_5': '<strong>Начните просто:</strong> Запишите одну регулярную встречу, выработайте привычку, затем расширяйте',
+        'h2_problem': 'Проблема: ваши лучшие мысли исчезают на встречах',
+        'problem_p1': 'Вспомните последнюю важную встречу. Можете ли вы вспомнить конкретную аргументацию за главным решением? Альтернативу, которую отвергли, и почему?',
+        'problem_p2': 'Большинство не может. И дело не в том, что встреча была незапоминающейся — дело в том, что человеческая память фундаментально не приспособлена для удержания деталей разговора. Исследования показывают, что участники забывают 50% обсуждённого за 24 часа и до 90% за неделю.',
+        'problem_p3': 'Хуже того, информация, теряемая на встречах, часто <strong>самая ценная</strong>. Письменные документы фиксируют выводы. Встречи фиксируют аргументацию, компромиссы, "мы пробовали X, но не сработало из-за Y."',
+        'problem_p4': 'Цена — не только забывчивость. Это повторяющиеся обсуждения, переобъяснённые решения, новый член команды, который должен собрать месяцы контекста из разрозненных тредов в Slack.',
+        'h2_second_brain': 'Что такое второй мозг (и почему встречи — его лучший вход)',
+        'sb_p1': 'Концепцию "второго мозга" популяризировал Тиаго Форте. Это система управления личными знаниями, построенная на простом фреймворке CODE: <strong>Захватить</strong> то, что откликается, <strong>Организовать</strong> по месту использования, <strong>Дистиллировать</strong> до сути, и <strong>Выразить</strong>, применив на практике.',
+        'sb_p2': 'Основной принцип безжалостно практичен: <strong>"Знание — это применимый контент. Если оно неприменимо, это не знание."</strong>',
+        'sb_p3': 'Большинство людей, строящих второй мозг, наполняют его статьями, выделениями, закладками и заметками из подкастов — пассивным потреблением из интернета. Это полезно, но упускает самый богатый источник прямо перед вами.',
+        'sb_p4': '<strong>Встречи отличаются от любого другого входа.</strong> Они содержат оригинальные знания из первых рук, уникальные для вашей работы:',
+        'sb_li1': '<strong>Решения и их аргументация</strong> — не просто "мы выбрали вариант A", а почему, и что было отвергнуто',
+        'sb_li2': '<strong>Задачи с реальными ответственными</strong> — кто что взял на себя, своими словами',
+        'sb_li3': '<strong>Контекст и нюансы</strong> — то, что никогда не попадает в заметки встречи или на страницу Confluence',
+        'sb_li4': '<strong>Отношения и динамика</strong> — кто что знает, кого какие темы волнуют',
+        'sb_li5': '<strong>Эволюция мышления</strong> — как понимание проблемы командой меняется за недели и месяцы',
+        'sb_p5': 'При этом встречи — единственный источник, который почти никто не фиксирует должным образом.',
+        'h2_pipeline': 'Пайплайн: запись, транскрипция, векторизация, запрос',
+        'pipeline_p1': 'Построение второго мозга из встреч требует четырёх шагов. Каждый прост сам по себе — сила в том, чтобы соединить их в автоматизированный пайплайн.',
+        'step1_label': 'Шаг 1',
+        'step1_title': 'Запись',
+        'step1_p': 'Захватите аудио ваших встреч — любая платформа, любое приложение. Главное — сделать это настолько простым, чтобы вы делали это каждый раз. Инструменты вроде Mono захватывают системный звук и микрофон одновременно, работая в Zoom, Meet, Teams, Discord или любом другом приложении без видимого бота.',
+        'step2_label': 'Шаг 2',
+        'step2_title': 'Транскрипция',
+        'step2_p': 'Превратите аудио в текст с возможностью поиска. Современные движки транскрипции вроде Whisper справляются с несколькими говорящими, акцентами и технической терминологией с высокой точностью.',
+        'step3_label': 'Шаг 3',
+        'step3_title': 'Векторизация',
+        'step3_p': 'Встройте фрагменты транскрипции в векторную базу данных. Векторизация преобразует текст в числовые представления, захватывающие смысл — поэтому когда вы ищете позже, вы ищете по концепции, а не по точным словам.',
+        'step4_label': 'Шаг 4',
+        'step4_title': 'Запрос',
+        'step4_p': 'Задавайте вопросы на естественном языке и получайте ответы, основанные на ваших реальных встречах. "Что мы решили по редизайну API?" "Что последнее по срокам найма?" ИИ извлекает релевантные фрагменты и синтезирует ответ.',
+        'pipeline_p2': 'Результат: часы разговоров становятся всегда доступной, запрашиваемой базой знаний.',
+        'h2_transcripts': 'От сырых транскрипций к применимым знаниям',
+        'transcripts_p1': 'Сырая транскрипция полезна, но это ещё не второй мозг. Настоящая ценность — в том, что вы извлекаете и как структурируете. Здесь применяется концепция <strong>прогрессивного резюмирования</strong> Форте.',
+        'transcripts_p2': 'Для транскрипций встреч это выглядит так:',
+        'transcripts_li1': '<strong>Слой 1 — Полная транскрипция:</strong> Полная запись сказанного. Многословная, но полная.',
+        'transcripts_li2': '<strong>Слой 2 — Ключевые моменты:</strong> Важные моменты выделены — решения, вопросы, обязательства.',
+        'transcripts_li3': '<strong>Слой 3 — Задачи и решения:</strong> Извлечены и структурированы. Кто за что отвечает.',
+        'transcripts_li4': '<strong>Слой 4 — Краткое резюме:</strong> Обзор в 3-5 предложениях.',
+        'transcripts_p3': 'ИИ может обработать большую часть этого автоматически. По транскрипции языковая модель может извлечь:',
+        'transcripts_li5': '<strong>Принятые решения</strong> — с аргументацией',
+        'transcripts_li6': '<strong>Задачи</strong> — с ответственными и сроками',
+        'transcripts_li7': '<strong>Открытые вопросы</strong> — поднятые, но не решённые темы',
+        'transcripts_li8': '<strong>Триггеры для последующих действий</strong> — темы, требующие пересмотра',
+        'transcripts_li9': '<strong>Контекст участников</strong> — обновлённое понимание каждого участника',
+        'transcripts_p4': 'Форте называет эти результаты <strong>"промежуточными пакетами"</strong> — многоразовыми строительными блоками. Каждая встреча производит не просто транскрипцию, а запись решений, обновлённые задачи, уточнённые профили людей и накопленный контекст проекта.',
+        'tip_hemingway': '<strong>Мост Хемингуэя:</strong> Одна из самых практичных идей Форте — заканчивать каждую рабочую сессию, отмечая текущий статус и следующие шаги. Для встреч это означает, что каждая транскрипция автоматически генерирует мост — вот где мы остановились, вот что нужно сделать дальше.',
+        'h2_vectorization': 'Почему векторизация меняет всё',
+        'vector_p1': 'Если вы когда-нибудь искали в своих заметках что-то, о чём точно знаете, и ничего не находили, вы понимаете ограничения поиска по ключевым словам.',
+        'vector_p2': '<strong>Векторный поиск решает это.</strong> Вместо совпадения точных строк он совпадает по смыслу.',
+        'vector_p3': 'На практике это означает:',
+        'vector_li1': '<strong>"Тот разговор о ценообразовании"</strong> находит обсуждение модели выручки, дебаты о структуре тарифов и стратегию скидок — всё в одном поиске',
+        'vector_li2': '<strong>"Что Алекс думает о миграции?"</strong> показывает каждое упоминание позиции Алекса по миграциям баз данных, даже через несколько встреч',
+        'vector_li3': '<strong>"Подготовь меня к заседанию совета"</strong> извлекает каждое релевантное стратегическое обсуждение за последний месяц',
+        'vector_p4': 'Но самая мощная функция — не отдельные запросы, а <strong>связи между встречами</strong>. Когда база охватывает десятки встреч, ИИ может выявить паттерны, которые вы никогда не заметите сами.',
+        'vector_p5': 'Ваш второй мозг не просто хранит. Он связывает.',
+        'h2_building': 'Построение собственной системы',
+        'building_p1': 'Стек для второго мозга на основе встреч имеет четыре компонента:',
+        'th_component': 'Компонент',
+        'th_purpose': 'Назначение',
+        'th_options': 'Варианты',
+        'td_recording': 'Запись',
+        'td_recording_purpose': 'Захват аудио встреч',
+        'td_transcription': 'Транскрипция',
+        'td_transcription_purpose': 'Преобразование аудио в текст',
+        'td_vectordb': 'Векторная БД',
+        'td_vectordb_purpose': 'Хранение и поиск по смыслу',
+        'td_llm': 'LLM',
+        'td_llm_purpose': 'Запросы и синтез ответов',
+        'building_p2': '<strong>Начните просто.</strong> Выберите одну регулярную встречу. Записывайте неделю. Привыкните к этапу захвата, прежде чем строить остальное.',
+        'building_p3': 'Когда у вас есть несколько транскрипций, открывается этап векторизации. Инструменты вроде ChromaDB — с открытым кодом и могут работать локально.',
+        'building_p4': 'Для организации хорошо работает <strong>метод PARA</strong> Форте: организуйте знания по <strong>Проектам</strong>, <strong>Областям</strong>, <strong>Ресурсам</strong> и <strong>Архиву</strong>.',
+        'building_p5': '<strong>Эффект накопления реален.</strong> Второй мозг с 5 встречами — это любопытно. С 50 — начинает быть полезным. С 500 за год — становится незаменимым.',
+        'h2_changes': 'Что меняется, когда у вас полная память',
+        'changes_p1': 'Когда ваш второй мозг накапливает знания из встреч, кое-что меняется:',
+        'changes_p2': '<strong>Вы никогда не теряете контекст между встречами.</strong> Тот тред трёхнедельной давности? Мгновенно доступен.',
+        'changes_p3': '<strong>Подготовка к встречам занимает секунды, а не минуты.</strong> Перед 1:1 вы спрашиваете: "резюмируй мои последние три разговора с этим человеком."',
+        'changes_p4': '<strong>Онбординг становится мгновенным.</strong> Вместо месяцев контекста вы даёте доступ к институциональной памяти.',
+        'changes_p5': '<strong>Ваши знания накапливаются, а не угасают.</strong> Каждая встреча добавляет к базе. Со временем проявляются паттерны.',
+        'changes_p6': 'Настоящий сдвиг — не в том, чтобы запоминать больше. А в том, чтобы <strong>экстернализировать память и сосредоточиться на мышлении</strong>.',
+        'tip_disclosure': '<strong>Раскрытие:</strong> Mono — наш продукт. Мы включили его в это руководство, потому что он обрабатывает этапы записи и транскрипции. Мы старались быть объективными, но вы должны знать, что у нас есть интерес.',
+        'cta_title': 'Начните строить свой второй мозг',
+        'cta_sub': 'Mono обрабатывает первые два шага — запись и транскрипцию — в любом приложении для встреч. Одна запись бесплатно, аккаунт не нужен.',
+        'cta_buy': 'Купить Mono — $50',
+        'cta_download': 'Скачать бесплатно'
+    }
+};
+
+let currentLang = 'en';
+const siteNav = document.querySelector('site-nav');
+
+siteNav.addEventListener('language-change', (e) => {
+    const lang = e.detail.language;
+    if (lang === currentLang) return;
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+});
+</script>
+</body>
+</html>
