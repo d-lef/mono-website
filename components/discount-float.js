@@ -2,6 +2,27 @@ class DiscountFloat extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        this._t = {
+            en: { btn: 'Early bird: 15% off', title: 'Get 15% off mono', desc: 'mono is in early release — grab 15% off as an early bird. Enter your email and we\'ll send you a promo code with download links.', submit: 'Send my discount', sending: 'Sending...', sent: 'Sent! Check your inbox.', fallback: 'Couldn\'t send email, but here\'s your code:', code_note: '15% off — enter at checkout', buy: 'Buy — $42.50' },
+            es: { btn: 'Early bird: 15% dto.', title: '15% de descuento en mono', desc: 'mono esta en lanzamiento anticipado — obtene un 15% de descuento. Ingresa tu email y te enviaremos un codigo promocional con enlaces de descarga.', submit: 'Enviar mi descuento', sending: 'Enviando...', sent: 'Enviado! Revisa tu bandeja.', fallback: 'No pudimos enviar el email, pero aqui esta tu codigo:', code_note: '15% de descuento — ingresalo en el checkout', buy: 'Comprar — $42.50' },
+            fr: { btn: 'Early bird : -15%', title: '15% de reduction sur mono', desc: 'mono est en acces anticipe — profitez de 15% de reduction en tant qu\'early bird. Entrez votre email et nous vous enverrons un code promo avec les liens de telechargement.', submit: 'Envoyer mon code', sending: 'Envoi...', sent: 'Envoye ! Verifiez votre boite.', fallback: 'Impossible d\'envoyer l\'email, mais voici votre code :', code_note: '15% de reduction — a entrer au checkout', buy: 'Acheter — 42,50$' },
+            de: { btn: 'Early Bird: 15% Rabatt', title: '15% Rabatt auf mono', desc: 'mono ist im Early Release — sichern Sie sich 15% Rabatt als Early Bird. Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Promo-Code mit Download-Links.', submit: 'Rabatt senden', sending: 'Wird gesendet...', sent: 'Gesendet! Prufen Sie Ihren Posteingang.', fallback: 'E-Mail konnte nicht gesendet werden, aber hier ist Ihr Code:', code_note: '15% Rabatt — beim Checkout eingeben', buy: 'Kaufen — 42,50$' },
+            zh: { btn: 'Early bird: 85折', title: 'mono 85折优惠', desc: 'mono 处于早期发布阶段——作为早期用户享受85折优惠。输入您的邮箱，我们将发送优惠码和下载链接。', submit: '发送优惠码', sending: '发送中...', sent: '已发送！请查收邮箱。', fallback: '邮件发送失败，但这是您的优惠码：', code_note: '85折——在结账时输入', buy: '购买 — $42.50' },
+            ru: { btn: 'Early bird: скидка 15%', title: 'Скидка 15% на mono', desc: 'mono в раннем доступе — получите скидку 15% как ранний пользователь. Введите email, и мы отправим промокод со ссылками для скачивания.', submit: 'Отправить скидку', sending: 'Отправка...', sent: 'Отправлено! Проверьте почту.', fallback: 'Не удалось отправить email, но вот ваш код:', code_note: 'Скидка 15% — введите при оплате', buy: 'Купить — $42.50' }
+        };
+    }
+
+    _getT(lang) {
+        return this._t[lang] || this._t.en;
+    }
+
+    _applyLang(lang) {
+        var t = this._getT(lang);
+        var s = this.shadowRoot;
+        s.getElementById('btn').textContent = t.btn;
+        s.getElementById('title').textContent = t.title;
+        s.getElementById('desc').textContent = t.desc;
+        s.getElementById('submit').textContent = t.submit;
     }
 
     connectedCallback() {
@@ -170,8 +191,8 @@ class DiscountFloat extends HTMLElement {
         <div class="overlay" id="overlay">
             <div class="popup">
                 <button class="close" id="close">&times;</button>
-                <h3 class="title">Get 15% off mono</h3>
-                <p class="desc">mono is in early release — grab 15% off as an early bird. Enter your email and we'll send you a promo code with download links.</p>
+                <h3 class="title" id="title">Get 15% off mono</h3>
+                <p class="desc" id="desc">mono is in early release — grab 15% off as an early bird. Enter your email and we'll send you a promo code with download links.</p>
                 <form id="form">
                     <input type="email" class="email" id="email" placeholder="your@email.com" required autocomplete="email">
                     <button type="submit" class="submit" id="submit">Send my discount</button>
@@ -188,6 +209,15 @@ class DiscountFloat extends HTMLElement {
         const email = this.shadowRoot.getElementById('email');
         const submit = this.shadowRoot.getElementById('submit');
         const status = this.shadowRoot.getElementById('status');
+
+        // Apply saved language
+        var lang = localStorage.getItem('mono-lang') || 'en';
+        this._applyLang(lang);
+
+        // Listen for language changes from nav
+        document.addEventListener('language-change', (e) => {
+            this._applyLang(e.detail.language);
+        });
 
         // Hide if already dismissed this session
         if (sessionStorage.getItem('df_dismissed')) {
@@ -207,17 +237,19 @@ class DiscountFloat extends HTMLElement {
             if (e.target === overlay) overlay.classList.remove('active');
         });
 
+        var self = this;
         const showFallback = () => {
+            var t = self._getT(localStorage.getItem('mono-lang') || 'en');
             form.style.display = 'none';
             status.innerHTML =
                 '<div style="margin-top:4px">' +
-                '<p style="font-size:12px;color:var(--df-text-sec);margin-bottom:12px">Couldn\'t send email, but here\'s your code:</p>' +
+                '<p style="font-size:12px;color:var(--df-text-sec);margin-bottom:12px">' + t.fallback + '</p>' +
                 '<div style="background:var(--df-bg-primary);border-radius:8px;padding:14px;margin-bottom:14px">' +
                 '<p style="font-size:24px;font-weight:700;letter-spacing:0.02em;margin:0">MONOWELCOME</p>' +
-                '<p style="font-size:11px;color:var(--df-text-sec);margin:4px 0 0">15% off — enter at checkout</p>' +
+                '<p style="font-size:11px;color:var(--df-text-sec);margin:4px 0 0">' + t.code_note + '</p>' +
                 '</div>' +
                 '<a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO?discount=MONOWELCOME" ' +
-                'style="display:inline-block;padding:12px 24px;background:var(--df-text);color:var(--df-bg-primary);border-radius:8px;text-decoration:none;font-family:Comfortaa,sans-serif;font-size:14px;font-weight:500" target="_blank">Buy — $42.50</a>' +
+                'style="display:inline-block;padding:12px 24px;background:var(--df-text);color:var(--df-bg-primary);border-radius:8px;text-decoration:none;font-family:Comfortaa,sans-serif;font-size:14px;font-weight:500" target="_blank">' + t.buy + '</a>' +
                 '</div>';
             if (typeof gtag === 'function') gtag('event', 'email_captured', { event_category: 'discount', event_label: 'float_discount_fallback' });
             if (typeof ma === 'function') ma('email_captured', { label: 'float_discount_fallback' });
@@ -228,8 +260,9 @@ class DiscountFloat extends HTMLElement {
             const val = email.value.trim();
             if (!val) return;
 
+            var t = self._getT(localStorage.getItem('mono-lang') || 'en');
             submit.disabled = true;
-            status.textContent = 'Sending...';
+            status.textContent = t.sending;
 
             try {
                 const r = await fetch('https://t.mono-ai.uk/api/send-discount', {
@@ -239,7 +272,7 @@ class DiscountFloat extends HTMLElement {
                 });
                 const data = await r.json();
                 if (data.ok) {
-                    status.textContent = 'Sent! Check your inbox.';
+                    status.textContent = t.sent;
                     email.value = '';
                     if (typeof gtag === 'function') gtag('event', 'email_captured', { event_category: 'discount', event_label: 'float_discount' });
                     if (typeof ma === 'function') ma('email_captured', { label: 'float_discount' });
