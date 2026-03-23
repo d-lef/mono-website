@@ -227,6 +227,7 @@ class DiscountFloat extends HTMLElement {
         btn.addEventListener('click', () => {
             overlay.classList.add('active');
             email.focus();
+            if (typeof ym === 'function') ym(108199724, 'reachGoal', 'discount_float_click');
         });
 
         close.addEventListener('click', () => {
@@ -253,6 +254,7 @@ class DiscountFloat extends HTMLElement {
                 '</div>';
             if (typeof gtag === 'function') gtag('event', 'email_captured', { event_category: 'discount', event_label: 'float_discount_fallback' });
             if (typeof ma === 'function') ma('email_captured', { label: 'float_discount_fallback' });
+            if (typeof ym === 'function') ym(108199724, 'reachGoal', 'discount_email_fallback');
         };
 
         form.addEventListener('submit', async (e) => {
@@ -276,6 +278,7 @@ class DiscountFloat extends HTMLElement {
                     email.value = '';
                     if (typeof gtag === 'function') gtag('event', 'email_captured', { event_category: 'discount', event_label: 'float_discount' });
                     if (typeof ma === 'function') ma('email_captured', { label: 'float_discount' });
+                    if (typeof ym === 'function') ym(108199724, 'reachGoal', 'discount_email_captured');
                     btn.classList.add('hidden');
                     sessionStorage.setItem('df_dismissed', '1');
                     setTimeout(() => overlay.classList.remove('active'), 2000);
