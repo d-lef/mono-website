@@ -1021,6 +1021,7 @@
         /* Show mobile discount, hide download buttons and buy notes on mobile */
         @media (max-width: 768px) {
             .mobile-discount { display: flex; }
+            .mobile-discount .demo-button { margin-top: 4px; }
             .download-buttons { display: none !important; }
             .buy-notes { display: none; }
             .discount-button { background-color: var(--bg-primary); }
@@ -1125,6 +1126,16 @@
             <div class="mobile-discount" id="mobileDiscount">
                 <button class="discount-button" id="discountBtn">Get 15% off</button>
                 <p class="discount-sub">Mono is a desktop app — we'll email you the discount & download links</p>
+                <a href="https://www.youtube.com/watch?v=Imy_H4gUr8I"
+                   class="demo-button"
+                   id="demoButtonMobile"
+                   target="_blank"
+                   rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <span id="demoButtonTextMobile">Watch demo</span>
+                </a>
             </div>
 
             <!-- Free download buttons (hidden on mobile) -->
@@ -1650,6 +1661,8 @@
         const tagline2b = taglines2[1];
         const compareTable = group3.querySelector('.compare-table');
         const demoButtonText = document.getElementById('demoButtonText');
+        const demoButtonMobile = document.getElementById('demoButtonMobile');
+        const demoButtonTextMobile = document.getElementById('demoButtonTextMobile');
         const privacyLink = document.querySelector('.privacy-link');
         const downloadLabel = document.getElementById('downloadLabel');
         const downloadWindows = document.getElementById('downloadWindows').querySelector('span');
@@ -1690,6 +1703,8 @@
             const videoId = t.video || translations.en.video;
             demoButton.href = `https://www.youtube.com/watch?v=${videoId}`;
             demoButtonText.textContent = t.watchDemo || 'Watch demo';
+            demoButtonMobile.href = `https://www.youtube.com/watch?v=${videoId}`;
+            demoButtonTextMobile.textContent = t.watchDemo || 'Watch demo';
 
             // Update buy button text
             buyText.innerHTML = t.buyText;
