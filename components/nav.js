@@ -386,10 +386,21 @@ class SiteNav extends HTMLElement {
             });
         });
 
-        // Restore saved language on load
+        // Restore saved language or detect from browser
         const savedLang = localStorage.getItem('mono-lang');
-        if (savedLang && savedLang !== 'en') {
-            setLanguage(savedLang, false);
+        if (savedLang) {
+            // User has explicitly chosen a language before
+            if (savedLang !== 'en') {
+                setLanguage(savedLang, false);
+            }
+        } else {
+            // First visit: detect browser language
+            const supportedLangs = ['en', 'es', 'fr', 'de', 'zh', 'ru'];
+            const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0, 2);
+            const detectedLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+            if (detectedLang !== 'en') {
+                setLanguage(detectedLang, true); // Save it so we remember
+            }
         }
     }
 }
