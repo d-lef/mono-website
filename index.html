@@ -529,6 +529,17 @@
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
+        /* Position arrow below table on state 3 */
+        body.state-3 .scroll-indicator {
+            bottom: 8%;
+        }
+
+        @media (max-width: 768px) {
+            body.state-3 .scroll-indicator {
+                bottom: 12%;
+            }
+        }
+
 
         /* Logo group - container for logo and subtitle */
         .logo-group {
@@ -1310,6 +1321,7 @@
                 scrollIndicator.classList.add('visible');
                 logoGroup.classList.remove('hidden', 'at-top');
             } else if (currentState === 1) {
+                scrollIndicator.classList.add('visible');
                 group1.classList.add('visible');
                 if (mobile) {
                     logoGroup.classList.add('hidden');
@@ -1318,6 +1330,7 @@
                     logoGroup.classList.add('at-top');
                 }
             } else if (currentState === 2) {
+                scrollIndicator.classList.add('visible');
                 group2.classList.add('visible');
                 if (mobile) {
                     logoGroup.classList.add('hidden');
@@ -1326,6 +1339,7 @@
                     logoGroup.classList.add('at-top');
                 }
             } else if (currentState === 3) {
+                scrollIndicator.classList.add('visible');
                 group3.classList.add('visible');
                 if (mobile) {
                     logoGroup.classList.add('hidden');
