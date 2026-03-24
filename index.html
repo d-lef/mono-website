@@ -531,13 +531,19 @@
 
         /* Position arrow below table on state 3 */
         body.state-3 .scroll-indicator {
-            bottom: 8%;
+            bottom: 15%;
         }
 
         @media (max-width: 768px) {
             body.state-3 .scroll-indicator {
-                bottom: 12%;
+                bottom: 18%;
             }
+        }
+
+        /* Hide arrow on buy screen with smooth fade */
+        body.state-4 .scroll-indicator {
+            opacity: 0 !important;
+            pointer-events: none;
         }
 
 
@@ -780,8 +786,7 @@
         .privacy-link {
             position: fixed;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 20px;
             z-index: 100;
             font-size: 11px;
             color: var(--text-secondary);
