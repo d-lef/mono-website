@@ -68,22 +68,22 @@
         {
           "@type": "Question",
           "name": "Can you record a Teams meeting without everyone knowing?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Tools like Mono record Microsoft Teams by capturing system audio locally — no bot joins and no recording notification appears to other participants. Teams' built-in recording shows a notification to all participants." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Tools like mono record Microsoft Teams by capturing system audio locally — no bot joins and no recording notification appears to other participants. Teams' built-in recording shows a notification to all participants." }
         },
         {
           "@type": "Question",
           "name": "How do I record a Teams meeting without a bot?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Use Mono or OBS Studio to capture system audio directly from your computer. These tools don't join the meeting as a participant, so there's no visible bot." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Use mono or OBS Studio to capture system audio directly from your computer. These tools don't join the meeting as a participant, so there's no visible bot." }
         },
         {
           "@type": "Question",
           "name": "Does Microsoft Teams have built-in recording?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, but Teams' built-in recording notifies all participants and requires Microsoft 365 Business or Enterprise licenses for most features. Recordings are stored in OneDrive or SharePoint. Third-party tools like Mono can record without these limitations." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, but Teams' built-in recording notifies all participants and requires Microsoft 365 Business or Enterprise licenses for most features. Recordings are stored in OneDrive or SharePoint. Third-party tools like mono can record without these limitations." }
         },
         {
           "@type": "Question",
           "name": "Where are Teams meeting recordings saved?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Teams built-in recordings are saved to OneDrive (for non-channel meetings) or SharePoint (for channel meetings). Third-party tools like Mono save recordings locally on your computer." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Teams built-in recordings are saved to OneDrive (for non-channel meetings) or SharePoint (for channel meetings). Third-party tools like mono save recordings locally on your computer." }
         }
       ]
     }
@@ -172,7 +172,7 @@
             <span class="article-category" data-i18n="category">[Guide]</span>
             <h1 class="article-title" data-i18n="title">How to Record Microsoft Teams Meetings</h1>
             <p class="article-meta" data-i18n="meta">Mar 18, 2026 · 8 min read · By Daniil Lefanov</p>
-            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
         </header>
 
         <div class="article-body">
@@ -180,7 +180,7 @@
             <div class="tldr">
                 <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
                 <ul>
-                    <li data-i18n="tldr_1"><strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once</li>
+                    <li data-i18n="tldr_1"><strong>Best overall:</strong> mono — no bot, local AI transcription, $50 once</li>
                     <li data-i18n="tldr_2"><strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription</li>
                     <li data-i18n="tldr_3"><strong>Built-in (visible):</strong> Teams native recording — notifies all, requires M365 license</li>
                     <li data-i18n="tldr_4"><strong>Bot-based:</strong> Otter.ai, Fireflies, Fathom — visible bot joins meeting</li>
@@ -191,7 +191,7 @@
                 <p class="toc-title" data-i18n="toc_title">In This Guide</p>
                 <ul>
                     <li><a href="#comparison" data-i18n="toc_comparison">Quick Comparison</a></li>
-                    <li><a href="#mono" data-i18n="toc_mono">Method 1: Mono (Recommended)</a></li>
+                    <li><a href="#mono" data-i18n="toc_mono">Method 1: mono (Recommended)</a></li>
                     <li><a href="#obs" data-i18n="toc_obs">Method 2: OBS Studio (Free)</a></li>
                     <li><a href="#builtin" data-i18n="toc_builtin">Method 3: Teams Built-in Recording</a></li>
                     <li><a href="#bots" data-i18n="toc_bots">Method 4: Bot-Based Recorders</a></li>
@@ -216,7 +216,7 @@
                     </thead>
                     <tbody>
                         <tr class="mono-row">
-                            <td>Mono</td>
+                            <td>mono</td>
                             <td data-i18n="price_mono">$50 once</td>
                             <td data-i18n="no">No</td>
                             <td data-i18n="yes_local">Yes (local)</td>
@@ -243,32 +243,32 @@
                 </table>
             </div>
 
-            <h2 id="mono" data-i18n="h2_method1">Method 1: Mono (Recommended)</h2>
+            <h2 id="mono" data-i18n="h2_method1">Method 1: mono (Recommended)</h2>
 
-            <p data-i18n="method1_p1">Mono records Teams by capturing audio directly from your computer's sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you don't have admin permissions or want to keep notes private.</p>
+            <p data-i18n="method1_p1">mono records Teams by capturing audio directly from your computer's sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you don't have admin permissions or want to keep notes private.</p>
 
-            <p data-i18n="method1_p2">After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript.</p>
+            <p data-i18n="method1_p2">After you stop recording, mono transcribes the conversation locally using AI that runs entirely on your computer. It then generates a summary, extracts action items, and lets you chat with an AI about the meeting — all processed locally, nothing uploaded.</p>
 
-            <h3 data-i18n="h3_mono_steps">How to record Teams with Mono</h3>
+            <h3 data-i18n="h3_mono_steps">How to record Teams with mono</h3>
 
             <ol class="steps-list">
-                <li data-i18n="mono_step1">Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li data-i18n="mono_step2">Open Mono and click the Record button to begin recording</li>
+                <li data-i18n="mono_step1">Download mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li data-i18n="mono_step2">Open mono and click the Record button to begin recording</li>
                 <li data-i18n="mono_step3">Join your Microsoft Teams meeting normally</li>
                 <li data-i18n="mono_step4">Participate in the meeting as usual</li>
-                <li data-i18n="mono_step5">When the meeting ends, click Stop in Mono</li>
+                <li data-i18n="mono_step5">When the meeting ends, click Stop in mono</li>
                 <li data-i18n="mono_step6">Wait for the automatic transcription to complete</li>
-                <li data-i18n="mono_step7">Review your transcript with speaker labels and timestamps</li>
+                <li data-i18n="mono_step7">Review your transcript, summary, and action items</li>
             </ol>
 
             <figure class="article-figure">
-                <img src="images/ms-teams-mono-how-to-start-recording.png" alt="Recording a Microsoft Teams meeting with Mono - click the record button to start" loading="lazy">
-                <figcaption>Click the Record button in Mono to start recording your Teams meeting</figcaption>
+                <img src="images/ms-teams-mono-how-to-start-recording.png" alt="Recording a Microsoft Teams meeting with mono - click the record button to start" loading="lazy">
+                <figcaption>Click the Record button in mono to start recording your Teams meeting</figcaption>
             </figure>
 
-            <p data-i18n="method1_p3">Mono works with both the Teams desktop app and Teams in a browser. It captures everything playing through your speakers or headphones, so you'll get all participants' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or action items.</p>
+            <p data-i18n="method1_p3">mono works with both the Teams desktop app and Teams in a browser. It captures everything playing through your speakers or headphones, so you'll get all participants' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or action items.</p>
 
-            <p data-i18n="mono_pros"><strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with speaker identification, works without admin permissions, searchable recordings, one-time $50 payment with no subscription.</p>
+            <p data-i18n="mono_pros"><strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with summaries and action items, AI chat about your meetings, works without admin permissions, searchable recordings, one-time $50 payment.</p>
 
             <p data-i18n="mono_cons"><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
 
@@ -344,7 +344,7 @@
 
             <p data-i18n="copilot_p2"><strong>Key difference:</strong> Copilot generates summaries from Teams' built-in transcription, while third-party bots (Otter.ai, Fireflies) join your meeting as participants. Starting May 2026, Microsoft is restricting third-party bots from accessing Teams meetings via their API, pushing organizations toward native tools.</p>
 
-            <p data-i18n="copilot_p3"><strong>Why this matters:</strong> If you rely on bot-based recorders, you may lose access when Microsoft enforces these restrictions. Local recording tools like Mono work independently of Microsoft's API — they capture your system audio directly, so they'll continue working regardless of policy changes.</p>
+            <p data-i18n="copilot_p3"><strong>Why this matters:</strong> If you rely on bot-based recorders, you may lose access when Microsoft enforces these restrictions. Local recording tools like mono work independently of Microsoft's API — they capture your system audio directly, so they'll continue working regardless of policy changes.</p>
 
             <div class="table-wrap">
                 <table class="compare-table">
@@ -354,7 +354,7 @@
                             <th data-i18n="copilot_th_builtin">Teams Built-in</th>
                             <th data-i18n="copilot_th_copilot">+ Copilot</th>
                             <th data-i18n="copilot_th_bots">Third-Party Bots</th>
-                            <th data-i18n="copilot_th_local">Local (Mono)</th>
+                            <th data-i18n="copilot_th_local">Local (mono)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -425,7 +425,7 @@
 
             <p data-i18n="troubleshoot_quality"><strong>Poor audio quality in recording:</strong> Teams records exactly what it receives. If participants have poor connections or use laptop speakers instead of headphones, the recording will reflect that. For important meetings, ask participants to use headsets and stable internet connections.</p>
 
-            <p data-i18n="troubleshoot_bypass"><strong>Need to record without these limitations?</strong> Local tools like Mono bypass Teams' permission system entirely — they capture audio at the system level, so they work regardless of your Teams role, admin policies, or license tier. You'll get a recording even if you're just an attendee with no recording permissions.</p>
+            <p data-i18n="troubleshoot_bypass"><strong>Need to record without these limitations?</strong> Local tools like mono bypass Teams' permission system entirely — they capture audio at the system level, so they work regardless of your Teams role, admin policies, or license tier. You'll get a recording even if you're just an attendee with no recording permissions.</p>
 
             <h2 id="permissions" data-i18n="h2_permissions">Teams Recording Permissions</h2>
 
@@ -435,7 +435,7 @@
 
             <p data-i18n="permissions_p3"><strong>Presenters:</strong> Can record if the organizer grants permission or if admin policy allows.</p>
 
-            <p data-i18n="permissions_p4"><strong>Attendees:</strong> Cannot use built-in recording, but can use third-party tools like Mono or OBS.</p>
+            <p data-i18n="permissions_p4"><strong>Attendees:</strong> Cannot use built-in recording, but can use third-party tools like mono or OBS.</p>
 
             <p data-i18n="permissions_p5"><strong>External guests:</strong> Cannot use built-in recording. Third-party tools work regardless of your role in the meeting.</p>
 
@@ -443,7 +443,7 @@
 
             <p data-i18n="video_audio_p1">Teams meetings include video, but you don't always need video recording:</p>
 
-            <p data-i18n="video_audio_p2"><strong>Audio-only (Mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.</p>
+            <p data-i18n="video_audio_p2"><strong>Audio-only (mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.</p>
 
             <p data-i18n="video_audio_p3"><strong>Full video recording (OBS/Teams built-in):</strong> Captures video of participants or shared screens. Useful for training sessions, presentations with visual content, or when you need to reference what was shown. Files are much larger.</p>
 
@@ -471,7 +471,7 @@
 
             <h2 data-i18n="h2_which">Which Method Should You Use?</h2>
 
-            <p data-i18n="which_p1"><strong>Need transcription without a bot?</strong> Mono records locally and transcribes automatically without anyone knowing. Best for personal notes, sales calls, or when you don't have recording permissions.</p>
+            <p data-i18n="which_p1"><strong>Need transcription without a bot?</strong> mono records locally and transcribes automatically without anyone knowing. Best for personal notes, sales calls, or when you don't have recording permissions.</p>
 
             <p data-i18n="which_p2"><strong>Want free and don't need transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.</p>
 
@@ -479,7 +479,7 @@
 
             <p data-i18n="which_p4"><strong>Team with CRM integration needs?</strong> Bot-based tools like Fathom or Otter.ai offer team features and integrations, but everyone sees the bot and your audio goes to their servers.</p>
 
-            <p data-i18n="which_p5"><strong>Recording as a guest or external participant?</strong> Mono or OBS are your only options — Teams built-in recording isn't available to external users.</p>
+            <p data-i18n="which_p5"><strong>Recording as a guest or external participant?</strong> mono or OBS are your only options — Teams built-in recording isn't available to external users.</p>
 
             <cta-card base-path="../"></cta-card>
 
@@ -515,9 +515,9 @@ const translations = {
         'category': '[Guide]',
         'title': 'How to Record Microsoft Teams Meetings',
         'meta': 'Mar 18, 2026 · 8 min read · By Daniil Lefanov',
-        'disclosure': 'Disclosure: Mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+        'disclosure': 'Disclosure: mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
         'tldr_label': 'TL;DR',
-        'tldr_1': '<strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once',
+        'tldr_1': '<strong>Best overall:</strong> mono — no bot, local AI transcription, $50 once',
         'tldr_2': '<strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription',
         'tldr_3': '<strong>Built-in (visible):</strong> Teams native recording — notifies all, requires M365 license',
         'tldr_4': '<strong>Bot-based:</strong> Otter.ai, Fireflies, Fathom — visible bot joins meeting',
@@ -538,19 +538,19 @@ const translations = {
         'yes_cloud': 'Yes (cloud)',
         'yes_bot_joins': 'Yes (bot joins)',
         'yes_cloud2': 'Yes (cloud)',
-        'h2_method1': 'Method 1: Mono (Recommended)',
-        'method1_p1': 'Mono records Teams by capturing audio directly from your computer\'s sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you don\'t have admin permissions or want to keep notes private.',
-        'method1_p2': 'After you stop recording, Mono transcribes the conversation locally using AI that runs entirely on your computer. The transcription includes speaker identification — Mono detects different voices and labels them throughout the transcript.',
-        'h3_mono_steps': 'How to record Teams with Mono',
-        'mono_step1': 'Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
-        'mono_step2': 'Open Mono and click the Record button to begin recording',
+        'h2_method1': 'Method 1: mono (Recommended)',
+        'method1_p1': 'mono records Teams by capturing audio directly from your computer\'s sound output. No bot joins the meeting, no recording notification appears to other participants, and your audio never leaves your computer. This makes it ideal for recording meetings where you don\'t have admin permissions or want to keep notes private.',
+        'method1_p2': 'After you stop recording, mono transcribes the conversation locally using AI that runs entirely on your computer. It then generates a summary, extracts action items, and lets you chat with an AI about the meeting — all processed locally, nothing uploaded.',
+        'h3_mono_steps': 'How to record Teams with mono',
+        'mono_step1': 'Download mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
+        'mono_step2': 'Open mono and click the Record button to begin recording',
         'mono_step3': 'Join your Microsoft Teams meeting normally',
         'mono_step4': 'Participate in the meeting as usual',
-        'mono_step5': 'When the meeting ends, click Stop in Mono',
+        'mono_step5': 'When the meeting ends, click Stop in mono',
         'mono_step6': 'Wait for the automatic transcription to complete',
-        'mono_step7': 'Review your transcript with speaker labels and timestamps',
-        'method1_p3': 'Mono works with both the Teams desktop app and Teams in a browser. It captures everything playing through your speakers or headphones, so you\'ll get all participants\' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or action items.',
-        'mono_pros': '<strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with speaker identification, works without admin permissions, searchable recordings, one-time $50 payment with no subscription.',
+        'mono_step7': 'Review your transcript, summary, and action items',
+        'method1_p3': 'mono works with both the Teams desktop app and Teams in a browser. It captures everything playing through your speakers or headphones, so you\'ll get all participants\' audio in high quality. You can search across all your recordings by keyword, making it easy to find specific discussions or action items.',
+        'mono_pros': '<strong>Pros:</strong> No bot visible, no participant notification, local AI transcription with summaries and action items, AI chat about your meetings, works without admin permissions, searchable recordings, one-time $50 payment.',
         'mono_cons': '<strong>Cons:</strong> Paid software (one free recording available to try before purchasing).',
         'h2_method2': 'Method 2: OBS Studio (Free)',
         'method2_p1': 'OBS Studio is a free, open-source screen recorder that can capture system audio and optionally your screen. It doesn\'t join the Teams meeting as a participant, so it\'s completely invisible to others. OBS is popular with streamers but works just as well for recording Teams calls.',
@@ -589,11 +589,11 @@ const translations = {
         'permissions_p1': 'Microsoft Teams has specific policies about who can record:',
         'permissions_p2': '<strong>Organizers and co-organizers:</strong> Can always start recording if enabled by admin.',
         'permissions_p3': '<strong>Presenters:</strong> Can record if the organizer grants permission or if admin policy allows.',
-        'permissions_p4': '<strong>Attendees:</strong> Cannot use built-in recording, but can use third-party tools like Mono or OBS.',
+        'permissions_p4': '<strong>Attendees:</strong> Cannot use built-in recording, but can use third-party tools like mono or OBS.',
         'permissions_p5': '<strong>External guests:</strong> Cannot use built-in recording. Third-party tools work regardless of your role in the meeting.',
         'h2_video_vs_audio': 'Recording Video vs Audio Only',
         'video_audio_p1': 'Teams meetings include video, but you don\'t always need video recording:',
-        'video_audio_p2': '<strong>Audio-only (Mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.',
+        'video_audio_p2': '<strong>Audio-only (mono):</strong> Captures the conversation with automatic transcription. Often sufficient since most recordings are for documentation, not visual reference. Files are small and searchable.',
         'video_audio_p3': '<strong>Full video recording (OBS/Teams built-in):</strong> Captures video of participants or shared screens. Useful for training sessions, presentations with visual content, or when you need to reference what was shown. Files are much larger.',
         'h2_legal': 'Legal Considerations',
         'legal_p1': 'Before recording Teams meetings, understand the legal requirements:',
@@ -606,11 +606,11 @@ const translations = {
         'tips_connection': '<strong>Stable connection:</strong> Poor internet affects Teams audio quality, which affects recording quality. Use a wired connection for important meetings when possible.',
         'tips_browser': '<strong>Desktop app vs browser:</strong> Both work with third-party recording tools. The desktop app typically has better audio quality and lower latency.',
         'h2_which': 'Which Method Should You Use?',
-        'which_p1': '<strong>Need transcription without a bot?</strong> Mono records locally and transcribes automatically without anyone knowing. Best for personal notes, sales calls, or when you don\'t have recording permissions.',
+        'which_p1': '<strong>Need transcription without a bot?</strong> mono records locally and transcribes automatically without anyone knowing. Best for personal notes, sales calls, or when you don\'t have recording permissions.',
         'which_p2': '<strong>Want free and don\'t need transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.',
         'which_p3': '<strong>Have M365 license and transparency is fine?</strong> Teams\' built-in recording is simplest if you\'re the organizer and everyone expects recording.',
         'which_p4': '<strong>Team with CRM integration needs?</strong> Bot-based tools like Fathom or Otter.ai offer team features and integrations, but everyone sees the bot and your audio goes to their servers.',
-        'which_p5': '<strong>Recording as a guest or external participant?</strong> Mono or OBS are your only options — Teams built-in recording isn\'t available to external users.',
+        'which_p5': '<strong>Recording as a guest or external participant?</strong> mono or OBS are your only options — Teams built-in recording isn\'t available to external users.',
         'related_title': 'Related Guides',
         'related_zoom_title': 'How to Record Zoom Calls',
         'related_zoom_desc': '4 ways to record Zoom meetings without a bot joining.',
@@ -622,7 +622,7 @@ const translations = {
         'related_lawsuits_desc': 'Why AI meeting bots are facing legal challenges in 2026.',
         'toc_title': 'In This Guide',
         'toc_comparison': 'Quick Comparison',
-        'toc_mono': 'Method 1: Mono (Recommended)',
+        'toc_mono': 'Method 1: mono (Recommended)',
         'toc_obs': 'Method 2: OBS Studio (Free)',
         'toc_builtin': 'Method 3: Teams Built-in Recording',
         'toc_bots': 'Method 4: Bot-Based Recorders',
@@ -633,12 +633,12 @@ const translations = {
         'h2_copilot': 'Teams vs Copilot vs Third-Party Tools',
         'copilot_p1': 'Microsoft\'s Copilot in Teams (part of the $30/month Copilot for Microsoft 365 add-on) provides AI meeting summaries, action items, and real-time transcription. However, Copilot doesn\'t replace meeting recording — it augments it. You still need Teams recording enabled to capture the full meeting.',
         'copilot_p2': '<strong>Key difference:</strong> Copilot generates summaries from Teams\' built-in transcription, while third-party bots (Otter.ai, Fireflies) join your meeting as participants. Starting May 2026, Microsoft is restricting third-party bots from accessing Teams meetings via their API, pushing organizations toward native tools.',
-        'copilot_p3': '<strong>Why this matters:</strong> If you rely on bot-based recorders, you may lose access when Microsoft enforces these restrictions. Local recording tools like Mono work independently of Microsoft\'s API — they capture your system audio directly, so they\'ll continue working regardless of policy changes.',
+        'copilot_p3': '<strong>Why this matters:</strong> If you rely on bot-based recorders, you may lose access when Microsoft enforces these restrictions. Local recording tools like mono work independently of Microsoft\'s API — they capture your system audio directly, so they\'ll continue working regardless of policy changes.',
         'copilot_th_feature': 'Feature',
         'copilot_th_builtin': 'Teams Built-in',
         'copilot_th_copilot': '+ Copilot',
         'copilot_th_bots': 'Third-Party Bots',
-        'copilot_th_local': 'Local (Mono)',
+        'copilot_th_local': 'Local (mono)',
         'copilot_row1_feature': 'Recording',
         'copilot_row1_builtin': 'Yes (cloud)',
         'copilot_row1_copilot': 'Yes (cloud)',
@@ -681,16 +681,16 @@ const translations = {
         'troubleshoot_transcription': '<strong>Transcription not available:</strong> Transcription requires your admin to enable it in Teams admin center, and it\'s only available in certain languages. Go to Settings → Captions and transcripts to check if it\'s enabled for your account.',
         'troubleshoot_download': '<strong>Can\'t download the recording:</strong> After a meeting ends, recordings take time to process (typically 5-30 minutes). If it\'s been over an hour, try signing out and back into Teams. Also check the meeting chat or SharePoint/OneDrive — recordings appear in different locations depending on meeting type.',
         'troubleshoot_quality': '<strong>Poor audio quality in recording:</strong> Teams records exactly what it receives. If participants have poor connections or use laptop speakers instead of headphones, the recording will reflect that. For important meetings, ask participants to use headsets and stable internet connections.',
-        'troubleshoot_bypass': '<strong>Need to record without these limitations?</strong> Local tools like Mono bypass Teams\' permission system entirely — they capture audio at the system level, so they work regardless of your Teams role, admin policies, or license tier. You\'ll get a recording even if you\'re just an attendee with no recording permissions.'
+        'troubleshoot_bypass': '<strong>Need to record without these limitations?</strong> Local tools like mono bypass Teams\' permission system entirely — they capture audio at the system level, so they work regardless of your Teams role, admin policies, or license tier. You\'ll get a recording even if you\'re just an attendee with no recording permissions.'
     },
     es: {
         'back_link': '← blog',
         'category': '[Guía]',
         'title': 'Cómo grabar reuniones de Microsoft Teams',
         'meta': '18 mar 2026 · 8 min de lectura · Por Daniil Lefanov',
-        'disclosure': 'Aviso: Mono es nuestro producto. Lo hemos incluido en esta guía e intentamos ser justos, pero debes saber que tenemos interés en él.',
+        'disclosure': 'Aviso: mono es nuestro producto. Lo hemos incluido en esta guía e intentamos ser justos, pero debes saber que tenemos interés en él.',
         'tldr_label': 'Resumen',
-        'tldr_1': '<strong>Mejor opción general:</strong> Mono — sin bot, transcripción de IA local, $50 una vez',
+        'tldr_1': '<strong>Mejor opción general:</strong> mono — sin bot, transcripción de IA local, $50 una vez',
         'tldr_2': '<strong>Mejor opción gratuita:</strong> OBS Studio — sin bot, requiere configuración, sin transcripción',
         'tldr_3': '<strong>Integrado (visible):</strong> Grabación nativa de Teams — notifica a todos, requiere licencia M365',
         'tldr_4': '<strong>Basado en bot:</strong> Otter.ai, Fireflies, Fathom — bot visible se une a la reunión',
@@ -711,18 +711,18 @@ const translations = {
         'yes_cloud': 'Sí (nube)',
         'yes_bot_joins': 'Sí (bot se une)',
         'yes_cloud2': 'Sí (nube)',
-        'h2_method1': 'Método 1: Mono (Recomendado)',
-        'method1_p1': 'Mono graba Teams capturando audio directamente de la salida de sonido de tu computadora. Ningún bot se une a la reunión, no aparece notificación de grabación para otros participantes, y tu audio nunca sale de tu computadora. Esto lo hace ideal para grabar reuniones donde no tienes permisos de administrador o quieres mantener tus notas privadas.',
-        'method1_p2': 'Después de que detienes la grabación, Mono transcribe la conversación localmente usando IA que se ejecuta completamente en tu computadora. La transcripción incluye identificación de hablantes — Mono detecta diferentes voces y las etiqueta a lo largo de la transcripción.',
-        'h3_mono_steps': 'Cómo grabar Teams con Mono',
-        'mono_step1': 'Descarga Mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instálalo',
-        'mono_step2': 'Abre Mono y haz clic en el botón Grabar para comenzar la grabación',
+        'h2_method1': 'Método 1: mono (Recomendado)',
+        'method1_p1': 'mono graba Teams capturando audio directamente de la salida de sonido de tu computadora. Ningún bot se une a la reunión, no aparece notificación de grabación para otros participantes, y tu audio nunca sale de tu computadora. Esto lo hace ideal para grabar reuniones donde no tienes permisos de administrador o quieres mantener tus notas privadas.',
+        'method1_p2': 'Después de que detienes la grabación, mono transcribe la conversación localmente usando IA que se ejecuta completamente en tu computadora. La transcripción incluye identificación de hablantes — mono detecta diferentes voces y las etiqueta a lo largo de la transcripción.',
+        'h3_mono_steps': 'Cómo grabar Teams con mono',
+        'mono_step1': 'Descarga mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instálalo',
+        'mono_step2': 'Abre mono y haz clic en el botón Grabar para comenzar la grabación',
         'mono_step3': 'Únete a tu reunión de Microsoft Teams normalmente',
         'mono_step4': 'Participa en la reunión como de costumbre',
-        'mono_step5': 'Cuando la reunión termine, haz clic en Detener en Mono',
+        'mono_step5': 'Cuando la reunión termine, haz clic en Detener en mono',
         'mono_step6': 'Espera a que la transcripción automática se complete',
         'mono_step7': 'Revisa tu transcripción con etiquetas de hablante y marcas de tiempo',
-        'method1_p3': 'Mono funciona tanto con la aplicación de escritorio de Teams como con Teams en el navegador. Captura todo lo que se reproduce a través de tus altavoces o auriculares, así que obtendrás el audio de todos los participantes en alta calidad. Puedes buscar en todas tus grabaciones por palabra clave, facilitando encontrar discusiones o tareas específicas.',
+        'method1_p3': 'mono funciona tanto con la aplicación de escritorio de Teams como con Teams en el navegador. Captura todo lo que se reproduce a través de tus altavoces o auriculares, así que obtendrás el audio de todos los participantes en alta calidad. Puedes buscar en todas tus grabaciones por palabra clave, facilitando encontrar discusiones o tareas específicas.',
         'mono_pros': '<strong>Pros:</strong> Sin bot visible, sin notificación a participantes, transcripción de IA local con identificación de hablantes, funciona sin permisos de administrador, grabaciones con búsqueda, pago único de $50 sin suscripción.',
         'mono_cons': '<strong>Contras:</strong> Software de pago (una grabación gratuita disponible para probar antes de comprar).',
         'h2_method2': 'Método 2: OBS Studio (Gratis)',
@@ -762,11 +762,11 @@ const translations = {
         'permissions_p1': 'Microsoft Teams tiene políticas específicas sobre quién puede grabar:',
         'permissions_p2': '<strong>Organizadores y coorganizadores:</strong> Siempre pueden iniciar la grabación si está habilitada por el administrador.',
         'permissions_p3': '<strong>Presentadores:</strong> Pueden grabar si el organizador otorga permiso o si la política del administrador lo permite.',
-        'permissions_p4': '<strong>Asistentes:</strong> No pueden usar la grabación integrada, pero pueden usar herramientas de terceros como Mono u OBS.',
+        'permissions_p4': '<strong>Asistentes:</strong> No pueden usar la grabación integrada, pero pueden usar herramientas de terceros como mono u OBS.',
         'permissions_p5': '<strong>Invitados externos:</strong> No pueden usar la grabación integrada. Las herramientas de terceros funcionan independientemente de tu rol en la reunión.',
         'h2_video_vs_audio': 'Grabación de video vs solo audio',
         'video_audio_p1': 'Las reuniones de Teams incluyen video, pero no siempre necesitas grabación de video:',
-        'video_audio_p2': '<strong>Solo audio (Mono):</strong> Captura la conversación con transcripción automática. A menudo suficiente ya que la mayoría de las grabaciones son para documentación, no referencia visual. Los archivos son pequeños y con búsqueda.',
+        'video_audio_p2': '<strong>Solo audio (mono):</strong> Captura la conversación con transcripción automática. A menudo suficiente ya que la mayoría de las grabaciones son para documentación, no referencia visual. Los archivos son pequeños y con búsqueda.',
         'video_audio_p3': '<strong>Grabación de video completa (OBS/Teams integrado):</strong> Captura video de los participantes o pantallas compartidas. Útil para sesiones de capacitación, presentaciones con contenido visual o cuando necesitas referenciar lo que se mostró. Los archivos son mucho más grandes.',
         'h2_legal': 'Consideraciones legales',
         'legal_p1': 'Antes de grabar reuniones de Teams, comprende los requisitos legales:',
@@ -779,11 +779,11 @@ const translations = {
         'tips_connection': '<strong>Conexión estable:</strong> Una mala conexión a internet afecta la calidad del audio de Teams, lo que afecta la calidad de la grabación. Usa una conexión por cable para reuniones importantes cuando sea posible.',
         'tips_browser': '<strong>Aplicación de escritorio vs navegador:</strong> Ambos funcionan con herramientas de grabación de terceros. La aplicación de escritorio generalmente tiene mejor calidad de audio y menor latencia.',
         'h2_which': '¿Qué método deberías usar?',
-        'which_p1': '<strong>¿Necesitas transcripción sin un bot?</strong> Mono graba localmente y transcribe automáticamente sin que nadie lo sepa. Mejor para notas personales, llamadas de ventas o cuando no tienes permisos de grabación.',
+        'which_p1': '<strong>¿Necesitas transcripción sin un bot?</strong> mono graba localmente y transcribe automáticamente sin que nadie lo sepa. Mejor para notas personales, llamadas de ventas o cuando no tienes permisos de grabación.',
         'which_p2': '<strong>¿Quieres gratis y no necesitas transcripción?</strong> OBS Studio es confiable pero requiere configuración y produce archivos sin procesar.',
         'which_p3': '<strong>¿Tienes licencia M365 y la transparencia está bien?</strong> La grabación integrada de Teams es la más simple si eres el organizador y todos esperan la grabación.',
         'which_p4': '<strong>¿Equipo con necesidades de integración CRM?</strong> Herramientas basadas en bot como Fathom u Otter.ai ofrecen funciones de equipo e integraciones, pero todos ven el bot y tu audio va a sus servidores.',
-        'which_p5': '<strong>¿Grabando como invitado o participante externo?</strong> Mono u OBS son tus únicas opciones — la grabación integrada de Teams no está disponible para usuarios externos.',
+        'which_p5': '<strong>¿Grabando como invitado o participante externo?</strong> mono u OBS son tus únicas opciones — la grabación integrada de Teams no está disponible para usuarios externos.',
         'related_title': 'Guías relacionadas',
         'related_zoom_title': 'Cómo grabar llamadas de Zoom',
         'related_zoom_desc': '4 formas de grabar reuniones de Zoom sin que un bot se una.',
@@ -795,7 +795,7 @@ const translations = {
         'related_lawsuits_desc': 'Por qué los bots de grabación de reuniones con IA enfrentan desafíos legales en 2026.',
         'toc_title': 'En esta guía',
         'toc_comparison': 'Comparación rápida',
-        'toc_mono': 'Método 1: Mono (Recomendado)',
+        'toc_mono': 'Método 1: mono (Recomendado)',
         'toc_obs': 'Método 2: OBS Studio (Gratis)',
         'toc_builtin': 'Método 3: Grabación integrada de Teams',
         'toc_bots': 'Método 4: Grabadores basados en bots',
@@ -806,12 +806,12 @@ const translations = {
         'h2_copilot': 'Teams vs Copilot vs herramientas de terceros',
         'copilot_p1': 'Copilot de Microsoft en Teams (parte del complemento Copilot para Microsoft 365 de $30/mes) proporciona resúmenes de reuniones con IA, elementos de acción y transcripción en tiempo real. Sin embargo, Copilot no reemplaza la grabación de reuniones — la complementa. Aún necesitas tener habilitada la grabación de Teams para capturar la reunión completa.',
         'copilot_p2': '<strong>Diferencia clave:</strong> Copilot genera resúmenes a partir de la transcripción integrada de Teams, mientras que los bots de terceros (Otter.ai, Fireflies) se unen a tu reunión como participantes. A partir de mayo de 2026, Microsoft está restringiendo que los bots de terceros accedan a reuniones de Teams a través de su API, empujando a las organizaciones hacia herramientas nativas.',
-        'copilot_p3': '<strong>Por qué esto importa:</strong> Si dependes de grabadores basados en bots, podrías perder el acceso cuando Microsoft aplique estas restricciones. Las herramientas de grabación local como Mono funcionan independientemente de la API de Microsoft — capturan el audio de tu sistema directamente, por lo que seguirán funcionando independientemente de los cambios de política.',
+        'copilot_p3': '<strong>Por qué esto importa:</strong> Si dependes de grabadores basados en bots, podrías perder el acceso cuando Microsoft aplique estas restricciones. Las herramientas de grabación local como mono funcionan independientemente de la API de Microsoft — capturan el audio de tu sistema directamente, por lo que seguirán funcionando independientemente de los cambios de política.',
         'copilot_th_feature': 'Característica',
         'copilot_th_builtin': 'Teams integrado',
         'copilot_th_copilot': '+ Copilot',
         'copilot_th_bots': 'Bots de terceros',
-        'copilot_th_local': 'Local (Mono)',
+        'copilot_th_local': 'Local (mono)',
         'copilot_row1_feature': 'Grabación',
         'copilot_row1_builtin': 'Sí (nube)',
         'copilot_row1_copilot': 'Sí (nube)',
@@ -854,16 +854,16 @@ const translations = {
         'troubleshoot_transcription': '<strong>Transcripción no disponible:</strong> La transcripción requiere que tu administrador la habilite en el centro de administración de Teams, y solo está disponible en ciertos idiomas. Ve a Configuración → Subtítulos y transcripciones para verificar si está habilitada para tu cuenta.',
         'troubleshoot_download': '<strong>No puedes descargar la grabación:</strong> Después de que termina una reunión, las grabaciones tardan en procesarse (típicamente 5-30 minutos). Si ha pasado más de una hora, intenta cerrar sesión y volver a iniciarla en Teams. También verifica el chat de la reunión o SharePoint/OneDrive — las grabaciones aparecen en diferentes ubicaciones según el tipo de reunión.',
         'troubleshoot_quality': '<strong>Mala calidad de audio en la grabación:</strong> Teams graba exactamente lo que recibe. Si los participantes tienen malas conexiones o usan altavoces de laptop en lugar de auriculares, la grabación lo reflejará. Para reuniones importantes, pide a los participantes que usen auriculares y conexiones a internet estables.',
-        'troubleshoot_bypass': '<strong>¿Necesitas grabar sin estas limitaciones?</strong> Las herramientas locales como Mono evitan completamente el sistema de permisos de Teams — capturan audio a nivel del sistema, por lo que funcionan independientemente de tu rol en Teams, políticas de administrador o nivel de licencia. Obtendrás una grabación incluso si eres solo un asistente sin permisos de grabación.'
+        'troubleshoot_bypass': '<strong>¿Necesitas grabar sin estas limitaciones?</strong> Las herramientas locales como mono evitan completamente el sistema de permisos de Teams — capturan audio a nivel del sistema, por lo que funcionan independientemente de tu rol en Teams, políticas de administrador o nivel de licencia. Obtendrás una grabación incluso si eres solo un asistente sin permisos de grabación.'
     },
     fr: {
         'back_link': '← blog',
         'category': '[Guide]',
         'title': 'Comment enregistrer des réunions Microsoft Teams',
         'meta': '18 mars 2026 · 8 min de lecture · Par Daniil Lefanov',
-        'disclosure': 'Avertissement : Mono est notre produit. Nous l\'avons inclus dans ce guide et avons essayé d\'être équitables, mais sachez que nous avons un intérêt dans ce produit.',
+        'disclosure': 'Avertissement : mono est notre produit. Nous l\'avons inclus dans ce guide et avons essayé d\'être équitables, mais sachez que nous avons un intérêt dans ce produit.',
         'tldr_label': 'En bref',
-        'tldr_1': '<strong>Meilleur choix global :</strong> Mono — sans bot, transcription IA locale, 50 $ une fois',
+        'tldr_1': '<strong>Meilleur choix global :</strong> mono — sans bot, transcription IA locale, 50 $ une fois',
         'tldr_2': '<strong>Meilleur choix gratuit :</strong> OBS Studio — sans bot, configuration requise, pas de transcription',
         'tldr_3': '<strong>Intégré (visible) :</strong> Enregistrement natif de Teams — notifie tous les participants, nécessite une licence M365',
         'tldr_4': '<strong>Basé sur bot :</strong> Otter.ai, Fireflies, Fathom — bot visible rejoint la réunion',
@@ -884,18 +884,18 @@ const translations = {
         'yes_cloud': 'Oui (cloud)',
         'yes_bot_joins': 'Oui (bot rejoint)',
         'yes_cloud2': 'Oui (cloud)',
-        'h2_method1': 'Méthode 1 : Mono (Recommandé)',
-        'method1_p1': 'Mono enregistre Teams en capturant l\'audio directement depuis la sortie son de votre ordinateur. Aucun bot ne rejoint la réunion, aucune notification d\'enregistrement n\'apparaît pour les autres participants, et votre audio ne quitte jamais votre ordinateur. C\'est idéal pour enregistrer des réunions où vous n\'avez pas les permissions administrateur ou souhaitez garder vos notes privées.',
-        'method1_p2': 'Après avoir arrêté l\'enregistrement, Mono transcrit la conversation localement en utilisant une IA qui fonctionne entièrement sur votre ordinateur. La transcription inclut l\'identification des intervenants — Mono détecte différentes voix et les étiquette tout au long de la transcription.',
-        'h3_mono_steps': 'Comment enregistrer Teams avec Mono',
-        'mono_step1': 'Téléchargez Mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
-        'mono_step2': 'Ouvrez Mono et cliquez sur le bouton Enregistrer pour commencer l\'enregistrement',
+        'h2_method1': 'Méthode 1 : mono (Recommandé)',
+        'method1_p1': 'mono enregistre Teams en capturant l\'audio directement depuis la sortie son de votre ordinateur. Aucun bot ne rejoint la réunion, aucune notification d\'enregistrement n\'apparaît pour les autres participants, et votre audio ne quitte jamais votre ordinateur. C\'est idéal pour enregistrer des réunions où vous n\'avez pas les permissions administrateur ou souhaitez garder vos notes privées.',
+        'method1_p2': 'Après avoir arrêté l\'enregistrement, mono transcrit la conversation localement en utilisant une IA qui fonctionne entièrement sur votre ordinateur. La transcription inclut l\'identification des intervenants — mono détecte différentes voix et les étiquette tout au long de la transcription.',
+        'h3_mono_steps': 'Comment enregistrer Teams avec mono',
+        'mono_step1': 'Téléchargez mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
+        'mono_step2': 'Ouvrez mono et cliquez sur le bouton Enregistrer pour commencer l\'enregistrement',
         'mono_step3': 'Rejoignez votre réunion Microsoft Teams normalement',
         'mono_step4': 'Participez à la réunion comme d\'habitude',
-        'mono_step5': 'Quand la réunion se termine, cliquez sur Arrêter dans Mono',
+        'mono_step5': 'Quand la réunion se termine, cliquez sur Arrêter dans mono',
         'mono_step6': 'Attendez que la transcription automatique se termine',
         'mono_step7': 'Consultez votre transcription avec les étiquettes d\'intervenants et les horodatages',
-        'method1_p3': 'Mono fonctionne avec l\'application de bureau Teams et Teams dans un navigateur. Il capture tout ce qui passe par vos haut-parleurs ou écouteurs, vous obtiendrez donc l\'audio de tous les participants en haute qualité. Vous pouvez rechercher dans tous vos enregistrements par mot-clé, facilitant la recherche de discussions spécifiques ou de points d\'action.',
+        'method1_p3': 'mono fonctionne avec l\'application de bureau Teams et Teams dans un navigateur. Il capture tout ce qui passe par vos haut-parleurs ou écouteurs, vous obtiendrez donc l\'audio de tous les participants en haute qualité. Vous pouvez rechercher dans tous vos enregistrements par mot-clé, facilitant la recherche de discussions spécifiques ou de points d\'action.',
         'mono_pros': '<strong>Avantages :</strong> Pas de bot visible, pas de notification aux participants, transcription IA locale avec identification des intervenants, fonctionne sans permissions administrateur, enregistrements consultables, paiement unique de 50 $ sans abonnement.',
         'mono_cons': '<strong>Inconvénients :</strong> Logiciel payant (un enregistrement gratuit disponible pour essayer avant d\'acheter).',
         'h2_method2': 'Méthode 2 : OBS Studio (Gratuit)',
@@ -935,11 +935,11 @@ const translations = {
         'permissions_p1': 'Microsoft Teams a des politiques spécifiques concernant qui peut enregistrer :',
         'permissions_p2': '<strong>Organisateurs et co-organisateurs :</strong> Peuvent toujours démarrer l\'enregistrement si activé par l\'administrateur.',
         'permissions_p3': '<strong>Présentateurs :</strong> Peuvent enregistrer si l\'organisateur accorde la permission ou si la politique administrateur l\'autorise.',
-        'permissions_p4': '<strong>Participants :</strong> Ne peuvent pas utiliser l\'enregistrement intégré, mais peuvent utiliser des outils tiers comme Mono ou OBS.',
+        'permissions_p4': '<strong>Participants :</strong> Ne peuvent pas utiliser l\'enregistrement intégré, mais peuvent utiliser des outils tiers comme mono ou OBS.',
         'permissions_p5': '<strong>Invités externes :</strong> Ne peuvent pas utiliser l\'enregistrement intégré. Les outils tiers fonctionnent quel que soit votre rôle dans la réunion.',
         'h2_video_vs_audio': 'Enregistrement vidéo vs audio uniquement',
         'video_audio_p1': 'Les réunions Teams incluent la vidéo, mais vous n\'avez pas toujours besoin de l\'enregistrement vidéo :',
-        'video_audio_p2': '<strong>Audio uniquement (Mono) :</strong> Capture la conversation avec transcription automatique. Souvent suffisant car la plupart des enregistrements sont pour la documentation, pas pour référence visuelle. Les fichiers sont petits et consultables.',
+        'video_audio_p2': '<strong>Audio uniquement (mono) :</strong> Capture la conversation avec transcription automatique. Souvent suffisant car la plupart des enregistrements sont pour la documentation, pas pour référence visuelle. Les fichiers sont petits et consultables.',
         'video_audio_p3': '<strong>Enregistrement vidéo complet (OBS/Teams intégré) :</strong> Capture la vidéo des participants ou des écrans partagés. Utile pour les sessions de formation, les présentations avec contenu visuel, ou quand vous devez référencer ce qui a été montré. Les fichiers sont beaucoup plus volumineux.',
         'h2_legal': 'Considérations juridiques',
         'legal_p1': 'Avant d\'enregistrer des réunions Teams, comprenez les exigences légales :',
@@ -952,11 +952,11 @@ const translations = {
         'tips_connection': '<strong>Connexion stable :</strong> Une mauvaise connexion internet affecte la qualité audio de Teams, ce qui affecte la qualité de l\'enregistrement. Utilisez une connexion filaire pour les réunions importantes quand c\'est possible.',
         'tips_browser': '<strong>Application de bureau vs navigateur :</strong> Les deux fonctionnent avec les outils d\'enregistrement tiers. L\'application de bureau a généralement une meilleure qualité audio et une latence plus faible.',
         'h2_which': 'Quelle méthode devriez-vous utiliser ?',
-        'which_p1': '<strong>Besoin de transcription sans bot ?</strong> Mono enregistre localement et transcrit automatiquement sans que personne ne le sache. Idéal pour les notes personnelles, les appels commerciaux ou quand vous n\'avez pas les permissions d\'enregistrement.',
+        'which_p1': '<strong>Besoin de transcription sans bot ?</strong> mono enregistre localement et transcrit automatiquement sans que personne ne le sache. Idéal pour les notes personnelles, les appels commerciaux ou quand vous n\'avez pas les permissions d\'enregistrement.',
         'which_p2': '<strong>Vous voulez gratuit et n\'avez pas besoin de transcription ?</strong> OBS Studio est fiable mais nécessite une configuration et produit des fichiers bruts.',
         'which_p3': '<strong>Vous avez une licence M365 et la transparence vous convient ?</strong> L\'enregistrement intégré de Teams est le plus simple si vous êtes l\'organisateur et que tout le monde s\'attend à l\'enregistrement.',
         'which_p4': '<strong>Équipe avec besoins d\'intégration CRM ?</strong> Les outils basés sur bot comme Fathom ou Otter.ai offrent des fonctionnalités d\'équipe et des intégrations, mais tout le monde voit le bot et votre audio va vers leurs serveurs.',
-        'which_p5': '<strong>Enregistrement en tant qu\'invité ou participant externe ?</strong> Mono ou OBS sont vos seules options — l\'enregistrement intégré de Teams n\'est pas disponible pour les utilisateurs externes.',
+        'which_p5': '<strong>Enregistrement en tant qu\'invité ou participant externe ?</strong> mono ou OBS sont vos seules options — l\'enregistrement intégré de Teams n\'est pas disponible pour les utilisateurs externes.',
         'related_title': 'Guides connexes',
         'related_zoom_title': 'Comment enregistrer des appels Zoom',
         'related_zoom_desc': '4 façons d\'enregistrer des réunions Zoom sans qu\'un bot ne rejoigne.',
@@ -968,7 +968,7 @@ const translations = {
         'related_lawsuits_desc': 'Pourquoi les bots d\'enregistrement IA font face à des contestations juridiques en 2026.',
         'toc_title': 'Dans ce guide',
         'toc_comparison': 'Comparaison rapide',
-        'toc_mono': 'Méthode 1 : Mono (Recommandé)',
+        'toc_mono': 'Méthode 1 : mono (Recommandé)',
         'toc_obs': 'Méthode 2 : OBS Studio (Gratuit)',
         'toc_builtin': 'Méthode 3 : Enregistrement intégré Teams',
         'toc_bots': 'Méthode 4 : Enregistreurs basés sur bot',
@@ -979,12 +979,12 @@ const translations = {
         'h2_copilot': 'Teams vs Copilot vs outils tiers',
         'copilot_p1': 'Copilot de Microsoft dans Teams (partie du module Copilot pour Microsoft 365 à 30 $/mois) fournit des résumés de réunions IA, des éléments d\'action et une transcription en temps réel. Cependant, Copilot ne remplace pas l\'enregistrement de réunions — il le complète. Vous devez toujours avoir l\'enregistrement Teams activé pour capturer la réunion complète.',
         'copilot_p2': '<strong>Différence clé :</strong> Copilot génère des résumés à partir de la transcription intégrée de Teams, tandis que les bots tiers (Otter.ai, Fireflies) rejoignent votre réunion en tant que participants. À partir de mai 2026, Microsoft restreint l\'accès des bots tiers aux réunions Teams via leur API, poussant les organisations vers les outils natifs.',
-        'copilot_p3': '<strong>Pourquoi c\'est important :</strong> Si vous comptez sur des enregistreurs basés sur bot, vous pourriez perdre l\'accès lorsque Microsoft appliquera ces restrictions. Les outils d\'enregistrement locaux comme Mono fonctionnent indépendamment de l\'API de Microsoft — ils capturent l\'audio de votre système directement, donc ils continueront à fonctionner quels que soient les changements de politique.',
+        'copilot_p3': '<strong>Pourquoi c\'est important :</strong> Si vous comptez sur des enregistreurs basés sur bot, vous pourriez perdre l\'accès lorsque Microsoft appliquera ces restrictions. Les outils d\'enregistrement locaux comme mono fonctionnent indépendamment de l\'API de Microsoft — ils capturent l\'audio de votre système directement, donc ils continueront à fonctionner quels que soient les changements de politique.',
         'copilot_th_feature': 'Fonctionnalité',
         'copilot_th_builtin': 'Teams intégré',
         'copilot_th_copilot': '+ Copilot',
         'copilot_th_bots': 'Bots tiers',
-        'copilot_th_local': 'Local (Mono)',
+        'copilot_th_local': 'Local (mono)',
         'copilot_row1_feature': 'Enregistrement',
         'copilot_row1_builtin': 'Oui (cloud)',
         'copilot_row1_copilot': 'Oui (cloud)',
@@ -1027,16 +1027,16 @@ const translations = {
         'troubleshoot_transcription': '<strong>Transcription non disponible :</strong> La transcription nécessite que votre administrateur l\'active dans le centre d\'administration Teams, et elle n\'est disponible que dans certaines langues. Allez dans Paramètres → Sous-titres et transcriptions pour vérifier si elle est activée pour votre compte.',
         'troubleshoot_download': '<strong>Impossible de télécharger l\'enregistrement :</strong> Après la fin d\'une réunion, les enregistrements prennent du temps à être traités (généralement 5-30 minutes). Si cela fait plus d\'une heure, essayez de vous déconnecter puis de vous reconnecter à Teams. Vérifiez également le chat de réunion ou SharePoint/OneDrive — les enregistrements apparaissent à différents endroits selon le type de réunion.',
         'troubleshoot_quality': '<strong>Mauvaise qualité audio dans l\'enregistrement :</strong> Teams enregistre exactement ce qu\'il reçoit. Si les participants ont de mauvaises connexions ou utilisent des haut-parleurs d\'ordinateur portable au lieu d\'écouteurs, l\'enregistrement le reflétera. Pour les réunions importantes, demandez aux participants d\'utiliser des casques et des connexions internet stables.',
-        'troubleshoot_bypass': '<strong>Besoin d\'enregistrer sans ces limitations ?</strong> Les outils locaux comme Mono contournent entièrement le système de permissions de Teams — ils capturent l\'audio au niveau du système, donc ils fonctionnent quel que soit votre rôle Teams, les politiques d\'administration ou le niveau de licence. Vous obtiendrez un enregistrement même si vous êtes juste un participant sans permissions d\'enregistrement.'
+        'troubleshoot_bypass': '<strong>Besoin d\'enregistrer sans ces limitations ?</strong> Les outils locaux comme mono contournent entièrement le système de permissions de Teams — ils capturent l\'audio au niveau du système, donc ils fonctionnent quel que soit votre rôle Teams, les politiques d\'administration ou le niveau de licence. Vous obtiendrez un enregistrement même si vous êtes juste un participant sans permissions d\'enregistrement.'
     },
     de: {
         'back_link': '← Blog',
         'category': '[Anleitung]',
         'title': 'Microsoft Teams-Meetings aufzeichnen',
         'meta': '18. März 2026 · 8 Min. Lesezeit · Von Daniil Lefanov',
-        'disclosure': 'Hinweis: Mono ist unser Produkt. Wir haben es in diesen Leitfaden aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
+        'disclosure': 'Hinweis: mono ist unser Produkt. Wir haben es in diesen Leitfaden aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
         'tldr_label': 'Zusammenfassung',
-        'tldr_1': '<strong>Beste Gesamtwahl:</strong> Mono — kein Bot, lokale KI-Transkription, einmalig 50 $',
+        'tldr_1': '<strong>Beste Gesamtwahl:</strong> mono — kein Bot, lokale KI-Transkription, einmalig 50 $',
         'tldr_2': '<strong>Beste kostenlose Option:</strong> OBS Studio — kein Bot, Einrichtung erforderlich, keine Transkription',
         'tldr_3': '<strong>Integriert (sichtbar):</strong> Teams native Aufnahme — benachrichtigt alle, erfordert M365-Lizenz',
         'tldr_4': '<strong>Bot-basiert:</strong> Otter.ai, Fireflies, Fathom — sichtbarer Bot tritt dem Meeting bei',
@@ -1057,18 +1057,18 @@ const translations = {
         'yes_cloud': 'Ja (Cloud)',
         'yes_bot_joins': 'Ja (Bot tritt bei)',
         'yes_cloud2': 'Ja (Cloud)',
-        'h2_method1': 'Methode 1: Mono (Empfohlen)',
-        'method1_p1': 'Mono zeichnet Teams auf, indem es Audio direkt von der Tonausgabe Ihres Computers erfasst. Kein Bot tritt dem Meeting bei, keine Aufnahmebenachrichtigung erscheint für andere Teilnehmer, und Ihr Audio verlässt niemals Ihren Computer. Dies macht es ideal für die Aufzeichnung von Meetings, bei denen Sie keine Admin-Berechtigungen haben oder Ihre Notizen privat halten möchten.',
-        'method1_p2': 'Nachdem Sie die Aufnahme beendet haben, transkribiert Mono das Gespräch lokal mit KI, die vollständig auf Ihrem Computer läuft. Die Transkription umfasst Sprecheridentifikation — Mono erkennt verschiedene Stimmen und beschriftet sie im gesamten Transkript.',
-        'h3_mono_steps': 'So zeichnen Sie Teams mit Mono auf',
-        'mono_step1': 'Laden Sie Mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
-        'mono_step2': 'Öffnen Sie Mono und klicken Sie auf die Aufnahmetaste, um die Aufnahme zu starten',
+        'h2_method1': 'Methode 1: mono (Empfohlen)',
+        'method1_p1': 'mono zeichnet Teams auf, indem es Audio direkt von der Tonausgabe Ihres Computers erfasst. Kein Bot tritt dem Meeting bei, keine Aufnahmebenachrichtigung erscheint für andere Teilnehmer, und Ihr Audio verlässt niemals Ihren Computer. Dies macht es ideal für die Aufzeichnung von Meetings, bei denen Sie keine Admin-Berechtigungen haben oder Ihre Notizen privat halten möchten.',
+        'method1_p2': 'Nachdem Sie die Aufnahme beendet haben, transkribiert mono das Gespräch lokal mit KI, die vollständig auf Ihrem Computer läuft. Die Transkription umfasst Sprecheridentifikation — mono erkennt verschiedene Stimmen und beschriftet sie im gesamten Transkript.',
+        'h3_mono_steps': 'So zeichnen Sie Teams mit mono auf',
+        'mono_step1': 'Laden Sie mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
+        'mono_step2': 'Öffnen Sie mono und klicken Sie auf die Aufnahmetaste, um die Aufnahme zu starten',
         'mono_step3': 'Treten Sie Ihrem Microsoft Teams-Meeting normal bei',
         'mono_step4': 'Nehmen Sie wie gewohnt am Meeting teil',
-        'mono_step5': 'Wenn das Meeting endet, klicken Sie auf Stopp in Mono',
+        'mono_step5': 'Wenn das Meeting endet, klicken Sie auf Stopp in mono',
         'mono_step6': 'Warten Sie, bis die automatische Transkription abgeschlossen ist',
         'mono_step7': 'Überprüfen Sie Ihr Transkript mit Sprecherbeschriftungen und Zeitstempeln',
-        'method1_p3': 'Mono funktioniert sowohl mit der Teams-Desktop-App als auch mit Teams im Browser. Es erfasst alles, was über Ihre Lautsprecher oder Kopfhörer abgespielt wird, sodass Sie das Audio aller Teilnehmer in hoher Qualität erhalten. Sie können alle Ihre Aufnahmen nach Schlüsselwörtern durchsuchen, was es einfach macht, bestimmte Diskussionen oder Aufgaben zu finden.',
+        'method1_p3': 'mono funktioniert sowohl mit der Teams-Desktop-App als auch mit Teams im Browser. Es erfasst alles, was über Ihre Lautsprecher oder Kopfhörer abgespielt wird, sodass Sie das Audio aller Teilnehmer in hoher Qualität erhalten. Sie können alle Ihre Aufnahmen nach Schlüsselwörtern durchsuchen, was es einfach macht, bestimmte Diskussionen oder Aufgaben zu finden.',
         'mono_pros': '<strong>Vorteile:</strong> Kein sichtbarer Bot, keine Teilnehmerbenachrichtigung, lokale KI-Transkription mit Sprecheridentifikation, funktioniert ohne Admin-Berechtigungen, durchsuchbare Aufnahmen, einmalige Zahlung von 50 $ ohne Abonnement.',
         'mono_cons': '<strong>Nachteile:</strong> Kostenpflichtige Software (eine kostenlose Aufnahme zum Ausprobieren vor dem Kauf verfügbar).',
         'h2_method2': 'Methode 2: OBS Studio (Kostenlos)',
@@ -1108,11 +1108,11 @@ const translations = {
         'permissions_p1': 'Microsoft Teams hat spezifische Richtlinien darüber, wer aufzeichnen kann:',
         'permissions_p2': '<strong>Organisatoren und Co-Organisatoren:</strong> Können immer die Aufnahme starten, wenn vom Admin aktiviert.',
         'permissions_p3': '<strong>Referenten:</strong> Können aufzeichnen, wenn der Organisator die Erlaubnis erteilt oder die Admin-Richtlinie es erlaubt.',
-        'permissions_p4': '<strong>Teilnehmer:</strong> Können die integrierte Aufnahme nicht nutzen, aber Drittanbieter-Tools wie Mono oder OBS verwenden.',
+        'permissions_p4': '<strong>Teilnehmer:</strong> Können die integrierte Aufnahme nicht nutzen, aber Drittanbieter-Tools wie mono oder OBS verwenden.',
         'permissions_p5': '<strong>Externe Gäste:</strong> Können die integrierte Aufnahme nicht nutzen. Drittanbieter-Tools funktionieren unabhängig von Ihrer Rolle im Meeting.',
         'h2_video_vs_audio': 'Video- vs. Nur-Audio-Aufnahme',
         'video_audio_p1': 'Teams-Meetings beinhalten Video, aber Sie brauchen nicht immer Videoaufnahme:',
-        'video_audio_p2': '<strong>Nur Audio (Mono):</strong> Erfasst das Gespräch mit automatischer Transkription. Oft ausreichend, da die meisten Aufnahmen für Dokumentation sind, nicht für visuelle Referenz. Dateien sind klein und durchsuchbar.',
+        'video_audio_p2': '<strong>Nur Audio (mono):</strong> Erfasst das Gespräch mit automatischer Transkription. Oft ausreichend, da die meisten Aufnahmen für Dokumentation sind, nicht für visuelle Referenz. Dateien sind klein und durchsuchbar.',
         'video_audio_p3': '<strong>Vollständige Videoaufnahme (OBS/Teams integriert):</strong> Erfasst Video von Teilnehmern oder geteilten Bildschirmen. Nützlich für Schulungen, Präsentationen mit visuellem Inhalt oder wenn Sie nachschauen müssen, was gezeigt wurde. Dateien sind viel größer.',
         'h2_legal': 'Rechtliche Überlegungen',
         'legal_p1': 'Bevor Sie Teams-Meetings aufzeichnen, verstehen Sie die rechtlichen Anforderungen:',
@@ -1125,11 +1125,11 @@ const translations = {
         'tips_connection': '<strong>Stabile Verbindung:</strong> Schlechtes Internet beeinflusst die Teams-Audioqualität, was die Aufnahmequalität beeinflusst. Verwenden Sie für wichtige Meetings wenn möglich eine kabelgebundene Verbindung.',
         'tips_browser': '<strong>Desktop-App vs. Browser:</strong> Beide funktionieren mit Drittanbieter-Aufnahmetools. Die Desktop-App hat typischerweise bessere Audioqualität und geringere Latenz.',
         'h2_which': 'Welche Methode sollten Sie verwenden?',
-        'which_p1': '<strong>Transkription ohne Bot benötigt?</strong> Mono zeichnet lokal auf und transkribiert automatisch, ohne dass jemand es weiß. Am besten für persönliche Notizen, Verkaufsgespräche oder wenn Sie keine Aufnahmeberechtigungen haben.',
+        'which_p1': '<strong>Transkription ohne Bot benötigt?</strong> mono zeichnet lokal auf und transkribiert automatisch, ohne dass jemand es weiß. Am besten für persönliche Notizen, Verkaufsgespräche oder wenn Sie keine Aufnahmeberechtigungen haben.',
         'which_p2': '<strong>Kostenlos und keine Transkription benötigt?</strong> OBS Studio ist zuverlässig, erfordert aber Einrichtung und produziert rohe Dateien.',
         'which_p3': '<strong>M365-Lizenz und Transparenz ist in Ordnung?</strong> Die integrierte Teams-Aufnahme ist am einfachsten, wenn Sie der Organisator sind und alle die Aufnahme erwarten.',
         'which_p4': '<strong>Team mit CRM-Integrationsbedarf?</strong> Bot-basierte Tools wie Fathom oder Otter.ai bieten Teamfunktionen und Integrationen, aber jeder sieht den Bot und Ihr Audio geht an deren Server.',
-        'which_p5': '<strong>Aufnahme als Gast oder externer Teilnehmer?</strong> Mono oder OBS sind Ihre einzigen Optionen — die integrierte Teams-Aufnahme ist für externe Benutzer nicht verfügbar.',
+        'which_p5': '<strong>Aufnahme als Gast oder externer Teilnehmer?</strong> mono oder OBS sind Ihre einzigen Optionen — die integrierte Teams-Aufnahme ist für externe Benutzer nicht verfügbar.',
         'related_title': 'Verwandte Anleitungen',
         'related_zoom_title': 'Zoom-Anrufe aufzeichnen',
         'related_zoom_desc': '4 Wege, Zoom-Meetings ohne Bot aufzuzeichnen.',
@@ -1141,7 +1141,7 @@ const translations = {
         'related_lawsuits_desc': 'Warum KI-Meeting-Bots 2026 rechtlichen Herausforderungen gegenüberstehen.',
         'toc_title': 'In diesem Leitfaden',
         'toc_comparison': 'Schnellvergleich',
-        'toc_mono': 'Methode 1: Mono (Empfohlen)',
+        'toc_mono': 'Methode 1: mono (Empfohlen)',
         'toc_obs': 'Methode 2: OBS Studio (Kostenlos)',
         'toc_builtin': 'Methode 3: Teams integrierte Aufnahme',
         'toc_bots': 'Methode 4: Bot-basierte Rekorder',
@@ -1152,12 +1152,12 @@ const translations = {
         'h2_copilot': 'Teams vs Copilot vs Drittanbieter-Tools',
         'copilot_p1': 'Microsofts Copilot in Teams (Teil des 30 $/Monat Copilot für Microsoft 365-Add-ons) bietet KI-Meeting-Zusammenfassungen, Aktionspunkte und Echtzeit-Transkription. Copilot ersetzt jedoch nicht die Meeting-Aufnahme — es ergänzt sie. Sie benötigen weiterhin die aktivierte Teams-Aufnahme, um das vollständige Meeting zu erfassen.',
         'copilot_p2': '<strong>Wichtiger Unterschied:</strong> Copilot generiert Zusammenfassungen aus der integrierten Teams-Transkription, während Drittanbieter-Bots (Otter.ai, Fireflies) Ihrem Meeting als Teilnehmer beitreten. Ab Mai 2026 schränkt Microsoft den Zugang von Drittanbieter-Bots zu Teams-Meetings über ihre API ein und drängt Organisationen zu nativen Tools.',
-        'copilot_p3': '<strong>Warum das wichtig ist:</strong> Wenn Sie auf Bot-basierte Rekorder angewiesen sind, könnten Sie den Zugang verlieren, wenn Microsoft diese Einschränkungen durchsetzt. Lokale Aufnahmetools wie Mono arbeiten unabhängig von Microsofts API — sie erfassen Ihren Systemton direkt, sodass sie unabhängig von Richtlinienänderungen weiter funktionieren.',
+        'copilot_p3': '<strong>Warum das wichtig ist:</strong> Wenn Sie auf Bot-basierte Rekorder angewiesen sind, könnten Sie den Zugang verlieren, wenn Microsoft diese Einschränkungen durchsetzt. Lokale Aufnahmetools wie mono arbeiten unabhängig von Microsofts API — sie erfassen Ihren Systemton direkt, sodass sie unabhängig von Richtlinienänderungen weiter funktionieren.',
         'copilot_th_feature': 'Funktion',
         'copilot_th_builtin': 'Teams integriert',
         'copilot_th_copilot': '+ Copilot',
         'copilot_th_bots': 'Drittanbieter-Bots',
-        'copilot_th_local': 'Lokal (Mono)',
+        'copilot_th_local': 'Lokal (mono)',
         'copilot_row1_feature': 'Aufnahme',
         'copilot_row1_builtin': 'Ja (Cloud)',
         'copilot_row1_copilot': 'Ja (Cloud)',
@@ -1200,16 +1200,16 @@ const translations = {
         'troubleshoot_transcription': '<strong>Transkription nicht verfügbar:</strong> Die Transkription erfordert, dass Ihr Administrator sie im Teams Admin Center aktiviert, und sie ist nur in bestimmten Sprachen verfügbar. Gehen Sie zu Einstellungen → Untertitel und Transkripte, um zu prüfen, ob sie für Ihr Konto aktiviert ist.',
         'troubleshoot_download': '<strong>Aufnahme kann nicht heruntergeladen werden:</strong> Nach Meeting-Ende brauchen Aufnahmen Zeit zur Verarbeitung (typischerweise 5-30 Minuten). Wenn es über eine Stunde her ist, versuchen Sie, sich bei Teams ab- und wieder anzumelden. Prüfen Sie auch den Meeting-Chat oder SharePoint/OneDrive — Aufnahmen erscheinen je nach Meeting-Typ an verschiedenen Orten.',
         'troubleshoot_quality': '<strong>Schlechte Audioqualität in der Aufnahme:</strong> Teams zeichnet genau das auf, was es empfängt. Wenn Teilnehmer schlechte Verbindungen haben oder Laptop-Lautsprecher statt Kopfhörer verwenden, wird die Aufnahme das widerspiegeln. Bitten Sie bei wichtigen Meetings die Teilnehmer, Headsets und stabile Internetverbindungen zu verwenden.',
-        'troubleshoot_bypass': '<strong>Müssen Sie ohne diese Einschränkungen aufnehmen?</strong> Lokale Tools wie Mono umgehen das Teams-Berechtigungssystem vollständig — sie erfassen Audio auf Systemebene, sodass sie unabhängig von Ihrer Teams-Rolle, Admin-Richtlinien oder Lizenzebene funktionieren. Sie erhalten eine Aufnahme, auch wenn Sie nur ein Teilnehmer ohne Aufnahmeberechtigungen sind.'
+        'troubleshoot_bypass': '<strong>Müssen Sie ohne diese Einschränkungen aufnehmen?</strong> Lokale Tools wie mono umgehen das Teams-Berechtigungssystem vollständig — sie erfassen Audio auf Systemebene, sodass sie unabhängig von Ihrer Teams-Rolle, Admin-Richtlinien oder Lizenzebene funktionieren. Sie erhalten eine Aufnahme, auch wenn Sie nur ein Teilnehmer ohne Aufnahmeberechtigungen sind.'
     },
     zh: {
         'back_link': '← 博客',
         'category': '[教程]',
         'title': '如何录制 Microsoft Teams 会议',
         'meta': '2026年3月18日 · 阅读时间8分钟 · 作者：Daniil Lefanov',
-        'disclosure': '声明：Mono是我们的产品。我们在本指南中包含了它，并尽量做到公正，但您应该知道我们对此有利益关系。',
+        'disclosure': '声明：mono是我们的产品。我们在本指南中包含了它，并尽量做到公正，但您应该知道我们对此有利益关系。',
         'tldr_label': '概要',
-        'tldr_1': '<strong>最佳整体选择：</strong>Mono——无机器人、本地AI转录、一次性50美元',
+        'tldr_1': '<strong>最佳整体选择：</strong>mono——无机器人、本地AI转录、一次性50美元',
         'tldr_2': '<strong>最佳免费选择：</strong>OBS Studio——无机器人、需要设置、无转录',
         'tldr_3': '<strong>内置（可见）：</strong>Teams 原生录制——通知所有参与者、需要 M365 许可证',
         'tldr_4': '<strong>基于机器人：</strong>Otter.ai、Fireflies、Fathom——可见机器人加入会议',
@@ -1230,18 +1230,18 @@ const translations = {
         'yes_cloud': '是（云端）',
         'yes_bot_joins': '是（机器人加入）',
         'yes_cloud2': '是（云端）',
-        'h2_method1': '方法 1：Mono（推荐）',
-        'method1_p1': 'Mono 通过直接从您计算机的声音输出捕获音频来录制 Teams。没有机器人加入会议，其他参与者不会看到录制通知，您的音频永远不会离开您的计算机。这使它非常适合在您没有管理员权限或想要保持笔记私密的会议中录制。',
-        'method1_p2': '停止录制后，Mono 使用完全在您计算机上运行的 AI 在本地转录对话。转录包括说话人识别——Mono 检测不同的声音并在整个转录中标记它们。',
-        'h3_mono_steps': '如何使用 Mono 录制 Teams',
-        'mono_step1': '从 <a href="https://mono-ai.uk">mono-ai.uk</a> 下载 Mono 并安装',
-        'mono_step2': '打开 Mono 并点击录制按钮开始录制',
+        'h2_method1': '方法 1：mono（推荐）',
+        'method1_p1': 'mono 通过直接从您计算机的声音输出捕获音频来录制 Teams。没有机器人加入会议，其他参与者不会看到录制通知，您的音频永远不会离开您的计算机。这使它非常适合在您没有管理员权限或想要保持笔记私密的会议中录制。',
+        'method1_p2': '停止录制后，mono 使用完全在您计算机上运行的 AI 在本地转录对话。转录包括说话人识别——mono 检测不同的声音并在整个转录中标记它们。',
+        'h3_mono_steps': '如何使用 mono 录制 Teams',
+        'mono_step1': '从 <a href="https://mono-ai.uk">mono-ai.uk</a> 下载 mono 并安装',
+        'mono_step2': '打开 mono 并点击录制按钮开始录制',
         'mono_step3': '正常加入您的 Microsoft Teams 会议',
         'mono_step4': '像往常一样参与会议',
-        'mono_step5': '会议结束时，在 Mono 中点击停止',
+        'mono_step5': '会议结束时，在 mono 中点击停止',
         'mono_step6': '等待自动转录完成',
         'mono_step7': '查看带有说话人标签和时间戳的转录',
-        'method1_p3': 'Mono 同时支持 Teams 桌面应用和浏览器中的 Teams。它捕获通过您的扬声器或耳机播放的所有内容，因此您将获得所有参与者的高质量音频。您可以按关键词搜索所有录音，轻松找到特定的讨论或待办事项。',
+        'method1_p3': 'mono 同时支持 Teams 桌面应用和浏览器中的 Teams。它捕获通过您的扬声器或耳机播放的所有内容，因此您将获得所有参与者的高质量音频。您可以按关键词搜索所有录音，轻松找到特定的讨论或待办事项。',
         'mono_pros': '<strong>优点：</strong>无可见机器人，无参与者通知，具有说话人识别的本地 AI 转录，无需管理员权限即可使用，可搜索的录音，一次性支付 50 美元无需订阅。',
         'mono_cons': '<strong>缺点：</strong>付费软件（购买前可免费试用一次录制）。',
         'h2_method2': '方法 2：OBS Studio（免费）',
@@ -1281,11 +1281,11 @@ const translations = {
         'permissions_p1': 'Microsoft Teams 对谁可以录制有特定的策略：',
         'permissions_p2': '<strong>组织者和共同组织者：</strong>如果管理员启用，可以随时开始录制。',
         'permissions_p3': '<strong>演示者：</strong>如果组织者授予权限或管理员策略允许，可以录制。',
-        'permissions_p4': '<strong>与会者：</strong>无法使用内置录制，但可以使用 Mono 或 OBS 等第三方工具。',
+        'permissions_p4': '<strong>与会者：</strong>无法使用内置录制，但可以使用 mono 或 OBS 等第三方工具。',
         'permissions_p5': '<strong>外部来宾：</strong>无法使用内置录制。第三方工具不受您在会议中角色的限制。',
         'h2_video_vs_audio': '视频录制 vs 纯音频',
         'video_audio_p1': 'Teams 会议包括视频，但您不总是需要视频录制：',
-        'video_audio_p2': '<strong>纯音频（Mono）：</strong>捕获带自动转录的对话。通常足够，因为大多数录音用于文档记录，而非视觉参考。文件小且可搜索。',
+        'video_audio_p2': '<strong>纯音频（mono）：</strong>捕获带自动转录的对话。通常足够，因为大多数录音用于文档记录，而非视觉参考。文件小且可搜索。',
         'video_audio_p3': '<strong>完整视频录制（OBS/Teams 内置）：</strong>捕获参与者视频或共享屏幕。适用于培训课程、包含视觉内容的演示或需要参考展示内容的情况。文件要大得多。',
         'h2_legal': '法律考虑',
         'legal_p1': '在录制 Teams 会议之前，了解法律要求：',
@@ -1298,11 +1298,11 @@ const translations = {
         'tips_connection': '<strong>稳定连接：</strong>网络不好会影响 Teams 音频质量，从而影响录制质量。重要会议尽可能使用有线连接。',
         'tips_browser': '<strong>桌面应用 vs 浏览器：</strong>两者都可与第三方录制工具配合使用。桌面应用通常音频质量更好，延迟更低。',
         'h2_which': '您应该使用哪种方法？',
-        'which_p1': '<strong>需要无机器人的转录？</strong>Mono 在本地录制并自动转录，无人知晓。最适合个人笔记、销售电话或您没有录制权限的情况。',
+        'which_p1': '<strong>需要无机器人的转录？</strong>mono 在本地录制并自动转录，无人知晓。最适合个人笔记、销售电话或您没有录制权限的情况。',
         'which_p2': '<strong>想要免费且不需要转录？</strong>OBS Studio 可靠但需要设置，产生原始文件。',
         'which_p3': '<strong>有 M365 许可证且透明度没问题？</strong>如果您是组织者且每个人都期望录制，Teams 内置录制是最简单的。',
         'which_p4': '<strong>需要 CRM 集成的团队？</strong>Fathom 或 Otter.ai 等基于机器人的工具提供团队功能和集成，但每个人都能看到机器人，您的音频会发送到他们的服务器。',
-        'which_p5': '<strong>作为来宾或外部参与者录制？</strong>Mono 或 OBS 是您唯一的选择——外部用户无法使用 Teams 内置录制。',
+        'which_p5': '<strong>作为来宾或外部参与者录制？</strong>mono 或 OBS 是您唯一的选择——外部用户无法使用 Teams 内置录制。',
         'related_title': '相关指南',
         'related_zoom_title': '如何录制 Zoom 通话',
         'related_zoom_desc': '4 种无机器人加入的 Zoom 会议录制方法。',
@@ -1314,7 +1314,7 @@ const translations = {
         'related_lawsuits_desc': '为什么 AI 会议机器人在2026年面临法律挑战。',
         'toc_title': '本指南内容',
         'toc_comparison': '快速对比',
-        'toc_mono': '方法 1：Mono（推荐）',
+        'toc_mono': '方法 1：mono（推荐）',
         'toc_obs': '方法 2：OBS Studio（免费）',
         'toc_builtin': '方法 3：Teams 内置录制',
         'toc_bots': '方法 4：基于机器人的录制器',
@@ -1325,12 +1325,12 @@ const translations = {
         'h2_copilot': 'Teams vs Copilot vs 第三方工具',
         'copilot_p1': 'Microsoft 的 Teams Copilot（属于每月 30 美元的 Microsoft 365 Copilot 附加组件）提供 AI 会议摘要、行动项目和实时转录。但是，Copilot 不能替代会议录制——它是补充。您仍需要启用 Teams 录制才能捕获完整会议。',
         'copilot_p2': '<strong>关键区别：</strong>Copilot 从 Teams 内置转录生成摘要，而第三方机器人（Otter.ai、Fireflies）作为参与者加入您的会议。从2026年5月开始，Microsoft 将限制第三方机器人通过其 API 访问 Teams 会议，推动组织使用原生工具。',
-        'copilot_p3': '<strong>为什么这很重要：</strong>如果您依赖基于机器人的录制器，当 Microsoft 执行这些限制时，您可能会失去访问权限。像 Mono 这样的本地录制工具独立于 Microsoft 的 API 工作——它们直接捕获您的系统音频，因此无论政策如何变化都会继续工作。',
+        'copilot_p3': '<strong>为什么这很重要：</strong>如果您依赖基于机器人的录制器，当 Microsoft 执行这些限制时，您可能会失去访问权限。像 mono 这样的本地录制工具独立于 Microsoft 的 API 工作——它们直接捕获您的系统音频，因此无论政策如何变化都会继续工作。',
         'copilot_th_feature': '功能',
         'copilot_th_builtin': 'Teams 内置',
         'copilot_th_copilot': '+ Copilot',
         'copilot_th_bots': '第三方机器人',
-        'copilot_th_local': '本地（Mono）',
+        'copilot_th_local': '本地（mono）',
         'copilot_row1_feature': '录制',
         'copilot_row1_builtin': '是（云端）',
         'copilot_row1_copilot': '是（云端）',
@@ -1373,16 +1373,16 @@ const translations = {
         'troubleshoot_transcription': '<strong>转录不可用：</strong>转录需要您的管理员在 Teams 管理中心启用，并且只支持某些语言。转到设置 → 字幕和转录，检查是否为您的账户启用。',
         'troubleshoot_download': '<strong>无法下载录制：</strong>会议结束后，录制需要时间处理（通常5-30分钟）。如果已经超过一小时，请尝试退出并重新登录 Teams。另外检查会议聊天或 SharePoint/OneDrive——根据会议类型，录制会出现在不同位置。',
         'troubleshoot_quality': '<strong>录制音频质量差：</strong>Teams 录制的正是它收到的内容。如果参与者网络连接差或使用笔记本电脑扬声器而非耳机，录制会反映这一点。对于重要会议，请让参与者使用耳机和稳定的网络连接。',
-        'troubleshoot_bypass': '<strong>需要在没有这些限制的情况下录制？</strong>像 Mono 这样的本地工具完全绕过 Teams 的权限系统——它们在系统级别捕获音频，因此无论您的 Teams 角色、管理员策略或许可证级别如何都能工作。即使您只是没有录制权限的参与者，也能获得录制。'
+        'troubleshoot_bypass': '<strong>需要在没有这些限制的情况下录制？</strong>像 mono 这样的本地工具完全绕过 Teams 的权限系统——它们在系统级别捕获音频，因此无论您的 Teams 角色、管理员策略或许可证级别如何都能工作。即使您只是没有录制权限的参与者，也能获得录制。'
     },
     ru: {
         'back_link': '← блог',
         'category': '[Руководство]',
         'title': 'Как записывать встречи Microsoft Teams',
         'meta': '18 мар 2026 · 8 мин чтения · Автор Daniil Lefanov',
-        'disclosure': 'Раскрытие информации: Mono — наш продукт. Мы включили его в это руководство и постарались быть объективными, но вы должны знать, что у нас есть заинтересованность.',
+        'disclosure': 'Раскрытие информации: mono — наш продукт. Мы включили его в это руководство и постарались быть объективными, но вы должны знать, что у нас есть заинтересованность.',
         'tldr_label': 'Кратко',
-        'tldr_1': '<strong>Лучший выбор:</strong> Mono — без бота, локальная AI-транскрипция, $50 единоразово',
+        'tldr_1': '<strong>Лучший выбор:</strong> mono — без бота, локальная AI-транскрипция, $50 единоразово',
         'tldr_2': '<strong>Лучший бесплатный:</strong> OBS Studio — без бота, требует настройки, без транскрипции',
         'tldr_3': '<strong>Встроенный (видимый):</strong> Встроенная запись Teams — уведомляет всех, требует лицензию M365',
         'tldr_4': '<strong>На основе бота:</strong> Otter.ai, Fireflies, Fathom — видимый бот присоединяется к встрече',
@@ -1403,18 +1403,18 @@ const translations = {
         'yes_cloud': 'Да (облако)',
         'yes_bot_joins': 'Да (бот присоединяется)',
         'yes_cloud2': 'Да (облако)',
-        'h2_method1': 'Метод 1: Mono (Рекомендуется)',
-        'method1_p1': 'Mono записывает Teams, захватывая аудио непосредственно с аудиовыхода вашего компьютера. Никакой бот не присоединяется к встрече, никакое уведомление о записи не появляется для других участников, и ваше аудио никогда не покидает ваш компьютер. Это делает его идеальным для записи встреч, где у вас нет прав администратора или вы хотите сохранить заметки конфиденциальными.',
-        'method1_p2': 'После остановки записи Mono транскрибирует разговор локально, используя AI, который работает полностью на вашем компьютере. Транскрипция включает идентификацию говорящих — Mono определяет разные голоса и помечает их по всей транскрипции.',
-        'h3_mono_steps': 'Как записывать Teams с помощью Mono',
-        'mono_step1': 'Скачайте Mono с <a href="https://mono-ai.uk">mono-ai.uk</a> и установите',
-        'mono_step2': 'Откройте Mono и нажмите кнопку Запись, чтобы начать запись',
+        'h2_method1': 'Метод 1: mono (Рекомендуется)',
+        'method1_p1': 'mono записывает Teams, захватывая аудио непосредственно с аудиовыхода вашего компьютера. Никакой бот не присоединяется к встрече, никакое уведомление о записи не появляется для других участников, и ваше аудио никогда не покидает ваш компьютер. Это делает его идеальным для записи встреч, где у вас нет прав администратора или вы хотите сохранить заметки конфиденциальными.',
+        'method1_p2': 'После остановки записи mono транскрибирует разговор локально, используя AI, который работает полностью на вашем компьютере. Транскрипция включает идентификацию говорящих — mono определяет разные голоса и помечает их по всей транскрипции.',
+        'h3_mono_steps': 'Как записывать Teams с помощью mono',
+        'mono_step1': 'Скачайте mono с <a href="https://mono-ai.uk">mono-ai.uk</a> и установите',
+        'mono_step2': 'Откройте mono и нажмите кнопку Запись, чтобы начать запись',
         'mono_step3': 'Присоединитесь к встрече Microsoft Teams как обычно',
         'mono_step4': 'Участвуйте во встрече как обычно',
-        'mono_step5': 'Когда встреча закончится, нажмите Стоп в Mono',
+        'mono_step5': 'Когда встреча закончится, нажмите Стоп в mono',
         'mono_step6': 'Дождитесь завершения автоматической транскрипции',
         'mono_step7': 'Просмотрите транскрипцию с метками говорящих и временными метками',
-        'method1_p3': 'Mono работает как с настольным приложением Teams, так и с Teams в браузере. Он захватывает всё, что воспроизводится через ваши динамики или наушники, поэтому вы получите аудио всех участников в высоком качестве. Вы можете искать по всем вашим записям по ключевым словам, что упрощает поиск конкретных обсуждений или задач.',
+        'method1_p3': 'mono работает как с настольным приложением Teams, так и с Teams в браузере. Он захватывает всё, что воспроизводится через ваши динамики или наушники, поэтому вы получите аудио всех участников в высоком качестве. Вы можете искать по всем вашим записям по ключевым словам, что упрощает поиск конкретных обсуждений или задач.',
         'mono_pros': '<strong>Плюсы:</strong> Нет видимого бота, нет уведомления участников, локальная AI-транскрипция с идентификацией говорящих, работает без прав администратора, записи с поиском, единоразовая оплата $50 без подписки.',
         'mono_cons': '<strong>Минусы:</strong> Платное ПО (одна бесплатная запись доступна для пробы перед покупкой).',
         'h2_method2': 'Метод 2: OBS Studio (Бесплатно)',
@@ -1454,11 +1454,11 @@ const translations = {
         'permissions_p1': 'Microsoft Teams имеет конкретные политики о том, кто может записывать:',
         'permissions_p2': '<strong>Организаторы и со-организаторы:</strong> Всегда могут начать запись, если это разрешено администратором.',
         'permissions_p3': '<strong>Докладчики:</strong> Могут записывать, если организатор даёт разрешение или политика администратора позволяет.',
-        'permissions_p4': '<strong>Участники:</strong> Не могут использовать встроенную запись, но могут использовать сторонние инструменты, такие как Mono или OBS.',
+        'permissions_p4': '<strong>Участники:</strong> Не могут использовать встроенную запись, но могут использовать сторонние инструменты, такие как mono или OBS.',
         'permissions_p5': '<strong>Внешние гости:</strong> Не могут использовать встроенную запись. Сторонние инструменты работают независимо от вашей роли на встрече.',
         'h2_video_vs_audio': 'Запись видео vs только аудио',
         'video_audio_p1': 'Встречи Teams включают видео, но вам не всегда нужна видеозапись:',
-        'video_audio_p2': '<strong>Только аудио (Mono):</strong> Захватывает разговор с автоматической транскрипцией. Часто достаточно, так как большинство записей для документации, а не визуальной справки. Файлы маленькие и с поиском.',
+        'video_audio_p2': '<strong>Только аудио (mono):</strong> Захватывает разговор с автоматической транскрипцией. Часто достаточно, так как большинство записей для документации, а не визуальной справки. Файлы маленькие и с поиском.',
         'video_audio_p3': '<strong>Полная видеозапись (OBS/встроенный Teams):</strong> Захватывает видео участников или демонстрацию экрана. Полезно для обучающих сессий, презентаций с визуальным контентом или когда нужно сослаться на показанное. Файлы намного больше.',
         'h2_legal': 'Юридические аспекты',
         'legal_p1': 'Перед записью встреч Teams поймите юридические требования:',
@@ -1471,11 +1471,11 @@ const translations = {
         'tips_connection': '<strong>Стабильное соединение:</strong> Плохой интернет влияет на качество звука Teams, что влияет на качество записи. По возможности используйте проводное соединение для важных встреч.',
         'tips_browser': '<strong>Настольное приложение vs браузер:</strong> Оба работают со сторонними инструментами записи. Настольное приложение обычно имеет лучшее качество звука и меньшую задержку.',
         'h2_which': 'Какой метод использовать?',
-        'which_p1': '<strong>Нужна транскрипция без бота?</strong> Mono записывает локально и автоматически транскрибирует без чьего-либо ведома. Лучше всего для личных заметок, звонков по продажам или когда у вас нет прав на запись.',
+        'which_p1': '<strong>Нужна транскрипция без бота?</strong> mono записывает локально и автоматически транскрибирует без чьего-либо ведома. Лучше всего для личных заметок, звонков по продажам или когда у вас нет прав на запись.',
         'which_p2': '<strong>Хотите бесплатно и не нужна транскрипция?</strong> OBS Studio надёжна, но требует настройки и производит необработанные файлы.',
         'which_p3': '<strong>Есть лицензия M365 и прозрачность устраивает?</strong> Встроенная запись Teams проще всего, если вы организатор и все ожидают запись.',
         'which_p4': '<strong>Команда с потребностями интеграции CRM?</strong> Инструменты на основе бота, такие как Fathom или Otter.ai, предлагают командные функции и интеграции, но все видят бота и ваше аудио уходит на их серверы.',
-        'which_p5': '<strong>Запись как гость или внешний участник?</strong> Mono или OBS — ваши единственные варианты — встроенная запись Teams недоступна для внешних пользователей.',
+        'which_p5': '<strong>Запись как гость или внешний участник?</strong> mono или OBS — ваши единственные варианты — встроенная запись Teams недоступна для внешних пользователей.',
         'related_title': 'Связанные руководства',
         'related_zoom_title': 'Как записывать звонки Zoom',
         'related_zoom_desc': '4 способа записать встречи Zoom без присоединения бота.',
@@ -1487,7 +1487,7 @@ const translations = {
         'related_lawsuits_desc': 'Почему AI-боты для встреч сталкиваются с юридическими проблемами в 2026 году.',
         'toc_title': 'В этом руководстве',
         'toc_comparison': 'Быстрое сравнение',
-        'toc_mono': 'Способ 1: Mono (Рекомендуемый)',
+        'toc_mono': 'Способ 1: mono (Рекомендуемый)',
         'toc_obs': 'Способ 2: OBS Studio (Бесплатно)',
         'toc_builtin': 'Способ 3: Встроенная запись Teams',
         'toc_bots': 'Способ 4: Записывающие боты',
@@ -1498,12 +1498,12 @@ const translations = {
         'h2_copilot': 'Teams vs Copilot vs сторонние инструменты',
         'copilot_p1': 'Microsoft Copilot в Teams (часть дополнения Copilot для Microsoft 365 за $30/месяц) предоставляет AI-сводки встреч, пункты действий и транскрипцию в реальном времени. Однако Copilot не заменяет запись встреч — он дополняет её. Вам по-прежнему нужна включённая запись Teams для захвата полной встречи.',
         'copilot_p2': '<strong>Ключевое отличие:</strong> Copilot генерирует сводки из встроенной транскрипции Teams, тогда как сторонние боты (Otter.ai, Fireflies) присоединяются к вашей встрече как участники. Начиная с мая 2026 года, Microsoft ограничивает доступ сторонних ботов к встречам Teams через их API, подталкивая организации к нативным инструментам.',
-        'copilot_p3': '<strong>Почему это важно:</strong> Если вы полагаетесь на записывающие боты, вы можете потерять доступ, когда Microsoft введёт эти ограничения. Локальные инструменты записи, такие как Mono, работают независимо от API Microsoft — они захватывают системный звук напрямую, поэтому продолжат работать независимо от изменений политики.',
+        'copilot_p3': '<strong>Почему это важно:</strong> Если вы полагаетесь на записывающие боты, вы можете потерять доступ, когда Microsoft введёт эти ограничения. Локальные инструменты записи, такие как mono, работают независимо от API Microsoft — они захватывают системный звук напрямую, поэтому продолжат работать независимо от изменений политики.',
         'copilot_th_feature': 'Функция',
         'copilot_th_builtin': 'Teams встроенный',
         'copilot_th_copilot': '+ Copilot',
         'copilot_th_bots': 'Сторонние боты',
-        'copilot_th_local': 'Локально (Mono)',
+        'copilot_th_local': 'Локально (mono)',
         'copilot_row1_feature': 'Запись',
         'copilot_row1_builtin': 'Да (облако)',
         'copilot_row1_copilot': 'Да (облако)',
@@ -1546,7 +1546,7 @@ const translations = {
         'troubleshoot_transcription': '<strong>Транскрипция недоступна:</strong> Транскрипция требует включения администратором в центре администрирования Teams и доступна только на определённых языках. Перейдите в Настройки → Субтитры и транскрипции, чтобы проверить, включена ли она для вашей учётной записи.',
         'troubleshoot_download': '<strong>Не удаётся скачать запись:</strong> После окончания встречи записи требуют времени на обработку (обычно 5-30 минут). Если прошло более часа, попробуйте выйти и снова войти в Teams. Также проверьте чат встречи или SharePoint/OneDrive — записи появляются в разных местах в зависимости от типа встречи.',
         'troubleshoot_quality': '<strong>Плохое качество звука в записи:</strong> Teams записывает именно то, что получает. Если у участников плохое соединение или они используют динамики ноутбука вместо наушников, запись это отразит. Для важных встреч попросите участников использовать гарнитуры и стабильное интернет-соединение.',
-        'troubleshoot_bypass': '<strong>Нужно записать без этих ограничений?</strong> Локальные инструменты, такие как Mono, полностью обходят систему разрешений Teams — они захватывают звук на системном уровне, поэтому работают независимо от вашей роли в Teams, политик администратора или уровня лицензии. Вы получите запись, даже если вы просто участник без прав на запись.'
+        'troubleshoot_bypass': '<strong>Нужно записать без этих ограничений?</strong> Локальные инструменты, такие как mono, полностью обходят систему разрешений Teams — они захватывают звук на системном уровне, поэтому работают независимо от вашей роли в Teams, политик администратора или уровня лицензии. Вы получите запись, даже если вы просто участник без прав на запись.'
     }
 };
 
