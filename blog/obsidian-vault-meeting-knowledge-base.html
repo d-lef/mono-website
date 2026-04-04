@@ -168,12 +168,6 @@
         :root.light blockquote { border-left-color: rgba(0,0,0,0.12); }
         @media (prefers-color-scheme: light) { :root:not(.dark) blockquote { border-left-color: rgba(0,0,0,0.12); } }
 
-        .folder-tree { background: var(--bg-secondary); border-radius: 8px; padding: 20px 24px; margin: 24px 0; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 14px; line-height: 1.8; }
-        .folder-tree .tree-folder { color: var(--text-primary); }
-        .folder-tree .tree-file { color: var(--text-secondary); }
-        .folder-tree .tree-note { color: #6A9955; font-style: italic; }
-        :root.light .folder-tree .tree-note { color: #008000; }
-        @media (prefers-color-scheme: light) { :root:not(.dark) .folder-tree .tree-note { color: #008000; } }
     </style>
 </head>
 <body>
@@ -265,17 +259,15 @@ Good point. Let's set a deprecation timeline.</div>
 
             <p>The file structure in your vault is clean:</p>
 
-            <div class="folder-tree">
-<span class="tree-folder">My Vault/</span>
-<span class="tree-folder">&nbsp;&nbsp;Meetings/</span> <span class="tree-note">&larr; point mono at this folder</span>
-<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;2026-04-04 Weekly Standup.md</span>
-<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;2026-04-03 Client Call.md</span>
-<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;2026-04-01 1-on-1 with Sarah.md</span>
-<span class="tree-folder">&nbsp;&nbsp;&nbsp;&nbsp;_audio/</span>
-<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026-04-04 Weekly Standup.mp3</span>
-<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026-04-03 Client Call.mp3</span>
-<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026-04-01 1-on-1 with Sarah.mp3</span>
-            </div>
+            <div class="code-block"><span class="code-heading">My Vault/</span>
+<span class="code-heading">  Meetings/</span>              <span class="code-comment">&larr; point mono at this folder</span>
+    2026-04-04 Weekly Standup.md
+    2026-04-03 Client Call.md
+    2026-04-01 1-on-1 with Sarah.md
+<span class="code-heading">    _audio/</span>
+      2026-04-04 Weekly Standup.mp3
+      2026-04-03 Client Call.mp3
+      2026-04-01 1-on-1 with Sarah.mp3</div>
 
             <p>Flat files, sorted by date naturally. Audio tucked away in <code>_audio/</code> so your sidebar stays clean. No database, no proprietary format. Just markdown and mp3.</p>
 
