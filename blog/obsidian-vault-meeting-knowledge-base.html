@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61BNYMZ7FD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-61BNYMZ7FD');
+    </script>
+    <!-- Mono Analytics -->
+    <script>
+    (function(){if(location.search.includes("optout")){localStorage.setItem("_ma_optout","1");return}if(localStorage.getItem("_ma_optout"))return;var u="https://t.mono-ai.uk/api/event",v=localStorage.getItem("_ma_vid");if(!v){v=crypto.randomUUID().slice(0,12);localStorage.setItem("_ma_vid",v)}var s=sessionStorage.getItem("_ma_sid");if(!s){s=crypto.randomUUID().slice(0,12);sessionStorage.setItem("_ma_sid",s)}var p=new URLSearchParams(location.search),t={};["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var val=p.get(k);if(val){t[k]=val;sessionStorage.setItem("_ma_"+k,val)}else{t[k]=sessionStorage.getItem("_ma_"+k)||""}});var r=document.referrer||"";function ma(e,o){var d=Object.assign({session_id:s,visitor_id:v,event_name:e,page_path:location.pathname,label:null,platform:null,value:null,utm_source:t.utm_source,utm_medium:t.utm_medium,utm_campaign:t.utm_campaign,utm_content:t.utm_content,utm_term:t.utm_term,referrer:r,screen_width:screen.width},o||{});if(navigator.sendBeacon)navigator.sendBeacon(u,JSON.stringify(d));else fetch(u,{method:"POST",body:JSON.stringify(d),keepalive:true})}ma("pageview");window.ma=ma})();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Turn Your Obsidian Vault into a Meeting Knowledge Base &mdash; mono</title>
+    <meta name="description" content="Every meeting you record becomes a markdown note in your vault — with frontmatter, AI summary, action items as checkboxes, and full transcript. No export, no copy-paste. Works with Dataview and Tasks.">
+    <link rel="canonical" href="https://mono-ai.uk/blog/obsidian-vault-meeting-knowledge-base">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Turn Your Obsidian Vault into a Meeting Knowledge Base">
+    <meta property="og:description" content="Every meeting becomes a native Obsidian note — frontmatter, AI summary, checkboxes, transcript. No export step. Works with Dataview and Tasks.">
+    <meta property="og:url" content="https://mono-ai.uk/blog/obsidian-vault-meeting-knowledge-base">
+    <meta property="og:site_name" content="mono">
+    <meta property="og:image" content="https://mono-ai.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-04-04T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Turn Your Obsidian Vault into a Meeting Knowledge Base">
+    <meta name="twitter:description" content="Every meeting becomes a native Obsidian note — frontmatter, AI summary, checkboxes, transcript. No export step. Works with Dataview and Tasks.">
+    <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Turn Your Obsidian Vault into a Meeting Knowledge Base",
+      "description": "Every meeting you record becomes a markdown note in your Obsidian vault — with YAML frontmatter, AI summary, action item checkboxes, and full transcript. No export, no copy-paste.",
+      "datePublished": "2026-04-04",
+      "dateModified": "2026-04-04",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "url": "https://mono-ai.uk/blog/obsidian-vault-meeting-knowledge-base"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I use Obsidian as a meeting notes app?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. With a meeting recorder that outputs native markdown files directly into your vault, every meeting becomes a regular Obsidian note with YAML frontmatter, summary, action items, and transcript. You can tag, link, and query these notes like any other note in your vault." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Obsidian features like Bases, Dataview, and Tasks work with meeting notes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Meeting notes use standard YAML frontmatter (title, date, duration, tags) that Obsidian's built-in Bases feature and the Dataview plugin can query. Action items use standard markdown checkboxes (- [ ]) that the Tasks plugin can aggregate across your entire vault." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get meeting recordings into Obsidian automatically?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Point a markdown-native meeting recorder like mono at a folder inside your Obsidian vault. When you finish a meeting, a .md file appears automatically with the transcript, AI-generated summary, and action items. No export or manual import needed." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I edit meeting notes in Obsidian and have the recorder app see the changes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. A file watcher detects changes you make in Obsidian — editing tags, checking off action items, renaming the note — and syncs them back into the recorder app. Edits are bidirectional." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/font-ready.js"></script>
+    <script src="/components/nav.js" defer></script>
+    <script src="/components/discount-float.js" defer></script>
+    <script src="/components/fold-effect.js" defer></script>
+    <script src="/components/cta-card.js" defer></script>
+    <script src="/components/lightbox.js" defer></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-primary: #252525; --bg-secondary: #2D2D2D; --bg-hover: #3A3A3A; --bg-pressed: #454545; --text-primary: #FFFFFF; --text-secondary: #B0B0B0; }
+        @media (prefers-color-scheme: light) { :root:not(.dark) { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; } }
+        :root.light { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; }
+        html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-width: none; }
+        html::-webkit-scrollbar { display: none; }
+        body { font-family: 'Comfortaa', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
+        .back-link { display: inline-block; font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; }
+        .back-link:hover { color: var(--text-primary); }
+        .article-category { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 16px; }
+        .article-title { font-weight: 500; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; margin-bottom: 12px; }
+        .article-meta { font-size: 13px; color: var(--text-secondary); margin-bottom: 48px; }
+        .article-body { font-size: 16px; }
+        .article-body p { margin-bottom: 20px; }
+        .article-body h2 { font-weight: 500; font-size: 24px; margin-top: 48px; margin-bottom: 16px; }
+        .article-body h3 { font-weight: 500; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
+        .article-body strong { font-weight: 700; }
+        .article-body a { color: var(--text-primary); }
+        .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; }
+        .article-body li { margin-bottom: 8px; }
+        .tldr { background: var(--bg-secondary); border-left: 3px solid rgba(255,255,255,0.15); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; }
+        :root.light .tldr { border-left-color: rgba(0,0,0,0.12); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .tldr { border-left-color: rgba(0,0,0,0.12); } }
+        .tldr-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+        .tldr ul { list-style: none; padding: 0; margin: 0; }
+        .tldr li { font-size: 15px; padding: 4px 0; }
+        .table-wrap { overflow-x: auto; margin-bottom: 24px; }
+        .compare-table { border-collapse: collapse; width: 100%; min-width: 500px; }
+        .compare-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
+        .compare-table td { font-size: 14px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .compare-table tr.highlight-row td { background: rgba(255,255,255,0.04); }
+        :root.light .compare-table th { border-bottom-color: rgba(0,0,0,0.1); }
+        :root.light .compare-table td { border-bottom-color: rgba(0,0,0,0.06); }
+        :root.light .compare-table tr.highlight-row td { background: rgba(0,0,0,0.03); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .compare-table th { border-bottom-color: rgba(0,0,0,0.1); } :root:not(.dark) .compare-table td { border-bottom-color: rgba(0,0,0,0.06); } :root:not(.dark) .compare-table tr.highlight-row td { background: rgba(0,0,0,0.03); } }
+        .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
+        .tip-box p { margin-bottom: 0; }
+        .cta-card { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; margin-top: 48px; text-align: center; }
+        :root.light .cta-card { border-color: rgba(0,0,0,0.08); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .cta-card { border-color: rgba(0,0,0,0.08); } }
+        .cta-title { font-weight: 500; font-size: 22px; margin-bottom: 8px; }
+        .cta-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; }
+        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn-primary, .article-body .cta-btn-primary { display: inline-block; background: var(--text-primary); color: var(--bg-primary); padding: 10px 24px; border-radius: 8px; font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.15s ease, transform 0.15s ease; }
+        .cta-btn-primary:hover { opacity: 0.88; transform: scale(1.02); }
+        .cta-btn-secondary { display: inline-block; background: transparent; color: var(--text-secondary); padding: 10px 24px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 400; text-decoration: none; transition: border-color 0.15s ease, color 0.15s ease; }
+        .cta-btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: var(--text-primary); }
+        :root.light .cta-btn-secondary { border-color: rgba(0,0,0,0.2); }
+        :root.light .cta-btn-secondary:hover { border-color: rgba(0,0,0,0.4); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .cta-btn-secondary { border-color: rgba(0,0,0,0.2); } :root:not(.dark) .cta-btn-secondary:hover { border-color: rgba(0,0,0,0.4); } }
+
+        .code-block { background: var(--bg-secondary); border-radius: 8px; padding: 20px 24px; margin: 24px 0; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 14px; line-height: 1.6; overflow-x: auto; white-space: pre; color: var(--text-secondary); }
+        .code-block .code-comment { color: #6A9955; }
+        .code-block .code-key { color: #9CDCFE; }
+        .code-block .code-string { color: #CE9178; }
+        .code-block .code-heading { color: #DCDCAA; }
+        .code-block .code-checkbox { color: #569CD6; }
+        .code-block .code-speaker { color: #C586C0; }
+        :root.light .code-block .code-comment { color: #008000; }
+        :root.light .code-block .code-key { color: #0451A5; }
+        :root.light .code-block .code-string { color: #A31515; }
+        :root.light .code-block .code-heading { color: #795E26; }
+        :root.light .code-block .code-checkbox { color: #0000FF; }
+        :root.light .code-block .code-speaker { color: #AF00DB; }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .code-block .code-comment { color: #008000; } :root:not(.dark) .code-block .code-key { color: #0451A5; } :root:not(.dark) .code-block .code-string { color: #A31515; } :root:not(.dark) .code-block .code-heading { color: #795E26; } :root:not(.dark) .code-block .code-checkbox { color: #0000FF; } :root:not(.dark) .code-block .code-speaker { color: #AF00DB; } }
+
+        .article-figure { margin: 32px 0; }
+        .article-figure img { width: 100%; height: auto; border-radius: 8px; display: block; cursor: zoom-in; }
+        .article-figure figcaption { font-size: 13px; color: var(--text-secondary); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+        blockquote { border-left: 3px solid rgba(255,255,255,0.15); padding: 12px 20px; margin: 24px 0; font-style: italic; color: var(--text-secondary); }
+        :root.light blockquote { border-left-color: rgba(0,0,0,0.12); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) blockquote { border-left-color: rgba(0,0,0,0.12); } }
+
+        .folder-tree { background: var(--bg-secondary); border-radius: 8px; padding: 20px 24px; margin: 24px 0; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 14px; line-height: 1.8; }
+        .folder-tree .tree-folder { color: var(--text-primary); }
+        .folder-tree .tree-file { color: var(--text-secondary); }
+        .folder-tree .tree-note { color: #6A9955; font-style: italic; }
+        :root.light .folder-tree .tree-note { color: #008000; }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .folder-tree .tree-note { color: #008000; } }
+    </style>
+</head>
+<body>
+    <site-nav base-path="../"></site-nav>
+    <discount-float></discount-float>
+
+    <main class="article-wrap">
+        <a href="./" class="back-link">&larr; blog</a>
+
+        <header>
+            <span class="article-category">[Guide]</span>
+            <h1 class="article-title">How to Turn Your Obsidian Vault into a Meeting Knowledge Base</h1>
+            <p class="article-meta">Apr 4, 2026 &middot; 9 min read &middot; By Daniil Lefanov</p>
+        </header>
+
+        <div class="article-body">
+
+            <p>You've spent months building your Obsidian vault. Daily notes, project pages, linked references, tags that actually mean something. It's your external brain for everything that matters at work.</p>
+
+            <p>Except meetings. The place where most decisions actually get made, where context gets shared, where someone says "let's do X" and three people nod &mdash; that all lives somewhere else entirely. A separate app, a separate silo, or more likely, nowhere at all.</p>
+
+            <p>You finish a call. Maybe you jot down two bullet points. Maybe you copy-paste a few lines from Otter into a daily note. But the full picture &mdash; who said what, the reasoning behind the decision, the action item someone volunteered for &mdash; evaporates within hours.</p>
+
+            <p>What if every meeting just <em>appeared</em> in your vault as a native markdown note? With YAML frontmatter you can query. Action items as checkboxes the Tasks plugin already sees. A full transcript you can search, link, and annotate. No export step, no copy-paste, no second app to check.</p>
+
+            <div class="tldr">
+                <p class="tldr-label">TL;DR</p>
+                <ul>
+                    <li><strong>The gap:</strong> Meetings are your vault's biggest blind spot &mdash; decisions and context that exist nowhere in your PKM system</li>
+                    <li><strong>The fix:</strong> A recorder that writes native .md files directly into your vault folder</li>
+                    <li><strong>Bases &amp; Dataview-ready:</strong> YAML frontmatter with title, date, duration, tags &mdash; queryable with built-in Bases or Dataview</li>
+                    <li><strong>Tasks-ready:</strong> Action items as standard <code>- [ ]</code> checkboxes, bidirectional sync</li>
+                    <li><strong>Semantic search:</strong> Ask questions across all meetings by meaning, not just keywords</li>
+                </ul>
+            </div>
+
+            <h2>The Gap in Your Vault</h2>
+
+            <p>If you're serious about Obsidian, you've probably solved most of your knowledge capture problems. Articles go through a read-it-later pipeline. Highlights sync automatically. Project notes link to reference material. Daily notes tie everything to a timeline.</p>
+
+            <p>But meetings are the one source that resists this workflow. And it's not because they're unimportant &mdash; it's because the tools that capture them don't speak your language.</p>
+
+            <p>Cloud meeting recorders like Otter, Fireflies, and Fathom store your transcripts behind a login, in their own format, in their own silo. You can export, sometimes, but it's always a second-class experience. A PDF. A plain text dump. Something you'd have to reformat before it's useful in your vault.</p>
+
+            <p>Meanwhile, the information trapped in those tools is often <strong>the most valuable kind you produce at work</strong>. Not the article you bookmarked &mdash; the actual conversation where your team debated the trade-offs, made the decision, and assigned the follow-ups. That's original, first-hand knowledge. And you're letting it sit in a silo your vault can't reach.</p>
+
+            <h2>What a Meeting Note Looks Like in Your Vault</h2>
+
+            <p>Imagine you finish a Zoom call. A few seconds later, this file appears in your vault:</p>
+
+            <div class="code-block"><span class="code-comment">---</span>
+<span class="code-key">title:</span> <span class="code-string">Weekly Standup</span>
+<span class="code-key">date:</span> <span class="code-string">2026-04-04T10:00:00</span>
+<span class="code-key">duration:</span> <span class="code-string">"23:15"</span>
+<span class="code-key">tags:</span>
+  <span class="code-string">- meeting</span>
+  <span class="code-string">- project-alpha</span>
+<span class="code-key">language:</span> <span class="code-string">en</span>
+<span class="code-key">status:</span> <span class="code-string">summarized</span>
+<span class="code-comment">---</span>
+
+![](_audio/2026-04-04%20Weekly%20Standup.mp3)
+
+<span class="code-heading">## Summary</span>
+
+The team reviewed progress on the API migration. Sarah confirmed
+the database schema changes are complete. Marcus raised a concern
+about backwards compatibility with v2 clients.
+
+<span class="code-heading">## Action Items</span>
+
+<span class="code-checkbox">- [ ]</span> Draft v2 deprecation timeline
+<span class="code-checkbox">- [ ]</span> Update API docs for v3 endpoints
+<span class="code-checkbox">- [x]</span> Schedule stakeholder review
+
+<span class="code-heading">## Transcript</span>
+
+<span class="code-speaker">**You**</span> (0:00:00)
+Let's start with the roadmap updates. The schema migration
+landed yesterday.
+
+<span class="code-speaker">**Other**</span> (0:00:43)
+Great. I have a concern about backwards compat though.
+
+<span class="code-speaker">**You**</span> (0:01:12)
+Good point. Let's set a deprecation timeline.</div>
+
+            <p>That's a real Obsidian note. You can tag it, link it to your project page, add your own annotations between sections. The audio file embeds as a playable audio widget &mdash; click play right inside the note to hear the exact tone of a discussion.</p>
+
+            <p>The file structure in your vault is clean:</p>
+
+            <div class="folder-tree">
+<span class="tree-folder">My Vault/</span>
+<span class="tree-folder">&nbsp;&nbsp;Meetings/</span> <span class="tree-note">&larr; point mono at this folder</span>
+<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;2026-04-04 Weekly Standup.md</span>
+<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;2026-04-03 Client Call.md</span>
+<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;2026-04-01 1-on-1 with Sarah.md</span>
+<span class="tree-folder">&nbsp;&nbsp;&nbsp;&nbsp;_audio/</span>
+<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026-04-04 Weekly Standup.mp3</span>
+<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026-04-03 Client Call.mp3</span>
+<span class="tree-file">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2026-04-01 1-on-1 with Sarah.mp3</span>
+            </div>
+
+            <p>Flat files, sorted by date naturally. Audio tucked away in <code>_audio/</code> so your sidebar stays clean. No database, no proprietary format. Just markdown and mp3.</p>
+
+            <h2>Queryable with Bases and Dataview</h2>
+
+            <p>Every meeting note has standard YAML frontmatter: <code>title</code>, <code>date</code>, <code>duration</code>, <code>tags</code>, <code>status</code>. The same properties you'd put in any well-structured vault note. That means two powerful ways to query them.</p>
+
+            <h3>Obsidian Bases (built-in, no plugins)</h3>
+
+            <p>Obsidian's built-in <strong>Bases</strong> feature turns your meetings folder into a database-like view &mdash; no code, no community plugins, nothing to install.</p>
+
+            <p>Create a new Base, point it at your Meetings folder, and you get a sortable, filterable table of every meeting with columns for date, duration, tags, and status. Click a cell to edit a property inline &mdash; add a tag, change a status &mdash; and it writes directly to the note's frontmatter.</p>
+
+            <p>Filter to just this week's meetings. Sort by duration. Group by tag. All through a visual interface that feels like a spreadsheet but operates over your actual markdown files.</p>
+
+            <p>If you've used Notion databases, this is that &mdash; but over files you own.</p>
+
+            <h3>Dataview (for power users)</h3>
+
+            <p>If you prefer queries in code, Dataview works just as well:</p>
+
+            <p><strong>All meetings this week tagged #project-alpha:</strong></p>
+
+            <div class="code-block"><span class="code-comment">```dataview</span>
+TABLE duration, status
+FROM "Meetings"
+WHERE contains(tags, "project-alpha")
+  AND date >= date(today) - dur(7 days)
+SORT date DESC
+<span class="code-comment">```</span></div>
+
+            <p><strong>Meetings longer than 30 minutes you haven't summarized yet:</strong></p>
+
+            <div class="code-block"><span class="code-comment">```dataview</span>
+LIST
+FROM "Meetings"
+WHERE status = "transcribed"
+  AND duration > "30:00"
+SORT date DESC
+<span class="code-comment">```</span></div>
+
+            <p>Both approaches work because the underlying data is the same: standard YAML frontmatter. Use Bases for quick visual browsing, Dataview for complex queries embedded in your project pages. Or both.</p>
+
+            <h2>Action Items That Work with Obsidian Tasks</h2>
+
+            <p>This is the part that makes the biggest difference in practice.</p>
+
+            <p>Meeting action items are standard markdown checkboxes under a <code>## Action Items</code> heading. The format the Tasks plugin already queries natively:</p>
+
+            <div class="code-block"><span class="code-checkbox">- [ ]</span> Draft v2 deprecation timeline
+<span class="code-checkbox">- [ ]</span> Update API docs for v3 endpoints
+<span class="code-checkbox">- [x]</span> Schedule stakeholder review</div>
+
+            <p>One Tasks query to see every uncompleted action item from every meeting this month:</p>
+
+            <div class="code-block"><span class="code-comment">```tasks</span>
+path includes Meetings
+not done
+<span class="code-comment">```</span></div>
+
+            <p>Check off an item in Obsidian. The recorder app sees the change. Check it off in the recorder app. Obsidian sees the change. Bidirectional &mdash; because it's the same file.</p>
+
+            <p>No more action items buried inside AI-generated summaries you never re-read. No more "wait, who was supposed to do that?" No more searching through three different tools to find what you committed to last Tuesday.</p>
+
+            <div class="tip-box">
+                <p><strong>Why checkboxes, not YAML arrays:</strong> Obsidian Tasks queries <code>- [ ]</code> lines. YAML frontmatter arrays are invisible to it. By keeping action items in the body as checkboxes, they work with Tasks out of the box &mdash; no configuration, no workarounds.</p>
+            </div>
+
+            <h2>Embedded Audio Playback</h2>
+
+            <p>Each meeting note embeds its audio file with Obsidian's standard image/file embed syntax:</p>
+
+            <div class="code-block">![](_audio/2026-04-04%20Weekly%20Standup.mp3)</div>
+
+            <p>Obsidian renders this as a playable audio widget right inside the note. You're reading the transcript, you hit a section where tone matters &mdash; a disagreement, a hesitation, a joke that changed the direction of the conversation &mdash; and you click play right there.</p>
+
+            <p>Audio files live in a <code>_audio/</code> subfolder. The underscore prefix sorts it to the top and out of the way. Your sidebar shows clean, date-sorted note titles, not a mix of markdown and mp3 files.</p>
+
+            <h2>Semantic Search Across All Your Meetings</h2>
+
+            <p>Obsidian's built-in search is good for finding exact words. But meetings are conversational &mdash; the same concept gets described in different ways across different calls.</p>
+
+            <p>You remember a discussion about pricing strategy, but the transcript says "revenue model." You know someone raised a concern about the timeline, but they phrased it as "I'm not sure we can ship by Q3." Keyword search misses these. Semantic search doesn't.</p>
+
+            <p>Behind the scenes, the recorder chunks your transcripts and embeds them into a vector database. When you ask a question, it retrieves the relevant chunks by <em>meaning</em>, not by exact string match:</p>
+
+            <ul>
+                <li><strong>"What did we decide about the API timeline?"</strong> &mdash; finds the discussion even if nobody said "API timeline" exactly</li>
+                <li><strong>"What's Sarah's concern about the migration?"</strong> &mdash; surfaces every relevant mention across multiple meetings</li>
+                <li><strong>"Prep me for the project review"</strong> &mdash; pulls together decisions, open items, and context from the last month of calls</li>
+            </ul>
+
+            <p>This complements Obsidian's search rather than replacing it. Obsidian finds the notes; semantic search finds the moments within them.</p>
+
+            <p>And because the vector index is stored in a hidden <code>.mono/</code> folder inside your meetings directory, it's invisible to Obsidian. Delete it, and it gets rebuilt from your markdown files. Your notes are always the source of truth &mdash; the search index is just a cache.</p>
+
+            <h2>Your Files, Not Ours</h2>
+
+            <p>This is the part that matters most if you've been burned by a tool shutting down, changing pricing, or holding your data hostage.</p>
+
+            <p>Every meeting is a plain <code>.md</code> file and an <code>.mp3</code> file. That's it. No database you can't open. No proprietary format you can't read. No cloud account that gates access to your own recordings.</p>
+
+            <p>Compare that to what you get from cloud meeting recorders:</p>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Cloud recorders</th>
+                            <th>Markdown-first</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Your data lives...</td>
+                            <td>On their servers</td>
+                            <td>On your disk</td>
+                        </tr>
+                        <tr>
+                            <td>Export format</td>
+                            <td>PDF, plain text, or nothing</td>
+                            <td>Already markdown</td>
+                        </tr>
+                        <tr>
+                            <td>Obsidian integration</td>
+                            <td>Manual copy-paste</td>
+                            <td>Native &mdash; files appear in your vault</td>
+                        </tr>
+                        <tr>
+                            <td>Bases / Dataview / Tasks</td>
+                            <td>Not possible</td>
+                            <td>Works out of the box</td>
+                        </tr>
+                        <tr>
+                            <td>If you stop paying</td>
+                            <td>Scramble to export before lockout</td>
+                            <td>Nothing changes &mdash; files are yours</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>If the app disappears</td>
+                            <td>Your recordings may too</td>
+                            <td>You still have .md + .mp3 files</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Uninstall the recorder app tomorrow and you lose nothing. Every summary, every action item, every transcript is right there in your vault as a file you can open in any text editor on any operating system.</p>
+
+            <h2>Edits Go Both Ways</h2>
+
+            <p>The recorder watches your meetings folder for changes. This means edits you make in Obsidian are picked up automatically:</p>
+
+            <ul>
+                <li><strong>Add a tag</strong> in frontmatter &rarr; the recorder app's library reflects it</li>
+                <li><strong>Check off an action item</strong> &rarr; the recorder app sees it as done</li>
+                <li><strong>Rename the file</strong> &rarr; the recorder renames the audio file to match</li>
+                <li><strong>Edit the transcript</strong> &rarr; the recorder re-indexes it for semantic search</li>
+            </ul>
+
+            <p>You're never locked into editing in one place. Use whichever tool is in front of you.</p>
+
+            <p>Your own notes are safe too. Add paragraphs between sections, drop links to project pages, insert block references. The recorder preserves any content it didn't create &mdash; your annotations survive when the file gets updated.</p>
+
+            <h2>How to Set It Up</h2>
+
+            <p>Three steps:</p>
+
+            <ol>
+                <li><strong>Create a folder in your vault</strong> for meetings &mdash; <code>Meetings/</code>, <code>Calls/</code>, whatever fits your structure</li>
+                <li><strong>Point mono's recordings folder</strong> to that folder in settings</li>
+                <li><strong>Record a meeting</strong> &mdash; a .md file appears in your vault when transcription finishes</li>
+            </ol>
+
+            <p>From there, the workflow is automatic. Every new recording produces a note with frontmatter, AI-generated summary, action items, and full transcript. Tag it, link it to your project, and move on.</p>
+
+            <p>mono handles the recording, transcription, and summarization. It runs on Windows and Mac, records audio from any app (Zoom, Teams, Meet, Discord, anything), and does transcription locally on your machine with Whisper. No audio leaves your device. No cloud account required.</p>
+
+            <div class="tip-box">
+                <p><strong>Already have recordings?</strong> Existing recordings from before the Obsidian integration will be migrated automatically in a future update. For now, new recordings go straight into your vault.</p>
+            </div>
+
+            <h2>What Your Vault Looks Like After a Month</h2>
+
+            <p>After a few weeks, the compound effect kicks in. Your vault goes from "notes plus a separate meeting tool" to a single system where everything connects.</p>
+
+            <p><strong>Your daily note links to today's meetings.</strong> Not manually &mdash; because the meeting note has today's date in frontmatter, a simple Dataview query in your daily template shows them automatically.</p>
+
+            <p><strong>Your project page surfaces every relevant meeting.</strong> Tag meetings with a project tag, and a Dataview table on the project page lists them chronologically with duration and status.</p>
+
+            <p><strong>Your weekly review includes action items from every call.</strong> One Tasks query aggregates them all. Nothing slips through the cracks because nothing lives outside the vault anymore.</p>
+
+            <p><strong>Onboarding a new team member?</strong> Share the vault folder. They get every meeting transcript, every decision with its reasoning, every action item with its status. Months of context in seconds.</p>
+
+            <p>The meeting silo is gone. Conversations, notes, projects, and action items all live in one place, linked by the connections you've already built.</p>
+
+            <div class="cta-card">
+                <p class="cta-title">Your meetings belong in your vault</p>
+                <p class="cta-sub">mono records any meeting app, transcribes locally with Whisper, and writes native markdown files directly into your Obsidian vault. One recording free, no account needed.</p>
+                <div class="cta-buttons">
+                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
+                       class="cta-btn-primary" target="_blank" rel="noopener sponsored">Buy mono &mdash; $50</a>
+                    <a href="../?buy" class="cta-btn-secondary">Download free</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        if (window.initFoldEffect) window.initFoldEffect();
+    </script>
+
+</body>
+</html>
