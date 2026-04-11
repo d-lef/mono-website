@@ -36,12 +36,9 @@ class DiscountFloat extends HTMLElement {
             }
 
             .float-btn {
-                position: fixed;
-                bottom: 24px;
-                right: 24px;
-                z-index: 999;
                 display: inline-flex;
                 align-items: center;
+                justify-content: center;
                 gap: 8px;
                 padding: 10px 20px;
                 font-family: 'Comfortaa', sans-serif;
@@ -181,12 +178,26 @@ class DiscountFloat extends HTMLElement {
                 min-height: 18px;
             }
 
+            .float-btns {
+                position: fixed;
+                bottom: 24px;
+                right: 24px;
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
             @media (max-width: 768px) {
-                .float-btn { display: none; }
+                .float-btns { display: none; }
             }
         </style>
 
-        <button class="float-btn" id="btn">Early bird: 15% off</button>
+        <div class="float-btns">
+            <button class="float-btn" id="btn">Early bird: 15% off</button>
+            <a class="float-btn" href="https://forms.gle/w1rSzigjiFyuDg1A8" target="_blank" rel="noopener" style="text-decoration:none;">Student? 70% off</a>
+        </div>
 
         <div class="overlay" id="overlay">
             <div class="popup">
