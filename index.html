@@ -1745,7 +1745,7 @@
         let lastClickTrigger = 0;
         document.addEventListener('click', (e) => {
             // Don't trigger on buttons, iframes, or nav component (shadow DOM)
-            if (e.target.closest('button, iframe, a, .lang-selector, site-nav')) return;
+            if (e.target.closest('button, iframe, a, .lang-selector, site-nav, discount-float, .discount-overlay')) return;
 
             const now = Date.now();
             if (now - lastClickTrigger < 400) return;
