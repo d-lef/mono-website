@@ -509,7 +509,7 @@
             }
 
             /* Hide on buy screen */
-            body.state-7 .mobile-progress {
+            body.state-9 .mobile-progress {
                 display: none !important;
             }
         }
@@ -530,18 +530,18 @@
         }
 
         /* Position arrow below table on state 6 (compare) */
-        body.state-6 .scroll-indicator {
+        body.state-8 .scroll-indicator {
             bottom: 15%;
         }
 
         @media (max-width: 768px) {
-            body.state-6 .scroll-indicator {
+            body.state-8 .scroll-indicator {
                 bottom: 18%;
             }
         }
 
         /* Hide arrow on buy screen with smooth fade */
-        body.state-7 .scroll-indicator {
+        body.state-9 .scroll-indicator {
             opacity: 0 !important;
             pointer-events: none;
         }
@@ -836,6 +836,20 @@
             text-align: center;
             line-height: 1.4;
             letter-spacing: 0.05em;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 20px 36px;
+            min-width: 260px;
+            pointer-events: none;
+            cursor: default;
+            transform-style: preserve-3d;
+            transition: background 0.25s ease, border-color 0.25s ease, transform 0.4s ease;
+        }
+
+        .feature-showcase-text p:hover {
+            background: var(--bg-secondary);
+            border-color: var(--text-secondary);
         }
 
         .feature-showcase-image {
@@ -860,6 +874,10 @@
         .feature-showcase.visible .feature-showcase-image {
             opacity: 1;
             transform: none;
+        }
+
+        .feature-showcase.visible .feature-showcase-text p {
+            pointer-events: auto;
         }
 
         /* Feature grid (mobile only) */
@@ -1277,6 +1295,14 @@
                 <img src="features/ai_chat.png" alt="mono app AI chat answering questions about recordings" loading="lazy">
             </div>
         </div>
+        <div class="feature-showcase" id="showcaseSummary">
+            <div class="feature-showcase-text">
+                <p class="feature-name" data-feature="summary">AI summary</p>
+            </div>
+            <div class="feature-showcase-image">
+                <img src="features/ai_summary.png" alt="mono AI-generated summary with key points" loading="lazy">
+            </div>
+        </div>
         <div class="feature-showcase" id="showcaseCalendar">
             <div class="feature-showcase-text">
                 <p class="feature-name" data-feature="calendar">Google Calendar integration</p>
@@ -1291,6 +1317,14 @@
             </div>
             <div class="feature-showcase-image">
                 <img src="features/obsidian.png" alt="mono recording opened as a markdown note in Obsidian" loading="lazy">
+            </div>
+        </div>
+        <div class="feature-showcase" id="showcaseActions">
+            <div class="feature-showcase-text">
+                <p class="feature-name" data-feature="actions">Action items</p>
+            </div>
+            <div class="feature-showcase-image">
+                <img src="features/action_items.png" alt="mono action items view with to-do checkboxes" loading="lazy">
             </div>
         </div>
 
@@ -1438,6 +1472,8 @@
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
+        <span class="mobile-progress-dot"></span>
+        <span class="mobile-progress-dot"></span>
     </div>
 
     <!-- Discount popup -->
@@ -1488,9 +1524,9 @@
             updateVisibility();
         });
 
-        // States: 0 = hero, 1 = group1, 2 = group2, 3 = AI chat, 4 = calendar, 5 = obsidian, 6 = compare, 7 = buy
+        // States: 0=hero 1=tagline1 2=tagline2 3=chat 4=summary 5=calendar 6=obsidian 7=actions 8=compare 9=buy
         let currentState = 0;
-        const MAX_STATE = 7;
+        const MAX_STATE = 9;
 
         // Mobile: progress dots
         const mobileProgressDots = document.querySelectorAll('.mobile-progress-dot');
@@ -1514,13 +1550,15 @@
             groupFeatures.classList.remove('visible');
             group4.classList.remove('visible');
             showcaseChat.classList.remove('visible');
+            showcaseSummary.classList.remove('visible');
             showcaseCalendar.classList.remove('visible');
             showcaseObsidian.classList.remove('visible');
+            showcaseActions.classList.remove('visible');
             scrollIndicator.classList.remove('visible');
             buyContainer.classList.remove('visible');
 
             // Update body class for CSS state targeting
-            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4', 'state-5', 'state-6', 'state-7');
+            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4', 'state-5', 'state-6', 'state-7', 'state-8', 'state-9');
             document.body.classList.add('state-' + currentState);
             updateMobileProgress();
 
@@ -1557,28 +1595,19 @@
                     logoGroup.classList.remove('hidden');
                     logoGroup.classList.add('at-top');
                 }
-            } else if (currentState === 4) {
-                scrollIndicator.classList.add('visible');
-                if (mobile) {
-                    // mobile stays on grid (state 3), skip to compare
-                    group4.classList.add('visible');
-                    logoGroup.classList.add('hidden');
-                } else {
-                    showcaseCalendar.classList.add('visible');
-                    logoGroup.classList.remove('hidden');
-                    logoGroup.classList.add('at-top');
-                }
-            } else if (currentState === 5) {
+            } else if (currentState >= 4 && currentState <= 7) {
+                // Feature showcase states (4=summary, 5=calendar, 6=obsidian, 7=actions)
                 scrollIndicator.classList.add('visible');
                 if (mobile) {
                     group4.classList.add('visible');
                     logoGroup.classList.add('hidden');
                 } else {
-                    showcaseObsidian.classList.add('visible');
+                    const showcases = [null, null, null, null, showcaseSummary, showcaseCalendar, showcaseObsidian, showcaseActions];
+                    showcases[currentState].classList.add('visible');
                     logoGroup.classList.remove('hidden');
                     logoGroup.classList.add('at-top');
                 }
-            } else if (currentState === 6) {
+            } else if (currentState === 8) {
                 scrollIndicator.classList.add('visible');
                 group4.classList.add('visible');
                 if (mobile) {
@@ -1587,7 +1616,7 @@
                     logoGroup.classList.remove('hidden');
                     logoGroup.classList.add('at-top');
                 }
-            } else if (currentState === 7) {
+            } else if (currentState === 9) {
                 logoGroup.classList.add('hidden');
                 buyContainer.classList.add('visible');
                 // Track pricing screen view
@@ -1608,7 +1637,7 @@
         });
 
         // Feature showcase states are desktop-only; skip on mobile (show grid at state 3 instead)
-        const SHOWCASE_STATES = [4, 5]; // states with individual screenshots (state 3 shows grid on mobile)
+        const SHOWCASE_STATES = [4, 5, 6, 7]; // states with individual screenshots (state 3 shows grid on mobile)
         function adjustState(direction) {
             const mobile = window.innerWidth < 768;
             if (mobile) {
@@ -1908,8 +1937,10 @@
         const tagline2a = taglines2[0];
         const tagline2b = taglines2[1];
         const showcaseChat = document.getElementById('showcaseChat');
+        const showcaseSummary = document.getElementById('showcaseSummary');
         const showcaseCalendar = document.getElementById('showcaseCalendar');
         const showcaseObsidian = document.getElementById('showcaseObsidian');
+        const showcaseActions = document.getElementById('showcaseActions');
         const compareTable = group4.querySelector('.compare-table');
         const featureNames = document.querySelectorAll('[data-feature]');
         const demoButtonText = document.getElementById('demoButtonText');
@@ -2124,6 +2155,20 @@
             } catch {
                 showFallbackCode();
             }
+        });
+    </script>
+    <script>
+        // 3D tilt + cursor glow on feature name tiles
+        document.querySelectorAll('.feature-showcase-text p').forEach(tile => {
+            tile.addEventListener('mousemove', (e) => {
+                const rect = tile.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                tile.style.transform = `perspective(600px) rotateY(${x * 20}deg) rotateX(${y * -30}deg)`;
+            });
+            tile.addEventListener('mouseleave', () => {
+                tile.style.transform = '';
+            });
         });
     </script>
     <!-- Cloudflare Web Analytics -->
