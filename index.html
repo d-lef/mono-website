@@ -509,7 +509,7 @@
             }
 
             /* Hide on buy screen */
-            body.state-5 .mobile-progress {
+            body.state-7 .mobile-progress {
                 display: none !important;
             }
         }
@@ -529,19 +529,19 @@
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
-        /* Position arrow below table on state 4 (compare) */
-        body.state-4 .scroll-indicator {
+        /* Position arrow below table on state 6 (compare) */
+        body.state-6 .scroll-indicator {
             bottom: 15%;
         }
 
         @media (max-width: 768px) {
-            body.state-4 .scroll-indicator {
+            body.state-6 .scroll-indicator {
                 bottom: 18%;
             }
         }
 
         /* Hide arrow on buy screen with smooth fade */
-        body.state-5 .scroll-indicator {
+        body.state-7 .scroll-indicator {
             opacity: 0 !important;
             pointer-events: none;
         }
@@ -800,29 +800,83 @@
         }
 
 
-        /* Feature grid */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            max-width: 640px;
-            width: 90vw;
+        /* Feature showcase — fullscreen overlay, text left, screenshot right */
+        .feature-showcase {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .feature-showcase.visible {
+            opacity: 1;
+        }
+
+        .feature-showcase-text {
+            flex: 0 0 55%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px 0 34%;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+        }
+
+        .feature-showcase-text p {
+            font-size: clamp(14px, 2.5vw, 20px);
+            color: var(--text-secondary);
+            text-align: center;
+            line-height: 1.4;
+            letter-spacing: 0.05em;
+        }
+
+        .feature-showcase-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .feature-showcase-image img {
+            max-height: 58vh;
+            width: auto;
+            max-width: 90%;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        }
+
+        .feature-showcase.visible .feature-showcase-text,
+        .feature-showcase.visible .feature-showcase-image {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Feature grid (mobile only) */
+        .feature-grid-mobile {
+            display: none;
         }
 
         .feature-tile {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            padding: 24px 12px;
+            gap: 8px;
+            padding: 18px 10px;
             border-radius: 8px;
             opacity: 0;
             transform: translateY(10px);
-            transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.15s ease;
-        }
-
-        .feature-tile:hover {
-            background-color: var(--bg-hover);
+            transition: opacity 0.35s ease, transform 0.35s ease;
         }
 
         .tagline-group.visible .feature-tile {
@@ -837,7 +891,7 @@
         .tagline-group.visible .feature-tile:nth-child(5) { transition-delay: 0.24s; }
         .tagline-group.visible .feature-tile:nth-child(6) { transition-delay: 0.30s; }
 
-        .feature-icon {
+        .feature-tile-icon {
             width: 28px;
             height: 28px;
             stroke: var(--text-secondary);
@@ -847,24 +901,24 @@
             stroke-linejoin: round;
         }
 
-        .feature-label {
-            font-size: clamp(10px, 2.5vw, 14px);
+        .feature-tile-label {
+            font-size: 12px;
             color: var(--text-primary);
             text-align: center;
             white-space: nowrap;
-            pointer-events: none;
         }
 
+        /* Mobile: hide showcase, show grid */
         @media (max-width: 768px) {
-            .feature-grid {
+            .feature-showcase {
+                display: none;
+            }
+
+            .feature-grid-mobile {
+                display: grid !important;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2px;
                 max-width: 320px;
-            }
-
-            .feature-tile {
-                padding: 18px 10px;
-                gap: 8px;
             }
 
             .group-features {
@@ -1142,52 +1196,30 @@
                 </div>
                 <div class="tagline-group group-features">
                     <h2 class="sr-only">Key features</h2>
-                    <div class="feature-grid">
+                    <div class="feature-grid-mobile">
                         <div class="feature-tile">
-                            <svg class="feature-icon" viewBox="0 0 24 24">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                                <path d="M8 10h.01M12 10h.01M16 10h.01"/>
-                            </svg>
-                            <span class="feature-label" data-feature="chat">AI chat</span>
+                            <svg class="feature-tile-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>
+                            <span class="feature-tile-label" data-feature="chat">AI chat</span>
                         </div>
                         <div class="feature-tile">
-                            <svg class="feature-icon" viewBox="0 0 24 24">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                            </svg>
-                            <span class="feature-label" data-feature="summary">AI summary</span>
+                            <svg class="feature-tile-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            <span class="feature-tile-label" data-feature="summary">AI summary</span>
                         </div>
                         <div class="feature-tile">
-                            <svg class="feature-icon" viewBox="0 0 24 24">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <span class="feature-label" data-feature="actions">Action items</span>
+                            <svg class="feature-tile-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span class="feature-tile-label" data-feature="actions">Action items</span>
                         </div>
                         <div class="feature-tile">
-                            <svg class="feature-icon" viewBox="0 0 24 24">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="16" y1="2" x2="16" y2="6"/>
-                                <line x1="8" y1="2" x2="8" y2="6"/>
-                                <line x1="3" y1="10" x2="21" y2="10"/>
-                            </svg>
-                            <span class="feature-label" data-feature="calendar">Google Calendar</span>
+                            <svg class="feature-tile-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <span class="feature-tile-label" data-feature="calendar">Google Calendar</span>
                         </div>
                         <div class="feature-tile">
-                            <svg class="feature-icon" viewBox="0 0 24 24">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                <line x1="1" y1="1" x2="23" y2="23" stroke-width="1.5"/>
-                            </svg>
-                            <span class="feature-label" data-feature="invisible">Invisible recording</span>
+                            <svg class="feature-tile-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><line x1="1" y1="1" x2="23" y2="23" stroke-width="1.5"/></svg>
+                            <span class="feature-tile-label" data-feature="invisible">Invisible recording</span>
                         </div>
                         <div class="feature-tile">
-                            <svg class="feature-icon" viewBox="0 0 24 24">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                            </svg>
-                            <span class="feature-label" data-feature="obsidian">Obsidian integration</span>
+                            <svg class="feature-tile-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            <span class="feature-tile-label" data-feature="obsidian">Obsidian integration</span>
                         </div>
                     </div>
                 </div>
@@ -1233,6 +1265,32 @@
                         </tr>
                     </table>
                 </div>
+            </div>
+        </div>
+
+        <!-- Feature showcases (desktop) — positioned outside tagline-container for full-width layout -->
+        <div class="feature-showcase" id="showcaseChat">
+            <div class="feature-showcase-text">
+                <p class="feature-name" data-feature="chat">AI chat</p>
+            </div>
+            <div class="feature-showcase-image">
+                <img src="features/ai_chat.png" alt="mono app AI chat answering questions about recordings" loading="lazy">
+            </div>
+        </div>
+        <div class="feature-showcase" id="showcaseCalendar">
+            <div class="feature-showcase-text">
+                <p class="feature-name" data-feature="calendar">Google Calendar integration</p>
+            </div>
+            <div class="feature-showcase-image">
+                <img src="features/calendar.png" alt="mono app showing Google Calendar integration with weekly view" loading="lazy">
+            </div>
+        </div>
+        <div class="feature-showcase" id="showcaseObsidian">
+            <div class="feature-showcase-text">
+                <p class="feature-name" data-feature="obsidian">Obsidian integration</p>
+            </div>
+            <div class="feature-showcase-image">
+                <img src="features/obsidian.png" alt="mono recording opened as a markdown note in Obsidian" loading="lazy">
             </div>
         </div>
 
@@ -1378,6 +1436,8 @@
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
         <span class="mobile-progress-dot"></span>
+        <span class="mobile-progress-dot"></span>
+        <span class="mobile-progress-dot"></span>
     </div>
 
     <!-- Discount popup -->
@@ -1428,9 +1488,9 @@
             updateVisibility();
         });
 
-        // States: 0 = hero, 1 = group1, 2 = group2, 3 = features, 4 = compare, 5 = buy
+        // States: 0 = hero, 1 = group1, 2 = group2, 3 = AI chat, 4 = calendar, 5 = obsidian, 6 = compare, 7 = buy
         let currentState = 0;
-        const MAX_STATE = 5;
+        const MAX_STATE = 7;
 
         // Mobile: progress dots
         const mobileProgressDots = document.querySelectorAll('.mobile-progress-dot');
@@ -1453,11 +1513,14 @@
             group2.classList.remove('visible');
             groupFeatures.classList.remove('visible');
             group4.classList.remove('visible');
+            showcaseChat.classList.remove('visible');
+            showcaseCalendar.classList.remove('visible');
+            showcaseObsidian.classList.remove('visible');
             scrollIndicator.classList.remove('visible');
             buyContainer.classList.remove('visible');
 
             // Update body class for CSS state targeting
-            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4', 'state-5');
+            document.body.classList.remove('state-0', 'state-1', 'state-2', 'state-3', 'state-4', 'state-5', 'state-6', 'state-7');
             document.body.classList.add('state-' + currentState);
             updateMobileProgress();
 
@@ -1486,14 +1549,36 @@
                 }
             } else if (currentState === 3) {
                 scrollIndicator.classList.add('visible');
-                groupFeatures.classList.add('visible');
                 if (mobile) {
+                    groupFeatures.classList.add('visible');
                     logoGroup.classList.add('hidden');
                 } else {
+                    showcaseChat.classList.add('visible');
                     logoGroup.classList.remove('hidden');
                     logoGroup.classList.add('at-top');
                 }
             } else if (currentState === 4) {
+                scrollIndicator.classList.add('visible');
+                if (mobile) {
+                    // mobile stays on grid (state 3), skip to compare
+                    group4.classList.add('visible');
+                    logoGroup.classList.add('hidden');
+                } else {
+                    showcaseCalendar.classList.add('visible');
+                    logoGroup.classList.remove('hidden');
+                    logoGroup.classList.add('at-top');
+                }
+            } else if (currentState === 5) {
+                scrollIndicator.classList.add('visible');
+                if (mobile) {
+                    group4.classList.add('visible');
+                    logoGroup.classList.add('hidden');
+                } else {
+                    showcaseObsidian.classList.add('visible');
+                    logoGroup.classList.remove('hidden');
+                    logoGroup.classList.add('at-top');
+                }
+            } else if (currentState === 6) {
                 scrollIndicator.classList.add('visible');
                 group4.classList.add('visible');
                 if (mobile) {
@@ -1502,7 +1587,7 @@
                     logoGroup.classList.remove('hidden');
                     logoGroup.classList.add('at-top');
                 }
-            } else if (currentState === 5) {
+            } else if (currentState === 7) {
                 logoGroup.classList.add('hidden');
                 buyContainer.classList.add('visible');
                 // Track pricing screen view
@@ -1522,6 +1607,17 @@
             updateVisibility();
         });
 
+        // Feature showcase states are desktop-only; skip on mobile (show grid at state 3 instead)
+        const SHOWCASE_STATES = [4, 5]; // states with individual screenshots (state 3 shows grid on mobile)
+        function adjustState(direction) {
+            const mobile = window.innerWidth < 768;
+            if (mobile) {
+                while (SHOWCASE_STATES.includes(currentState) && currentState > 0 && currentState < MAX_STATE) {
+                    currentState += direction;
+                }
+            }
+        }
+
         // Scroll handling: fixed cooldown + higher threshold for retrigger
         window.addEventListener('wheel', (e) => {
             e.preventDefault();
@@ -1539,10 +1635,12 @@
 
             if (e.deltaY > 0 && currentState < MAX_STATE) {
                 currentState++;
+                adjustState(1);
                 updateVisibility();
                 lastTriggerTime = now;
             } else if (e.deltaY < 0 && currentState > 0) {
                 currentState--;
+                adjustState(-1);
                 updateVisibility();
                 lastTriggerTime = now;
             }
@@ -1563,10 +1661,12 @@
             const deltaY = touchStartY - e.changedTouches[0].clientY;
             if (deltaY > 50 && currentState < MAX_STATE) {
                 currentState++;
+                adjustState(1);
                 updateVisibility();
                 lastTouchTrigger = now;
             } else if (deltaY < -50 && currentState > 0) {
                 currentState--;
+                adjustState(-1);
                 updateVisibility();
                 lastTouchTrigger = now;
             }
@@ -1583,6 +1683,7 @@
 
             if (currentState < MAX_STATE) {
                 currentState++;
+                adjustState(1);
                 updateVisibility();
                 lastClickTrigger = now;
             }
@@ -1599,10 +1700,12 @@
 
             if (e.key === 'ArrowDown' && currentState < MAX_STATE) {
                 currentState++;
+                adjustState(1);
                 updateVisibility();
                 lastKeyTrigger = now;
             } else if (e.key === 'ArrowUp' && currentState > 0) {
                 currentState--;
+                adjustState(-1);
                 updateVisibility();
                 lastKeyTrigger = now;
             }
@@ -1804,8 +1907,11 @@
         const taglines2 = group2.querySelectorAll('.tagline');
         const tagline2a = taglines2[0];
         const tagline2b = taglines2[1];
+        const showcaseChat = document.getElementById('showcaseChat');
+        const showcaseCalendar = document.getElementById('showcaseCalendar');
+        const showcaseObsidian = document.getElementById('showcaseObsidian');
         const compareTable = group4.querySelector('.compare-table');
-        const featureLabels = groupFeatures.querySelectorAll('.feature-label');
+        const featureNames = document.querySelectorAll('[data-feature]');
         const demoButtonText = document.getElementById('demoButtonText');
         const demoButtonMobile = document.getElementById('demoButtonMobile');
         const demoButtonTextMobile = document.getElementById('demoButtonTextMobile');
@@ -1843,11 +1949,11 @@
                 }
                 compareTable.appendChild(tr);
             });
-            // Update feature labels
+            // Update feature names
             if (t.features) {
-                featureLabels.forEach(label => {
-                    const key = label.dataset.feature;
-                    if (t.features[key]) label.textContent = t.features[key];
+                featureNames.forEach(el => {
+                    const key = el.dataset.feature;
+                    if (t.features[key]) el.textContent = t.features[key];
                 });
             }
             privacyLink.textContent = t.privacyPolicy;
