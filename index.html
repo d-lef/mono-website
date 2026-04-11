@@ -1350,8 +1350,9 @@
 
             <!-- Mobile discount CTA (hidden on desktop) -->
             <div class="mobile-discount" id="mobileDiscount">
-                <button class="discount-button" id="discountBtn">Get 15% off</button>
+                <button class="discount-button" id="discountBtn">Early bird discount</button>
                 <button class="discount-button discount-button-secondary" id="studentBtnMobile">Student? 70% off</button>
+
                 <p class="discount-sub">Mono is a desktop app — we'll email you the discount & download links</p>
                 <a href="https://www.youtube.com/watch?v=Imy_H4gUr8I"
                    class="demo-button"
@@ -1811,7 +1812,9 @@
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
                 downloadMacIntel: "Mac (Intel)",
-                watchDemo: "Watch demo"
+                watchDemo: "Watch demo",
+                discountBtn: "Early bird discount",
+                studentBtn: "Student? 70% off"
             },
             es: {
                 subtitle: "Graba reuniones desde cualquier app",
@@ -1842,7 +1845,9 @@
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
                 downloadMacIntel: "Mac (Intel)",
-                watchDemo: "Ver demo"
+                watchDemo: "Ver demo",
+                discountBtn: "Descuento anticipado",
+                studentBtn: "Estudiante? 70% dto."
             },
             ru: {
                 subtitle: "Записывай встречи из любого приложения",
@@ -1873,7 +1878,9 @@
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
                 downloadMacIntel: "Mac (Intel)",
-                watchDemo: "Смотреть демо"
+                watchDemo: "Смотреть демо",
+                discountBtn: "Скидка раннего доступа",
+                studentBtn: "Студент? Скидка 70%"
             },
             fr: {
                 subtitle: "Enregistrez vos réunions depuis n'importe quelle app",
@@ -1904,7 +1911,9 @@
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
                 downloadMacIntel: "Mac (Intel)",
-                watchDemo: "Voir la démo"
+                watchDemo: "Voir la démo",
+                discountBtn: "Offre de lancement",
+                studentBtn: "Etudiant ? -70%"
             },
             de: {
                 subtitle: "Meetings aus jeder App aufnehmen",
@@ -1935,7 +1944,9 @@
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
                 downloadMacIntel: "Mac (Intel)",
-                watchDemo: "Demo ansehen"
+                watchDemo: "Demo ansehen",
+                discountBtn: "Early-Bird-Rabatt",
+                studentBtn: "Student? 70% Rabatt"
             },
             zh: {
                 subtitle: "录制会议，来自任何应用",
@@ -1966,7 +1977,9 @@
                 downloadWindows: "Windows",
                 downloadMacSilicon: "Mac (Apple Silicon)",
                 downloadMacIntel: "Mac (Intel)",
-                watchDemo: "观看演示"
+                watchDemo: "观看演示",
+                discountBtn: "早鸟优惠",
+                studentBtn: "学生? 3折优惠"
             }
         };
 
@@ -2051,6 +2064,12 @@
             downloadWindows.textContent = t.downloadWindows;
             downloadMacSilicon.textContent = t.downloadMacSilicon;
             downloadMacIntel.textContent = t.downloadMacIntel;
+
+            // Update mobile discount buttons
+            const mDiscountBtn = document.getElementById('discountBtn');
+            const mStudentBtn = document.getElementById('studentBtnMobile');
+            if (mDiscountBtn) mDiscountBtn.textContent = t.discountBtn;
+            if (mStudentBtn) mStudentBtn.textContent = t.studentBtn;
 
             // Check for text overflow after language change
             checkTaglineOverflow();
