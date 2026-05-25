@@ -1,6 +1,6 @@
 /**
  * <cta-card> Web Component
- * "Try Mono free" call-to-action card for blog articles.
+ * "Try mono free" call-to-action card for blog articles.
  *
  * Usage:
  *   <script src="/components/cta-card.js" defer></script>
@@ -121,11 +121,11 @@ class CtaCard extends HTMLElement {
             </style>
 
             <div class="cta-card">
-                <p class="cta-title">Try Mono free</p>
+                <p class="cta-title">Try mono free</p>
                 <p class="cta-sub">One recording limit, no account needed. $50 to unlock everything — local AI, no subscription.</p>
                 <div class="cta-buttons">
                     <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
-                       class="cta-btn-primary" id="cta-buy" target="_blank" rel="noopener sponsored">Buy Mono — $50</a>
+                       class="cta-btn-primary" id="cta-buy" target="_blank" rel="noopener sponsored">Buy mono — $50</a>
                     <a href="${basePath}?buy" class="cta-btn-secondary" id="cta-download">Download free</a>
                 </div>
             </div>
