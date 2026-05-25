@@ -154,25 +154,20 @@
 
         <div class="article-body">
 
-            <p data-i18n="intro_p1">Google Meet's built-in recording is only available on paid Google Workspace accounts — and even then, it notifies all participants. Many third-party tools work by joining your video call as a bot participant, which everyone can see. But there are ways to record Google Meet locally, without bots and without uploading audio to the cloud.</p>
+            <p data-i18n="intro_p1">Google Meet's built-in recording requires a paid Workspace account and notifies everyone. Third-party tools like Otter.ai and Fireflies join as visible bots — and upload your audio to their cloud servers for processing. If you're privacy-conscious or tired of $15-20/month subscriptions, there are better options.</p>
 
-            <p data-i18n="intro_p2">This guide covers how to record Google Meet in 2026, including screen recording and transcription options for free Google accounts.</p>
+            <p data-i18n="intro_p2">This guide compares five ways to record Google Meet in 2026, from free tools to local AI transcription. We'll cover what each costs over a year, where your data goes, and which works best for different needs.</p>
 
             <div class="tldr">
                 <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
                 <ul>
-                    <li data-i18n="tldr_1"><strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once</li>
-                    <li data-i18n="tldr_2"><strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription</li>
-                    <li data-i18n="tldr_3"><strong>Built-in:</strong> Google Meet recording — requires Workspace paid plan, notifies participants</li>
-                    <li data-i18n="tldr_4"><strong>Browser extension:</strong> Tactiq — captures captions only, no audio recording</li>
+                    <li data-i18n="tldr_1"><strong>Best overall:</strong> Mono — $50 once (vs $96-200/yr for subscriptions), local AI, no bot, works with any app</li>
+                    <li data-i18n="tldr_2"><strong>Best free:</strong> OBS Studio — no transcription, requires setup</li>
+                    <li data-i18n="tldr_3"><strong>Cloud alternative:</strong> Krisp — $8/mo ($96/yr), cloud transcription, needs internet</li>
+                    <li data-i18n="tldr_4"><strong>Built-in:</strong> Google Meet — Workspace only, notifies everyone</li>
+                    <li data-i18n="tldr_5"><strong>Captions only:</strong> Tactiq — $12/mo, no actual audio recording</li>
                 </ul>
             </div>
-
-            <h2 data-i18n="h2_why_record">Why Record Google Meet?</h2>
-
-            <p data-i18n="why_record_p1">Google Meet is widely used for remote work, education, and personal communication. Recording video calls serves many purposes: teams share recordings with absent members, managers document important decisions, teachers create lecture archives, and individuals save interviews or consultations.</p>
-
-            <p data-i18n="why_record_p2">The challenge is that Google Meet recording requires a paid Workspace account and notifies all participants. If you have a free Google account, or need to record without notification, you need a third-party screen recorder or audio capture tool.</p>
 
             <h2 data-i18n="h2_comparison">Quick Comparison</h2>
 
@@ -182,34 +177,46 @@
                         <tr>
                             <th data-i18n="th_method">Method</th>
                             <th data-i18n="th_price">Price</th>
-                            <th data-i18n="th_bot">Bot/Visible?</th>
-                            <th data-i18n="th_transcription">Transcription</th>
+                            <th data-i18n="th_yearly">Year 1 Cost</th>
+                            <th data-i18n="th_data">Data</th>
+                            <th data-i18n="th_bot">Bot?</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="mono-row">
                             <td>Mono</td>
                             <td data-i18n="price_mono">$50 once</td>
+                            <td>$50</td>
+                            <td data-i18n="stays_local">Stays local</td>
                             <td data-i18n="no">No</td>
-                            <td data-i18n="yes_local">Yes (local)</td>
+                        </tr>
+                        <tr>
+                            <td>Krisp</td>
+                            <td data-i18n="price_krisp">$8/mo</td>
+                            <td>$96</td>
+                            <td data-i18n="cloud_upload">Cloud upload</td>
+                            <td data-i18n="no">No</td>
                         </tr>
                         <tr>
                             <td>OBS Studio</td>
                             <td data-i18n="free">Free</td>
-                            <td data-i18n="no">No</td>
+                            <td>$0</td>
+                            <td data-i18n="stays_local">Stays local</td>
                             <td data-i18n="no">No</td>
                         </tr>
                         <tr>
-                            <td>Google Meet Built-in</td>
-                            <td data-i18n="workspace_paid">Workspace paid</td>
-                            <td data-i18n="notification_shown">Notification shown</td>
-                            <td data-i18n="yes">Yes</td>
+                            <td>Google Meet</td>
+                            <td data-i18n="workspace_paid">Workspace</td>
+                            <td>$144+</td>
+                            <td data-i18n="google_cloud">Google Cloud</td>
+                            <td data-i18n="notification_shown">Notification</td>
                         </tr>
                         <tr>
                             <td>Tactiq</td>
                             <td>$12/mo</td>
+                            <td>$144</td>
+                            <td data-i18n="no_audio">No audio stored</td>
                             <td data-i18n="no">No</td>
-                            <td data-i18n="captions_only">Captions only</td>
                         </tr>
                     </tbody>
                 </table>
@@ -217,33 +224,51 @@
 
             <h2 data-i18n="h2_method1">Method 1: Mono (Recommended)</h2>
 
-            <p data-i18n="method1_p1">Mono records Google Meet by capturing internal audio directly from your computer's sound output. No bot joins the meeting, no notification appears to other participants, and your audio stays on your computer. This works with any Google account — free or Workspace.</p>
+            <p data-i18n="method1_p1">Mono captures audio directly from your computer's sound output — no bot joins the meeting, no notification appears, and your audio never leaves your device. Unlike cloud-based tools, Mono processes everything locally using Whisper AI. Your meeting recordings stay on your computer, not on third-party servers.</p>
 
-            <p data-i18n="method1_p2">After you stop recording, Mono transcribes the conversation locally using AI. The transcription includes speaker identification and timestamps, making it easy to navigate long meetings or find specific discussion points.</p>
+            <p data-i18n="method1_p2">The one-time $50 price includes lifetime updates. Compare that to Krisp ($96/year), Otter.ai ($200/year), or Fireflies ($120-230/year) — Mono pays for itself in 3-6 months.</p>
+
+            <p data-i18n="method1_p3">Beyond Google Meet, Mono works with any app that plays audio: Discord, WhatsApp, Telegram, Zoom, Teams, phone calls via desktop — all recorded in one place with automatic transcription and speaker identification.</p>
 
             <h3 data-i18n="h3_mono_steps">How to record Google Meet with Mono</h3>
 
             <ol class="steps-list">
                 <li data-i18n="mono_step1">Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li data-i18n="mono_step2">Open Mono and click the Record button to begin recording</li>
-                <li data-i18n="mono_step3">Join your Google Meet meeting in your browser</li>
-                <li data-i18n="mono_step4">Participate in the meeting normally</li>
-                <li data-i18n="mono_step5">When the meeting ends, click Stop in Mono</li>
-                <li data-i18n="mono_step6">Wait for the automatic transcription to complete</li>
-                <li data-i18n="mono_step7">Review your transcript with speaker labels and timestamps</li>
+                <li data-i18n="mono_step2">Open Mono and click Record</li>
+                <li data-i18n="mono_step3">Join your Google Meet meeting</li>
+                <li data-i18n="mono_step4">When finished, click Stop — transcription starts automatically</li>
+                <li data-i18n="mono_step5">Search your recordings by keyword or browse by date</li>
             </ol>
 
-            <p data-i18n="method1_p3">Mono captures everything playing through your speakers or headphones, so you'll get all participants' audio in high quality. You can search across all your recordings by keyword.</p>
+            <p data-i18n="mono_pros"><strong>Pros:</strong> Audio stays on your device (no cloud upload), works offline after setup, no subscription ($50 once vs $100-200/year), works with any app, searchable transcripts with speaker labels.</p>
 
-            <p data-i18n="mono_pros"><strong>Pros:</strong> Works with free Google accounts, no bot visible, no participant notification, local AI transcription with speaker identification, searchable recordings, one-time $50 payment with no subscription.</p>
+            <p data-i18n="mono_cons"><strong>Cons:</strong> Requires local processing power (works on most modern computers), no real-time transcription during the call, no integrations with Slack/HubSpot (standalone app).</p>
 
-            <p data-i18n="mono_cons"><strong>Cons:</strong> Paid software (one free recording available to try before purchasing).</p>
+            <h2 data-i18n="h2_method2">Method 2: Krisp</h2>
 
-            <h2 data-i18n="h2_method2">Method 2: OBS Studio (Free)</h2>
+            <p data-i18n="method2_krisp_p1">Krisp is a meeting assistant that records system audio and transcribes using cloud AI. Like Mono, it captures audio without joining as a bot — no one in the meeting sees anything. Krisp also includes noise cancellation that removes background sounds from your recordings.</p>
 
-            <p data-i18n="method2_p1">OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn't join the meeting as a participant, works with any Google account, and is completely invisible to others in the meeting.</p>
+            <p data-i18n="method2_krisp_p2">Transcription happens in the cloud and supports 16 languages with speaker identification. Krisp integrates with Slack, Teams, HubSpot, and other tools to sync meeting notes automatically.</p>
 
-            <p data-i18n="method2_p2">OBS is popular with streamers and content creators, but it works just as well for recording Google Meet audio calls. The main limitation is that it produces raw audio or video files without transcription.</p>
+            <h3 data-i18n="h3_krisp_steps">How to record Google Meet with Krisp</h3>
+
+            <ol class="steps-list">
+                <li data-i18n="krisp_step1">Download Krisp from krisp.ai and install it</li>
+                <li data-i18n="krisp_step2">Create an account and enable meeting recording</li>
+                <li data-i18n="krisp_step3">Join your Google Meet — Krisp detects the call automatically</li>
+                <li data-i18n="krisp_step4">Recording and transcription start automatically</li>
+                <li data-i18n="krisp_step5">When the meeting ends, view your transcript in the Krisp app</li>
+            </ol>
+
+            <p data-i18n="krisp_pros"><strong>Pros:</strong> No bot visible, automatic recording, noise cancellation, 16-language transcription, integrations with productivity tools, SOC 2 and GDPR compliant.</p>
+
+            <p data-i18n="krisp_cons"><strong>Cons:</strong> Subscription required ($8/month annual), transcription processed in cloud, 7-day free trial only (no permanent free tier).</p>
+
+            <h2 data-i18n="h2_method3">Method 3: OBS Studio (Free)</h2>
+
+            <p data-i18n="method3_obs_p1">OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn't join the meeting as a participant, works with any Google account, and is completely invisible to others in the meeting.</p>
+
+            <p data-i18n="method3_obs_p2">OBS is popular with streamers and content creators, but it works just as well for recording Google Meet audio calls. The main limitation is that it produces raw audio or video files without transcription.</p>
 
             <h3 data-i18n="h3_obs_steps">How to record Google Meet with OBS</h3>
 
@@ -264,21 +289,21 @@
 
             <p data-i18n="obs_cons"><strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each meeting, no transcription — produces raw audio/video files only.</p>
 
-            <h2 data-i18n="h2_method3">Method 3: Google Meet's Built-in Recording</h2>
+            <h2 data-i18n="h2_method4">Method 4: Google Meet's Built-in Recording</h2>
 
-            <p data-i18n="method3_p1">Google Meet has native recording functionality, but with significant limitations. Recording is only available on Google Workspace accounts at Business Standard tier or higher — free Gmail accounts cannot use this feature. When recording starts, all participants see a notification and a red indicator that the meeting is being recorded.</p>
+            <p data-i18n="method4_meet_p1">Google Meet has native recording functionality, but with significant limitations. Recording is only available on Google Workspace accounts at Business Standard tier or higher — free Gmail accounts cannot use this feature. When recording starts, all participants see a notification and a red indicator that the meeting is being recorded.</p>
 
-            <p data-i18n="method3_p2">For organizations where transparency is expected and everyone knows meetings are recorded, this is the simplest option. Recordings are saved directly to Google Drive with automatic transcription.</p>
+            <p data-i18n="method4_meet_p2">For organizations where transparency is expected and everyone knows meetings are recorded, this is the simplest option. Recordings are saved directly to Google Drive with automatic transcription.</p>
 
             <p data-i18n="meet_pros"><strong>Pros:</strong> No additional software needed, recording saved directly to Google Drive, includes automatic transcript, video quality matches the meeting.</p>
 
             <p data-i18n="meet_cons"><strong>Cons:</strong> Requires paid Workspace account (no free option), all participants see recording notification, only meeting organizers can start recording, recordings stored in Google's cloud.</p>
 
-            <h2 data-i18n="h2_method4">Method 4: Tactiq (Browser Extension)</h2>
+            <h2 data-i18n="h2_method5">Method 5: Tactiq (Browser Extension)</h2>
 
-            <p data-i18n="method4_p1">Tactiq is a Chrome extension that takes a different approach: instead of recording audio, it captures Google Meet's auto-generated captions as you speak. It compiles the live captions into a transcript you can export, without storing any actual audio.</p>
+            <p data-i18n="method5_tactiq_p1">Tactiq is a Chrome extension that takes a different approach: instead of recording audio, it captures Google Meet's auto-generated captions as you speak. It compiles the live captions into a transcript you can export, without storing any actual audio.</p>
 
-            <p data-i18n="method4_p2">This is useful when you only need text documentation and audio recording isn't necessary — or when recording would create privacy concerns. However, transcript quality depends entirely on Google Meet's caption accuracy.</p>
+            <p data-i18n="method5_tactiq_p2">This is useful when you only need text documentation and audio recording isn't necessary — or when recording would create privacy concerns. However, transcript quality depends entirely on Google Meet's caption accuracy.</p>
 
             <p data-i18n="tactiq_pros"><strong>Pros:</strong> No audio recording means fewer privacy concerns, works in browser without additional software, affordable at $12/month, invisible to other participants.</p>
 
@@ -302,23 +327,13 @@
 
             <p data-i18n="legal_business">For business meetings, check your organization's policies. Many companies require disclosure when recording, regardless of legal requirements.</p>
 
-            <h2 data-i18n="h2_tips">Tips for Better Google Meet Recordings</h2>
-
-            <div class="tip-box">
-                <p data-i18n="tip_box"><strong>Use headphones</strong> to prevent echo and improve audio quality. <strong>Enable captions in Meet</strong> if using Tactiq. <strong>Close other browser tabs</strong> to avoid notification sounds being captured in your recording.</p>
-            </div>
-
-            <p data-i18n="tip_audio"><strong>Check audio levels:</strong> Make a short test recording before important meetings to ensure all participants are audible.</p>
-
-            <p data-i18n="tip_connection"><strong>Stable connection:</strong> Poor internet affects Google Meet audio quality, which affects recording quality. Use a wired connection for important meetings when possible.</p>
-
-            <p data-i18n="tip_browser"><strong>Browser performance:</strong> Google Meet runs in your browser. Close unnecessary tabs and applications to ensure smooth performance during recording.</p>
-
             <h2 data-i18n="h2_which_method">Which Method Should You Use?</h2>
 
-            <p data-i18n="rec_1"><strong>Free Google account + need transcription?</strong> Mono is the only option that works without Workspace and includes automatic transcription.</p>
+            <p data-i18n="rec_1"><strong>Free Google account + need transcription?</strong> Mono ($50 once) keeps everything local. Krisp ($8/mo) offers cloud transcription with noise cancellation.</p>
 
             <p data-i18n="rec_2"><strong>Free Google account + don't need transcription?</strong> OBS Studio is reliable but requires initial setup.</p>
+
+            <p data-i18n="rec_6"><strong>Need integrations with Slack, HubSpot, etc?</strong> Krisp syncs notes automatically with productivity tools.</p>
 
             <p data-i18n="rec_3"><strong>Have Workspace + don't mind notification?</strong> Google's built-in recording is simplest — no additional software needed.</p>
 
@@ -361,46 +376,56 @@ const translations = {
         'title': 'How to Record Google Meet Without a Bot',
         'meta': 'Feb 23, 2026 · 8 min read · By Daniil Lefanov',
         'disclosure': 'Disclosure: Mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
-        'intro_p1': 'Google Meet\'s built-in recording is only available on paid Google Workspace accounts — and even then, it notifies all participants. Many third-party tools work by joining your video call as a bot participant, which everyone can see. But there are ways to record Google Meet locally, without bots and without uploading audio to the cloud.',
-        'intro_p2': 'This guide covers how to record Google Meet in 2026, including screen recording and transcription options for free Google accounts.',
+        'intro_p1': 'Google Meet\'s built-in recording requires a paid Workspace account and notifies everyone. Third-party tools like Otter.ai and Fireflies join as visible bots — and upload your audio to their cloud servers for processing. If you\'re privacy-conscious or tired of $15-20/month subscriptions, there are better options.',
+        'intro_p2': 'This guide compares five ways to record Google Meet in 2026, from free tools to local AI transcription. We\'ll cover what each costs over a year, where your data goes, and which works best for different needs.',
         'tldr_label': 'TL;DR',
-        'tldr_1': '<strong>Best overall:</strong> Mono — no bot, local AI transcription, $50 once',
-        'tldr_2': '<strong>Best free:</strong> OBS Studio — no bot, requires setup, no transcription',
-        'tldr_3': '<strong>Built-in:</strong> Google Meet recording — requires Workspace paid plan, notifies participants',
-        'tldr_4': '<strong>Browser extension:</strong> Tactiq — captures captions only, no audio recording',
-        'h2_why_record': 'Why Record Google Meet?',
-        'why_record_p1': 'Google Meet is widely used for remote work, education, and personal communication. Recording video calls serves many purposes: teams share recordings with absent members, managers document important decisions, teachers create lecture archives, and individuals save interviews or consultations.',
-        'why_record_p2': 'The challenge is that Google Meet recording requires a paid Workspace account and notifies all participants. If you have a free Google account, or need to record without notification, you need a third-party screen recorder or audio capture tool.',
+        'tldr_1': '<strong>Best overall:</strong> Mono — $50 once (vs $96-200/yr for subscriptions), local AI, no bot, works with any app',
+        'tldr_2': '<strong>Best free:</strong> OBS Studio — no transcription, requires setup',
+        'tldr_3': '<strong>Cloud alternative:</strong> Krisp — $8/mo ($96/yr), cloud transcription, needs internet',
+        'tldr_4': '<strong>Built-in:</strong> Google Meet — Workspace only, notifies everyone',
+        'tldr_5': '<strong>Captions only:</strong> Tactiq — $12/mo, no actual audio recording',
         'h2_comparison': 'Quick Comparison',
         'th_method': 'Method',
         'th_price': 'Price',
-        'th_bot': 'Bot/Visible?',
-        'th_transcription': 'Transcription',
+        'th_yearly': 'Year 1 Cost',
+        'th_data': 'Data',
+        'th_bot': 'Bot?',
         'price_mono': '$50 once',
+        'price_krisp': '$8/mo',
         'no': 'No',
-        'yes_local': 'Yes (local)',
+        'stays_local': 'Stays local',
+        'cloud_upload': 'Cloud upload',
+        'google_cloud': 'Google Cloud',
+        'no_audio': 'No audio stored',
         'free': 'Free',
-        'workspace_paid': 'Workspace paid',
-        'notification_shown': 'Notification shown',
-        'yes': 'Yes',
-        'captions_only': 'Captions only',
+        'workspace_paid': 'Workspace',
+        'notification_shown': 'Notification',
         'h2_method1': 'Method 1: Mono (Recommended)',
-        'method1_p1': 'Mono records Google Meet by capturing internal audio directly from your computer\'s sound output. No bot joins the meeting, no notification appears to other participants, and your audio stays on your computer. This works with any Google account — free or Workspace.',
-        'method1_p2': 'After you stop recording, Mono transcribes the conversation locally using AI. The transcription includes speaker identification and timestamps, making it easy to navigate long meetings or find specific discussion points.',
+        'method1_p1': 'Mono captures audio directly from your computer\'s sound output — no bot joins the meeting, no notification appears, and your audio never leaves your device. Unlike cloud-based tools, Mono processes everything locally using Whisper AI. Your meeting recordings stay on your computer, not on third-party servers.',
+        'method1_p2': 'The one-time $50 price includes lifetime updates. Compare that to Krisp ($96/year), Otter.ai ($200/year), or Fireflies ($120-230/year) — Mono pays for itself in 3-6 months.',
+        'method1_p3': 'Beyond Google Meet, Mono works with any app that plays audio: Discord, WhatsApp, Telegram, Zoom, Teams, phone calls via desktop — all recorded in one place with automatic transcription and speaker identification.',
         'h3_mono_steps': 'How to record Google Meet with Mono',
         'mono_step1': 'Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
-        'mono_step2': 'Open Mono and click the Record button to begin recording',
-        'mono_step3': 'Join your Google Meet meeting in your browser',
-        'mono_step4': 'Participate in the meeting normally',
-        'mono_step5': 'When the meeting ends, click Stop in Mono',
-        'mono_step6': 'Wait for the automatic transcription to complete',
-        'mono_step7': 'Review your transcript with speaker labels and timestamps',
-        'method1_p3': 'Mono captures everything playing through your speakers or headphones, so you\'ll get all participants\' audio in high quality. You can search across all your recordings by keyword.',
-        'mono_pros': '<strong>Pros:</strong> Works with free Google accounts, no bot visible, no participant notification, local AI transcription with speaker identification, searchable recordings, one-time $50 payment with no subscription.',
-        'mono_cons': '<strong>Cons:</strong> Paid software (one free recording available to try before purchasing).',
-        'h2_method2': 'Method 2: OBS Studio (Free)',
-        'method2_p1': 'OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn\'t join the meeting as a participant, works with any Google account, and is completely invisible to others in the meeting.',
-        'method2_p2': 'OBS is popular with streamers and content creators, but it works just as well for recording Google Meet audio calls. The main limitation is that it produces raw audio or video files without transcription.',
+        'mono_step2': 'Open Mono and click Record',
+        'mono_step3': 'Join your Google Meet meeting',
+        'mono_step4': 'When finished, click Stop — transcription starts automatically',
+        'mono_step5': 'Search your recordings by keyword or browse by date',
+        'mono_pros': '<strong>Pros:</strong> Audio stays on your device (no cloud upload), works offline after setup, no subscription ($50 once vs $100-200/year), works with any app, searchable transcripts with speaker labels.',
+        'mono_cons': '<strong>Cons:</strong> Requires local processing power (works on most modern computers), no real-time transcription during the call, no integrations with Slack/HubSpot (standalone app).',
+        'h2_method2': 'Method 2: Krisp',
+        'method2_krisp_p1': 'Krisp is a meeting assistant that records system audio and transcribes using cloud AI. Like Mono, it captures audio without joining as a bot — no one in the meeting sees anything. Krisp also includes noise cancellation that removes background sounds from your recordings.',
+        'method2_krisp_p2': 'Transcription happens in the cloud and supports 16 languages with speaker identification. Krisp integrates with Slack, Teams, HubSpot, and other tools to sync meeting notes automatically.',
+        'h3_krisp_steps': 'How to record Google Meet with Krisp',
+        'krisp_step1': 'Download Krisp from krisp.ai and install it',
+        'krisp_step2': 'Create an account and enable meeting recording',
+        'krisp_step3': 'Join your Google Meet — Krisp detects the call automatically',
+        'krisp_step4': 'Recording and transcription start automatically',
+        'krisp_step5': 'When the meeting ends, view your transcript in the Krisp app',
+        'krisp_pros': '<strong>Pros:</strong> No bot visible, automatic recording, noise cancellation, 16-language transcription, integrations with productivity tools, SOC 2 and GDPR compliant.',
+        'krisp_cons': '<strong>Cons:</strong> Subscription required ($8/month annual), transcription processed in cloud, 7-day free trial only (no permanent free tier).',
+        'h2_method3': 'Method 3: OBS Studio (Free)',
+        'method3_obs_p1': 'OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn\'t join the meeting as a participant, works with any Google account, and is completely invisible to others in the meeting.',
+        'method3_obs_p2': 'OBS is popular with streamers and content creators, but it works just as well for recording Google Meet audio calls. The main limitation is that it produces raw audio or video files without transcription.',
         'h3_obs_steps': 'How to record Google Meet with OBS',
         'obs_step1': 'Download OBS Studio from obsproject.com and install it',
         'obs_step2': 'Open OBS and go to Settings → Audio',
@@ -414,14 +439,14 @@ const translations = {
         'obs_step10': 'Find your recording in the output folder (usually Videos)',
         'obs_pros': '<strong>Pros:</strong> Completely free and open source, no bot visible, works with any Google account, can record video calls with screen recording.',
         'obs_cons': '<strong>Cons:</strong> Requires initial setup, you must manually begin recording and stop recording for each meeting, no transcription — produces raw audio/video files only.',
-        'h2_method3': 'Method 3: Google Meet\'s Built-in Recording',
-        'method3_p1': 'Google Meet has native recording functionality, but with significant limitations. Recording is only available on Google Workspace accounts at Business Standard tier or higher — free Gmail accounts cannot use this feature. When recording starts, all participants see a notification and a red indicator that the meeting is being recorded.',
-        'method3_p2': 'For organizations where transparency is expected and everyone knows meetings are recorded, this is the simplest option. Recordings are saved directly to Google Drive with automatic transcription.',
+        'h2_method4': 'Method 4: Google Meet\'s Built-in Recording',
+        'method4_meet_p1': 'Google Meet has native recording functionality, but with significant limitations. Recording is only available on Google Workspace accounts at Business Standard tier or higher — free Gmail accounts cannot use this feature. When recording starts, all participants see a notification and a red indicator that the meeting is being recorded.',
+        'method4_meet_p2': 'For organizations where transparency is expected and everyone knows meetings are recorded, this is the simplest option. Recordings are saved directly to Google Drive with automatic transcription.',
         'meet_pros': '<strong>Pros:</strong> No additional software needed, recording saved directly to Google Drive, includes automatic transcript, video quality matches the meeting.',
         'meet_cons': '<strong>Cons:</strong> Requires paid Workspace account (no free option), all participants see recording notification, only meeting organizers can start recording, recordings stored in Google\'s cloud.',
-        'h2_method4': 'Method 4: Tactiq (Browser Extension)',
-        'method4_p1': 'Tactiq is a Chrome extension that takes a different approach: instead of recording audio, it captures Google Meet\'s auto-generated captions as you speak. It compiles the live captions into a transcript you can export, without storing any actual audio.',
-        'method4_p2': 'This is useful when you only need text documentation and audio recording isn\'t necessary — or when recording would create privacy concerns. However, transcript quality depends entirely on Google Meet\'s caption accuracy.',
+        'h2_method5': 'Method 5: Tactiq (Browser Extension)',
+        'method5_tactiq_p1': 'Tactiq is a Chrome extension that takes a different approach: instead of recording audio, it captures Google Meet\'s auto-generated captions as you speak. It compiles the live captions into a transcript you can export, without storing any actual audio.',
+        'method5_tactiq_p2': 'This is useful when you only need text documentation and audio recording isn\'t necessary — or when recording would create privacy concerns. However, transcript quality depends entirely on Google Meet\'s caption accuracy.',
         'tactiq_pros': '<strong>Pros:</strong> No audio recording means fewer privacy concerns, works in browser without additional software, affordable at $12/month, invisible to other participants.',
         'tactiq_cons': '<strong>Cons:</strong> No actual audio recording (can\'t listen back), quality depends on Meet\'s caption accuracy (may miss words or speakers), Chrome browser only, requires Meet captions to be enabled.',
         'h2_video_vs_audio': 'Recording Video vs Audio Only',
@@ -433,14 +458,10 @@ const translations = {
         'one_party': '<strong>One-party consent:</strong> Many regions allow recording meetings you\'re participating in without informing others.',
         'all_party': '<strong>All-party consent:</strong> Some jurisdictions require everyone to agree to recording. This includes California, Germany, and other areas.',
         'legal_business': 'For business meetings, check your organization\'s policies. Many companies require disclosure when recording, regardless of legal requirements.',
-        'h2_tips': 'Tips for Better Google Meet Recordings',
-        'tip_box': '<strong>Use headphones</strong> to prevent echo and improve audio quality. <strong>Enable captions in Meet</strong> if using Tactiq. <strong>Close other browser tabs</strong> to avoid notification sounds being captured in your recording.',
-        'tip_audio': '<strong>Check audio levels:</strong> Make a short test recording before important meetings to ensure all participants are audible.',
-        'tip_connection': '<strong>Stable connection:</strong> Poor internet affects Google Meet audio quality, which affects recording quality. Use a wired connection for important meetings when possible.',
-        'tip_browser': '<strong>Browser performance:</strong> Google Meet runs in your browser. Close unnecessary tabs and applications to ensure smooth performance during recording.',
         'h2_which_method': 'Which Method Should You Use?',
-        'rec_1': '<strong>Free Google account + need transcription?</strong> Mono is the only option that works without Workspace and includes automatic transcription.',
+        'rec_1': '<strong>Free Google account + need transcription?</strong> Mono ($50 once) keeps everything local. Krisp ($8/mo) offers cloud transcription with noise cancellation.',
         'rec_2': '<strong>Free Google account + don\'t need transcription?</strong> OBS Studio is reliable but requires initial setup.',
+        'rec_6': '<strong>Need integrations with Slack, HubSpot, etc?</strong> Krisp syncs notes automatically with productivity tools.',
         'rec_3': '<strong>Have Workspace + don\'t mind notification?</strong> Google\'s built-in recording is simplest — no additional software needed.',
         'rec_4': '<strong>Only need text, not audio?</strong> Tactiq captures captions without recording audio — good for privacy-sensitive situations.',
         'rec_5': '<strong>For video recording:</strong> OBS Studio with screen recording captures both video and audio. Mono focuses on audio with local transcription.',
