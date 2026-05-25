@@ -91,6 +91,7 @@
     <script src="/components/discount-float.js" defer></script>
     <script src="/components/fold-effect.js" defer></script>
     <script src="/components/cta-card.js" defer></script>
+    <script src="/components/lightbox.js" defer></script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -227,13 +228,8 @@
         }
         .steps-list li:last-child { border-bottom: none; }
 
-        .tip-box {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin: 24px 0;
-        }
-        .tip-box p { margin-bottom: 0; }
+        .article-figure { margin: 32px 0; }
+        .article-figure img { cursor: zoom-in; }
 
         /* Related articles */
         .related-articles {
@@ -298,28 +294,23 @@
             <span class="article-category" data-i18n="category">[Guide]</span>
             <h1 class="article-title" data-i18n="title">How to Record Discord Calls in 2026</h1>
             <p class="article-meta" data-i18n="meta">Feb 23, 2026 · 8 min read · By Daniil Lefanov</p>
-            <p class="article-disclosure" data-i18n="disclosure">Disclosure: Mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
         </header>
 
         <div class="article-body">
 
-            <p data-i18n="intro-p1">Discord doesn't have a built-in recording feature for voice calls or voice chats. Whether you're recording a podcast, saving a gaming session, or keeping notes from a team discussion, you need a third-party tool to record Discord calls. Here are four methods that actually work in 2026, including options for both audio calls and video recording.</p>
+            <p data-i18n="intro-p1">Discord doesn't have built-in recording — and most third-party tools either join as visible bots or upload your audio to cloud servers. If you want invisible recording with local processing, or you're tired of $15-20/month subscriptions for meeting tools, there are better options.</p>
+
+            <p data-i18n="intro-p2">This guide compares three ways to record Discord calls in 2026. We'll cover what each costs per year, where your data goes, and which works best for different needs.</p>
 
             <div class="tldr">
                 <p class="tldr-label" data-i18n="tldr-label">TL;DR</p>
                 <ul>
-                    <li data-i18n="tldr-1"><strong>Best overall:</strong> Mono — invisible recording, local AI transcription, $50 once</li>
-                    <li data-i18n="tldr-2"><strong>Best free:</strong> OBS Studio — requires setup, no transcription</li>
-                    <li data-i18n="tldr-3"><strong>Best for podcasts:</strong> Craig Bot — per-speaker tracks, visible bot</li>
-                    <li data-i18n="tldr-4"><strong>Built-in:</strong> None — Discord has no native recording</li>
+                    <li data-i18n="tldr-1"><strong>Best overall:</strong> mono — $50 once (vs $96-200/yr subscriptions), local AI transcription, invisible, works with any app</li>
+                    <li data-i18n="tldr-2"><strong>Best free:</strong> OBS Studio — no transcription, requires setup</li>
+                    <li data-i18n="tldr-3"><strong>Best for podcasts:</strong> Craig Bot — per-speaker tracks, visible bot, server channels only</li>
                 </ul>
             </div>
-
-            <h2 data-i18n="h2-why-record">Why Record Discord Calls?</h2>
-
-            <p data-i18n="why-record-p1">There are many legitimate reasons to record Discord voice chats and video calls. Content creators use recordings to produce podcasts, gaming highlights, and tutorials. Teams record meetings to share with absent members or create documentation. Students capture study sessions for later review. Musicians collaborate remotely and need to save jam sessions.</p>
-
-            <p data-i18n="why-record-p2">Whatever your reason, you'll need external software since Discord intentionally doesn't include recording functionality. The platform prioritizes real-time communication over archival features, leaving users to choose their own screen recorder or audio capture tool.</p>
 
             <h2 data-i18n="h2-comparison">Quick Comparison</h2>
 
@@ -329,61 +320,66 @@
                         <tr>
                             <th data-i18n="th-method">Method</th>
                             <th data-i18n="th-price">Price</th>
+                            <th data-i18n="th-yearly">Year 1 Cost</th>
+                            <th data-i18n="th-data">Data</th>
                             <th data-i18n="th-visible">Visible?</th>
-                            <th data-i18n="th-transcription">Transcription</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="mono-row">
-                            <td>Mono</td>
+                            <td>mono</td>
                             <td data-i18n="td-mono-price">$50 once</td>
-                            <td data-i18n="td-mono-visible">No</td>
-                            <td data-i18n="td-mono-transcription">Yes (local AI)</td>
+                            <td>$50</td>
+                            <td data-i18n="td-stays-local">Stays local</td>
+                            <td data-i18n="td-no">No</td>
                         </tr>
                         <tr>
                             <td>OBS Studio</td>
                             <td data-i18n="td-obs-price">Free</td>
-                            <td data-i18n="td-obs-visible">No</td>
-                            <td data-i18n="td-obs-transcription">No</td>
+                            <td>$0</td>
+                            <td data-i18n="td-stays-local">Stays local</td>
+                            <td data-i18n="td-no">No</td>
                         </tr>
                         <tr>
                             <td>Craig Bot</td>
                             <td data-i18n="td-craig-price">Free tier</td>
-                            <td data-i18n="td-craig-visible">Yes (bot joins)</td>
-                            <td data-i18n="td-craig-transcription">No</td>
+                            <td>$0</td>
+                            <td data-i18n="td-craig-cloud">Craig servers</td>
+                            <td data-i18n="td-yes-bot">Yes (bot joins)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2 data-i18n="h2-method1">Method 1: Mono (Recommended)</h2>
+            <h2 data-i18n="h2-method1">Method 1: mono (Recommended)</h2>
 
-            <p data-i18n="method1-p1">Mono records Discord calls by capturing internal audio directly from your computer's sound output. No bot joins the voice channel, no one sees a recording indicator, and the audio never leaves your computer. This makes it ideal for recording private DMs, server calls, and any voice chat where you don't want others to know you're recording.</p>
+            <p data-i18n="method1-p1">mono captures audio directly from your computer's sound output — no bot joins the voice channel, no notification appears, and your audio never leaves your device. Unlike cloud-based tools, mono processes everything locally. Your Discord recordings stay on your computer, not on third-party servers.</p>
 
-            <p data-i18n="method1-p2">After you stop recording, Mono transcribes the conversation locally using AI. The transcription includes speaker identification — Mono detects different voices and labels them in the transcript. You can search through your recordings by keyword, making it easy to find specific moments from past calls.</p>
+            <p data-i18n="method1-p2">The one-time $50 price includes lifetime updates. Compare that to Otter.ai ($200/yr) or Fireflies ($120-230/yr) — mono pays for itself in 3-6 months.</p>
 
-            <h3 data-i18n="h3-mono-steps">How to record Discord with Mono</h3>
+            <p data-i18n="method1-p3">Beyond Discord, mono works with any app that plays audio: Zoom, Teams, Google Meet, WhatsApp, Telegram, phone calls on desktop — all recorded in one place with automatic transcription.</p>
+
+            <h3 data-i18n="h3-mono-steps">How to record Discord with mono</h3>
 
             <ol class="steps-list">
-                <li data-i18n="mono-step-1">Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li data-i18n="mono-step-2">Open Mono and click the Record button to begin recording</li>
+                <li data-i18n="mono-step-1">Download mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li data-i18n="mono-step-2">Open mono and click Record</li>
                 <li data-i18n="mono-step-3">Join your Discord voice channel or start a call</li>
-                <li data-i18n="mono-step-4">When finished, click Stop in Mono</li>
-                <li data-i18n="mono-step-5">Wait for the automatic transcription to complete</li>
-                <li data-i18n="mono-step-6">Review your transcript with timestamps and speaker labels</li>
+                <li data-i18n="mono-step-4">When finished, click Stop — transcription starts automatically</li>
+                <li data-i18n="mono-step-5">Search recordings by keyword, date, or semantic meaning</li>
             </ol>
 
-            <p data-i18n="method1-p3">Mono captures everything playing through your speakers or headphones, so you'll get both sides of the conversation in high audio quality. The recording happens entirely on your device — nothing is uploaded to the cloud.</p>
+            <p data-i18n="method1-p4">After transcription, mono's local AI lets you search by meaning (not just keywords), ask questions about your recordings ("What did we decide about the schedule?"), and auto-generate summaries with action items. All processing happens on your device.</p>
 
-            <p data-i18n="method1-pros"><strong>Pros:</strong> Invisible to other participants, works with DMs and servers, includes AI transcription with speaker identification, searchable recordings, one-time $50 payment, no subscription.</p>
+            <p data-i18n="method1-pros"><strong>Pros:</strong> Audio stays on your device (no cloud upload), works offline, no subscription ($50 once vs $100-200/yr), works with any app, AI chat and summaries, semantic search across all recordings.</p>
 
-            <p data-i18n="method1-cons"><strong>Cons:</strong> Paid software (one free recording available to try before buying).</p>
+            <p data-i18n="method1-cons"><strong>Cons:</strong> Requires local processing power (works on most modern computers), no real-time transcription during the call, standalone app (no Slack/HubSpot integrations).</p>
 
             <h2 data-i18n="h2-method2">Method 2: OBS Studio (Free)</h2>
 
-            <p data-i18n="method2-p1">OBS Studio is a free, open-source screen recorder popular with streamers and content creators. While it's primarily designed for video recording and live streaming, you can configure it to capture system audio only — perfect for recording Discord audio calls without the overhead of video.</p>
+            <p data-i18n="method2-p1">OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn't join the call as a participant, works with any Discord account, and is completely invisible to others in the call.</p>
 
-            <p data-i18n="method2-p2">OBS captures internal audio by hooking into your system's audio output. Like Mono, this means no bot joins your call and other participants won't know you're recording. However, OBS requires more initial setup and doesn't include any transcription features.</p>
+            <p data-i18n="method2-p2">OBS is popular among streamers and content creators, but it works just as well for recording Discord audio calls. The main limitation is that it produces raw audio or video files without transcription.</p>
 
             <h3 data-i18n="h3-obs-steps">How to record Discord with OBS</h3>
 
@@ -391,18 +387,23 @@
                 <li data-i18n="obs-step-1">Download OBS Studio from obsproject.com and install it</li>
                 <li data-i18n="obs-step-2">Open OBS and go to Settings → Audio</li>
                 <li data-i18n="obs-step-3">Set "Desktop Audio" to your playback device (speakers or headphones)</li>
-                <li data-i18n="obs-step-4">In the main window, click + under Sources and add "Audio Output Capture"</li>
-                <li data-i18n="obs-step-5">Click "Start Recording" before your Discord call</li>
-                <li data-i18n="obs-step-6">Join your voice channel or begin your call</li>
-                <li data-i18n="obs-step-7">Click "Stop Recording" when the call ends</li>
-                <li data-i18n="obs-step-8">Find your recording in the output folder (default: Videos folder)</li>
+                <li data-i18n="obs-step-4">In the main window, click + under Sources</li>
+                <li data-i18n="obs-step-5">Add an "Audio Output Capture" source for audio-only recording</li>
+                <li data-i18n="obs-step-6">Optionally add "Display Capture" for video recording</li>
+                <li data-i18n="obs-step-7">Click "Start Recording" before joining Discord</li>
+                <li data-i18n="obs-step-8">Join and participate in your call</li>
+                <li data-i18n="obs-step-9">Click "Stop Recording" when the call ends</li>
+                <li data-i18n="obs-step-10">Find your recording in the output folder (usually Videos)</li>
             </ol>
 
-            <p data-i18n="method2-p3">For audio-only recording, you can disable video capture in OBS settings to reduce file size. Go to Settings → Output and select an audio-only format, or simply ignore the video track when editing.</p>
+            <figure class="article-figure">
+                <img src="images/obs-how-to-record-teams.webp" alt="OBS Studio Audio Output Capture setup" width="800" height="450" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
+                <figcaption style="font-size:13px;color:var(--text-secondary);margin-top:8px;" data-i18n="obs-figure-caption">Add an Audio Output Capture source in OBS, then click Start Recording</figcaption>
+            </figure>
 
-            <p data-i18n="method2-pros"><strong>Pros:</strong> Completely free and open source, no bot visible, can record video calls with screen recording, highly configurable audio settings.</p>
+            <p data-i18n="method2-pros"><strong>Pros:</strong> Completely free and open source, no visible bot, works with any Discord call, can record video calls with screen capture.</p>
 
-            <p data-i18n="method2-cons"><strong>Cons:</strong> Requires manual setup, must remember to start and stop recording, no transcription, produces raw audio files you'll need to process yourself.</p>
+            <p data-i18n="method2-cons"><strong>Cons:</strong> Requires initial setup, must manually start and stop recording for each call, no transcription — produces only raw audio/video files.</p>
 
             <h2 data-i18n="h2-method3">Method 3: Craig Bot (Server Channels Only)</h2>
 
@@ -428,39 +429,27 @@
 
             <p data-i18n="method3-cons"><strong>Cons:</strong> Only works in server voice channels — not private DMs or calls, visible bot that everyone can see, no transcription, requires admin permissions to add bot to server.</p>
 
-            <h2 data-i18n="h2-video-calls">Recording Discord Video Calls</h2>
-
-            <p data-i18n="video-p1">If you need video recording in addition to audio, your options are more limited. Craig Bot is audio-only. Mono focuses on audio with transcription. OBS Studio is your best choice for video recording — it's designed for screen recording and can capture your entire screen or just the Discord window.</p>
-
-            <p data-i18n="video-p2">For video call recording with OBS, add a "Display Capture" or "Window Capture" source alongside your audio capture. Be aware that video files are much larger than audio files, and Discord's video quality depends on your internet connection and Discord Nitro status.</p>
-
             <h2 data-i18n="h2-legal">Legal Considerations</h2>
 
-            <p data-i18n="legal-p1">Before you record Discord calls, understand the legal requirements in your jurisdiction. Many regions require "one-party consent" — meaning you can record a call you're participating in. Others require "all-party consent" — everyone on the call must agree to be recorded.</p>
+            <p data-i18n="legal-p1">Before recording Discord calls, understand the legal requirements in your jurisdiction:</p>
 
-            <p data-i18n="legal-p2">Using a visible bot like Craig makes consent clear: everyone sees the bot in the channel. Using invisible methods like Mono or OBS means others won't know they're being recorded unless you tell them. Consider informing participants regardless of legal requirements — it's good practice and avoids awkward situations.</p>
+            <p data-i18n="legal-p2"><strong>One-party consent:</strong> Many regions allow recording calls you participate in without informing others.</p>
 
-            <h2 data-i18n="h2-tips">Tips for Better Discord Recordings</h2>
+            <p data-i18n="legal-p3"><strong>All-party consent:</strong> Some jurisdictions require everyone to agree to recording. This includes California, Germany, and other areas.</p>
 
-            <div class="tip-box">
-                <p data-i18n="tips-box"><strong>Use headphones</strong> to prevent echo and feedback from your speakers being picked up by your microphone. <strong>Close other applications</strong> that might produce notification sounds or audio that could be captured in your recording. <strong>Test your setup</strong> with a short recording before important calls to ensure everything is configured correctly.</p>
-            </div>
-
-            <p data-i18n="tips-p1"><strong>Audio quality settings:</strong> Discord uses the Opus codec and adjusts quality based on your connection. For best results, ensure you have a stable internet connection. If you're recording with OBS, set your audio bitrate to at least 128kbps for good quality.</p>
-
-            <p data-i18n="tips-p2"><strong>Managing storage:</strong> Audio recordings are relatively small — around 1MB per minute for high quality audio. Video recordings are much larger. Plan your storage accordingly if you record frequently.</p>
+            <p data-i18n="legal-p4">For business calls, check your organization's policies. Many companies require disclosure when recording, regardless of legal requirements.</p>
 
             <h2 data-i18n="h2-which-method">Which Method Should You Use?</h2>
 
-            <p data-i18n="which-p1"><strong>For private calls or DMs:</strong> Use Mono or OBS Studio. Craig Bot only works in server voice channels, not direct messages or group DMs.</p>
+            <p data-i18n="which-p1"><strong>Private calls or DMs + want transcription?</strong> mono ($50 once) keeps everything local with AI features. Craig Bot doesn't work in DMs.</p>
 
-            <p data-i18n="which-p2"><strong>For podcast recording:</strong> Craig Bot's multi-track output is ideal for professional editing. Alternatively, Mono's speaker identification helps organize who said what.</p>
+            <p data-i18n="which-p2"><strong>Server voice channels + need per-speaker tracks?</strong> Craig Bot is ideal for podcast editing with separate audio per participant.</p>
 
-            <p data-i18n="which-p3"><strong>For meeting notes:</strong> Mono's automatic transcription saves hours compared to manually listening through raw audio to find key points.</p>
+            <p data-i18n="which-p3"><strong>Free recording without transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.</p>
 
-            <p data-i18n="which-p4"><strong>For free recording without frills:</strong> OBS Studio works well but requires more effort and produces raw files without transcription.</p>
+            <p data-i18n="which-p4"><strong>Video recording?</strong> OBS Studio with screen capture. mono and Craig focus on audio.</p>
 
-            <p data-i18n="which-p5"><strong>For video calls:</strong> OBS Studio with screen recording is your only option among these methods.</p>
+            <p data-i18n="which-p5"><strong>Want AI search and summaries?</strong> mono lets you ask questions about your recordings and auto-generates summaries with action items.</p>
 
             <cta-card base-path="../"></cta-card>
 
@@ -496,58 +485,56 @@ const translations = {
         'category': '[Guide]',
         'title': 'How to Record Discord Calls in 2026',
         'meta': 'Feb 23, 2026 &middot; 8 min read &middot; By Daniil Lefanov',
-        'disclosure': 'Disclosure: Mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
-        'intro-p1': 'Discord doesn\'t have a built-in recording feature for voice calls or voice chats. Whether you\'re recording a podcast, saving a gaming session, or keeping notes from a team discussion, you need a third-party tool to record Discord calls. Here are four methods that actually work in 2026, including options for both audio calls and video recording.',
+        'disclosure': 'Disclosure: mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+        'intro-p1': 'Discord doesn\'t have built-in recording &mdash; and most third-party tools either join as visible bots or upload your audio to cloud servers. If you want invisible recording with local processing, or you\'re tired of $15-20/month subscriptions for meeting tools, there are better options.',
+        'intro-p2': 'This guide compares three ways to record Discord calls in 2026. We\'ll cover what each costs per year, where your data goes, and which works best for different needs.',
         'tldr-label': 'TL;DR',
-        'tldr-1': '<strong>Best overall:</strong> Mono &mdash; invisible recording, local AI transcription, $50 once',
-        'tldr-2': '<strong>Best free:</strong> OBS Studio &mdash; requires setup, no transcription',
-        'tldr-3': '<strong>Best for podcasts:</strong> Craig Bot &mdash; per-speaker tracks, visible bot',
-        'tldr-4': '<strong>Built-in:</strong> None &mdash; Discord has no native recording',
-        'h2-why-record': 'Why Record Discord Calls?',
-        'why-record-p1': 'There are many legitimate reasons to record Discord voice chats and video calls. Content creators use recordings to produce podcasts, gaming highlights, and tutorials. Teams record meetings to share with absent members or create documentation. Students capture study sessions for later review. Musicians collaborate remotely and need to save jam sessions.',
-        'why-record-p2': 'Whatever your reason, you\'ll need external software since Discord intentionally doesn\'t include recording functionality. The platform prioritizes real-time communication over archival features, leaving users to choose their own screen recorder or audio capture tool.',
+        'tldr-1': '<strong>Best overall:</strong> mono &mdash; $50 once (vs $96-200/yr subscriptions), local AI transcription, invisible, works with any app',
+        'tldr-2': '<strong>Best free:</strong> OBS Studio &mdash; no transcription, requires setup',
+        'tldr-3': '<strong>Best for podcasts:</strong> Craig Bot &mdash; per-speaker tracks, visible bot, server channels only',
         'h2-comparison': 'Quick Comparison',
         'th-method': 'Method',
         'th-price': 'Price',
+        'th-yearly': 'Year 1 Cost',
+        'th-data': 'Data',
         'th-visible': 'Visible?',
-        'th-transcription': 'Transcription',
         'td-mono-price': '$50 once',
-        'td-mono-visible': 'No',
-        'td-mono-transcription': 'Yes (local AI)',
+        'td-stays-local': 'Stays local',
+        'td-no': 'No',
         'td-obs-price': 'Free',
-        'td-obs-visible': 'No',
-        'td-obs-transcription': 'No',
         'td-craig-price': 'Free tier',
-        'td-craig-visible': 'Yes (bot joins)',
-        'td-craig-transcription': 'No',
-        'h2-method1': 'Method 1: Mono (Recommended)',
-        'method1-p1': 'Mono records Discord calls by capturing internal audio directly from your computer\'s sound output. No bot joins the voice channel, no one sees a recording indicator, and the audio never leaves your computer. This makes it ideal for recording private DMs, server calls, and any voice chat where you don\'t want others to know you\'re recording.',
-        'method1-p2': 'After you stop recording, Mono transcribes the conversation locally using AI. The transcription includes speaker identification &mdash; Mono detects different voices and labels them in the transcript. You can search through your recordings by keyword, making it easy to find specific moments from past calls.',
-        'h3-mono-steps': 'How to record Discord with Mono',
-        'mono-step-1': 'Download Mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
-        'mono-step-2': 'Open Mono and click the Record button to begin recording',
+        'td-craig-cloud': 'Craig servers',
+        'td-yes-bot': 'Yes (bot joins)',
+        'h2-method1': 'Method 1: mono (Recommended)',
+        'method1-p1': 'mono captures audio directly from your computer\'s sound output &mdash; no bot joins the voice channel, no notification appears, and your audio never leaves your device. Unlike cloud-based tools, mono processes everything locally. Your Discord recordings stay on your computer, not on third-party servers.',
+        'method1-p2': 'The one-time $50 price includes lifetime updates. Compare that to Otter.ai ($200/yr) or Fireflies ($120-230/yr) &mdash; mono pays for itself in 3-6 months.',
+        'method1-p3': 'Beyond Discord, mono works with any app that plays audio: Zoom, Teams, Google Meet, WhatsApp, Telegram, phone calls on desktop &mdash; all recorded in one place with automatic transcription.',
+        'h3-mono-steps': 'How to record Discord with mono',
+        'mono-step-1': 'Download mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
+        'mono-step-2': 'Open mono and click Record',
         'mono-step-3': 'Join your Discord voice channel or start a call',
-        'mono-step-4': 'When finished, click Stop in Mono',
-        'mono-step-5': 'Wait for the automatic transcription to complete',
-        'mono-step-6': 'Review your transcript with timestamps and speaker labels',
-        'method1-p3': 'Mono captures everything playing through your speakers or headphones, so you\'ll get both sides of the conversation in high audio quality. The recording happens entirely on your device &mdash; nothing is uploaded to the cloud.',
-        'method1-pros': '<strong>Pros:</strong> Invisible to other participants, works with DMs and servers, includes AI transcription with speaker identification, searchable recordings, one-time $50 payment, no subscription.',
-        'method1-cons': '<strong>Cons:</strong> Paid software (one free recording available to try before buying).',
+        'mono-step-4': 'When finished, click Stop &mdash; transcription starts automatically',
+        'mono-step-5': 'Search recordings by keyword, date, or semantic meaning',
+        'method1-p4': 'After transcription, mono\'s local AI lets you search by meaning (not just keywords), ask questions about your recordings ("What did we decide about the schedule?"), and auto-generate summaries with action items. All processing happens on your device.',
+        'method1-pros': '<strong>Pros:</strong> Audio stays on your device (no cloud upload), works offline, no subscription ($50 once vs $100-200/yr), works with any app, AI chat and summaries, semantic search across all recordings.',
+        'method1-cons': '<strong>Cons:</strong> Requires local processing power (works on most modern computers), no real-time transcription during the call, standalone app (no Slack/HubSpot integrations).',
         'h2-method2': 'Method 2: OBS Studio (Free)',
-        'method2-p1': 'OBS Studio is a free, open-source screen recorder popular with streamers and content creators. While it\'s primarily designed for video recording and live streaming, you can configure it to capture system audio only &mdash; perfect for recording Discord audio calls without the overhead of video.',
-        'method2-p2': 'OBS captures internal audio by hooking into your system\'s audio output. Like Mono, this means no bot joins your call and other participants won\'t know you\'re recording. However, OBS requires more initial setup and doesn\'t include any transcription features.',
+        'method2-p1': 'OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn\'t join the call as a participant, works with any Discord account, and is completely invisible to others in the call.',
+        'method2-p2': 'OBS is popular among streamers and content creators, but it works just as well for recording Discord audio calls. The main limitation is that it produces raw audio or video files without transcription.',
         'h3-obs-steps': 'How to record Discord with OBS',
         'obs-step-1': 'Download OBS Studio from obsproject.com and install it',
         'obs-step-2': 'Open OBS and go to Settings &rarr; Audio',
         'obs-step-3': 'Set "Desktop Audio" to your playback device (speakers or headphones)',
-        'obs-step-4': 'In the main window, click + under Sources and add "Audio Output Capture"',
-        'obs-step-5': 'Click "Start Recording" before your Discord call',
-        'obs-step-6': 'Join your voice channel or begin your call',
-        'obs-step-7': 'Click "Stop Recording" when the call ends',
-        'obs-step-8': 'Find your recording in the output folder (default: Videos folder)',
-        'method2-p3': 'For audio-only recording, you can disable video capture in OBS settings to reduce file size. Go to Settings &rarr; Output and select an audio-only format, or simply ignore the video track when editing.',
-        'method2-pros': '<strong>Pros:</strong> Completely free and open source, no bot visible, can record video calls with screen recording, highly configurable audio settings.',
-        'method2-cons': '<strong>Cons:</strong> Requires manual setup, must remember to start and stop recording, no transcription, produces raw audio files you\'ll need to process yourself.',
+        'obs-step-4': 'In the main window, click + under Sources',
+        'obs-step-5': 'Add an "Audio Output Capture" source for audio-only recording',
+        'obs-step-6': 'Optionally add "Display Capture" for video recording',
+        'obs-step-7': 'Click "Start Recording" before joining Discord',
+        'obs-step-8': 'Join and participate in your call',
+        'obs-step-9': 'Click "Stop Recording" when the call ends',
+        'obs-step-10': 'Find your recording in the output folder (usually Videos)',
+        'obs-figure-caption': 'Add an Audio Output Capture source in OBS, then click Start Recording',
+        'method2-pros': '<strong>Pros:</strong> Completely free and open source, no visible bot, works with any Discord call, can record video calls with screen capture.',
+        'method2-cons': '<strong>Cons:</strong> Requires initial setup, must manually start and stop recording for each call, no transcription &mdash; produces only raw audio/video files.',
         'h2-method3': 'Method 3: Craig Bot (Server Channels Only)',
         'method3-p1': 'Craig Bot is a Discord bot specifically designed for recording voice channels. Unlike the previous methods, Craig joins your server\'s voice channel as a visible participant. Everyone in the channel can see Craig is there, making it transparent that recording is happening.',
         'method3-p2': 'Craig\'s unique feature is multi-track recording: it captures each participant on a separate audio track. This is invaluable for podcast production, as you can adjust individual volume levels, remove background noise from specific speakers, or edit out one person\'s audio without affecting others.',
@@ -562,22 +549,17 @@ const translations = {
         'method3-p3': 'Craig provides recordings in multiple formats, including individual tracks per speaker and a combined mix. The free tier has some limitations on recording length and storage, but works well for most use cases.',
         'method3-pros': '<strong>Pros:</strong> Free tier available, multi-track recording with separate files per speaker, transparent recording (everyone knows), excellent for podcasts and interviews.',
         'method3-cons': '<strong>Cons:</strong> Only works in server voice channels &mdash; not private DMs or calls, visible bot that everyone can see, no transcription, requires admin permissions to add bot to server.',
-        'h2-video-calls': 'Recording Discord Video Calls',
-        'video-p1': 'If you need video recording in addition to audio, your options are more limited. Craig Bot is audio-only. Mono focuses on audio with transcription. OBS Studio is your best choice for video recording &mdash; it\'s designed for screen recording and can capture your entire screen or just the Discord window.',
-        'video-p2': 'For video call recording with OBS, add a "Display Capture" or "Window Capture" source alongside your audio capture. Be aware that video files are much larger than audio files, and Discord\'s video quality depends on your internet connection and Discord Nitro status.',
         'h2-legal': 'Legal Considerations',
-        'legal-p1': 'Before you record Discord calls, understand the legal requirements in your jurisdiction. Many regions require "one-party consent" &mdash; meaning you can record a call you\'re participating in. Others require "all-party consent" &mdash; everyone on the call must agree to be recorded.',
-        'legal-p2': 'Using a visible bot like Craig makes consent clear: everyone sees the bot in the channel. Using invisible methods like Mono or OBS means others won\'t know they\'re being recorded unless you tell them. Consider informing participants regardless of legal requirements &mdash; it\'s good practice and avoids awkward situations.',
-        'h2-tips': 'Tips for Better Discord Recordings',
-        'tips-box': '<strong>Use headphones</strong> to prevent echo and feedback from your speakers being picked up by your microphone. <strong>Close other applications</strong> that might produce notification sounds or audio that could be captured in your recording. <strong>Test your setup</strong> with a short recording before important calls to ensure everything is configured correctly.',
-        'tips-p1': '<strong>Audio quality settings:</strong> Discord uses the Opus codec and adjusts quality based on your connection. For best results, ensure you have a stable internet connection. If you\'re recording with OBS, set your audio bitrate to at least 128kbps for good quality.',
-        'tips-p2': '<strong>Managing storage:</strong> Audio recordings are relatively small &mdash; around 1MB per minute for high quality audio. Video recordings are much larger. Plan your storage accordingly if you record frequently.',
+        'legal-p1': 'Before recording Discord calls, understand the legal requirements in your jurisdiction:',
+        'legal-p2': '<strong>One-party consent:</strong> Many regions allow recording calls you participate in without informing others.',
+        'legal-p3': '<strong>All-party consent:</strong> Some jurisdictions require everyone to agree to recording. This includes California, Germany, and other areas.',
+        'legal-p4': 'For business calls, check your organization\'s policies. Many companies require disclosure when recording, regardless of legal requirements.',
         'h2-which-method': 'Which Method Should You Use?',
-        'which-p1': '<strong>For private calls or DMs:</strong> Use Mono or OBS Studio. Craig Bot only works in server voice channels, not direct messages or group DMs.',
-        'which-p2': '<strong>For podcast recording:</strong> Craig Bot\'s multi-track output is ideal for professional editing. Alternatively, Mono\'s speaker identification helps organize who said what.',
-        'which-p3': '<strong>For meeting notes:</strong> Mono\'s automatic transcription saves hours compared to manually listening through raw audio to find key points.',
-        'which-p4': '<strong>For free recording without frills:</strong> OBS Studio works well but requires more effort and produces raw files without transcription.',
-        'which-p5': '<strong>For video calls:</strong> OBS Studio with screen recording is your only option among these methods.',
+        'which-p1': '<strong>Private calls or DMs + want transcription?</strong> mono ($50 once) keeps everything local with AI features. Craig Bot doesn\'t work in DMs.',
+        'which-p2': '<strong>Server voice channels + need per-speaker tracks?</strong> Craig Bot is ideal for podcast editing with separate audio per participant.',
+        'which-p3': '<strong>Free recording without transcription?</strong> OBS Studio is reliable but requires setup and produces raw files.',
+        'which-p4': '<strong>Video recording?</strong> OBS Studio with screen capture. mono and Craig focus on audio.',
+        'which-p5': '<strong>Want AI search and summaries?</strong> mono lets you ask questions about your recordings and auto-generates summaries with action items.',
         'related-title': 'Related Guides',
         'related-telegram-title': 'How to Record Telegram Calls',
         'related-telegram-desc': '3 methods to record Telegram voice calls on desktop.',
@@ -593,58 +575,56 @@ const translations = {
         'category': '[Guía]',
         'title': 'Cómo grabar llamadas de Discord en 2026',
         'meta': '23 de febrero de 2026 &middot; 8 min de lectura &middot; Por Daniil Lefanov',
-        'disclosure': 'Aviso: Mono es nuestro producto. Lo hemos incluido en esta guía e intentamos ser justos, pero debes saber que tenemos interés en él.',
-        'intro-p1': 'Discord no tiene una función integrada de grabación para llamadas de voz o chats de voz. Ya sea que estés grabando un podcast, guardando una sesión de juego o tomando notas de una discusión de equipo, necesitas una herramienta de terceros para grabar llamadas de Discord. Aquí hay cuatro métodos que realmente funcionan en 2026, incluyendo opciones tanto para llamadas de audio como para grabación de video.',
+        'disclosure': 'Aviso: mono es nuestro producto. Lo hemos incluido en esta guía e intentamos ser justos, pero debes saber que tenemos interés en él.',
+        'intro-p1': 'Discord no tiene grabación integrada &mdash; y la mayoría de herramientas de terceros se unen como bots visibles o suben tu audio a servidores en la nube. Si quieres grabación invisible con procesamiento local, o estás cansado de suscripciones de $15-20/mes para herramientas de reuniones, hay mejores opciones.',
+        'intro-p2': 'Esta guía compara tres formas de grabar llamadas de Discord en 2026. Cubriremos cuánto cuesta cada una por año, dónde van tus datos, y cuál funciona mejor para diferentes necesidades.',
         'tldr-label': 'RESUMEN',
-        'tldr-1': '<strong>Mejor opción:</strong> Mono &mdash; grabación invisible, transcripción con IA local, $50 una vez',
-        'tldr-2': '<strong>Mejor gratis:</strong> OBS Studio &mdash; requiere configuración, sin transcripción',
-        'tldr-3': '<strong>Mejor para podcasts:</strong> Craig Bot &mdash; pistas por hablante, bot visible',
-        'tldr-4': '<strong>Integrado:</strong> Ninguno &mdash; Discord no tiene grabación nativa',
-        'h2-why-record': '¿Por qué grabar llamadas de Discord?',
-        'why-record-p1': 'Hay muchas razones legítimas para grabar chats de voz y videollamadas de Discord. Los creadores de contenido usan grabaciones para producir podcasts, momentos destacados de juegos y tutoriales. Los equipos graban reuniones para compartir con miembros ausentes o crear documentación. Los estudiantes capturan sesiones de estudio para revisarlas después. Los músicos colaboran remotamente y necesitan guardar sesiones de improvisación.',
-        'why-record-p2': 'Cualquiera que sea tu razón, necesitarás software externo ya que Discord intencionalmente no incluye funcionalidad de grabación. La plataforma prioriza la comunicación en tiempo real sobre las funciones de archivo, dejando a los usuarios elegir su propio grabador de pantalla o herramienta de captura de audio.',
+        'tldr-1': '<strong>Mejor opción:</strong> mono &mdash; $50 una vez (vs $96-200/año en suscripciones), transcripción IA local, invisible, funciona con cualquier app',
+        'tldr-2': '<strong>Mejor gratis:</strong> OBS Studio &mdash; sin transcripción, requiere configuración',
+        'tldr-3': '<strong>Mejor para podcasts:</strong> Craig Bot &mdash; pistas por hablante, bot visible, solo canales de servidor',
         'h2-comparison': 'Comparación rápida',
         'th-method': 'Método',
         'th-price': 'Precio',
+        'th-yearly': 'Costo Año 1',
+        'th-data': 'Datos',
         'th-visible': '¿Visible?',
-        'th-transcription': 'Transcripción',
         'td-mono-price': '$50 una vez',
-        'td-mono-visible': 'No',
-        'td-mono-transcription': 'Sí (IA local)',
+        'td-stays-local': 'Queda local',
+        'td-no': 'No',
         'td-obs-price': 'Gratis',
-        'td-obs-visible': 'No',
-        'td-obs-transcription': 'No',
         'td-craig-price': 'Nivel gratis',
-        'td-craig-visible': 'Sí (bot entra)',
-        'td-craig-transcription': 'No',
-        'h2-method1': 'Método 1: Mono (Recomendado)',
-        'method1-p1': 'Mono graba llamadas de Discord capturando audio interno directamente de la salida de sonido de tu computadora. Ningún bot se une al canal de voz, nadie ve un indicador de grabación, y el audio nunca sale de tu computadora. Esto lo hace ideal para grabar DMs privados, llamadas de servidor y cualquier chat de voz donde no quieras que otros sepan que estás grabando.',
-        'method1-p2': 'Después de detener la grabación, Mono transcribe la conversación localmente usando IA. La transcripción incluye identificación de hablantes &mdash; Mono detecta diferentes voces y las etiqueta en la transcripción. Puedes buscar en tus grabaciones por palabra clave, facilitando encontrar momentos específicos de llamadas pasadas.',
-        'h3-mono-steps': 'Cómo grabar Discord con Mono',
-        'mono-step-1': 'Descarga Mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instálalo',
-        'mono-step-2': 'Abre Mono y haz clic en el botón Grabar para comenzar la grabación',
+        'td-craig-cloud': 'Servidores Craig',
+        'td-yes-bot': 'Sí (bot entra)',
+        'h2-method1': 'Método 1: mono (Recomendado)',
+        'method1-p1': 'mono captura audio directamente de la salida de sonido de tu computadora &mdash; ningún bot se une al canal de voz, no aparece notificación, y tu audio nunca sale de tu dispositivo. A diferencia de herramientas basadas en la nube, mono procesa todo localmente. Tus grabaciones de Discord quedan en tu computadora, no en servidores de terceros.',
+        'method1-p2': 'El precio único de $50 incluye actualizaciones de por vida. Compara con Otter.ai ($200/año) o Fireflies ($120-230/año) &mdash; mono se paga solo en 3-6 meses.',
+        'method1-p3': 'Más allá de Discord, mono funciona con cualquier app que reproduzca audio: Zoom, Teams, Google Meet, WhatsApp, Telegram, llamadas telefónicas en escritorio &mdash; todo grabado en un solo lugar con transcripción automática.',
+        'h3-mono-steps': 'Cómo grabar Discord con mono',
+        'mono-step-1': 'Descarga mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instálalo',
+        'mono-step-2': 'Abre mono y haz clic en Grabar',
         'mono-step-3': 'Únete a tu canal de voz de Discord o inicia una llamada',
-        'mono-step-4': 'Cuando termines, haz clic en Detener en Mono',
-        'mono-step-5': 'Espera a que se complete la transcripción automática',
-        'mono-step-6': 'Revisa tu transcripción con marcas de tiempo y etiquetas de hablante',
-        'method1-p3': 'Mono captura todo lo que se reproduce a través de tus altavoces o auriculares, así que obtendrás ambos lados de la conversación en alta calidad de audio. La grabación ocurre completamente en tu dispositivo &mdash; nada se sube a la nube.',
-        'method1-pros': '<strong>Pros:</strong> Invisible para otros participantes, funciona con DMs y servidores, incluye transcripción con IA con identificación de hablantes, grabaciones buscables, pago único de $50, sin suscripción.',
-        'method1-cons': '<strong>Contras:</strong> Software de pago (una grabación gratis disponible para probar antes de comprar).',
+        'mono-step-4': 'Cuando termines, haz clic en Detener &mdash; la transcripción comienza automáticamente',
+        'mono-step-5': 'Busca grabaciones por palabra clave, fecha o significado semántico',
+        'method1-p4': 'Después de la transcripción, la IA local de mono te permite buscar por significado (no solo palabras clave), hacer preguntas sobre tus grabaciones ("¿Qué decidimos sobre el horario?"), y generar resúmenes automáticos con acciones. Todo el procesamiento ocurre en tu dispositivo.',
+        'method1-pros': '<strong>Pros:</strong> El audio queda en tu dispositivo (sin subir a la nube), funciona sin conexión, sin suscripción ($50 una vez vs $100-200/año), funciona con cualquier app, chat IA y resúmenes, búsqueda semántica en todas las grabaciones.',
+        'method1-cons': '<strong>Contras:</strong> Requiere poder de procesamiento local (funciona en la mayoría de computadoras modernas), sin transcripción en tiempo real durante la llamada, app independiente (sin integraciones Slack/HubSpot).',
         'h2-method2': 'Método 2: OBS Studio (Gratis)',
-        'method2-p1': 'OBS Studio es un grabador de pantalla gratuito y de código abierto popular entre streamers y creadores de contenido. Aunque está diseñado principalmente para grabación de video y streaming en vivo, puedes configurarlo para capturar solo audio del sistema &mdash; perfecto para grabar llamadas de audio de Discord sin la carga del video.',
-        'method2-p2': 'OBS captura audio interno conectándose a la salida de audio de tu sistema. Como Mono, esto significa que ningún bot se une a tu llamada y otros participantes no sabrán que estás grabando. Sin embargo, OBS requiere más configuración inicial y no incluye funciones de transcripción.',
+        'method2-p1': 'OBS Studio es un grabador de pantalla gratuito y de código abierto que puede capturar audio del sistema y tu pantalla. No se une a la llamada como participante, funciona con cualquier cuenta de Discord, y es completamente invisible para otros en la llamada.',
+        'method2-p2': 'OBS es popular entre streamers y creadores de contenido, pero funciona igual de bien para grabar llamadas de audio de Discord. La principal limitación es que produce archivos de audio o video sin transcripción.',
         'h3-obs-steps': 'Cómo grabar Discord con OBS',
         'obs-step-1': 'Descarga OBS Studio desde obsproject.com e instálalo',
         'obs-step-2': 'Abre OBS y ve a Configuración &rarr; Audio',
         'obs-step-3': 'Configura "Audio del escritorio" a tu dispositivo de reproducción (altavoces o auriculares)',
-        'obs-step-4': 'En la ventana principal, haz clic en + bajo Fuentes y añade "Captura de salida de audio"',
-        'obs-step-5': 'Haz clic en "Iniciar grabación" antes de tu llamada de Discord',
-        'obs-step-6': 'Únete a tu canal de voz o comienza tu llamada',
-        'obs-step-7': 'Haz clic en "Detener grabación" cuando termine la llamada',
-        'obs-step-8': 'Encuentra tu grabación en la carpeta de salida (por defecto: carpeta Videos)',
-        'method2-p3': 'Para grabación solo de audio, puedes desactivar la captura de video en la configuración de OBS para reducir el tamaño del archivo. Ve a Configuración &rarr; Salida y selecciona un formato solo de audio, o simplemente ignora la pista de video al editar.',
-        'method2-pros': '<strong>Pros:</strong> Completamente gratis y de código abierto, sin bot visible, puede grabar videollamadas con grabación de pantalla, configuración de audio altamente personalizable.',
-        'method2-cons': '<strong>Contras:</strong> Requiere configuración manual, debes recordar iniciar y detener la grabación, sin transcripción, produce archivos de audio sin procesar que necesitarás procesar tú mismo.',
+        'obs-step-4': 'En la ventana principal, haz clic en + bajo Fuentes',
+        'obs-step-5': 'Añade una fuente "Captura de salida de audio" para grabación solo de audio',
+        'obs-step-6': 'Opcionalmente añade "Captura de pantalla" para grabación de video',
+        'obs-step-7': 'Haz clic en "Iniciar grabación" antes de unirte a Discord',
+        'obs-step-8': 'Únete y participa en tu llamada',
+        'obs-step-9': 'Haz clic en "Detener grabación" cuando termine la llamada',
+        'obs-step-10': 'Encuentra tu grabación en la carpeta de salida (generalmente Videos)',
+        'obs-figure-caption': 'Añade una fuente de Captura de Salida de Audio en OBS, luego haz clic en Iniciar Grabación',
+        'method2-pros': '<strong>Pros:</strong> Completamente gratis y de código abierto, sin bot visible, funciona con cualquier llamada de Discord, puede grabar videollamadas con captura de pantalla.',
+        'method2-cons': '<strong>Contras:</strong> Requiere configuración inicial, debes iniciar y detener manualmente la grabación para cada llamada, sin transcripción &mdash; solo produce archivos de audio/video sin procesar.',
         'h2-method3': 'Método 3: Craig Bot (Solo canales de servidor)',
         'method3-p1': 'Craig Bot es un bot de Discord diseñado específicamente para grabar canales de voz. A diferencia de los métodos anteriores, Craig se une al canal de voz de tu servidor como un participante visible. Todos en el canal pueden ver que Craig está allí, haciendo transparente que se está grabando.',
         'method3-p2': 'La característica única de Craig es la grabación multipista: captura a cada participante en una pista de audio separada. Esto es invaluable para la producción de podcasts, ya que puedes ajustar niveles de volumen individuales, eliminar ruido de fondo de hablantes específicos o editar el audio de una persona sin afectar a otros.',
@@ -659,22 +639,17 @@ const translations = {
         'method3-p3': 'Craig proporciona grabaciones en múltiples formatos, incluyendo pistas individuales por hablante y una mezcla combinada. El nivel gratis tiene algunas limitaciones en la duración de grabación y almacenamiento, pero funciona bien para la mayoría de los casos.',
         'method3-pros': '<strong>Pros:</strong> Nivel gratis disponible, grabación multipista con archivos separados por hablante, grabación transparente (todos saben), excelente para podcasts y entrevistas.',
         'method3-cons': '<strong>Contras:</strong> Solo funciona en canales de voz de servidor &mdash; no en DMs privados o llamadas, bot visible que todos pueden ver, sin transcripción, requiere permisos de administrador para añadir bot al servidor.',
-        'h2-video-calls': 'Grabación de videollamadas de Discord',
-        'video-p1': 'Si necesitas grabación de video además de audio, tus opciones son más limitadas. Craig Bot es solo audio. Mono se enfoca en audio con transcripción. OBS Studio es tu mejor opción para grabación de video &mdash; está diseñado para grabación de pantalla y puede capturar toda tu pantalla o solo la ventana de Discord.',
-        'video-p2': 'Para grabación de videollamadas con OBS, añade una fuente de "Captura de pantalla" o "Captura de ventana" junto con tu captura de audio. Ten en cuenta que los archivos de video son mucho más grandes que los archivos de audio, y la calidad de video de Discord depende de tu conexión a internet y estado de Discord Nitro.',
         'h2-legal': 'Consideraciones legales',
-        'legal-p1': 'Antes de grabar llamadas de Discord, entiende los requisitos legales en tu jurisdicción. Muchas regiones requieren "consentimiento de una parte" &mdash; lo que significa que puedes grabar una llamada en la que participas. Otras requieren "consentimiento de todas las partes" &mdash; todos en la llamada deben aceptar ser grabados.',
-        'legal-p2': 'Usar un bot visible como Craig hace que el consentimiento sea claro: todos ven el bot en el canal. Usar métodos invisibles como Mono u OBS significa que otros no sabrán que están siendo grabados a menos que les digas. Considera informar a los participantes independientemente de los requisitos legales &mdash; es una buena práctica y evita situaciones incómodas.',
-        'h2-tips': 'Consejos para mejores grabaciones de Discord',
-        'tips-box': '<strong>Usa auriculares</strong> para evitar eco y retroalimentación de tus altavoces siendo captados por tu micrófono. <strong>Cierra otras aplicaciones</strong> que puedan producir sonidos de notificación o audio que podría capturarse en tu grabación. <strong>Prueba tu configuración</strong> con una grabación corta antes de llamadas importantes para asegurar que todo está configurado correctamente.',
-        'tips-p1': '<strong>Configuración de calidad de audio:</strong> Discord usa el códec Opus y ajusta la calidad según tu conexión. Para mejores resultados, asegúrate de tener una conexión a internet estable. Si grabas con OBS, configura tu tasa de bits de audio a al menos 128kbps para buena calidad.',
-        'tips-p2': '<strong>Gestión de almacenamiento:</strong> Las grabaciones de audio son relativamente pequeñas &mdash; alrededor de 1MB por minuto para audio de alta calidad. Las grabaciones de video son mucho más grandes. Planifica tu almacenamiento en consecuencia si grabas frecuentemente.',
+        'legal-p1': 'Antes de grabar llamadas de Discord, entiende los requisitos legales en tu jurisdicción:',
+        'legal-p2': '<strong>Consentimiento de una parte:</strong> Muchas regiones permiten grabar llamadas en las que participas sin informar a otros.',
+        'legal-p3': '<strong>Consentimiento de todas las partes:</strong> Algunas jurisdicciones requieren que todos acepten la grabación. Esto incluye California, Alemania y otras áreas.',
+        'legal-p4': 'Para llamadas de trabajo, consulta las políticas de tu organización. Muchas empresas requieren aviso al grabar, independientemente de los requisitos legales.',
         'h2-which-method': '¿Qué método deberías usar?',
-        'which-p1': '<strong>Para llamadas privadas o DMs:</strong> Usa Mono u OBS Studio. Craig Bot solo funciona en canales de voz de servidor, no en mensajes directos o DMs grupales.',
-        'which-p2': '<strong>Para grabación de podcasts:</strong> La salida multipista de Craig Bot es ideal para edición profesional. Alternativamente, la identificación de hablantes de Mono ayuda a organizar quién dijo qué.',
-        'which-p3': '<strong>Para notas de reuniones:</strong> La transcripción automática de Mono ahorra horas comparado con escuchar manualmente audio sin procesar para encontrar puntos clave.',
-        'which-p4': '<strong>Para grabación gratis sin complicaciones:</strong> OBS Studio funciona bien pero requiere más esfuerzo y produce archivos sin procesar sin transcripción.',
-        'which-p5': '<strong>Para videollamadas:</strong> OBS Studio con grabación de pantalla es tu única opción entre estos métodos.',
+        'which-p1': '<strong>¿Llamadas privadas o DMs + quieres transcripción?</strong> mono ($50 una vez) mantiene todo local con funciones de IA. Craig Bot no funciona en DMs.',
+        'which-p2': '<strong>¿Canales de voz de servidor + necesitas pistas por hablante?</strong> Craig Bot es ideal para edición de podcasts con audio separado por participante.',
+        'which-p3': '<strong>¿Grabación gratis sin transcripción?</strong> OBS Studio es confiable pero requiere configuración y produce archivos sin procesar.',
+        'which-p4': '<strong>¿Grabación de video?</strong> OBS Studio con captura de pantalla. mono y Craig se enfocan en audio.',
+        'which-p5': '<strong>¿Quieres búsqueda IA y resúmenes?</strong> mono te permite hacer preguntas sobre tus grabaciones y genera resúmenes automáticos con acciones.',
         'related-title': 'Guías relacionadas',
         'related-telegram-title': 'Cómo grabar llamadas de Telegram',
         'related-telegram-desc': '3 métodos para grabar llamadas de voz de Telegram en escritorio.',
@@ -690,58 +665,56 @@ const translations = {
         'category': '[Guide]',
         'title': 'Comment enregistrer les appels Discord en 2026',
         'meta': '23 février 2026 &middot; 8 min de lecture &middot; Par Daniil Lefanov',
-        'disclosure': 'Avertissement : Mono est notre produit. Nous l\'avons inclus dans ce guide et avons essayé d\'être équitables, mais vous devez savoir que nous avons un intérêt dans ce produit.',
-        'intro-p1': 'Discord n\'a pas de fonction d\'enregistrement intégrée pour les appels vocaux ou les discussions vocales. Que vous enregistriez un podcast, sauvegardiez une session de jeu ou preniez des notes d\'une discussion d\'équipe, vous avez besoin d\'un outil tiers pour enregistrer les appels Discord. Voici quatre méthodes qui fonctionnent vraiment en 2026, incluant des options pour les appels audio et l\'enregistrement vidéo.',
+        'disclosure': 'Avertissement : mono est notre produit. Nous l\'avons inclus dans ce guide et avons essayé d\'être équitables, mais vous devez savoir que nous avons un intérêt dans ce produit.',
+        'intro-p1': 'Discord n\'a pas d\'enregistrement intégré &mdash; et la plupart des outils tiers rejoignent en tant que bots visibles ou téléchargent votre audio vers des serveurs cloud. Si vous voulez un enregistrement invisible avec traitement local, ou si vous en avez assez des abonnements à 15-20 $/mois pour les outils de réunion, il existe de meilleures options.',
+        'intro-p2': 'Ce guide compare trois façons d\'enregistrer les appels Discord en 2026. Nous couvrirons ce que chaque méthode coûte par an, où vont vos données, et laquelle fonctionne le mieux selon les besoins.',
         'tldr-label': 'RÉSUMÉ',
-        'tldr-1': '<strong>Meilleure option :</strong> Mono &mdash; enregistrement invisible, transcription IA locale, 50 $ une fois',
-        'tldr-2': '<strong>Meilleur gratuit :</strong> OBS Studio &mdash; nécessite une configuration, pas de transcription',
-        'tldr-3': '<strong>Meilleur pour podcasts :</strong> Craig Bot &mdash; pistes par locuteur, bot visible',
-        'tldr-4': '<strong>Intégré :</strong> Aucun &mdash; Discord n\'a pas d\'enregistrement natif',
-        'h2-why-record': 'Pourquoi enregistrer les appels Discord ?',
-        'why-record-p1': 'Il y a de nombreuses raisons légitimes d\'enregistrer les discussions vocales et les appels vidéo Discord. Les créateurs de contenu utilisent les enregistrements pour produire des podcasts, des moments forts de jeux et des tutoriels. Les équipes enregistrent les réunions pour les partager avec les membres absents ou créer de la documentation. Les étudiants capturent des sessions d\'étude pour les revoir plus tard. Les musiciens collaborent à distance et ont besoin de sauvegarder les sessions de jam.',
-        'why-record-p2': 'Quelle que soit votre raison, vous aurez besoin d\'un logiciel externe car Discord n\'inclut intentionnellement pas de fonctionnalité d\'enregistrement. La plateforme donne la priorité à la communication en temps réel plutôt qu\'aux fonctions d\'archivage, laissant les utilisateurs choisir leur propre enregistreur d\'écran ou outil de capture audio.',
+        'tldr-1': '<strong>Meilleure option :</strong> mono &mdash; 50 $ une fois (vs 96-200 $/an en abonnements), transcription IA locale, invisible, fonctionne avec toute app',
+        'tldr-2': '<strong>Meilleur gratuit :</strong> OBS Studio &mdash; pas de transcription, nécessite configuration',
+        'tldr-3': '<strong>Meilleur pour podcasts :</strong> Craig Bot &mdash; pistes par locuteur, bot visible, canaux serveur uniquement',
         'h2-comparison': 'Comparaison rapide',
         'th-method': 'Méthode',
         'th-price': 'Prix',
+        'th-yearly': 'Coût An 1',
+        'th-data': 'Données',
         'th-visible': 'Visible ?',
-        'th-transcription': 'Transcription',
         'td-mono-price': '50 $ une fois',
-        'td-mono-visible': 'Non',
-        'td-mono-transcription': 'Oui (IA locale)',
+        'td-stays-local': 'Reste local',
+        'td-no': 'Non',
         'td-obs-price': 'Gratuit',
-        'td-obs-visible': 'Non',
-        'td-obs-transcription': 'Non',
         'td-craig-price': 'Niveau gratuit',
-        'td-craig-visible': 'Oui (bot rejoint)',
-        'td-craig-transcription': 'Non',
-        'h2-method1': 'Méthode 1 : Mono (Recommandé)',
-        'method1-p1': 'Mono enregistre les appels Discord en capturant l\'audio interne directement depuis la sortie sonore de votre ordinateur. Aucun bot ne rejoint le canal vocal, personne ne voit d\'indicateur d\'enregistrement, et l\'audio ne quitte jamais votre ordinateur. Cela le rend idéal pour enregistrer les DMs privés, les appels serveur et tout chat vocal où vous ne voulez pas que les autres sachent que vous enregistrez.',
-        'method1-p2': 'Après avoir arrêté l\'enregistrement, Mono transcrit la conversation localement en utilisant l\'IA. La transcription inclut l\'identification des locuteurs &mdash; Mono détecte différentes voix et les étiquette dans la transcription. Vous pouvez rechercher dans vos enregistrements par mot-clé, facilitant la recherche de moments spécifiques d\'appels passés.',
-        'h3-mono-steps': 'Comment enregistrer Discord avec Mono',
-        'mono-step-1': 'Téléchargez Mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
-        'mono-step-2': 'Ouvrez Mono et cliquez sur le bouton Enregistrer pour commencer l\'enregistrement',
+        'td-craig-cloud': 'Serveurs Craig',
+        'td-yes-bot': 'Oui (bot rejoint)',
+        'h2-method1': 'Méthode 1 : mono (Recommandé)',
+        'method1-p1': 'mono capture l\'audio directement depuis la sortie sonore de votre ordinateur &mdash; aucun bot ne rejoint le canal vocal, aucune notification n\'apparaît, et votre audio ne quitte jamais votre appareil. Contrairement aux outils cloud, mono traite tout localement. Vos enregistrements Discord restent sur votre ordinateur, pas sur des serveurs tiers.',
+        'method1-p2': 'Le prix unique de 50 $ inclut les mises à jour à vie. Comparez avec Otter.ai (200 $/an) ou Fireflies (120-230 $/an) &mdash; mono est rentabilisé en 3-6 mois.',
+        'method1-p3': 'Au-delà de Discord, mono fonctionne avec toute app qui diffuse de l\'audio : Zoom, Teams, Google Meet, WhatsApp, Telegram, appels téléphoniques sur bureau &mdash; tout enregistré au même endroit avec transcription automatique.',
+        'h3-mono-steps': 'Comment enregistrer Discord avec mono',
+        'mono-step-1': 'Téléchargez mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
+        'mono-step-2': 'Ouvrez mono et cliquez sur Enregistrer',
         'mono-step-3': 'Rejoignez votre canal vocal Discord ou démarrez un appel',
-        'mono-step-4': 'Quand vous avez terminé, cliquez sur Arrêter dans Mono',
-        'mono-step-5': 'Attendez que la transcription automatique soit terminée',
-        'mono-step-6': 'Consultez votre transcription avec les horodatages et les étiquettes de locuteur',
-        'method1-p3': 'Mono capture tout ce qui passe par vos haut-parleurs ou écouteurs, donc vous obtiendrez les deux côtés de la conversation en haute qualité audio. L\'enregistrement se fait entièrement sur votre appareil &mdash; rien n\'est téléchargé vers le cloud.',
-        'method1-pros': '<strong>Avantages :</strong> Invisible pour les autres participants, fonctionne avec les DMs et les serveurs, inclut la transcription IA avec identification des locuteurs, enregistrements consultables, paiement unique de 50 $, pas d\'abonnement.',
-        'method1-cons': '<strong>Inconvénients :</strong> Logiciel payant (un enregistrement gratuit disponible pour essayer avant d\'acheter).',
+        'mono-step-4': 'Une fois terminé, cliquez sur Arrêter &mdash; la transcription démarre automatiquement',
+        'mono-step-5': 'Recherchez les enregistrements par mot-clé, date ou signification sémantique',
+        'method1-p4': 'Après la transcription, l\'IA locale de mono vous permet de rechercher par sens (pas seulement les mots-clés), poser des questions sur vos enregistrements ("Qu\'avons-nous décidé pour le planning ?"), et générer automatiquement des résumés avec actions. Tout le traitement se fait sur votre appareil.',
+        'method1-pros': '<strong>Avantages :</strong> L\'audio reste sur votre appareil (pas de téléchargement cloud), fonctionne hors ligne, pas d\'abonnement (50 $ une fois vs 100-200 $/an), fonctionne avec toute app, chat IA et résumés, recherche sémantique sur tous les enregistrements.',
+        'method1-cons': '<strong>Inconvénients :</strong> Nécessite puissance de traitement locale (fonctionne sur la plupart des ordinateurs modernes), pas de transcription en temps réel pendant l\'appel, app autonome (pas d\'intégrations Slack/HubSpot).',
         'h2-method2': 'Méthode 2 : OBS Studio (Gratuit)',
-        'method2-p1': 'OBS Studio est un enregistreur d\'écran gratuit et open source populaire auprès des streamers et créateurs de contenu. Bien qu\'il soit principalement conçu pour l\'enregistrement vidéo et le streaming en direct, vous pouvez le configurer pour capturer uniquement l\'audio système &mdash; parfait pour enregistrer les appels audio Discord sans la charge de la vidéo.',
-        'method2-p2': 'OBS capture l\'audio interne en se connectant à la sortie audio de votre système. Comme Mono, cela signifie qu\'aucun bot ne rejoint votre appel et les autres participants ne sauront pas que vous enregistrez. Cependant, OBS nécessite plus de configuration initiale et n\'inclut aucune fonction de transcription.',
+        'method2-p1': 'OBS Studio est un enregistreur d\'écran gratuit et open source qui peut capturer l\'audio système et votre écran. Il ne rejoint pas l\'appel en tant que participant, fonctionne avec n\'importe quel compte Discord, et est complètement invisible pour les autres dans l\'appel.',
+        'method2-p2': 'OBS est populaire auprès des streamers et créateurs de contenu, mais fonctionne aussi bien pour enregistrer les appels audio Discord. La principale limitation est qu\'il produit des fichiers audio ou vidéo bruts sans transcription.',
         'h3-obs-steps': 'Comment enregistrer Discord avec OBS',
         'obs-step-1': 'Téléchargez OBS Studio depuis obsproject.com et installez-le',
         'obs-step-2': 'Ouvrez OBS et allez dans Paramètres &rarr; Audio',
         'obs-step-3': 'Définissez "Audio du bureau" sur votre périphérique de lecture (haut-parleurs ou écouteurs)',
-        'obs-step-4': 'Dans la fenêtre principale, cliquez sur + sous Sources et ajoutez "Capture de sortie audio"',
-        'obs-step-5': 'Cliquez sur "Démarrer l\'enregistrement" avant votre appel Discord',
-        'obs-step-6': 'Rejoignez votre canal vocal ou commencez votre appel',
-        'obs-step-7': 'Cliquez sur "Arrêter l\'enregistrement" quand l\'appel se termine',
-        'obs-step-8': 'Trouvez votre enregistrement dans le dossier de sortie (par défaut : dossier Vidéos)',
-        'method2-p3': 'Pour l\'enregistrement audio uniquement, vous pouvez désactiver la capture vidéo dans les paramètres OBS pour réduire la taille du fichier. Allez dans Paramètres &rarr; Sortie et sélectionnez un format audio uniquement, ou ignorez simplement la piste vidéo lors de l\'édition.',
-        'method2-pros': '<strong>Avantages :</strong> Entièrement gratuit et open source, pas de bot visible, peut enregistrer les appels vidéo avec l\'enregistrement d\'écran, paramètres audio hautement configurables.',
-        'method2-cons': '<strong>Inconvénients :</strong> Nécessite une configuration manuelle, vous devez vous souvenir de démarrer et arrêter l\'enregistrement, pas de transcription, produit des fichiers audio bruts que vous devrez traiter vous-même.',
+        'obs-step-4': 'Dans la fenêtre principale, cliquez sur + sous Sources',
+        'obs-step-5': 'Ajoutez une source "Capture de sortie audio" pour l\'enregistrement audio uniquement',
+        'obs-step-6': 'Ajoutez optionnellement "Capture d\'écran" pour l\'enregistrement vidéo',
+        'obs-step-7': 'Cliquez sur "Démarrer l\'enregistrement" avant de rejoindre Discord',
+        'obs-step-8': 'Rejoignez et participez à votre appel',
+        'obs-step-9': 'Cliquez sur "Arrêter l\'enregistrement" quand l\'appel se termine',
+        'obs-step-10': 'Trouvez votre enregistrement dans le dossier de sortie (généralement Vidéos)',
+        'obs-figure-caption': 'Ajoutez une source Capture de Sortie Audio dans OBS, puis cliquez sur Démarrer l\'enregistrement',
+        'method2-pros': '<strong>Avantages :</strong> Entièrement gratuit et open source, pas de bot visible, fonctionne avec n\'importe quel appel Discord, peut enregistrer les appels vidéo avec capture d\'écran.',
+        'method2-cons': '<strong>Inconvénients :</strong> Nécessite configuration initiale, vous devez démarrer et arrêter manuellement l\'enregistrement pour chaque appel, pas de transcription &mdash; produit uniquement des fichiers audio/vidéo bruts.',
         'h2-method3': 'Méthode 3 : Craig Bot (Canaux serveur uniquement)',
         'method3-p1': 'Craig Bot est un bot Discord spécifiquement conçu pour enregistrer les canaux vocaux. Contrairement aux méthodes précédentes, Craig rejoint le canal vocal de votre serveur en tant que participant visible. Tout le monde dans le canal peut voir que Craig est là, rendant transparent le fait qu\'un enregistrement est en cours.',
         'method3-p2': 'La caractéristique unique de Craig est l\'enregistrement multipiste : il capture chaque participant sur une piste audio séparée. C\'est inestimable pour la production de podcasts, car vous pouvez ajuster les niveaux de volume individuels, supprimer le bruit de fond de locuteurs spécifiques ou éditer l\'audio d\'une personne sans affecter les autres.',
@@ -756,22 +729,17 @@ const translations = {
         'method3-p3': 'Craig fournit des enregistrements en plusieurs formats, incluant des pistes individuelles par locuteur et un mix combiné. Le niveau gratuit a quelques limitations sur la durée d\'enregistrement et le stockage, mais fonctionne bien pour la plupart des cas d\'utilisation.',
         'method3-pros': '<strong>Avantages :</strong> Niveau gratuit disponible, enregistrement multipiste avec fichiers séparés par locuteur, enregistrement transparent (tout le monde sait), excellent pour les podcasts et interviews.',
         'method3-cons': '<strong>Inconvénients :</strong> Fonctionne uniquement dans les canaux vocaux serveur &mdash; pas dans les DMs privés ou appels, bot visible que tout le monde peut voir, pas de transcription, nécessite des permissions admin pour ajouter le bot au serveur.',
-        'h2-video-calls': 'Enregistrement des appels vidéo Discord',
-        'video-p1': 'Si vous avez besoin d\'enregistrement vidéo en plus de l\'audio, vos options sont plus limitées. Craig Bot est audio uniquement. Mono se concentre sur l\'audio avec transcription. OBS Studio est votre meilleur choix pour l\'enregistrement vidéo &mdash; il est conçu pour l\'enregistrement d\'écran et peut capturer tout votre écran ou juste la fenêtre Discord.',
-        'video-p2': 'Pour l\'enregistrement d\'appels vidéo avec OBS, ajoutez une source "Capture d\'écran" ou "Capture de fenêtre" en plus de votre capture audio. Sachez que les fichiers vidéo sont beaucoup plus grands que les fichiers audio, et la qualité vidéo de Discord dépend de votre connexion internet et de votre statut Discord Nitro.',
         'h2-legal': 'Considérations juridiques',
-        'legal-p1': 'Avant d\'enregistrer des appels Discord, comprenez les exigences légales dans votre juridiction. De nombreuses régions exigent le "consentement d\'une partie" &mdash; ce qui signifie que vous pouvez enregistrer un appel auquel vous participez. D\'autres exigent le "consentement de toutes les parties" &mdash; tout le monde dans l\'appel doit accepter d\'être enregistré.',
-        'legal-p2': 'Utiliser un bot visible comme Craig rend le consentement clair : tout le monde voit le bot dans le canal. Utiliser des méthodes invisibles comme Mono ou OBS signifie que les autres ne sauront pas qu\'ils sont enregistrés à moins que vous ne leur disiez. Envisagez d\'informer les participants indépendamment des exigences légales &mdash; c\'est une bonne pratique et évite les situations gênantes.',
-        'h2-tips': 'Conseils pour de meilleurs enregistrements Discord',
-        'tips-box': '<strong>Utilisez des écouteurs</strong> pour éviter l\'écho et le retour de vos haut-parleurs captés par votre microphone. <strong>Fermez les autres applications</strong> qui pourraient produire des sons de notification ou de l\'audio qui pourrait être capturé dans votre enregistrement. <strong>Testez votre configuration</strong> avec un court enregistrement avant des appels importants pour vous assurer que tout est correctement configuré.',
-        'tips-p1': '<strong>Paramètres de qualité audio :</strong> Discord utilise le codec Opus et ajuste la qualité en fonction de votre connexion. Pour de meilleurs résultats, assurez-vous d\'avoir une connexion internet stable. Si vous enregistrez avec OBS, réglez votre débit audio à au moins 128kbps pour une bonne qualité.',
-        'tips-p2': '<strong>Gestion du stockage :</strong> Les enregistrements audio sont relativement petits &mdash; environ 1 Mo par minute pour l\'audio de haute qualité. Les enregistrements vidéo sont beaucoup plus grands. Planifiez votre stockage en conséquence si vous enregistrez fréquemment.',
+        'legal-p1': 'Avant d\'enregistrer des appels Discord, comprenez les exigences légales dans votre juridiction :',
+        'legal-p2': '<strong>Consentement d\'une partie :</strong> De nombreuses régions permettent d\'enregistrer les appels auxquels vous participez sans en informer les autres.',
+        'legal-p3': '<strong>Consentement de toutes les parties :</strong> Certaines juridictions exigent que tout le monde accepte l\'enregistrement. Cela inclut la Californie, l\'Allemagne et d\'autres régions.',
+        'legal-p4': 'Pour les appels professionnels, vérifiez les politiques de votre organisation. Beaucoup d\'entreprises exigent une divulgation lors de l\'enregistrement, indépendamment des exigences légales.',
         'h2-which-method': 'Quelle méthode devriez-vous utiliser ?',
-        'which-p1': '<strong>Pour les appels privés ou DMs :</strong> Utilisez Mono ou OBS Studio. Craig Bot ne fonctionne que dans les canaux vocaux serveur, pas dans les messages directs ou DMs de groupe.',
-        'which-p2': '<strong>Pour l\'enregistrement de podcasts :</strong> La sortie multipiste de Craig Bot est idéale pour l\'édition professionnelle. Alternativement, l\'identification des locuteurs de Mono aide à organiser qui a dit quoi.',
-        'which-p3': '<strong>Pour les notes de réunion :</strong> La transcription automatique de Mono économise des heures par rapport à l\'écoute manuelle d\'audio brut pour trouver les points clés.',
-        'which-p4': '<strong>Pour l\'enregistrement gratuit sans fioritures :</strong> OBS Studio fonctionne bien mais nécessite plus d\'effort et produit des fichiers bruts sans transcription.',
-        'which-p5': '<strong>Pour les appels vidéo :</strong> OBS Studio avec l\'enregistrement d\'écran est votre seule option parmi ces méthodes.',
+        'which-p1': '<strong>Appels privés ou DMs + voulez la transcription ?</strong> mono (50 $ une fois) garde tout local avec des fonctions IA. Craig Bot ne fonctionne pas dans les DMs.',
+        'which-p2': '<strong>Canaux vocaux serveur + besoin de pistes par locuteur ?</strong> Craig Bot est idéal pour l\'édition de podcasts avec audio séparé par participant.',
+        'which-p3': '<strong>Enregistrement gratuit sans transcription ?</strong> OBS Studio est fiable mais nécessite configuration et produit des fichiers bruts.',
+        'which-p4': '<strong>Enregistrement vidéo ?</strong> OBS Studio avec capture d\'écran. mono et Craig se concentrent sur l\'audio.',
+        'which-p5': '<strong>Voulez recherche IA et résumés ?</strong> mono vous permet de poser des questions sur vos enregistrements et génère automatiquement des résumés avec actions.',
         'related-title': 'Guides connexes',
         'related-telegram-title': 'Comment enregistrer les appels Telegram',
         'related-telegram-desc': '3 méthodes pour enregistrer les appels vocaux Telegram sur bureau.',
@@ -787,58 +755,56 @@ const translations = {
         'category': '[Anleitung]',
         'title': 'Discord-Anrufe aufzeichnen in 2026',
         'meta': '23. Februar 2026 &middot; 8 Min. Lesezeit &middot; Von Daniil Lefanov',
-        'disclosure': 'Hinweis: Mono ist unser Produkt. Wir haben es in diese Anleitung aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
-        'intro-p1': 'Discord hat keine integrierte Aufnahmefunktion für Sprachanrufe oder Sprachchats. Ob Sie einen Podcast aufnehmen, eine Gaming-Session speichern oder Notizen von einer Teamdiskussion machen, Sie benötigen ein Drittanbieter-Tool, um Discord-Anrufe aufzuzeichnen. Hier sind vier Methoden, die 2026 tatsächlich funktionieren, einschließlich Optionen für Audioanrufe und Videoaufnahme.',
+        'disclosure': 'Hinweis: mono ist unser Produkt. Wir haben es in diese Anleitung aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
+        'intro-p1': 'Discord hat keine integrierte Aufnahme &mdash; und die meisten Drittanbieter-Tools treten als sichtbare Bots bei oder laden Ihr Audio auf Cloud-Server hoch. Wenn Sie unsichtbare Aufnahme mit lokaler Verarbeitung wollen, oder Sie die $15-20/Monat Abonnements für Meeting-Tools satt haben, gibt es bessere Optionen.',
+        'intro-p2': 'Diese Anleitung vergleicht drei Wege, Discord-Anrufe 2026 aufzuzeichnen. Wir behandeln, was jede pro Jahr kostet, wohin Ihre Daten gehen, und welche für verschiedene Bedürfnisse am besten funktioniert.',
         'tldr-label': 'KURZFASSUNG',
-        'tldr-1': '<strong>Beste Wahl:</strong> Mono &mdash; unsichtbare Aufnahme, lokale KI-Transkription, einmalig $50',
-        'tldr-2': '<strong>Beste kostenlose Option:</strong> OBS Studio &mdash; erfordert Einrichtung, keine Transkription',
-        'tldr-3': '<strong>Beste für Podcasts:</strong> Craig Bot &mdash; Spuren pro Sprecher, sichtbarer Bot',
-        'tldr-4': '<strong>Integriert:</strong> Keine &mdash; Discord hat keine native Aufnahme',
-        'h2-why-record': 'Warum Discord-Anrufe aufzeichnen?',
-        'why-record-p1': 'Es gibt viele legitime Gründe, Discord-Sprachchats und Videoanrufe aufzuzeichnen. Content-Ersteller verwenden Aufnahmen, um Podcasts, Gaming-Highlights und Tutorials zu produzieren. Teams zeichnen Meetings auf, um sie mit abwesenden Mitgliedern zu teilen oder Dokumentation zu erstellen. Studenten erfassen Lernsessions zur späteren Überprüfung. Musiker arbeiten remote zusammen und müssen Jam-Sessions speichern.',
-        'why-record-p2': 'Was auch immer Ihr Grund ist, Sie benötigen externe Software, da Discord absichtlich keine Aufnahmefunktion enthält. Die Plattform priorisiert Echtzeit-Kommunikation gegenüber Archivierungsfunktionen und überlässt den Benutzern die Wahl ihres eigenen Bildschirmrekorders oder Audio-Aufnahme-Tools.',
+        'tldr-1': '<strong>Beste Wahl:</strong> mono &mdash; einmalig $50 (vs $96-200/Jahr Abonnements), lokale KI-Transkription, unsichtbar, funktioniert mit jeder App',
+        'tldr-2': '<strong>Beste kostenlose Option:</strong> OBS Studio &mdash; keine Transkription, erfordert Einrichtung',
+        'tldr-3': '<strong>Beste für Podcasts:</strong> Craig Bot &mdash; Spuren pro Sprecher, sichtbarer Bot, nur Serverkanäle',
         'h2-comparison': 'Schneller Vergleich',
         'th-method': 'Methode',
         'th-price': 'Preis',
+        'th-yearly': 'Jahr 1 Kosten',
+        'th-data': 'Daten',
         'th-visible': 'Sichtbar?',
-        'th-transcription': 'Transkription',
         'td-mono-price': 'Einmalig $50',
-        'td-mono-visible': 'Nein',
-        'td-mono-transcription': 'Ja (lokale KI)',
+        'td-stays-local': 'Bleibt lokal',
+        'td-no': 'Nein',
         'td-obs-price': 'Kostenlos',
-        'td-obs-visible': 'Nein',
-        'td-obs-transcription': 'Nein',
         'td-craig-price': 'Kostenlose Stufe',
-        'td-craig-visible': 'Ja (Bot tritt bei)',
-        'td-craig-transcription': 'Nein',
-        'h2-method1': 'Methode 1: Mono (Empfohlen)',
-        'method1-p1': 'Mono zeichnet Discord-Anrufe auf, indem es internes Audio direkt von der Soundausgabe Ihres Computers erfasst. Kein Bot tritt dem Sprachkanal bei, niemand sieht einen Aufnahmeindikator, und das Audio verlässt nie Ihren Computer. Dies macht es ideal für die Aufnahme privater DMs, Server-Anrufe und jeden Sprachchat, bei dem Sie nicht möchten, dass andere wissen, dass Sie aufnehmen.',
-        'method1-p2': 'Nachdem Sie die Aufnahme beendet haben, transkribiert Mono das Gespräch lokal mit KI. Die Transkription enthält Sprecheridentifikation &mdash; Mono erkennt verschiedene Stimmen und kennzeichnet sie in der Transkription. Sie können in Ihren Aufnahmen nach Stichwörtern suchen, was es einfach macht, bestimmte Momente aus vergangenen Anrufen zu finden.',
-        'h3-mono-steps': 'Discord mit Mono aufzeichnen',
-        'mono-step-1': 'Laden Sie Mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
-        'mono-step-2': 'Öffnen Sie Mono und klicken Sie auf die Aufnahme-Schaltfläche, um die Aufnahme zu starten',
+        'td-craig-cloud': 'Craig-Server',
+        'td-yes-bot': 'Ja (Bot tritt bei)',
+        'h2-method1': 'Methode 1: mono (Empfohlen)',
+        'method1-p1': 'mono erfasst Audio direkt von der Soundausgabe Ihres Computers &mdash; kein Bot tritt dem Sprachkanal bei, keine Benachrichtigung erscheint, und Ihr Audio verlässt nie Ihr Gerät. Anders als Cloud-basierte Tools verarbeitet mono alles lokal. Ihre Discord-Aufnahmen bleiben auf Ihrem Computer, nicht auf Drittanbieter-Servern.',
+        'method1-p2': 'Der einmalige Preis von $50 beinhaltet lebenslange Updates. Vergleichen Sie mit Otter.ai ($200/Jahr) oder Fireflies ($120-230/Jahr) &mdash; mono amortisiert sich in 3-6 Monaten.',
+        'method1-p3': 'Über Discord hinaus funktioniert mono mit jeder App, die Audio abspielt: Zoom, Teams, Google Meet, WhatsApp, Telegram, Telefonanrufe auf dem Desktop &mdash; alles an einem Ort aufgezeichnet mit automatischer Transkription.',
+        'h3-mono-steps': 'Discord mit mono aufzeichnen',
+        'mono-step-1': 'Laden Sie mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
+        'mono-step-2': 'Öffnen Sie mono und klicken Sie auf Aufnehmen',
         'mono-step-3': 'Treten Sie Ihrem Discord-Sprachkanal bei oder starten Sie einen Anruf',
-        'mono-step-4': 'Wenn Sie fertig sind, klicken Sie auf Stopp in Mono',
-        'mono-step-5': 'Warten Sie, bis die automatische Transkription abgeschlossen ist',
-        'mono-step-6': 'Überprüfen Sie Ihre Transkription mit Zeitstempeln und Sprecherkennzeichnungen',
-        'method1-p3': 'Mono erfasst alles, was durch Ihre Lautsprecher oder Kopfhörer abgespielt wird, sodass Sie beide Seiten des Gesprächs in hoher Audioqualität erhalten. Die Aufnahme erfolgt vollständig auf Ihrem Gerät &mdash; nichts wird in die Cloud hochgeladen.',
-        'method1-pros': '<strong>Vorteile:</strong> Für andere Teilnehmer unsichtbar, funktioniert mit DMs und Servern, enthält KI-Transkription mit Sprecheridentifikation, durchsuchbare Aufnahmen, einmalige Zahlung von $50, kein Abonnement.',
-        'method1-cons': '<strong>Nachteile:</strong> Kostenpflichtige Software (eine kostenlose Aufnahme zum Ausprobieren vor dem Kauf verfügbar).',
+        'mono-step-4': 'Wenn fertig, klicken Sie auf Stopp &mdash; die Transkription startet automatisch',
+        'mono-step-5': 'Durchsuchen Sie Aufnahmen nach Stichwort, Datum oder semantischer Bedeutung',
+        'method1-p4': 'Nach der Transkription ermöglicht monos lokale KI die Suche nach Bedeutung (nicht nur Stichwörtern), Fragen zu Ihren Aufnahmen zu stellen ("Was haben wir zum Zeitplan beschlossen?"), und automatisch Zusammenfassungen mit Aktionspunkten zu erstellen. Die gesamte Verarbeitung erfolgt auf Ihrem Gerät.',
+        'method1-pros': '<strong>Vorteile:</strong> Audio bleibt auf Ihrem Gerät (kein Cloud-Upload), funktioniert offline, kein Abonnement ($50 einmalig vs $100-200/Jahr), funktioniert mit jeder App, KI-Chat und Zusammenfassungen, semantische Suche über alle Aufnahmen.',
+        'method1-cons': '<strong>Nachteile:</strong> Erfordert lokale Rechenleistung (funktioniert auf den meisten modernen Computern), keine Echtzeit-Transkription während des Anrufs, eigenständige App (keine Slack/HubSpot-Integrationen).',
         'h2-method2': 'Methode 2: OBS Studio (Kostenlos)',
-        'method2-p1': 'OBS Studio ist ein kostenloser, Open-Source-Bildschirmrekorder, der bei Streamern und Content-Erstellern beliebt ist. Obwohl es hauptsächlich für Videoaufnahmen und Live-Streaming konzipiert ist, können Sie es so konfigurieren, dass es nur Systemaudio erfasst &mdash; perfekt für die Aufnahme von Discord-Audioanrufen ohne den Overhead von Video.',
-        'method2-p2': 'OBS erfasst internes Audio, indem es sich in die Audioausgabe Ihres Systems einklinkt. Wie bei Mono bedeutet dies, dass kein Bot Ihrem Anruf beitritt und andere Teilnehmer nicht wissen, dass Sie aufnehmen. OBS erfordert jedoch mehr anfängliche Einrichtung und enthält keine Transkriptionsfunktionen.',
+        'method2-p1': 'OBS Studio ist ein kostenloser, Open-Source-Bildschirmrekorder, der Systemaudio und Ihren Bildschirm erfassen kann. Er tritt dem Anruf nicht als Teilnehmer bei, funktioniert mit jedem Discord-Konto, und ist für andere im Anruf völlig unsichtbar.',
+        'method2-p2': 'OBS ist beliebt bei Streamern und Content-Erstellern, funktioniert aber genauso gut für die Aufnahme von Discord-Audioanrufen. Die Haupteinschränkung ist, dass es rohe Audio- oder Videodateien ohne Transkription produziert.',
         'h3-obs-steps': 'Discord mit OBS aufzeichnen',
         'obs-step-1': 'Laden Sie OBS Studio von obsproject.com herunter und installieren Sie es',
         'obs-step-2': 'Öffnen Sie OBS und gehen Sie zu Einstellungen &rarr; Audio',
-        'obs-step-3': 'Stellen Sie "Desktop-Audio" auf Ihr Wiedergabegerät ein (Lautsprecher oder Kopfhörer)',
-        'obs-step-4': 'Klicken Sie im Hauptfenster auf + unter Quellen und fügen Sie "Audioausgabe-Erfassung" hinzu',
-        'obs-step-5': 'Klicken Sie auf "Aufnahme starten" vor Ihrem Discord-Anruf',
-        'obs-step-6': 'Treten Sie Ihrem Sprachkanal bei oder beginnen Sie Ihren Anruf',
-        'obs-step-7': 'Klicken Sie auf "Aufnahme beenden", wenn der Anruf endet',
-        'obs-step-8': 'Finden Sie Ihre Aufnahme im Ausgabeordner (Standard: Videos-Ordner)',
-        'method2-p3': 'Für reine Audioaufnahme können Sie die Videoaufnahme in den OBS-Einstellungen deaktivieren, um die Dateigröße zu reduzieren. Gehen Sie zu Einstellungen &rarr; Ausgabe und wählen Sie ein Audio-only-Format, oder ignorieren Sie einfach die Videospur beim Bearbeiten.',
-        'method2-pros': '<strong>Vorteile:</strong> Vollständig kostenlos und Open Source, kein Bot sichtbar, kann Videoanrufe mit Bildschirmaufnahme aufzeichnen, hochgradig konfigurierbare Audio-Einstellungen.',
-        'method2-cons': '<strong>Nachteile:</strong> Erfordert manuelle Einrichtung, Sie müssen daran denken, die Aufnahme zu starten und zu stoppen, keine Transkription, produziert rohe Audiodateien, die Sie selbst verarbeiten müssen.',
+        'obs-step-3': 'Stellen Sie "Desktop-Audio" auf Ihr Wiedergabegerät (Lautsprecher oder Kopfhörer)',
+        'obs-step-4': 'Klicken Sie im Hauptfenster auf + unter Quellen',
+        'obs-step-5': 'Fügen Sie eine "Audioausgabe-Erfassung"-Quelle für reine Audioaufnahme hinzu',
+        'obs-step-6': 'Optional fügen Sie "Bildschirmaufnahme" für Videoaufnahme hinzu',
+        'obs-step-7': 'Klicken Sie auf "Aufnahme starten" bevor Sie Discord beitreten',
+        'obs-step-8': 'Treten Sie bei und nehmen Sie an Ihrem Anruf teil',
+        'obs-step-9': 'Klicken Sie auf "Aufnahme beenden" wenn der Anruf endet',
+        'obs-step-10': 'Finden Sie Ihre Aufnahme im Ausgabeordner (normalerweise Videos)',
+        'obs-figure-caption': 'Fügen Sie eine Audioausgabe-Erfassung-Quelle in OBS hinzu, dann klicken Sie auf Aufnahme starten',
+        'method2-pros': '<strong>Vorteile:</strong> Vollständig kostenlos und Open Source, kein sichtbarer Bot, funktioniert mit jedem Discord-Anruf, kann Videoanrufe mit Bildschirmaufnahme aufzeichnen.',
+        'method2-cons': '<strong>Nachteile:</strong> Erfordert anfängliche Einrichtung, Sie müssen die Aufnahme für jeden Anruf manuell starten und stoppen, keine Transkription &mdash; produziert nur rohe Audio/Video-Dateien.',
         'h2-method3': 'Methode 3: Craig Bot (Nur Serverkanäle)',
         'method3-p1': 'Craig Bot ist ein Discord-Bot, der speziell für die Aufnahme von Sprachkanälen entwickelt wurde. Im Gegensatz zu den vorherigen Methoden tritt Craig dem Sprachkanal Ihres Servers als sichtbarer Teilnehmer bei. Jeder im Kanal kann sehen, dass Craig da ist, was transparent macht, dass aufgenommen wird.',
         'method3-p2': 'Craigs einzigartige Funktion ist die Mehrspur-Aufnahme: Er erfasst jeden Teilnehmer auf einer separaten Audiospur. Dies ist für die Podcast-Produktion unschätzbar wertvoll, da Sie individuelle Lautstärkepegel anpassen, Hintergrundgeräusche von bestimmten Sprechern entfernen oder das Audio einer Person bearbeiten können, ohne andere zu beeinflussen.',
@@ -853,22 +819,17 @@ const translations = {
         'method3-p3': 'Craig bietet Aufnahmen in mehreren Formaten, einschließlich individueller Spuren pro Sprecher und einem kombinierten Mix. Die kostenlose Stufe hat einige Einschränkungen bei der Aufnahmelänge und Speicherung, funktioniert aber für die meisten Anwendungsfälle gut.',
         'method3-pros': '<strong>Vorteile:</strong> Kostenlose Stufe verfügbar, Mehrspur-Aufnahme mit separaten Dateien pro Sprecher, transparente Aufnahme (jeder weiß Bescheid), ausgezeichnet für Podcasts und Interviews.',
         'method3-cons': '<strong>Nachteile:</strong> Funktioniert nur in Server-Sprachkanälen &mdash; nicht in privaten DMs oder Anrufen, sichtbarer Bot, den jeder sehen kann, keine Transkription, erfordert Admin-Berechtigungen, um den Bot zum Server hinzuzufügen.',
-        'h2-video-calls': 'Discord-Videoanrufe aufzeichnen',
-        'video-p1': 'Wenn Sie zusätzlich zum Audio Videoaufnahmen benötigen, sind Ihre Optionen begrenzter. Craig Bot ist nur Audio. Mono konzentriert sich auf Audio mit Transkription. OBS Studio ist Ihre beste Wahl für Videoaufnahmen &mdash; es ist für Bildschirmaufnahmen konzipiert und kann Ihren gesamten Bildschirm oder nur das Discord-Fenster erfassen.',
-        'video-p2': 'Für die Aufnahme von Videoanrufen mit OBS fügen Sie eine "Bildschirmaufnahme"- oder "Fensteraufnahme"-Quelle neben Ihrer Audioaufnahme hinzu. Beachten Sie, dass Videodateien viel größer als Audiodateien sind und die Videoqualität von Discord von Ihrer Internetverbindung und Ihrem Discord Nitro-Status abhängt.',
         'h2-legal': 'Rechtliche Überlegungen',
-        'legal-p1': 'Bevor Sie Discord-Anrufe aufzeichnen, verstehen Sie die rechtlichen Anforderungen in Ihrer Gerichtsbarkeit. Viele Regionen erfordern "Einparteien-Zustimmung" &mdash; was bedeutet, dass Sie einen Anruf aufzeichnen können, an dem Sie teilnehmen. Andere erfordern "Allparteien-Zustimmung" &mdash; jeder im Anruf muss der Aufnahme zustimmen.',
-        'legal-p2': 'Die Verwendung eines sichtbaren Bots wie Craig macht die Zustimmung klar: jeder sieht den Bot im Kanal. Die Verwendung unsichtbarer Methoden wie Mono oder OBS bedeutet, dass andere nicht wissen, dass sie aufgenommen werden, es sei denn, Sie sagen es ihnen. Erwägen Sie, Teilnehmer unabhängig von rechtlichen Anforderungen zu informieren &mdash; es ist gute Praxis und vermeidet unangenehme Situationen.',
-        'h2-tips': 'Tipps für bessere Discord-Aufnahmen',
-        'tips-box': '<strong>Verwenden Sie Kopfhörer</strong>, um Echo und Rückkopplung von Ihren Lautsprechern zu verhindern, die von Ihrem Mikrofon aufgenommen werden. <strong>Schließen Sie andere Anwendungen</strong>, die Benachrichtigungstöne oder Audio erzeugen könnten, das in Ihrer Aufnahme erfasst werden könnte. <strong>Testen Sie Ihre Einrichtung</strong> mit einer kurzen Aufnahme vor wichtigen Anrufen, um sicherzustellen, dass alles richtig konfiguriert ist.',
-        'tips-p1': '<strong>Audio-Qualitätseinstellungen:</strong> Discord verwendet den Opus-Codec und passt die Qualität basierend auf Ihrer Verbindung an. Für beste Ergebnisse stellen Sie sicher, dass Sie eine stabile Internetverbindung haben. Wenn Sie mit OBS aufnehmen, stellen Sie Ihre Audio-Bitrate auf mindestens 128kbps für gute Qualität ein.',
-        'tips-p2': '<strong>Speicherverwaltung:</strong> Audioaufnahmen sind relativ klein &mdash; etwa 1 MB pro Minute für hochwertige Audio. Videoaufnahmen sind viel größer. Planen Sie Ihren Speicher entsprechend, wenn Sie häufig aufnehmen.',
+        'legal-p1': 'Bevor Sie Discord-Anrufe aufzeichnen, verstehen Sie die rechtlichen Anforderungen in Ihrer Gerichtsbarkeit:',
+        'legal-p2': '<strong>Einparteien-Zustimmung:</strong> Viele Regionen erlauben die Aufnahme von Anrufen, an denen Sie teilnehmen, ohne andere zu informieren.',
+        'legal-p3': '<strong>Allparteien-Zustimmung:</strong> Einige Gerichtsbarkeiten erfordern, dass alle der Aufnahme zustimmen. Dazu gehören Kalifornien, Deutschland und andere Gebiete.',
+        'legal-p4': 'Für geschäftliche Anrufe prüfen Sie die Richtlinien Ihrer Organisation. Viele Unternehmen verlangen Offenlegung bei Aufnahmen, unabhängig von rechtlichen Anforderungen.',
         'h2-which-method': 'Welche Methode sollten Sie verwenden?',
-        'which-p1': '<strong>Für private Anrufe oder DMs:</strong> Verwenden Sie Mono oder OBS Studio. Craig Bot funktioniert nur in Server-Sprachkanälen, nicht in Direktnachrichten oder Gruppen-DMs.',
-        'which-p2': '<strong>Für Podcast-Aufnahmen:</strong> Die Mehrspur-Ausgabe von Craig Bot ist ideal für professionelle Bearbeitung. Alternativ hilft die Sprecheridentifikation von Mono zu organisieren, wer was gesagt hat.',
-        'which-p3': '<strong>Für Meeting-Notizen:</strong> Die automatische Transkription von Mono spart Stunden im Vergleich zum manuellen Durchhören von rohem Audio, um wichtige Punkte zu finden.',
-        'which-p4': '<strong>Für kostenlose Aufnahme ohne Extras:</strong> OBS Studio funktioniert gut, erfordert aber mehr Aufwand und produziert rohe Dateien ohne Transkription.',
-        'which-p5': '<strong>Für Videoanrufe:</strong> OBS Studio mit Bildschirmaufnahme ist Ihre einzige Option unter diesen Methoden.',
+        'which-p1': '<strong>Private Anrufe oder DMs + wollen Transkription?</strong> mono ($50 einmalig) hält alles lokal mit KI-Funktionen. Craig Bot funktioniert nicht in DMs.',
+        'which-p2': '<strong>Server-Sprachkanäle + brauchen Spuren pro Sprecher?</strong> Craig Bot ist ideal für Podcast-Bearbeitung mit separatem Audio pro Teilnehmer.',
+        'which-p3': '<strong>Kostenlose Aufnahme ohne Transkription?</strong> OBS Studio ist zuverlässig, erfordert aber Einrichtung und produziert rohe Dateien.',
+        'which-p4': '<strong>Videoaufnahme?</strong> OBS Studio mit Bildschirmaufnahme. mono und Craig konzentrieren sich auf Audio.',
+        'which-p5': '<strong>Wollen KI-Suche und Zusammenfassungen?</strong> mono ermöglicht Fragen zu Ihren Aufnahmen und erstellt automatisch Zusammenfassungen mit Aktionspunkten.',
         'related-title': 'Verwandte Anleitungen',
         'related-telegram-title': 'Telegram-Anrufe aufzeichnen',
         'related-telegram-desc': '3 Methoden zum Aufzeichnen von Telegram-Sprachanrufen auf dem Desktop.',
