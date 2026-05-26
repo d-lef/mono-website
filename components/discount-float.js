@@ -3,12 +3,12 @@ class DiscountFloat extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this._t = {
-            en: { btn: 'Early bird: 15% off', title: 'Get 15% off mono', desc: 'mono is in early release — grab 15% off as an early bird. Enter your email and we\'ll send you a promo code with download links.', submit: 'Send my discount', sending: 'Sending...', sent: 'Sent! Check your inbox.', fallback: 'Couldn\'t send email, but here\'s your code:', code_note: '15% off — enter at checkout', buy: 'Buy — $42.50', stu_btn: 'Student? 70% off', stu_title: 'Student discount — 70% off', stu_desc: 'Enter your details and we\'ll verify your student status. The discount code will be sent to your student email.', stu_name: 'Your name', stu_school: 'University / school name', stu_email: 'Student email (.edu or university domain)', stu_submit: 'Send for verification', stu_sending: 'Sending...', stu_sent: 'Sent! We\'ll verify and email your discount code soon.' },
-            es: { btn: 'Early bird: 15% dto.', title: '15% de descuento en mono', desc: 'mono esta en lanzamiento anticipado — obtene un 15% de descuento. Ingresa tu email y te enviaremos un codigo promocional con enlaces de descarga.', submit: 'Enviar mi descuento', sending: 'Enviando...', sent: 'Enviado! Revisa tu bandeja.', fallback: 'No pudimos enviar el email, pero aqui esta tu codigo:', code_note: '15% de descuento — ingresalo en el checkout', buy: 'Comprar — $42.50', stu_btn: 'Estudiante? 70% dto.', stu_title: 'Descuento estudiantil — 70%', stu_desc: 'Ingresa tus datos y verificaremos tu estatus de estudiante. El codigo de descuento se enviara a tu email universitario.', stu_name: 'Tu nombre', stu_school: 'Universidad / escuela', stu_email: 'Email universitario (.edu o dominio universitario)', stu_submit: 'Enviar para verificacion', stu_sending: 'Enviando...', stu_sent: 'Enviado! Verificaremos y te enviaremos el codigo pronto.' },
-            fr: { btn: 'Early bird : -15%', title: '15% de reduction sur mono', desc: 'mono est en acces anticipe — profitez de 15% de reduction en tant qu\'early bird. Entrez votre email et nous vous enverrons un code promo avec les liens de telechargement.', submit: 'Envoyer mon code', sending: 'Envoi...', sent: 'Envoye ! Verifiez votre boite.', fallback: 'Impossible d\'envoyer l\'email, mais voici votre code :', code_note: '15% de reduction — a entrer au checkout', buy: 'Acheter — 42,50$', stu_btn: 'Etudiant ? -70%', stu_title: 'Reduction etudiante — 70%', stu_desc: 'Entrez vos informations et nous verifierons votre statut etudiant. Le code de reduction sera envoye a votre email universitaire.', stu_name: 'Votre nom', stu_school: 'Universite / ecole', stu_email: 'Email universitaire (.edu ou domaine universitaire)', stu_submit: 'Envoyer pour verification', stu_sending: 'Envoi...', stu_sent: 'Envoye ! Nous verifierons et vous enverrons le code bientot.' },
-            de: { btn: 'Early Bird: 15% Rabatt', title: '15% Rabatt auf mono', desc: 'mono ist im Early Release — sichern Sie sich 15% Rabatt als Early Bird. Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Promo-Code mit Download-Links.', submit: 'Rabatt senden', sending: 'Wird gesendet...', sent: 'Gesendet! Prufen Sie Ihren Posteingang.', fallback: 'E-Mail konnte nicht gesendet werden, aber hier ist Ihr Code:', code_note: '15% Rabatt — beim Checkout eingeben', buy: 'Kaufen — 42,50$', stu_btn: 'Student? 70% Rabatt', stu_title: 'Studentenrabatt — 70%', stu_desc: 'Geben Sie Ihre Daten ein und wir prufen Ihren Studentenstatus. Der Rabattcode wird an Ihre Uni-E-Mail gesendet.', stu_name: 'Ihr Name', stu_school: 'Universitat / Schule', stu_email: 'Uni-E-Mail (.edu oder Uni-Domain)', stu_submit: 'Zur Verifizierung senden', stu_sending: 'Wird gesendet...', stu_sent: 'Gesendet! Wir prufen und senden Ihnen den Code bald.' },
-            zh: { btn: 'Early bird: 85折', title: 'mono 85折优惠', desc: 'mono 处于早期发布阶段——作为早期用户享受85折优惠。输入您的邮箱，我们将发送优惠码和下载链接。', submit: '发送优惠码', sending: '发送中...', sent: '已发送！请查收邮箱。', fallback: '邮件发送失败，但这是您的优惠码：', code_note: '85折——在结账时输入', buy: '购买 — $42.50', stu_btn: '学生? 3折优惠', stu_title: '学生优惠 — 3折', stu_desc: '填写您的信息，我们将验证您的学生身份。优惠码将发送到您的学校邮箱。', stu_name: '您的姓名', stu_school: '大学/学校名称', stu_email: '学校邮箱（.edu或学校域名）', stu_submit: '提交验证', stu_sending: '发送中...', stu_sent: '已提交！我们将验证后尽快发送优惠码。' },
-            ru: { btn: 'Early bird: скидка 15%', title: 'Скидка 15% на mono', desc: 'mono в раннем доступе — получите скидку 15% как ранний пользователь. Введите email, и мы отправим промокод со ссылками для скачивания.', submit: 'Отправить скидку', sending: 'Отправка...', sent: 'Отправлено! Проверьте почту.', fallback: 'Не удалось отправить email, но вот ваш код:', code_note: 'Скидка 15% — введите при оплате', buy: 'Купить — $42.50', stu_btn: 'Студент? Скидка 70%', stu_title: 'Студенческая скидка — 70%', stu_desc: 'Введите ваши данные, и мы проверим ваш студенческий статус. Код скидки будет отправлен на вашу университетскую почту.', stu_name: 'Ваше имя', stu_school: 'Университет / учебное заведение', stu_email: 'Университетский email (.edu или домен вуза)', stu_submit: 'Отправить на проверку', stu_sending: 'Отправка...', stu_sent: 'Отправлено! Мы проверим и отправим код скидки.' }
+            en: { btn: 'Early bird: 15% off', title: 'Get 15% off mono', desc: 'mono is in early release — grab 15% off as an early bird. Enter your email and we\'ll send you a promo code with download links.', name: 'Your name', submit: 'Send my discount', sending: 'Sending...', sent: 'Sent! Check your inbox.', fallback: 'Couldn\'t send email, but here\'s your code:', code_note: '15% off — enter at checkout', buy: 'Buy — $42.50', stu_btn: 'Student? 70% off', stu_title: 'Student discount — 70% off', stu_desc: 'Enter your details and we\'ll verify your student status. The discount code will be sent to your student email.', stu_name: 'Your name', stu_school: 'University / school name', stu_email: 'Student email (.edu or university domain)', stu_submit: 'Send for verification', stu_sending: 'Sending...', stu_sent: 'Sent! We\'ll verify and email your discount code soon.' },
+            es: { btn: 'Early bird: 15% dto.', title: '15% de descuento en mono', desc: 'mono esta en lanzamiento anticipado — obtene un 15% de descuento. Ingresa tu email y te enviaremos un codigo promocional con enlaces de descarga.', name: 'Tu nombre', submit: 'Enviar mi descuento', sending: 'Enviando...', sent: 'Enviado! Revisa tu bandeja.', fallback: 'No pudimos enviar el email, pero aqui esta tu codigo:', code_note: '15% de descuento — ingresalo en el checkout', buy: 'Comprar — $42.50', stu_btn: 'Estudiante? 70% dto.', stu_title: 'Descuento estudiantil — 70%', stu_desc: 'Ingresa tus datos y verificaremos tu estatus de estudiante. El codigo de descuento se enviara a tu email universitario.', stu_name: 'Tu nombre', stu_school: 'Universidad / escuela', stu_email: 'Email universitario (.edu o dominio universitario)', stu_submit: 'Enviar para verificacion', stu_sending: 'Enviando...', stu_sent: 'Enviado! Verificaremos y te enviaremos el codigo pronto.' },
+            fr: { btn: 'Early bird : -15%', title: '15% de reduction sur mono', desc: 'mono est en acces anticipe — profitez de 15% de reduction en tant qu\'early bird. Entrez votre email et nous vous enverrons un code promo avec les liens de telechargement.', name: 'Votre nom', submit: 'Envoyer mon code', sending: 'Envoi...', sent: 'Envoye ! Verifiez votre boite.', fallback: 'Impossible d\'envoyer l\'email, mais voici votre code :', code_note: '15% de reduction — a entrer au checkout', buy: 'Acheter — 42,50$', stu_btn: 'Etudiant ? -70%', stu_title: 'Reduction etudiante — 70%', stu_desc: 'Entrez vos informations et nous verifierons votre statut etudiant. Le code de reduction sera envoye a votre email universitaire.', stu_name: 'Votre nom', stu_school: 'Universite / ecole', stu_email: 'Email universitaire (.edu ou domaine universitaire)', stu_submit: 'Envoyer pour verification', stu_sending: 'Envoi...', stu_sent: 'Envoye ! Nous verifierons et vous enverrons le code bientot.' },
+            de: { btn: 'Early Bird: 15% Rabatt', title: '15% Rabatt auf mono', desc: 'mono ist im Early Release — sichern Sie sich 15% Rabatt als Early Bird. Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Promo-Code mit Download-Links.', name: 'Ihr Name', submit: 'Rabatt senden', sending: 'Wird gesendet...', sent: 'Gesendet! Prufen Sie Ihren Posteingang.', fallback: 'E-Mail konnte nicht gesendet werden, aber hier ist Ihr Code:', code_note: '15% Rabatt — beim Checkout eingeben', buy: 'Kaufen — 42,50$', stu_btn: 'Student? 70% Rabatt', stu_title: 'Studentenrabatt — 70%', stu_desc: 'Geben Sie Ihre Daten ein und wir prufen Ihren Studentenstatus. Der Rabattcode wird an Ihre Uni-E-Mail gesendet.', stu_name: 'Ihr Name', stu_school: 'Universitat / Schule', stu_email: 'Uni-E-Mail (.edu oder Uni-Domain)', stu_submit: 'Zur Verifizierung senden', stu_sending: 'Wird gesendet...', stu_sent: 'Gesendet! Wir prufen und senden Ihnen den Code bald.' },
+            zh: { btn: 'Early bird: 85折', title: 'mono 85折优惠', desc: 'mono 处于早期发布阶段——作为早期用户享受85折优惠。输入您的邮箱，我们将发送优惠码和下载链接。', name: '您的姓名', submit: '发送优惠码', sending: '发送中...', sent: '已发送！请查收邮箱。', fallback: '邮件发送失败，但这是您的优惠码：', code_note: '85折——在结账时输入', buy: '购买 — $42.50', stu_btn: '学生? 3折优惠', stu_title: '学生优惠 — 3折', stu_desc: '填写您的信息，我们将验证您的学生身份。优惠码将发送到您的学校邮箱。', stu_name: '您的姓名', stu_school: '大学/学校名称', stu_email: '学校邮箱（.edu或学校域名）', stu_submit: '提交验证', stu_sending: '发送中...', stu_sent: '已提交！我们将验证后尽快发送优惠码。' },
+            ru: { btn: 'Early bird: скидка 15%', title: 'Скидка 15% на mono', desc: 'mono в раннем доступе — получите скидку 15% как ранний пользователь. Введите email, и мы отправим промокод со ссылками для скачивания.', name: 'Ваше имя', submit: 'Отправить скидку', sending: 'Отправка...', sent: 'Отправлено! Проверьте почту.', fallback: 'Не удалось отправить email, но вот ваш код:', code_note: 'Скидка 15% — введите при оплате', buy: 'Купить — $42.50', stu_btn: 'Студент? Скидка 70%', stu_title: 'Студенческая скидка — 70%', stu_desc: 'Введите ваши данные, и мы проверим ваш студенческий статус. Код скидки будет отправлен на вашу университетскую почту.', stu_name: 'Ваше имя', stu_school: 'Университет / учебное заведение', stu_email: 'Университетский email (.edu или домен вуза)', stu_submit: 'Отправить на проверку', stu_sending: 'Отправка...', stu_sent: 'Отправлено! Мы проверим и отправим код скидки.' }
         };
     }
 
@@ -22,6 +22,7 @@ class DiscountFloat extends HTMLElement {
         s.getElementById('btn').textContent = t.btn;
         s.getElementById('title').textContent = t.title;
         s.getElementById('desc').textContent = t.desc;
+        s.getElementById('name').placeholder = t.name;
         s.getElementById('submit').textContent = t.submit;
         s.getElementById('student-btn').textContent = t.stu_btn;
         s.getElementById('student-title').textContent = t.stu_title;
@@ -212,6 +213,7 @@ class DiscountFloat extends HTMLElement {
                 <h3 class="title" id="title">Get 15% off mono</h3>
                 <p class="desc" id="desc">mono is in early release — grab 15% off as an early bird. Enter your email and we'll send you a promo code with download links.</p>
                 <form id="form">
+                    <input type="text" class="email" id="name" placeholder="Your name" required autocomplete="name">
                     <input type="email" class="email" id="email" placeholder="your@email.com" required autocomplete="email">
                     <button type="submit" class="submit" id="submit">Send my discount</button>
                 </form>
@@ -239,6 +241,7 @@ class DiscountFloat extends HTMLElement {
         const overlay = this.shadowRoot.getElementById('overlay');
         const close = this.shadowRoot.getElementById('close');
         const form = this.shadowRoot.getElementById('form');
+        const name = this.shadowRoot.getElementById('name');
         const email = this.shadowRoot.getElementById('email');
         const submit = this.shadowRoot.getElementById('submit');
         const status = this.shadowRoot.getElementById('status');
@@ -259,7 +262,7 @@ class DiscountFloat extends HTMLElement {
 
         btn.addEventListener('click', () => {
             overlay.classList.add('active');
-            email.focus();
+            name.focus();
             if (typeof ym === 'function') ym(108199724, 'reachGoal', 'discount_float_click');
         });
 
@@ -292,8 +295,9 @@ class DiscountFloat extends HTMLElement {
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const val = email.value.trim();
-            if (!val) return;
+            const nameVal = name.value.trim();
+            const emailVal = email.value.trim();
+            if (!nameVal || !emailVal) return;
 
             var t = self._getT(localStorage.getItem('mono-lang') || 'en');
             submit.disabled = true;
@@ -303,11 +307,12 @@ class DiscountFloat extends HTMLElement {
                 const r = await fetch('https://t.mono-ai.uk/api/send-discount', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: val }),
+                    body: JSON.stringify({ name: nameVal, email: emailVal }),
                 });
                 const data = await r.json();
                 if (data.ok) {
                     status.textContent = t.sent;
+                    name.value = '';
                     email.value = '';
                     if (typeof gtag === 'function') gtag('event', 'email_captured', { event_category: 'discount', event_label: 'float_discount' });
                     if (typeof ma === 'function') ma('email_captured', { label: 'float_discount' });
