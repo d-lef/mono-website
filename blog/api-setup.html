@@ -16,13 +16,13 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Set Up API AI Models in mono — Mono</title>
+    <title>Setting up API AI models in mono — Mono</title>
     <meta name="description" content="Connect a cloud AI provider — Google Gemini, OpenAI, or Anthropic Claude — to mono for fast transcription and summaries when your computer can't run local AI smoothly. Step-by-step setup, model picks, costs, and troubleshooting.">
     <link rel="canonical" href="https://mono-ai.uk/blog/api-setup">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="How to Set Up API AI Models in mono">
+    <meta property="og:title" content="Setting up API AI models in mono">
     <meta property="og:description" content="Connect Google Gemini, OpenAI, or Anthropic Claude to mono for fast cloud transcription and summaries. Step-by-step setup, model picks, costs, and troubleshooting.">
     <meta property="og:url" content="https://mono-ai.uk/blog/api-setup">
     <meta property="og:site_name" content="Mono">
@@ -32,7 +32,7 @@
     <meta property="article:published_time" content="2026-06-06T00:00:00Z">
     <meta property="article:author" content="Daniil Lefanov">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How to Set Up API AI Models in mono">
+    <meta name="twitter:title" content="Setting up API AI models in mono">
     <meta name="twitter:description" content="Connect Google Gemini, OpenAI, or Anthropic Claude to mono for fast cloud transcription and summaries.">
     <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
 
@@ -40,7 +40,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "How to Set Up API AI Models in mono",
+      "headline": "Setting up API AI models in mono",
       "description": "Connect a cloud AI provider — Google Gemini, OpenAI, or Anthropic Claude — to mono for fast transcription and summaries when your computer can't run local AI smoothly.",
       "datePublished": "2026-06-06",
       "dateModified": "2026-06-06",
@@ -62,7 +62,7 @@
       "step": [
         { "@type": "HowToStep", "position": 1, "name": "Get an API key", "text": "Create an API key from Google AI Studio, platform.openai.com, or console.anthropic.com." },
         { "@type": "HowToStep", "position": 2, "name": "Open AI settings", "text": "In mono, open Settings then AI." },
-        { "@type": "HowToStep", "position": 3, "name": "Add an AI profile", "text": "Click Add AI Profile and choose your provider and model." },
+        { "@type": "HowToStep", "position": 3, "name": "Add an AI profile", "text": "Click Add profile and choose your provider and model in the Add AI Profile dialog." },
         { "@type": "HowToStep", "position": 4, "name": "Save your key", "text": "Paste your API key and click Save. mono tests the connection automatically." }
       ]
     }
@@ -156,6 +156,9 @@
         .steps li { position: relative; padding-left: 44px; margin-bottom: 16px; }
         .steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--bg-secondary); color: var(--text-primary); font-size: 13px; display: flex; align-items: center; justify-content: center; }
         cta-card { display: block; margin-top: 48px; }
+        .article-figure { margin: 32px 0; }
+        .article-figure img { width: 100%; height: auto; border-radius: 8px; display: block; cursor: zoom-in; border: 1px solid rgba(128,128,128,0.18); }
+        .article-figure figcaption { font-size: 13px; color: var(--text-secondary); text-align: center; margin-top: 10px; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -167,7 +170,7 @@
 
         <header>
             <span class="article-category" data-i18n="category">[Guide]</span>
-            <h1 class="article-title" data-i18n="title">How to set up API AI models in mono</h1>
+            <h1 class="article-title" data-i18n="title">Setting up API AI models in mono</h1>
             <p class="article-meta" data-i18n="meta">Jun 6, 2026 · 6 min read · By Daniil Lefanov</p>
         </header>
 
@@ -182,8 +185,9 @@
                 <ul>
                     <li data-i18n="tldr_1">1. Get an API key from Google Gemini, OpenAI, or Anthropic</li>
                     <li data-i18n="tldr_2">2. In mono, open <strong>Settings → AI</strong></li>
-                    <li data-i18n="tldr_3">3. Click <strong>Add AI Profile</strong> and pick your provider and model</li>
+                    <li data-i18n="tldr_3">3. Click <strong>Add profile</strong> and pick your provider and model</li>
                     <li data-i18n="tldr_4">4. Paste your API key and click <strong>Save</strong></li>
+                    <li data-i18n="tldr_5">5. Tick the checkboxes (Transcribe, Summarize, Rename, Chat, Embed) to assign those tasks to the new profile</li>
                 </ul>
             </div>
 
@@ -238,17 +242,38 @@
 
             <h2 data-i18n="h2_step2">Step 2 — Add the profile in mono</h2>
 
+            <p data-i18n="step2_intro">Open mono and go to <strong>Settings → AI</strong>. You'll see a <strong>Profiles</strong> list — by default it holds a single <strong>Local Models</strong> profile. The same tab also shows your GPU acceleration status, which is part of why local AI can be slow on machines without a dedicated GPU.</p>
+
+            <figure class="article-figure">
+                <img src="images/api-models-app-ai-profiles.png" alt="mono Settings AI tab showing the Profiles list with a Local Models profile and an Add profile button" loading="lazy">
+                <figcaption data-i18n="fig_profiles">Settings → AI: your local profile is listed. Click “Add profile” to connect a cloud provider.</figcaption>
+            </figure>
+
             <ol class="steps">
-                <li data-i18n="step2_1">Open mono and go to <strong>Settings → AI</strong>.</li>
-                <li data-i18n="step2_2">Click <strong>Add AI Profile</strong>.</li>
-                <li data-i18n="step2_3">Choose your <strong>Provider</strong>: Google Gemini, OpenAI, or Anthropic Claude.</li>
-                <li data-i18n="step2_4">Pick a <strong>Model</strong>. The default is a good choice — see the next section if you're unsure.</li>
-                <li data-i18n="step2_5">Paste your <strong>API key</strong> and click <strong>Save</strong>.</li>
+                <li data-i18n="step2_1">Click <strong>Add profile</strong>.</li>
+                <li data-i18n="step2_2">In the <strong>Add AI Profile</strong> dialog, choose your <strong>Provider</strong>: Google Gemini, OpenAI, or Anthropic Claude.</li>
+                <li data-i18n="step2_3">Pick a <strong>Model</strong> — the default is a good choice (see <a href="#choosing-a-model">choosing a model</a> if you're unsure).</li>
+                <li data-i18n="step2_4">Paste your <strong>API key</strong>. The help text under the field links to the right page for your provider.</li>
+                <li data-i18n="step2_5">Click <strong>Save</strong>.</li>
             </ol>
 
-            <p data-i18n="step2_p1">mono tests the connection when you save. A green <strong>“ready”</strong> status means everything works and new recordings will use this profile. If you see an error instead, jump to <a href="#troubleshooting">troubleshooting</a> below.</p>
+            <figure class="article-figure">
+                <img src="images/api-models-app-ai-profiles-anthropic.png" alt="The Add AI Profile dialog in mono with provider set to Anthropic Claude, model Claude Sonnet 4.6, and an API key field" loading="lazy">
+                <figcaption data-i18n="fig_dialog">The Add AI Profile dialog: pick a provider and model, paste your API key, then Save.</figcaption>
+            </figure>
 
-            <h2 data-i18n="h2_models">Choosing a model</h2>
+            <p data-i18n="step2_p1">mono tests the connection when you save. A green <strong>Ready</strong> status means the profile works. If you see an error instead, jump to <a href="#troubleshooting">troubleshooting</a> below.</p>
+
+            <h3 data-i18n="h3_assign">Choose what each profile handles</h3>
+
+            <p data-i18n="assign_p1">Each profile row has five columns — <strong>Transcribe</strong>, <strong>Summarize</strong>, <strong>Rename</strong>, <strong>Chat</strong>, and <strong>Embed</strong>. Every task is handled by one profile, so ticking a box for your new cloud profile hands that task to it. You don't have to move everything: a common setup is to keep <strong>Transcribe</strong> on Local Models for privacy while sending <strong>Summarize</strong> and <strong>Chat</strong> to the faster cloud profile.</p>
+
+            <figure class="article-figure">
+                <img src="images/api-models-app-ai-profiles-gemini.png" alt="mono Profiles list with a Google Gemini 2.5 Flash profile added and marked Ready, handling the AI tasks" loading="lazy">
+                <figcaption data-i18n="fig_gemini">A Google Gemini profile added and marked Ready, now handling the AI tasks.</figcaption>
+            </figure>
+
+            <h2 id="choosing-a-model" data-i18n="h2_models">Choosing a model</h2>
 
             <p data-i18n="models_p1">Each provider offers several models. For meeting transcription and summaries you almost never need the largest, most expensive one — the fast, low-cost models handle it well and cost a fraction as much. Good defaults:</p>
 
@@ -371,7 +396,7 @@
         en: {
             'back_link': '← blog',
             'category': '[Guide]',
-            'title': 'How to set up API AI models in mono',
+            'title': 'Setting up API AI models in mono',
             'meta': 'Jun 6, 2026 · 6 min read · By Daniil Lefanov'
         }
     };
