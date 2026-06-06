@@ -178,7 +178,7 @@
             <div class="tldr">
                 <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
                 <ul>
-                    <li data-i18n="tldr_1"><strong>Meeting transcription:</strong> Whisper locally matches cloud quality — Mono ($50 once) vs Otter.ai ($200/year)</li>
+                    <li data-i18n="tldr_1"><strong>Meeting transcription:</strong> Whisper locally matches cloud quality — mono ($50 once) vs Otter.ai ($200/year)</li>
                     <li data-i18n="tldr_2"><strong>Writing/chat:</strong> Llama 3, Gemma, Mistral via Ollama — free, runs on 8GB RAM</li>
                     <li data-i18n="tldr_3"><strong>Code completion:</strong> Continue.dev + local model — free vs Copilot ($100/year)</li>
                     <li data-i18n="tldr_4"><strong>Image generation:</strong> Stable Diffusion — free vs Midjourney ($120/year)</li>
@@ -264,15 +264,15 @@
 
             <h3 data-i18n="h3_transcription">1. Meeting Transcription (Replaces Otter.ai)</h3>
 
-            <p data-i18n="transcription_p1"><strong>The tool:</strong> Whisper (via Mono, MacWhisper, or whisper.cpp)</p>
+            <p data-i18n="transcription_p1"><strong>The tool:</strong> Whisper (via mono, MacWhisper, or whisper.cpp)</p>
 
             <p data-i18n="transcription_p2">OpenAI's Whisper model runs entirely locally and matches cloud transcription quality. It supports 95+ languages, handles accents well, and produces accurate timestamps.</p>
 
-            <p data-i18n="transcription_p3"><strong>Mono</strong> bundles Whisper with speaker identification, semantic search, and a recording interface — essentially a local Otter.ai replacement. It costs $50 once versus Otter's $200/year, so it pays for itself in about 3 months.</p>
+            <p data-i18n="transcription_p3"><strong>mono</strong> bundles Whisper with speaker identification, semantic search, and a recording interface — essentially a local Otter.ai replacement. It costs $50 once versus Otter's $200/year, so it pays for itself in about 3 months.</p>
 
             <figure class="article-figure">
-                <img src="images/mono-ai-profiles.png" alt="Mono AI Profiles showing Local Models with Faster-Whisper for transcription" loading="lazy">
-                <figcaption data-i18n="fig_mono">Mono's AI profiles: choose between local models (free) or cloud APIs</figcaption>
+                <img src="images/mono-ai-profiles.png" alt="mono AI Profiles showing Local Models with Faster-Whisper for transcription" loading="lazy">
+                <figcaption data-i18n="fig_mono">mono's AI profiles: choose between local models (free) or cloud APIs</figcaption>
             </figure>
 
             <div class="tip-box">
@@ -397,7 +397,7 @@
             <p data-i18n="getting_started_p1">Here's a practical starting point that replaces ~$400/year in subscriptions:</p>
 
             <h3 data-i18n="h3_for_transcription">For transcription:</h3>
-            <p data-i18n="for_transcription_p"><strong>Mono</strong> ($50 once) — records any app, transcribes locally with Whisper, includes speaker identification and search. Replaces Otter.ai.</p>
+            <p data-i18n="for_transcription_p"><strong>mono</strong> ($50 once) — records any app, transcribes locally with Whisper, includes speaker identification and search. Replaces Otter.ai.</p>
 
             <h3 data-i18n="h3_for_chat">For chat and writing:</h3>
             <p data-i18n="for_chat_p"><strong>Ollama</strong> (free) + <strong>Llama 3 8B</strong> — download Ollama, run <code>ollama pull llama3</code>, start chatting. Add a UI like Open WebUI for a ChatGPT-like experience.</p>
@@ -431,15 +431,7 @@
 
             <p data-i18n="worth_it_p3">For most people with existing capable hardware, the answer is simple: try the free tools (Ollama, Continue.dev) and see if they fit your workflow. If they do, the subscription cancellations follow naturally.</p>
 
-            <div class="cta-card">
-                <p class="cta-title" data-i18n="cta_title">Try Mono free</p>
-                <p class="cta-sub" data-i18n="cta_sub">One recording limit, no account needed. $50 to unlock everything — local AI transcription, speaker ID, semantic search, no subscription.</p>
-                <div class="cta-buttons">
-                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
-                       class="cta-btn-primary" target="_blank" rel="noopener sponsored" data-i18n="cta_buy">Buy Mono — $50</a>
-                    <a href="../?buy" class="cta-btn-secondary" data-i18n="cta_download">Download free</a>
-                </div>
-            </div>
+            <cta-card base-path="../"></cta-card>
 
         </div>
     </main>
@@ -460,7 +452,7 @@ const translations = {
         'intro_p2': 'The shift happened quietly. Open-source models got good. Apple Silicon made local inference fast. And a growing ecosystem of tools now lets you run AI for writing, coding, transcription, and image generation without sending data to the cloud or paying monthly fees.',
         'intro_p3': 'This guide covers what you can realistically run locally in 2026, what hardware you need, and where local models genuinely match (or beat) their cloud counterparts.',
         'tldr_label': 'TL;DR',
-        'tldr_1': '<strong>Meeting transcription:</strong> Whisper locally matches cloud quality — Mono ($50 once) vs Otter.ai ($200/year)',
+        'tldr_1': '<strong>Meeting transcription:</strong> Whisper locally matches cloud quality — mono ($50 once) vs Otter.ai ($200/year)',
         'tldr_2': '<strong>Writing/chat:</strong> Llama 3, Gemma, Mistral via Ollama — free, runs on 8GB RAM',
         'tldr_3': '<strong>Code completion:</strong> Continue.dev + local model — free vs Copilot ($100/year)',
         'tldr_4': '<strong>Image generation:</strong> Stable Diffusion — free vs Midjourney ($120/year)',
@@ -487,10 +479,10 @@ const translations = {
         'h2_what_runs': 'What Can Actually Run Locally in 2026',
         'what_runs_p1': 'Local AI has come a long way. Here\'s what genuinely works on consumer hardware:',
         'h3_transcription': '1. Meeting Transcription (Replaces Otter.ai)',
-        'transcription_p1': '<strong>The tool:</strong> Whisper (via Mono, MacWhisper, or whisper.cpp)',
+        'transcription_p1': '<strong>The tool:</strong> Whisper (via mono, MacWhisper, or whisper.cpp)',
         'transcription_p2': 'OpenAI\'s Whisper model runs entirely locally and matches cloud transcription quality. It supports 95+ languages, handles accents well, and produces accurate timestamps.',
-        'transcription_p3': '<strong>Mono</strong> bundles Whisper with speaker identification, semantic search, and a recording interface — essentially a local Otter.ai replacement. It costs $50 once versus Otter\'s $200/year, so it pays for itself in about 3 months.',
-        'fig_mono': 'Mono\'s AI profiles: choose between local models (free) or cloud APIs',
+        'transcription_p3': '<strong>mono</strong> bundles Whisper with speaker identification, semantic search, and a recording interface — essentially a local Otter.ai replacement. It costs $50 once versus Otter\'s $200/year, so it pays for itself in about 3 months.',
+        'fig_mono': 'mono\'s AI profiles: choose between local models (free) or cloud APIs',
         'tip_transcription': '<strong>Savings:</strong> $150-200/year compared to Otter.ai, Fireflies, or similar services.',
         'h3_writing': '2. Writing and Chat (Replaces ChatGPT Plus)',
         'writing_p1': '<strong>The tools:</strong> Ollama, LM Studio, or Jan',
@@ -548,7 +540,7 @@ const translations = {
         'h2_getting_started': 'Getting Started: A Minimal Local AI Stack',
         'getting_started_p1': 'Here\'s a practical starting point that replaces ~$400/year in subscriptions:',
         'h3_for_transcription': 'For transcription:',
-        'for_transcription_p': '<strong>Mono</strong> ($50 once) — records any app, transcribes locally with Whisper, includes speaker identification and search. Replaces Otter.ai.',
+        'for_transcription_p': '<strong>mono</strong> ($50 once) — records any app, transcribes locally with Whisper, includes speaker identification and search. Replaces Otter.ai.',
         'h3_for_chat': 'For chat and writing:',
         'for_chat_p': '<strong>Ollama</strong> (free) + <strong>Llama 3 8B</strong> — download Ollama, run <code>ollama pull llama3</code>, start chatting. Add a UI like Open WebUI for a ChatGPT-like experience.',
         'h3_for_coding': 'For coding:',
@@ -566,9 +558,9 @@ const translations = {
         'worth_it_p1': 'If you have modern hardware (2020 or newer Mac, or a PC with a decent GPU), local AI makes financial sense within a few months. The tools have matured past the early-adopter phase into genuine daily-driver territory.',
         'worth_it_p2': 'If you\'d need significant hardware upgrades, the math is less clear. A new GPU costs $300-500 — that\'s 1-2 years of some subscriptions. At that point, you\'re buying into local AI for reasons beyond pure cost savings (privacy, offline access, ownership).',
         'worth_it_p3': 'For most people with existing capable hardware, the answer is simple: try the free tools (Ollama, Continue.dev) and see if they fit your workflow. If they do, the subscription cancellations follow naturally.',
-        'cta_title': 'Try Mono free',
+        'cta_title': 'Try mono free',
         'cta_sub': 'One recording limit, no account needed. $50 to unlock everything — local AI transcription, speaker ID, semantic search, no subscription.',
-        'cta_buy': 'Buy Mono — $50',
+        'cta_buy': 'Buy mono — $50',
         'cta_download': 'Download free'
     },
     es: {
@@ -580,7 +572,7 @@ const translations = {
         'intro_p2': 'El cambio ocurrió silenciosamente. Los modelos de código abierto mejoraron. Apple Silicon hizo que la inferencia local fuera rápida. Y un ecosistema creciente de herramientas ahora te permite ejecutar IA para escritura, programación, transcripción y generación de imágenes sin enviar datos a la nube ni pagar cuotas mensuales.',
         'intro_p3': 'Esta guía cubre lo que realmente puedes ejecutar localmente en 2026, qué hardware necesitas y dónde los modelos locales genuinamente igualan (o superan) a sus contrapartes en la nube.',
         'tldr_label': 'Resumen',
-        'tldr_1': '<strong>Transcripción de reuniones:</strong> Whisper local iguala la calidad de la nube — Mono ($50 una vez) vs Otter.ai ($200/año)',
+        'tldr_1': '<strong>Transcripción de reuniones:</strong> Whisper local iguala la calidad de la nube — mono ($50 una vez) vs Otter.ai ($200/año)',
         'tldr_2': '<strong>Escritura/chat:</strong> Llama 3, Gemma, Mistral vía Ollama — gratis, funciona con 8GB RAM',
         'tldr_3': '<strong>Autocompletado de código:</strong> Continue.dev + modelo local — gratis vs Copilot ($100/año)',
         'tldr_4': '<strong>Generación de imágenes:</strong> Stable Diffusion — gratis vs Midjourney ($120/año)',
@@ -607,10 +599,10 @@ const translations = {
         'h2_what_runs': 'Qué puede ejecutarse localmente en 2026',
         'what_runs_p1': 'La IA local ha avanzado mucho. Esto es lo que genuinamente funciona en hardware de consumo:',
         'h3_transcription': '1. Transcripción de reuniones (Reemplaza Otter.ai)',
-        'transcription_p1': '<strong>La herramienta:</strong> Whisper (vía Mono, MacWhisper o whisper.cpp)',
+        'transcription_p1': '<strong>La herramienta:</strong> Whisper (vía mono, MacWhisper o whisper.cpp)',
         'transcription_p2': 'El modelo Whisper de OpenAI se ejecuta completamente en local e iguala la calidad de transcripción en la nube. Soporta más de 95 idiomas, maneja bien los acentos y produce marcas de tiempo precisas.',
-        'transcription_p3': '<strong>Mono</strong> combina Whisper con identificación de hablantes, búsqueda semántica e interfaz de grabación — esencialmente un reemplazo local de Otter.ai. Cuesta $50 una vez versus los $200/año de Otter, así que se amortiza en unos 3 meses.',
-        'fig_mono': 'Perfiles de IA de Mono: elige entre modelos locales (gratis) o APIs en la nube',
+        'transcription_p3': '<strong>mono</strong> combina Whisper con identificación de hablantes, búsqueda semántica e interfaz de grabación — esencialmente un reemplazo local de Otter.ai. Cuesta $50 una vez versus los $200/año de Otter, así que se amortiza en unos 3 meses.',
+        'fig_mono': 'Perfiles de IA de mono: elige entre modelos locales (gratis) o APIs en la nube',
         'tip_transcription': '<strong>Ahorro:</strong> $150-200/año comparado con Otter.ai, Fireflies o servicios similares.',
         'h3_writing': '2. Escritura y chat (Reemplaza ChatGPT Plus)',
         'writing_p1': '<strong>Las herramientas:</strong> Ollama, LM Studio o Jan',
@@ -668,7 +660,7 @@ const translations = {
         'h2_getting_started': 'Primeros pasos: Un stack mínimo de IA local',
         'getting_started_p1': 'Aquí hay un punto de partida práctico que reemplaza ~$400/año en suscripciones:',
         'h3_for_transcription': 'Para transcripción:',
-        'for_transcription_p': '<strong>Mono</strong> ($50 una vez) — graba cualquier app, transcribe localmente con Whisper, incluye identificación de hablantes y búsqueda. Reemplaza Otter.ai.',
+        'for_transcription_p': '<strong>mono</strong> ($50 una vez) — graba cualquier app, transcribe localmente con Whisper, incluye identificación de hablantes y búsqueda. Reemplaza Otter.ai.',
         'h3_for_chat': 'Para chat y escritura:',
         'for_chat_p': '<strong>Ollama</strong> (gratis) + <strong>Llama 3 8B</strong> — descarga Ollama, ejecuta <code>ollama pull llama3</code>, empieza a chatear. Añade una interfaz como Open WebUI para una experiencia tipo ChatGPT.',
         'h3_for_coding': 'Para programación:',
@@ -686,9 +678,9 @@ const translations = {
         'worth_it_p1': 'Si tienes hardware moderno (Mac de 2020 o más nuevo, o una PC con GPU decente), la IA local tiene sentido financiero en pocos meses. Las herramientas han madurado más allá de la fase de early adopter hacia territorio de uso diario genuino.',
         'worth_it_p2': 'Si necesitaras actualizaciones significativas de hardware, los números son menos claros. Una nueva GPU cuesta $300-500 — eso es 1-2 años de algunas suscripciones. En ese punto, estás comprando IA local por razones más allá del puro ahorro de costos (privacidad, acceso sin conexión, propiedad).',
         'worth_it_p3': 'Para la mayoría de personas con hardware capaz existente, la respuesta es simple: prueba las herramientas gratuitas (Ollama, Continue.dev) y ve si encajan en tu flujo de trabajo. Si lo hacen, las cancelaciones de suscripciones siguen naturalmente.',
-        'cta_title': 'Prueba Mono gratis',
+        'cta_title': 'Prueba mono gratis',
         'cta_sub': 'Límite de una grabación, sin necesidad de cuenta. $50 para desbloquear todo — transcripción con IA local, identificación de hablantes, búsqueda semántica, sin suscripción.',
-        'cta_buy': 'Comprar Mono — $50',
+        'cta_buy': 'Comprar mono — $50',
         'cta_download': 'Descargar gratis'
     },
     fr: {
@@ -700,7 +692,7 @@ const translations = {
         'intro_p2': 'Le changement s\'est produit discrètement. Les modèles open-source sont devenus performants. Apple Silicon a rendu l\'inférence locale rapide. Et un écosystème croissant d\'outils vous permet désormais d\'exécuter l\'IA pour l\'écriture, le code, la transcription et la génération d\'images sans envoyer de données dans le cloud ni payer de frais mensuels.',
         'intro_p3': 'Ce guide couvre ce que vous pouvez réellement exécuter localement en 2026, le matériel dont vous avez besoin, et où les modèles locaux égalent (ou dépassent) véritablement leurs homologues cloud.',
         'tldr_label': 'En bref',
-        'tldr_1': '<strong>Transcription de réunions :</strong> Whisper local égale la qualité cloud — Mono (50$ une fois) vs Otter.ai (200$/an)',
+        'tldr_1': '<strong>Transcription de réunions :</strong> Whisper local égale la qualité cloud — mono (50$ une fois) vs Otter.ai (200$/an)',
         'tldr_2': '<strong>Écriture/chat :</strong> Llama 3, Gemma, Mistral via Ollama — gratuit, fonctionne avec 8Go RAM',
         'tldr_3': '<strong>Complétion de code :</strong> Continue.dev + modèle local — gratuit vs Copilot (100$/an)',
         'tldr_4': '<strong>Génération d\'images :</strong> Stable Diffusion — gratuit vs Midjourney (120$/an)',
@@ -727,10 +719,10 @@ const translations = {
         'h2_what_runs': 'Ce qui peut vraiment fonctionner localement en 2026',
         'what_runs_p1': 'L\'IA locale a fait du chemin. Voici ce qui fonctionne véritablement sur du matériel grand public :',
         'h3_transcription': '1. Transcription de réunions (Remplace Otter.ai)',
-        'transcription_p1': '<strong>L\'outil :</strong> Whisper (via Mono, MacWhisper ou whisper.cpp)',
+        'transcription_p1': '<strong>L\'outil :</strong> Whisper (via mono, MacWhisper ou whisper.cpp)',
         'transcription_p2': 'Le modèle Whisper d\'OpenAI fonctionne entièrement en local et égale la qualité de transcription cloud. Il prend en charge plus de 95 langues, gère bien les accents et produit des horodatages précis.',
-        'transcription_p3': '<strong>Mono</strong> combine Whisper avec l\'identification des intervenants, la recherche sémantique et une interface d\'enregistrement — essentiellement un remplacement local d\'Otter.ai. Il coûte 50$ une fois contre 200$/an pour Otter, donc il s\'amortit en environ 3 mois.',
-        'fig_mono': 'Profils IA de Mono : choisissez entre modèles locaux (gratuits) ou APIs cloud',
+        'transcription_p3': '<strong>mono</strong> combine Whisper avec l\'identification des intervenants, la recherche sémantique et une interface d\'enregistrement — essentiellement un remplacement local d\'Otter.ai. Il coûte 50$ une fois contre 200$/an pour Otter, donc il s\'amortit en environ 3 mois.',
+        'fig_mono': 'Profils IA de mono : choisissez entre modèles locaux (gratuits) ou APIs cloud',
         'tip_transcription': '<strong>Économies :</strong> 150-200$/an par rapport à Otter.ai, Fireflies ou services similaires.',
         'h3_writing': '2. Écriture et chat (Remplace ChatGPT Plus)',
         'writing_p1': '<strong>Les outils :</strong> Ollama, LM Studio ou Jan',
@@ -788,7 +780,7 @@ const translations = {
         'h2_getting_started': 'Commencer : Un stack IA local minimal',
         'getting_started_p1': 'Voici un point de départ pratique qui remplace ~400$/an d\'abonnements :',
         'h3_for_transcription': 'Pour la transcription :',
-        'for_transcription_p': '<strong>Mono</strong> (50$ une fois) — enregistre n\'importe quelle app, transcrit localement avec Whisper, inclut l\'identification des intervenants et la recherche. Remplace Otter.ai.',
+        'for_transcription_p': '<strong>mono</strong> (50$ une fois) — enregistre n\'importe quelle app, transcrit localement avec Whisper, inclut l\'identification des intervenants et la recherche. Remplace Otter.ai.',
         'h3_for_chat': 'Pour le chat et l\'écriture :',
         'for_chat_p': '<strong>Ollama</strong> (gratuit) + <strong>Llama 3 8B</strong> — téléchargez Ollama, exécutez <code>ollama pull llama3</code>, commencez à discuter. Ajoutez une interface comme Open WebUI pour une expérience type ChatGPT.',
         'h3_for_coding': 'Pour le code :',
@@ -806,9 +798,9 @@ const translations = {
         'worth_it_p1': 'Si vous avez du matériel moderne (Mac de 2020 ou plus récent, ou PC avec un GPU correct), l\'IA locale a un sens financier en quelques mois. Les outils ont mûri au-delà de la phase early-adopter vers un territoire d\'utilisation quotidienne véritable.',
         'worth_it_p2': 'Si vous aviez besoin d\'upgrades matériels significatifs, le calcul est moins clair. Un nouveau GPU coûte 300-500$ — c\'est 1-2 ans de certains abonnements. À ce stade, vous achetez l\'IA locale pour des raisons au-delà des pures économies (confidentialité, accès hors ligne, propriété).',
         'worth_it_p3': 'Pour la plupart des gens avec du matériel capable existant, la réponse est simple : essayez les outils gratuits (Ollama, Continue.dev) et voyez s\'ils correspondent à votre flux de travail. Si c\'est le cas, les résiliations d\'abonnements suivent naturellement.',
-        'cta_title': 'Essayez Mono gratuitement',
+        'cta_title': 'Essayez mono gratuitement',
         'cta_sub': 'Limite d\'un enregistrement, pas de compte nécessaire. 50$ pour tout débloquer — transcription IA locale, identification des intervenants, recherche sémantique, sans abonnement.',
-        'cta_buy': 'Acheter Mono — 50$',
+        'cta_buy': 'Acheter mono — 50$',
         'cta_download': 'Télécharger gratuitement'
     },
     de: {
@@ -820,7 +812,7 @@ const translations = {
         'intro_p2': 'Der Wandel geschah leise. Open-Source-Modelle wurden gut. Apple Silicon machte lokale Inferenz schnell. Und ein wachsendes Ökosystem von Tools ermöglicht es Ihnen jetzt, KI für Schreiben, Programmieren, Transkription und Bildgenerierung auszuführen, ohne Daten in die Cloud zu senden oder monatliche Gebühren zu zahlen.',
         'intro_p3': 'Diese Anleitung behandelt, was Sie 2026 realistisch lokal ausführen können, welche Hardware Sie benötigen und wo lokale Modelle ihre Cloud-Gegenstücke wirklich erreichen (oder übertreffen).',
         'tldr_label': 'Kurzfassung',
-        'tldr_1': '<strong>Meeting-Transkription:</strong> Whisper lokal erreicht Cloud-Qualität — Mono (50$ einmalig) vs Otter.ai (200$/Jahr)',
+        'tldr_1': '<strong>Meeting-Transkription:</strong> Whisper lokal erreicht Cloud-Qualität — mono (50$ einmalig) vs Otter.ai (200$/Jahr)',
         'tldr_2': '<strong>Schreiben/Chat:</strong> Llama 3, Gemma, Mistral über Ollama — kostenlos, läuft mit 8GB RAM',
         'tldr_3': '<strong>Code-Vervollständigung:</strong> Continue.dev + lokales Modell — kostenlos vs Copilot (100$/Jahr)',
         'tldr_4': '<strong>Bildgenerierung:</strong> Stable Diffusion — kostenlos vs Midjourney (120$/Jahr)',
@@ -847,10 +839,10 @@ const translations = {
         'h2_what_runs': 'Was 2026 wirklich lokal laufen kann',
         'what_runs_p1': 'Lokale KI hat einen weiten Weg zurückgelegt. Das funktioniert wirklich auf Consumer-Hardware:',
         'h3_transcription': '1. Meeting-Transkription (Ersetzt Otter.ai)',
-        'transcription_p1': '<strong>Das Tool:</strong> Whisper (über Mono, MacWhisper oder whisper.cpp)',
+        'transcription_p1': '<strong>Das Tool:</strong> Whisper (über mono, MacWhisper oder whisper.cpp)',
         'transcription_p2': 'OpenAIs Whisper-Modell läuft vollständig lokal und erreicht Cloud-Transkriptionsqualität. Es unterstützt über 95 Sprachen, kommt gut mit Akzenten zurecht und erzeugt genaue Zeitstempel.',
-        'transcription_p3': '<strong>Mono</strong> bündelt Whisper mit Sprechererkennung, semantischer Suche und einer Aufnahme-Oberfläche — im Wesentlichen ein lokaler Otter.ai-Ersatz. Es kostet einmalig 50$ gegenüber Otters 200$/Jahr, amortisiert sich also in etwa 3 Monaten.',
-        'fig_mono': 'Monos KI-Profile: Wählen Sie zwischen lokalen Modellen (kostenlos) oder Cloud-APIs',
+        'transcription_p3': '<strong>mono</strong> bündelt Whisper mit Sprechererkennung, semantischer Suche und einer Aufnahme-Oberfläche — im Wesentlichen ein lokaler Otter.ai-Ersatz. Es kostet einmalig 50$ gegenüber Otters 200$/Jahr, amortisiert sich also in etwa 3 Monaten.',
+        'fig_mono': 'monos KI-Profile: Wählen Sie zwischen lokalen Modellen (kostenlos) oder Cloud-APIs',
         'tip_transcription': '<strong>Ersparnis:</strong> 150-200$/Jahr im Vergleich zu Otter.ai, Fireflies oder ähnlichen Diensten.',
         'h3_writing': '2. Schreiben und Chat (Ersetzt ChatGPT Plus)',
         'writing_p1': '<strong>Die Tools:</strong> Ollama, LM Studio oder Jan',
@@ -908,7 +900,7 @@ const translations = {
         'h2_getting_started': 'Loslegen: Ein minimaler lokaler KI-Stack',
         'getting_started_p1': 'Hier ist ein praktischer Startpunkt, der ~400$/Jahr an Abonnements ersetzt:',
         'h3_for_transcription': 'Für Transkription:',
-        'for_transcription_p': '<strong>Mono</strong> (50$ einmalig) — nimmt jede App auf, transkribiert lokal mit Whisper, enthält Sprechererkennung und Suche. Ersetzt Otter.ai.',
+        'for_transcription_p': '<strong>mono</strong> (50$ einmalig) — nimmt jede App auf, transkribiert lokal mit Whisper, enthält Sprechererkennung und Suche. Ersetzt Otter.ai.',
         'h3_for_chat': 'Für Chat und Schreiben:',
         'for_chat_p': '<strong>Ollama</strong> (kostenlos) + <strong>Llama 3 8B</strong> — laden Sie Ollama herunter, führen Sie <code>ollama pull llama3</code> aus, beginnen Sie zu chatten. Fügen Sie eine UI wie Open WebUI für ein ChatGPT-ähnliches Erlebnis hinzu.',
         'h3_for_coding': 'Fürs Programmieren:',
@@ -926,9 +918,9 @@ const translations = {
         'worth_it_p1': 'Wenn Sie moderne Hardware haben (Mac von 2020 oder neuer, oder PC mit ordentlicher GPU), macht lokale KI innerhalb weniger Monate finanziell Sinn. Die Tools sind über die Early-Adopter-Phase hinaus zu echten Alltagstauglichen gereift.',
         'worth_it_p2': 'Wenn Sie signifikante Hardware-Upgrades bräuchten, ist die Rechnung weniger klar. Eine neue GPU kostet 300-500$ — das sind 1-2 Jahre mancher Abonnements. An diesem Punkt kaufen Sie in lokale KI aus Gründen jenseits reiner Kostenersparnis ein (Datenschutz, Offline-Zugang, Eigentum).',
         'worth_it_p3': 'Für die meisten Menschen mit vorhandener fähiger Hardware ist die Antwort einfach: Probieren Sie die kostenlosen Tools (Ollama, Continue.dev) und sehen Sie, ob sie zu Ihrem Workflow passen. Wenn ja, folgen die Abonnement-Kündigungen natürlich.',
-        'cta_title': 'Mono kostenlos testen',
+        'cta_title': 'mono kostenlos testen',
         'cta_sub': 'Limit von einer Aufnahme, kein Konto nötig. 50$ um alles freizuschalten — lokale KI-Transkription, Sprechererkennung, semantische Suche, kein Abonnement.',
-        'cta_buy': 'Mono kaufen — 50$',
+        'cta_buy': 'mono kaufen — 50$',
         'cta_download': 'Kostenlos herunterladen'
     },
     zh: {
@@ -940,7 +932,7 @@ const translations = {
         'intro_p2': '这个转变悄然发生。开源模型变得优秀。Apple Silicon让本地推理变得快速。一个不断增长的工具生态系统现在让你可以运行写作、编程、转录和图像生成的AI，无需将数据发送到云端或支付月费。',
         'intro_p3': '本指南涵盖2026年你实际可以在本地运行什么、需要什么硬件，以及本地模型真正能匹配（或超越）云端同类产品的地方。',
         'tldr_label': '概要',
-        'tldr_1': '<strong>会议转录：</strong>本地Whisper匹配云端质量——Mono（一次性50美元）vs Otter.ai（200美元/年）',
+        'tldr_1': '<strong>会议转录：</strong>本地Whisper匹配云端质量——mono（一次性50美元）vs Otter.ai（200美元/年）',
         'tldr_2': '<strong>写作/聊天：</strong>通过Ollama使用Llama 3、Gemma、Mistral——免费，8GB RAM即可运行',
         'tldr_3': '<strong>代码补全：</strong>Continue.dev + 本地模型——免费 vs Copilot（100美元/年）',
         'tldr_4': '<strong>图像生成：</strong>Stable Diffusion——免费 vs Midjourney（120美元/年）',
@@ -967,10 +959,10 @@ const translations = {
         'h2_what_runs': '2026年本地实际能运行什么',
         'what_runs_p1': '本地AI已经走了很长的路。以下是在消费级硬件上真正有效的：',
         'h3_transcription': '1. 会议转录（替代Otter.ai）',
-        'transcription_p1': '<strong>工具：</strong>Whisper（通过Mono、MacWhisper或whisper.cpp）',
+        'transcription_p1': '<strong>工具：</strong>Whisper（通过mono、MacWhisper或whisper.cpp）',
         'transcription_p2': 'OpenAI的Whisper模型完全在本地运行，匹配云端转录质量。它支持95+种语言，能很好地处理口音，并产生准确的时间戳。',
-        'transcription_p3': '<strong>Mono</strong>将Whisper与说话人识别、语义搜索和录音界面捆绑在一起——本质上是Otter.ai的本地替代品。它一次性收费50美元，而Otter是200美元/年，所以大约3个月就能回本。',
-        'fig_mono': 'Mono的AI配置文件：在本地模型（免费）或云API之间选择',
+        'transcription_p3': '<strong>mono</strong>将Whisper与说话人识别、语义搜索和录音界面捆绑在一起——本质上是Otter.ai的本地替代品。它一次性收费50美元，而Otter是200美元/年，所以大约3个月就能回本。',
+        'fig_mono': 'mono的AI配置文件：在本地模型（免费）或云API之间选择',
         'tip_transcription': '<strong>节省：</strong>与Otter.ai、Fireflies或类似服务相比，每年节省150-200美元。',
         'h3_writing': '2. 写作和聊天（替代ChatGPT Plus）',
         'writing_p1': '<strong>工具：</strong>Ollama、LM Studio或Jan',
@@ -1028,7 +1020,7 @@ const translations = {
         'h2_getting_started': '入门：最小本地AI堆栈',
         'getting_started_p1': '这是一个实用的起点，可以替代约400美元/年的订阅：',
         'h3_for_transcription': '转录：',
-        'for_transcription_p': '<strong>Mono</strong>（一次性50美元）——录制任何应用，使用Whisper本地转录，包括说话人识别和搜索。替代Otter.ai。',
+        'for_transcription_p': '<strong>mono</strong>（一次性50美元）——录制任何应用，使用Whisper本地转录，包括说话人识别和搜索。替代Otter.ai。',
         'h3_for_chat': '聊天和写作：',
         'for_chat_p': '<strong>Ollama</strong>（免费）+ <strong>Llama 3 8B</strong>——下载Ollama，运行<code>ollama pull llama3</code>，开始聊天。添加Open WebUI等界面获得类似ChatGPT的体验。',
         'h3_for_coding': '编程：',
@@ -1046,9 +1038,9 @@ const translations = {
         'worth_it_p1': '如果你有现代硬件（2020年或更新的Mac，或有不错GPU的PC），本地AI在几个月内就有经济意义。这些工具已经从早期采用者阶段成熟到真正的日常使用领域。',
         'worth_it_p2': '如果你需要显著的硬件升级，计算就不那么清晰了。新GPU要300-500美元——这是某些订阅的1-2年费用。到那时，你购买本地AI是出于纯成本节省之外的原因（隐私、离线访问、所有权）。',
         'worth_it_p3': '对于大多数已有合适硬件的人来说，答案很简单：试试免费工具（Ollama、Continue.dev），看看它们是否适合你的工作流程。如果合适，取消订阅自然就会跟上。',
-        'cta_title': '免费试用Mono',
+        'cta_title': '免费试用mono',
         'cta_sub': '一次录音限制，无需账户。50美元解锁全部功能——本地AI转录、说话人识别、语义搜索，无需订阅。',
-        'cta_buy': '购买Mono——50美元',
+        'cta_buy': '购买mono——50美元',
         'cta_download': '免费下载'
     },
     ru: {
@@ -1060,7 +1052,7 @@ const translations = {
         'intro_p2': 'Изменение произошло незаметно. Модели с открытым исходным кодом стали хорошими. Apple Silicon сделал локальный инференс быстрым. И растущая экосистема инструментов теперь позволяет запускать ИИ для написания текстов, программирования, транскрипции и генерации изображений без отправки данных в облако или оплаты ежемесячных сборов.',
         'intro_p3': 'Это руководство охватывает то, что вы реально можете запустить локально в 2026 году, какое оборудование вам нужно и где локальные модели действительно соответствуют (или превосходят) своих облачных аналогов.',
         'tldr_label': 'Кратко',
-        'tldr_1': '<strong>Транскрипция встреч:</strong> Локальный Whisper соответствует качеству облака — Mono ($50 единоразово) vs Otter.ai ($200/год)',
+        'tldr_1': '<strong>Транскрипция встреч:</strong> Локальный Whisper соответствует качеству облака — mono ($50 единоразово) vs Otter.ai ($200/год)',
         'tldr_2': '<strong>Написание/чат:</strong> Llama 3, Gemma, Mistral через Ollama — бесплатно, работает на 8GB RAM',
         'tldr_3': '<strong>Автодополнение кода:</strong> Continue.dev + локальная модель — бесплатно vs Copilot ($100/год)',
         'tldr_4': '<strong>Генерация изображений:</strong> Stable Diffusion — бесплатно vs Midjourney ($120/год)',
@@ -1087,10 +1079,10 @@ const translations = {
         'h2_what_runs': 'Что реально может работать локально в 2026',
         'what_runs_p1': 'Локальный ИИ прошёл долгий путь. Вот что действительно работает на потребительском оборудовании:',
         'h3_transcription': '1. Транскрипция встреч (Заменяет Otter.ai)',
-        'transcription_p1': '<strong>Инструмент:</strong> Whisper (через Mono, MacWhisper или whisper.cpp)',
+        'transcription_p1': '<strong>Инструмент:</strong> Whisper (через mono, MacWhisper или whisper.cpp)',
         'transcription_p2': 'Модель Whisper от OpenAI работает полностью локально и соответствует качеству облачной транскрипции. Она поддерживает более 95 языков, хорошо справляется с акцентами и создаёт точные временные метки.',
-        'transcription_p3': '<strong>Mono</strong> объединяет Whisper с идентификацией говорящих, семантическим поиском и интерфейсом записи — по сути, локальная замена Otter.ai. Он стоит $50 единоразово против $200/год у Otter, так что окупается примерно за 3 месяца.',
-        'fig_mono': 'ИИ-профили Mono: выбирайте между локальными моделями (бесплатно) или облачными API',
+        'transcription_p3': '<strong>mono</strong> объединяет Whisper с идентификацией говорящих, семантическим поиском и интерфейсом записи — по сути, локальная замена Otter.ai. Он стоит $50 единоразово против $200/год у Otter, так что окупается примерно за 3 месяца.',
+        'fig_mono': 'ИИ-профили mono: выбирайте между локальными моделями (бесплатно) или облачными API',
         'tip_transcription': '<strong>Экономия:</strong> $150-200/год по сравнению с Otter.ai, Fireflies или подобными сервисами.',
         'h3_writing': '2. Написание и чат (Заменяет ChatGPT Plus)',
         'writing_p1': '<strong>Инструменты:</strong> Ollama, LM Studio или Jan',
@@ -1148,7 +1140,7 @@ const translations = {
         'h2_getting_started': 'Начало работы: Минимальный локальный ИИ-стек',
         'getting_started_p1': 'Вот практическая отправная точка, которая заменяет ~$400/год подписок:',
         'h3_for_transcription': 'Для транскрипции:',
-        'for_transcription_p': '<strong>Mono</strong> ($50 единоразово) — записывает любое приложение, транскрибирует локально с Whisper, включает идентификацию говорящих и поиск. Заменяет Otter.ai.',
+        'for_transcription_p': '<strong>mono</strong> ($50 единоразово) — записывает любое приложение, транскрибирует локально с Whisper, включает идентификацию говорящих и поиск. Заменяет Otter.ai.',
         'h3_for_chat': 'Для чата и написания:',
         'for_chat_p': '<strong>Ollama</strong> (бесплатно) + <strong>Llama 3 8B</strong> — скачайте Ollama, запустите <code>ollama pull llama3</code>, начните общаться. Добавьте интерфейс вроде Open WebUI для опыта, похожего на ChatGPT.',
         'h3_for_coding': 'Для программирования:',
@@ -1166,9 +1158,9 @@ const translations = {
         'worth_it_p1': 'Если у вас современное оборудование (Mac 2020 года или новее, или ПК с приличной GPU), локальный ИИ имеет финансовый смысл в течение нескольких месяцев. Инструменты созрели за пределы фазы ранних последователей до настоящей территории ежедневного использования.',
         'worth_it_p2': 'Если вам нужны значительные обновления оборудования, расчёт менее ясен. Новая GPU стоит $300-500 — это 1-2 года некоторых подписок. В этот момент вы покупаете локальный ИИ по причинам помимо чистой экономии (конфиденциальность, офлайн-доступ, владение).',
         'worth_it_p3': 'Для большинства людей с существующим подходящим оборудованием ответ прост: попробуйте бесплатные инструменты (Ollama, Continue.dev) и посмотрите, подходят ли они вашему рабочему процессу. Если да, отмены подписок последуют естественно.',
-        'cta_title': 'Попробуйте Mono бесплатно',
+        'cta_title': 'Попробуйте mono бесплатно',
         'cta_sub': 'Лимит одной записи, аккаунт не нужен. $50 чтобы разблокировать всё — локальная ИИ-транскрипция, идентификация говорящих, семантический поиск, без подписки.',
-        'cta_buy': 'Купить Mono — $50',
+        'cta_buy': 'Купить mono — $50',
         'cta_download': 'Скачать бесплатно'
     }
 };
