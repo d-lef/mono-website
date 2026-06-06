@@ -17,23 +17,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Set Up API AI Models in mono — Mono</title>
-    <meta name="description" content="Connect a cloud AI provider (Google Gemini, OpenAI, or Anthropic) to mono for fast transcription and summaries — useful when your computer can't run local AI smoothly. Step-by-step setup.">
+    <meta name="description" content="Connect a cloud AI provider — Google Gemini, OpenAI, or Anthropic Claude — to mono for fast transcription and summaries when your computer can't run local AI smoothly. Step-by-step setup, model picks, costs, and troubleshooting.">
     <link rel="canonical" href="https://mono-ai.uk/blog/api-setup">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <!-- Placeholder revision while the full guide is written. -->
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
     <meta property="og:type" content="article">
     <meta property="og:title" content="How to Set Up API AI Models in mono">
-    <meta property="og:description" content="Connect Google Gemini, OpenAI, or Anthropic to mono for fast cloud transcription and summaries.">
+    <meta property="og:description" content="Connect Google Gemini, OpenAI, or Anthropic Claude to mono for fast cloud transcription and summaries. Step-by-step setup, model picks, costs, and troubleshooting.">
     <meta property="og:url" content="https://mono-ai.uk/blog/api-setup">
     <meta property="og:site_name" content="Mono">
     <meta property="og:image" content="https://mono-ai.uk/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-06-06T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="How to Set Up API AI Models in mono">
-    <meta name="twitter:description" content="Connect Google Gemini, OpenAI, or Anthropic to mono for fast cloud transcription and summaries.">
+    <meta name="twitter:description" content="Connect Google Gemini, OpenAI, or Anthropic Claude to mono for fast cloud transcription and summaries.">
     <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Set Up API AI Models in mono",
+      "description": "Connect a cloud AI provider — Google Gemini, OpenAI, or Anthropic Claude — to mono for fast transcription and summaries when your computer can't run local AI smoothly.",
+      "datePublished": "2026-06-06",
+      "dateModified": "2026-06-06",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "Mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "url": "https://mono-ai.uk/blog/api-setup"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to set up an API AI provider in mono",
+      "description": "Connect Google Gemini, OpenAI, or Anthropic Claude to mono for cloud transcription and summaries.",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Get an API key", "text": "Create an API key from Google AI Studio, platform.openai.com, or console.anthropic.com." },
+        { "@type": "HowToStep", "position": 2, "name": "Open AI settings", "text": "In mono, open Settings then AI." },
+        { "@type": "HowToStep", "position": 3, "name": "Add an AI profile", "text": "Click Add AI Profile and choose your provider and model." },
+        { "@type": "HowToStep", "position": 4, "name": "Save your key", "text": "Paste your API key and click Save. mono tests the connection automatically." }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is my data still private if I use an API provider in mono?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Partly. With local AI (the default), audio never leaves your computer. With an API provider, the audio or text needed for transcription and summaries is sent to that provider (Google, OpenAI, or Anthropic) for processing. mono stores your API key locally and only contacts the provider you chose. If privacy is your priority, use local AI." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I still need to download mono's local models if I use an API?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. If you set up an API provider you can use it for transcription and summaries without the local models. You can also keep both and switch between them in Settings → AI." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which API provider is cheapest for mono?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Google Gemini has a generous free tier and is the easiest place to start. Across paid usage, the smaller fast models — Gemini 2.5 Flash, GPT-4.1 Mini, and Claude Haiku — all cost a fraction of the larger models and are plenty for transcription and meeting summaries." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does mono need an internet connection to use an API provider?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. API providers run in the cloud, so transcription and summaries require an internet connection. Local AI works fully offline." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use a custom model with mono?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. When adding an AI profile, choose Custom in the model list and enter the model name and max output tokens. This is useful for newer or experimental models a provider releases." }
+        }
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,6 +132,7 @@
         .article-body h3 { font-weight: 500; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
         .article-body strong { font-weight: 700; }
         .article-body a { color: var(--text-primary); }
+        .article-body code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; }
         .article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 24px; }
         .article-body li { margin-bottom: 8px; }
         .tldr { background: var(--bg-secondary); border-left: 3px solid rgba(255,255,255,0.15); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; }
@@ -77,25 +145,17 @@
         .compare-table { border-collapse: collapse; width: 100%; min-width: 500px; }
         .compare-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
         .compare-table td { font-size: 14px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top; }
+        .compare-table tr.highlight-row td { background: rgba(255,255,255,0.04); }
         :root.light .compare-table th { border-bottom-color: rgba(0,0,0,0.1); }
         :root.light .compare-table td { border-bottom-color: rgba(0,0,0,0.06); }
-        @media (prefers-color-scheme: light) { :root:not(.dark) .compare-table th { border-bottom-color: rgba(0,0,0,0.1); } :root:not(.dark) .compare-table td { border-bottom-color: rgba(0,0,0,0.06); } }
+        :root.light .compare-table tr.highlight-row td { background: rgba(0,0,0,0.03); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .compare-table th { border-bottom-color: rgba(0,0,0,0.1); } :root:not(.dark) .compare-table td { border-bottom-color: rgba(0,0,0,0.06); } :root:not(.dark) .compare-table tr.highlight-row td { background: rgba(0,0,0,0.03); } }
         .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
         .tip-box p { margin-bottom: 0; }
         .steps { counter-reset: step; list-style: none; padding-left: 0; }
         .steps li { position: relative; padding-left: 44px; margin-bottom: 16px; }
         .steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--bg-secondary); color: var(--text-primary); font-size: 13px; display: flex; align-items: center; justify-content: center; }
-        .cta-card { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; margin-top: 48px; text-align: center; }
-        :root.light .cta-card { border-color: rgba(0,0,0,0.08); }
-        @media (prefers-color-scheme: light) { :root:not(.dark) .cta-card { border-color: rgba(0,0,0,0.08); } }
-        .cta-title { font-weight: 500; font-size: 22px; margin-bottom: 8px; }
-        .cta-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; }
-        .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .cta-btn-primary { display: inline-block; background: var(--text-primary); color: var(--bg-primary); padding: 10px 24px; border-radius: 8px; font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.15s ease, transform 0.15s ease; }
-        .cta-btn-primary:hover { opacity: 0.88; transform: scale(1.02); }
-        .cta-btn-secondary { display: inline-block; background: transparent; color: var(--text-secondary); padding: 10px 24px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 400; text-decoration: none; }
-        .cta-btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: var(--text-primary); }
-        :root.light .cta-btn-secondary { border-color: rgba(0,0,0,0.2); }
+        cta-card { display: block; margin-top: 48px; }
     </style>
 </head>
 <body>
@@ -103,110 +163,234 @@
     <discount-float></discount-float>
 
     <main class="article-wrap">
-        <a href="./" class="back-link">← blog</a>
+        <a href="./" class="back-link" data-i18n="back_link">← blog</a>
 
         <header>
-            <span class="article-category">[Guide]</span>
-            <h1 class="article-title">How to set up API AI models in mono</h1>
-            <p class="article-meta">By Daniil Lefanov</p>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to set up API AI models in mono</h1>
+            <p class="article-meta" data-i18n="meta">Jun 6, 2026 · 6 min read · By Daniil Lefanov</p>
         </header>
 
         <div class="article-body">
 
-            <p>mono runs AI <strong>locally</strong> by default — transcription and summaries happen on your own computer, and nothing is uploaded. That's the best option for privacy, and it's free. But local AI needs a reasonably capable machine. If mono told you your computer may struggle, or you just want faster results, you can connect a <strong>cloud API provider</strong> instead.</p>
+            <p data-i18n="intro_p1">mono runs AI <strong>locally</strong> by default. Transcription, speaker labels, and summaries all happen on your own computer, and nothing is uploaded. That's the most private option, and it's free. But local AI needs a reasonably capable machine — if mono warned you that your computer may struggle, or transcription feels slow, you can connect a <strong>cloud API provider</strong> instead and let the heavy work happen in the cloud.</p>
+
+            <p data-i18n="intro_p2">This guide walks through exactly how to do that: where to get an API key, how to add it in mono, which model to pick, what it costs, and how to fix the most common errors.</p>
 
             <div class="tldr">
-                <p class="tldr-label">The short version</p>
+                <p class="tldr-label" data-i18n="tldr_label">The short version</p>
                 <ul>
-                    <li>1. Get an API key from Google Gemini, OpenAI, or Anthropic</li>
-                    <li>2. In mono, open <strong>Settings → AI</strong></li>
-                    <li>3. Click <strong>Add AI Profile</strong>, pick your provider and model</li>
-                    <li>4. Paste your API key and click <strong>Save</strong></li>
+                    <li data-i18n="tldr_1">1. Get an API key from Google Gemini, OpenAI, or Anthropic</li>
+                    <li data-i18n="tldr_2">2. In mono, open <strong>Settings → AI</strong></li>
+                    <li data-i18n="tldr_3">3. Click <strong>Add AI Profile</strong> and pick your provider and model</li>
+                    <li data-i18n="tldr_4">4. Paste your API key and click <strong>Save</strong></li>
                 </ul>
             </div>
 
-            <h2>Local vs. API: which should you use?</h2>
+            <h2 data-i18n="h2_local_vs_api">Local vs. API: which should you use?</h2>
 
-            <p>You don't have to choose permanently — you can switch any time in Settings. Here's the trade-off:</p>
+            <p data-i18n="local_vs_api_p1">You don't have to choose permanently — you can switch any time in Settings, and your local models stay installed. Here's the trade-off:</p>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Local AI (default)</th>
-                            <th>API provider (cloud)</th>
+                            <th data-i18n="th_local">Local AI (default)</th>
+                            <th data-i18n="th_api">API provider (cloud)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Free — no usage costs</td>
-                            <td>Pay-per-use to the provider</td>
+                            <td data-i18n="cmp_cost_local">Free — no usage costs</td>
+                            <td data-i18n="cmp_cost_api">Pay-per-use, billed by the provider</td>
                         </tr>
                         <tr>
-                            <td>Fully private — audio never leaves your computer</td>
-                            <td>Audio/text is sent to the provider for processing</td>
+                            <td data-i18n="cmp_privacy_local">Fully private — audio never leaves your computer</td>
+                            <td data-i18n="cmp_privacy_api">Audio and text are sent to the provider to process</td>
                         </tr>
                         <tr>
-                            <td>Needs a capable CPU/GPU; can be slow on older machines</td>
-                            <td>Fast on any machine — the work happens in the cloud</td>
+                            <td data-i18n="cmp_speed_local">Needs a capable CPU/GPU; can be slow on older machines</td>
+                            <td data-i18n="cmp_speed_api">Fast on any machine — the work happens in the cloud</td>
                         </tr>
                         <tr>
-                            <td>Works fully offline</td>
-                            <td>Requires an internet connection</td>
+                            <td data-i18n="cmp_offline_local">Works fully offline</td>
+                            <td data-i18n="cmp_offline_api">Requires an internet connection</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <p>An API provider makes the most sense when your computer can't run local models smoothly, or when you want the fastest possible transcription and summaries and don't mind sending data to the provider.</p>
+            <p data-i18n="local_vs_api_p2">In short: an API provider makes sense when your computer can't run local models smoothly, or when you want the fastest possible results and don't mind sending data to the provider. If privacy is your top priority, stay on local AI.</p>
 
-            <h2>Step 1 — Get an API key</h2>
+            <h2 data-i18n="h2_step1">Step 1 — Get an API key</h2>
 
-            <p>mono supports three cloud providers. Pick one and create an API key:</p>
+            <p data-i18n="step1_p1">mono supports three cloud providers. Pick one, create an account, and generate an API key:</p>
 
             <ul>
-                <li><strong>Google Gemini</strong> — get a key from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a>. Has a generous free tier, a good place to start.</li>
-                <li><strong>OpenAI</strong> — get a key from <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com</a>.</li>
-                <li><strong>Anthropic Claude</strong> — get a key from <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a>.</li>
+                <li data-i18n="step1_gemini"><strong>Google Gemini</strong> — create a key at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a>. It has a generous free tier, which makes it the easiest place to start.</li>
+                <li data-i18n="step1_openai"><strong>OpenAI</strong> — create a key at <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com</a>. Requires a billing method on file.</li>
+                <li data-i18n="step1_anthropic"><strong>Anthropic Claude</strong> — create a key at <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a>. Requires a billing method on file.</li>
             </ul>
 
-            <p>Each provider asks you to create an account and add billing details (except Gemini's free tier). Your API key is a secret — treat it like a password. mono stores it on your computer and only sends it to the provider you chose.</p>
+            <div class="tip-box">
+                <p data-i18n="step1_tip"><strong>Keep your key safe.</strong> An API key is like a password — anyone with it can spend on your account. mono stores your key on your own computer and only ever sends it to the provider you selected. Don't paste it into chats or screenshots.</p>
+            </div>
 
-            <h2>Step 2 — Add the profile in mono</h2>
+            <h2 data-i18n="h2_step2">Step 2 — Add the profile in mono</h2>
 
             <ol class="steps">
-                <li>Open mono and go to <strong>Settings → AI</strong>.</li>
-                <li>Click <strong>Add AI Profile</strong>.</li>
-                <li>Choose your <strong>Provider</strong> (Google Gemini, OpenAI, or Anthropic).</li>
-                <li>Pick a <strong>Model</strong>. The default is a good choice — for example Gemini 2.5 Flash, GPT-4.1 Mini, or Claude Haiku for fast, low-cost results.</li>
-                <li>Paste your <strong>API key</strong> and click <strong>Save</strong>.</li>
+                <li data-i18n="step2_1">Open mono and go to <strong>Settings → AI</strong>.</li>
+                <li data-i18n="step2_2">Click <strong>Add AI Profile</strong>.</li>
+                <li data-i18n="step2_3">Choose your <strong>Provider</strong>: Google Gemini, OpenAI, or Anthropic Claude.</li>
+                <li data-i18n="step2_4">Pick a <strong>Model</strong>. The default is a good choice — see the next section if you're unsure.</li>
+                <li data-i18n="step2_5">Paste your <strong>API key</strong> and click <strong>Save</strong>.</li>
             </ol>
 
-            <p>mono tests the connection when you save. A green "ready" status means it's working. If you see an error like "Invalid API key" or "Quota exceeded", double-check the key and your provider's billing settings, then click Reconnect.</p>
+            <p data-i18n="step2_p1">mono tests the connection when you save. A green <strong>“ready”</strong> status means everything works and new recordings will use this profile. If you see an error instead, jump to <a href="#troubleshooting">troubleshooting</a> below.</p>
 
-            <div class="tip-box">
-                <p><strong>Tip:</strong> Start with a fast, inexpensive model (Gemini 2.5 Flash, GPT-4.1 Mini, or Claude Haiku). These are plenty for transcription and meeting summaries, and cost a fraction of the larger models.</p>
+            <h2 data-i18n="h2_models">Choosing a model</h2>
+
+            <p data-i18n="models_p1">Each provider offers several models. For meeting transcription and summaries you almost never need the largest, most expensive one — the fast, low-cost models handle it well and cost a fraction as much. Good defaults:</p>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th_provider">Provider</th>
+                            <th data-i18n="th_start_here">Start here (fast &amp; cheap)</th>
+                            <th data-i18n="th_higher">Higher quality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Gemini</td>
+                            <td>Gemini 2.5 Flash</td>
+                            <td data-i18n="models_gemini_hi">Gemini 2.5 Flash (Lite for lowest cost)</td>
+                        </tr>
+                        <tr>
+                            <td>OpenAI</td>
+                            <td>GPT-4.1 Mini</td>
+                            <td>GPT-4.1</td>
+                        </tr>
+                        <tr>
+                            <td>Anthropic</td>
+                            <td>Claude Haiku 4.5</td>
+                            <td>Claude Sonnet 4.6</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <h2>That's it</h2>
+            <p data-i18n="models_p2">Need something newer or experimental? Choose <strong>Custom…</strong> in the model list and type the exact model name. You can also set <strong>max output tokens</strong> there — use a higher value for transcription (e.g. 65536) and a lower one for chat (e.g. 8192).</p>
 
-            <p>New recordings will now be transcribed and summarised through your chosen provider. You can switch back to local AI, or between providers, any time under Settings → AI — your local models stay installed and ready.</p>
+            <h2 data-i18n="h2_cost">What it costs</h2>
 
-            <div class="cta-card">
-                <p class="cta-title">Don't have mono yet?</p>
-                <p class="cta-sub">Record any app, transcribe locally or via API, search everything. $50 once — no subscription. Try it free with one recording, no account needed.</p>
-                <div class="cta-buttons">
-                    <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
-                       class="cta-btn-primary" target="_blank" rel="noopener sponsored">Buy mono — $50</a>
-                    <a href="../?buy" class="cta-btn-secondary">Download free</a>
-                </div>
+            <p data-i18n="cost_p1">With an API provider you pay the provider directly for what you use — mono doesn't add any markup. Costs depend on the model and how much you transcribe, but the fast models are inexpensive: a typical hour-long meeting costs only a few cents to transcribe and summarise on the smaller models. Two things keep your bill low:</p>
+
+            <ul>
+                <li data-i18n="cost_li1">Start with <strong>Gemini's free tier</strong> to try the workflow at no cost.</li>
+                <li data-i18n="cost_li2">Stick to the <strong>fast models</strong> (Flash, Mini, Haiku) unless you have a specific reason to upgrade.</li>
+            </ul>
+
+            <p data-i18n="cost_p2">You can always check live pricing on each provider's website, and set spending limits in your provider account for peace of mind.</p>
+
+            <h2 id="troubleshooting" data-i18n="h2_troubleshooting">Troubleshooting</h2>
+
+            <p data-i18n="troubleshooting_p1">If saving a profile shows an error, here's what it usually means and how to fix it:</p>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th_message">Message</th>
+                            <th data-i18n="th_fix">What to do</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="tr_invalid_k">Invalid API key</td>
+                            <td data-i18n="tr_invalid_v">The key is wrong or expired. Copy it again from the provider (no extra spaces) and click Reconnect.</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="tr_required_k">API key is required</td>
+                            <td data-i18n="tr_required_v">The key field is empty. Paste your key and save again.</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="tr_quota_k">Quota exceeded</td>
+                            <td data-i18n="tr_quota_v">Your provider quota or credit is used up. Check billing in your provider account, or wait for the quota to reset.</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="tr_rate_k">Rate limited</td>
+                            <td data-i18n="tr_rate_v">Too many requests too quickly. Wait a few minutes and try again.</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="tr_model_k">Model not found</td>
+                            <td data-i18n="tr_model_v">The model isn't available on your account. Pick a different model, or check a custom model name for typos.</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="tr_network_k">Network error / timed out</td>
+                            <td data-i18n="tr_network_v">mono couldn't reach the provider. Check your internet connection and try again.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <h2 data-i18n="h2_switch">Switching back or between providers</h2>
+
+            <p data-i18n="switch_p1">Nothing is locked in. Under <strong>Settings → AI</strong> you can add several profiles, switch the active one, or go back to local AI at any time — your downloaded local models stay installed and ready. A common setup is to keep local AI for sensitive recordings and an API provider for when you want speed.</p>
+
+            <h2 data-i18n="h2_faq">FAQ</h2>
+
+            <h3 data-i18n="faq_q1">Is my data still private if I use an API provider?</h3>
+            <p data-i18n="faq_a1">Partly. With local AI (the default), audio never leaves your computer. With an API provider, the audio and text needed for transcription and summaries are sent to that provider — Google, OpenAI, or Anthropic — to process. mono keeps your key local and only contacts the provider you chose. If privacy is your priority, use local AI.</p>
+
+            <h3 data-i18n="faq_q2">Do I still need mono's local models?</h3>
+            <p data-i18n="faq_a2">No. With an API provider set up, you can transcribe and summarise without the local models. You can also keep both and switch between them whenever you like.</p>
+
+            <h3 data-i18n="faq_q3">Does it work offline?</h3>
+            <p data-i18n="faq_a3">No — API providers run in the cloud, so they need an internet connection. Local AI is the option that works fully offline.</p>
+
+            <h3 data-i18n="faq_q4">Which provider should I pick?</h3>
+            <p data-i18n="faq_a4">If you're unsure, start with Google Gemini and the free tier. All three providers work well; the fast models (Flash, Mini, Haiku) are more than enough for meetings.</p>
+
+            <cta-card base-path="../"></cta-card>
 
         </div>
     </main>
 
     <script>
         if (window.initFoldEffect) window.initFoldEffect();
+    </script>
+
+    <script>
+    // Translation scaffolding matching the rest of the blog. English is the
+    // static default; other languages are added here as drop-in keys. The
+    // handler is guarded so an as-yet-untranslated language simply keeps the
+    // English text instead of erroring.
+    const translations = {
+        en: {
+            'back_link': '← blog',
+            'category': '[Guide]',
+            'title': 'How to set up API AI models in mono',
+            'meta': 'Jun 6, 2026 · 6 min read · By Daniil Lefanov'
+        }
+    };
+
+    const siteNav = document.querySelector('site-nav');
+    let currentLang = 'en';
+    if (siteNav) {
+        siteNav.addEventListener('language-change', (e) => {
+            const lang = e.detail.language;
+            if (lang === currentLang) return;
+            currentLang = lang;
+            const t = translations[lang];
+            if (!t) return; // not translated yet — leave English in place
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (t[key] !== undefined) el.innerHTML = t[key];
+            });
+        });
+    }
     </script>
 </body>
 </html>
