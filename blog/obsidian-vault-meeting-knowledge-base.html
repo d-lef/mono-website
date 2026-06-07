@@ -175,34 +175,34 @@
     <discount-float></discount-float>
 
     <main class="article-wrap">
-        <a href="./" class="back-link">&larr; blog</a>
+        <a href="./" class="back-link" data-i18n="back_link">&larr; blog</a>
 
         <header>
-            <span class="article-category">[Guide]</span>
-            <h1 class="article-title">How to Turn Your Obsidian Vault into a Meeting Knowledge Base</h1>
-            <p class="article-meta">Apr 10, 2026 &middot; 5 min read &middot; By Daniil Lefanov</p>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Turn Your Obsidian Vault into a Meeting Knowledge Base</h1>
+            <p class="article-meta" data-i18n="meta">Apr 10, 2026 &middot; 5 min read &middot; By Daniil Lefanov</p>
         </header>
 
         <div class="article-body">
 
-            <p>Meetings are the one knowledge source that doesn't fit into Obsidian. Cloud recorders like Otter and Fireflies store transcripts behind a login, in their own format. Export is a PDF or plain text dump you'd have to reformat.</p>
+            <p data-i18n="intro_p1">Meetings are the one knowledge source that doesn't fit into Obsidian. Cloud recorders like Otter and Fireflies store transcripts behind a login, in their own format. Export is a PDF or plain text dump you'd have to reformat.</p>
 
-            <p>mono writes recordings directly as markdown files in your vault &mdash; YAML frontmatter, AI summary, action item checkboxes, full transcript. No export step, no copy-paste.</p>
+            <p data-i18n="intro_p2">mono writes recordings directly as markdown files in your vault &mdash; YAML frontmatter, AI summary, action item checkboxes, full transcript. No export step, no copy-paste.</p>
 
             <div class="tldr">
-                <p class="tldr-label">TL;DR</p>
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
                 <ul>
-                    <li><strong>The gap:</strong> Meetings are your vault's biggest blind spot &mdash; decisions and context that exist nowhere in your PKM system</li>
-                    <li><strong>The fix:</strong> A recorder that writes native .md files directly into your vault folder</li>
-                    <li><strong>Bases &amp; Dataview-ready:</strong> YAML frontmatter with date, duration, tags &mdash; queryable with built-in Bases or Dataview</li>
-                    <li><strong>Tasks-ready:</strong> Action items as standard <code>- [ ]</code> checkboxes, bidirectional sync</li>
-                    <li><strong>Semantic search:</strong> Ask questions across all meetings by meaning, not just keywords</li>
+                    <li data-i18n="tldr_1"><strong>The gap:</strong> Meetings are your vault's biggest blind spot &mdash; decisions and context that exist nowhere in your PKM system</li>
+                    <li data-i18n="tldr_2"><strong>The fix:</strong> A recorder that writes native .md files directly into your vault folder</li>
+                    <li data-i18n="tldr_3"><strong>Bases &amp; Dataview-ready:</strong> YAML frontmatter with date, duration, tags &mdash; queryable with built-in Bases or Dataview</li>
+                    <li data-i18n="tldr_4"><strong>Tasks-ready:</strong> Action items as standard <code>- [ ]</code> checkboxes, bidirectional sync</li>
+                    <li data-i18n="tldr_5"><strong>Semantic search:</strong> Ask questions across all meetings by meaning, not just keywords</li>
                 </ul>
             </div>
 
-            <h2>What a Meeting Note Looks Like</h2>
+            <h2 data-i18n="h2_note">What a Meeting Note Looks Like</h2>
 
-            <p>Imagine you finish a Zoom call. A few seconds later, this file appears in your vault:</p>
+            <p data-i18n="note_p1">Imagine you finish a Zoom call. A few seconds later, this file appears in your vault:</p>
 
             <div class="code-block"><span class="code-comment">---</span>
 <span class="code-key">date:</span> <span class="code-string">2026-04-10 10:00</span>
@@ -242,9 +242,9 @@ Great. I have a concern about backwards compat though.
 <span class="code-speaker">**You**</span> (0:01:12)
 Good point. Let's set a deprecation timeline.</div>
 
-            <p>That's a real Obsidian note. You can tag it, link it to your project page, add your own annotations between sections. The audio file embeds as a playable audio widget &mdash; click play right inside the note to hear the exact tone of a discussion.</p>
+            <p data-i18n="note_p2">That's a real Obsidian note. You can tag it, link it to your project page, add your own annotations between sections. The audio file embeds as a playable audio widget &mdash; click play right inside the note to hear the exact tone of a discussion.</p>
 
-            <p>The file structure in your vault is clean:</p>
+            <p data-i18n="note_p3">The file structure in your vault is clean:</p>
 
             <div class="code-block"><span class="code-heading">My Vault/</span>
 <span class="code-heading">  Meetings/</span>              <span class="code-comment">&larr; point mono at this folder</span>
@@ -256,21 +256,21 @@ Good point. Let's set a deprecation timeline.</div>
       2026-04-03 Client Call.mp3
       2026-04-01 1-on-1 with Sarah.mp3</div>
 
-            <p>Flat files, sorted by date naturally. Audio tucked away in <code>_audio/</code> so your sidebar stays clean. No database, no proprietary format. Just markdown and mp3.</p>
+            <p data-i18n="note_p4">Flat files, sorted by date naturally. Audio tucked away in <code>_audio/</code> so your sidebar stays clean. No database, no proprietary format. Just markdown and mp3.</p>
 
-            <h2>Queryable with Bases and Dataview</h2>
+            <h2 data-i18n="h2_query">Queryable with Bases and Dataview</h2>
 
-            <p>Every meeting note has standard YAML frontmatter: <code>date</code>, <code>duration</code>, <code>tags</code>, <code>language</code>, and <code>mono_id</code>. Title is derived from the filename. Status is derived from which sections exist (has <code>## Transcript</code> = transcribed, has <code>## Notes</code> = summarized). That means two powerful ways to query them.</p>
+            <p data-i18n="query_p1">Every meeting note has standard YAML frontmatter: <code>date</code>, <code>duration</code>, <code>tags</code>, <code>language</code>, and <code>mono_id</code>. Title is derived from the filename. Status is derived from which sections exist (has <code>## Transcript</code> = transcribed, has <code>## Notes</code> = summarized). That means two powerful ways to query them.</p>
 
-            <h3>Obsidian Bases (built-in)</h3>
+            <h3 data-i18n="h3_bases">Obsidian Bases (built-in)</h3>
 
-            <p>Create a Base, point it at your Meetings folder. You get a sortable, filterable table with columns for date, duration, and tags. Edit properties inline &mdash; changes write directly to frontmatter.</p>
+            <p data-i18n="bases_p1">Create a Base, point it at your Meetings folder. You get a sortable, filterable table with columns for date, duration, and tags. Edit properties inline &mdash; changes write directly to frontmatter.</p>
 
-            <h3>Dataview (for power users)</h3>
+            <h3 data-i18n="h3_dataview">Dataview (for power users)</h3>
 
-            <p>If you prefer queries in code, Dataview works just as well:</p>
+            <p data-i18n="dataview_p1">If you prefer queries in code, Dataview works just as well:</p>
 
-            <p><strong>All meetings this week tagged #project-alpha:</strong></p>
+            <p data-i18n="dataview_q1"><strong>All meetings this week tagged #project-alpha:</strong></p>
 
             <div class="code-block"><span class="code-comment">```dataview</span>
 TABLE duration, tags
@@ -280,7 +280,7 @@ WHERE contains(tags, "project-alpha")
 SORT date DESC
 <span class="code-comment">```</span></div>
 
-            <p><strong>Meetings longer than 30 minutes that haven't been summarized:</strong></p>
+            <p data-i18n="dataview_q2"><strong>Meetings longer than 30 minutes that haven't been summarized:</strong></p>
 
             <div class="code-block"><span class="code-comment">```dataview</span>
 LIST
@@ -290,146 +290,146 @@ WHERE duration > "30:00"
 SORT date DESC
 <span class="code-comment">```</span></div>
 
-            <p>Both approaches work because the underlying data is the same: standard YAML frontmatter. Use Bases for quick visual browsing, Dataview for complex queries embedded in your project pages. Or both.</p>
+            <p data-i18n="query_p2">Both approaches work because the underlying data is the same: standard YAML frontmatter. Use Bases for quick visual browsing, Dataview for complex queries embedded in your project pages. Or both.</p>
 
-            <h2>Action Items That Work with Obsidian Tasks</h2>
+            <h2 data-i18n="h2_tasks">Action Items That Work with Obsidian Tasks</h2>
 
-            <p>This is the part that makes the biggest difference in practice.</p>
+            <p data-i18n="tasks_p1">This is the part that makes the biggest difference in practice.</p>
 
-            <p>Meeting action items are standard markdown checkboxes under <code>### Action Items</code> within the <code>## Notes</code> section. The format the Tasks plugin already queries natively:</p>
+            <p data-i18n="tasks_p2">Meeting action items are standard markdown checkboxes under <code>### Action Items</code> within the <code>## Notes</code> section. The format the Tasks plugin already queries natively:</p>
 
             <div class="code-block"><span class="code-checkbox">- [ ]</span> Draft v2 deprecation timeline
 <span class="code-checkbox">- [ ]</span> Update API docs for v3 endpoints
 <span class="code-checkbox">- [x]</span> Schedule stakeholder review</div>
 
-            <p>One Tasks query to see every uncompleted action item from every meeting this month:</p>
+            <p data-i18n="tasks_p3">One Tasks query to see every uncompleted action item from every meeting this month:</p>
 
             <div class="code-block"><span class="code-comment">```tasks</span>
 path includes Meetings
 not done
 <span class="code-comment">```</span></div>
 
-            <p>Check off an item in Obsidian. The recorder app sees the change. Check it off in the recorder app. Obsidian sees the change. Bidirectional &mdash; because it's the same file.</p>
+            <p data-i18n="tasks_p4">Check off an item in Obsidian. The recorder app sees the change. Check it off in the recorder app. Obsidian sees the change. Bidirectional &mdash; because it's the same file.</p>
 
-            <p>No more action items buried inside AI-generated summaries you never re-read. No more "wait, who was supposed to do that?" No more searching through three different tools to find what you committed to last Tuesday.</p>
+            <p data-i18n="tasks_p5">No more action items buried inside AI-generated summaries you never re-read. No more "wait, who was supposed to do that?" No more searching through three different tools to find what you committed to last Tuesday.</p>
 
             <div class="tip-box">
-                <p><strong>Why checkboxes, not YAML arrays:</strong> Obsidian Tasks queries <code>- [ ]</code> lines. YAML frontmatter arrays are invisible to it. By keeping action items in the body as checkboxes, they work with Tasks out of the box &mdash; no configuration, no workarounds.</p>
+                <p data-i18n="tasks_tip"><strong>Why checkboxes, not YAML arrays:</strong> Obsidian Tasks queries <code>- [ ]</code> lines. YAML frontmatter arrays are invisible to it. By keeping action items in the body as checkboxes, they work with Tasks out of the box &mdash; no configuration, no workarounds.</p>
             </div>
 
-            <h2>Embedded Audio Playback</h2>
+            <h2 data-i18n="h2_audio">Embedded Audio Playback</h2>
 
-            <p>Each meeting note embeds its audio file with Obsidian's standard image/file embed syntax:</p>
+            <p data-i18n="audio_p1">Each meeting note embeds its audio file with Obsidian's standard image/file embed syntax:</p>
 
             <div class="code-block">![](_audio/2026-04-10%20Weekly%20Standup.mp3)</div>
 
-            <p>Obsidian renders this as a playable audio widget right inside the note. You're reading the transcript, you hit a section where tone matters &mdash; a disagreement, a hesitation, a joke that changed the direction of the conversation &mdash; and you click play right there.</p>
+            <p data-i18n="audio_p2">Obsidian renders this as a playable audio widget right inside the note. You're reading the transcript, you hit a section where tone matters &mdash; a disagreement, a hesitation, a joke that changed the direction of the conversation &mdash; and you click play right there.</p>
 
             <figure class="article-figure">
                 <img src="images/obsidian.png" alt="A mono recording opened as a markdown note in Obsidian, showing frontmatter properties, audio player, summary, and key points" loading="lazy">
-                <figcaption>A mono recording in Obsidian — frontmatter, audio player, AI summary, all in one note</figcaption>
+                <figcaption data-i18n="audio_caption">A mono recording in Obsidian — frontmatter, audio player, AI summary, all in one note</figcaption>
             </figure>
 
-            <p>Audio files live in a <code>_audio/</code> subfolder. The underscore prefix sorts it to the top and out of the way. Your sidebar shows clean, date-sorted note titles, not a mix of markdown and mp3 files.</p>
+            <p data-i18n="audio_p3">Audio files live in a <code>_audio/</code> subfolder. The underscore prefix sorts it to the top and out of the way. Your sidebar shows clean, date-sorted note titles, not a mix of markdown and mp3 files.</p>
 
-            <h2>Semantic Search</h2>
+            <h2 data-i18n="h2_search">Semantic Search</h2>
 
-            <p>Mono chunks transcripts and embeds them into a local vector database. Search by meaning, not just keywords:</p>
+            <p data-i18n="search_p1">mono chunks transcripts and embeds them into a local vector database. Search by meaning, not just keywords:</p>
 
             <ul>
-                <li><strong>"What did we decide about the API timeline?"</strong> &mdash; finds the discussion even if nobody said "API timeline" exactly</li>
-                <li><strong>"What's Sarah's concern about the migration?"</strong> &mdash; surfaces every relevant mention across multiple meetings</li>
-                <li><strong>"Prep me for the project review"</strong> &mdash; pulls together decisions, open items, and context from the last month of calls</li>
+                <li data-i18n="search_li1"><strong>"What did we decide about the API timeline?"</strong> &mdash; finds the discussion even if nobody said "API timeline" exactly</li>
+                <li data-i18n="search_li2"><strong>"What's Sarah's concern about the migration?"</strong> &mdash; surfaces every relevant mention across multiple meetings</li>
+                <li data-i18n="search_li3"><strong>"Prep me for the project review"</strong> &mdash; pulls together decisions, open items, and context from the last month of calls</li>
             </ul>
 
-            <p>This complements Obsidian's search rather than replacing it. Obsidian finds the notes; semantic search finds the moments within them.</p>
+            <p data-i18n="search_p2">This complements Obsidian's search rather than replacing it. Obsidian finds the notes; semantic search finds the moments within them.</p>
 
-            <p>And because the vector index is stored in a hidden <code>.mono/</code> folder inside your meetings directory, it's invisible to Obsidian. Delete it, and it gets rebuilt from your markdown files. Your notes are always the source of truth &mdash; the search index is just a cache.</p>
+            <p data-i18n="search_p3">And because the vector index is stored in a hidden <code>.mono/</code> folder inside your meetings directory, it's invisible to Obsidian. Delete it, and it gets rebuilt from your markdown files. Your notes are always the source of truth &mdash; the search index is just a cache.</p>
 
-            <h2>Data Ownership</h2>
+            <h2 data-i18n="h2_ownership">Data Ownership</h2>
 
-            <p>Every meeting is a plain <code>.md</code> and <code>.mp3</code> file. No database, no proprietary format, no cloud account required.</p>
+            <p data-i18n="ownership_p1">Every meeting is a plain <code>.md</code> and <code>.mp3</code> file. No database, no proprietary format, no cloud account required.</p>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Cloud recorders</th>
-                            <th>Markdown-first</th>
+                            <th data-i18n="th_cloud">Cloud recorders</th>
+                            <th data-i18n="th_md">Markdown-first</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Your data lives...</td>
-                            <td>On their servers</td>
-                            <td>On your disk</td>
+                            <td data-i18n="row1_label">Your data lives...</td>
+                            <td data-i18n="row1_cloud">On their servers</td>
+                            <td data-i18n="row1_md">On your disk</td>
                         </tr>
                         <tr>
-                            <td>Export format</td>
-                            <td>PDF, plain text, or nothing</td>
-                            <td>Already markdown</td>
+                            <td data-i18n="row2_label">Export format</td>
+                            <td data-i18n="row2_cloud">PDF, plain text, or nothing</td>
+                            <td data-i18n="row2_md">Already markdown</td>
                         </tr>
                         <tr>
-                            <td>Obsidian integration</td>
-                            <td>Manual copy-paste</td>
-                            <td>Native &mdash; files appear in your vault</td>
+                            <td data-i18n="row3_label">Obsidian integration</td>
+                            <td data-i18n="row3_cloud">Manual copy-paste</td>
+                            <td data-i18n="row3_md">Native &mdash; files appear in your vault</td>
                         </tr>
                         <tr>
-                            <td>Bases / Dataview / Tasks</td>
-                            <td>Not possible</td>
-                            <td>Works out of the box</td>
+                            <td data-i18n="row4_label">Bases / Dataview / Tasks</td>
+                            <td data-i18n="row4_cloud">Not possible</td>
+                            <td data-i18n="row4_md">Works out of the box</td>
                         </tr>
                         <tr>
-                            <td>If you stop paying</td>
-                            <td>Scramble to export before lockout</td>
-                            <td>Nothing changes &mdash; files are yours</td>
+                            <td data-i18n="row5_label">If you stop paying</td>
+                            <td data-i18n="row5_cloud">Scramble to export before lockout</td>
+                            <td data-i18n="row5_md">Nothing changes &mdash; files are yours</td>
                         </tr>
                         <tr class="highlight-row">
-                            <td>If the app disappears</td>
-                            <td>Your recordings may too</td>
-                            <td>You still have .md + .mp3 files</td>
+                            <td data-i18n="row6_label">If the app disappears</td>
+                            <td data-i18n="row6_cloud">Your recordings may too</td>
+                            <td data-i18n="row6_md">You still have .md + .mp3 files</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>Bidirectional Sync</h2>
+            <h2 data-i18n="h2_sync">Bidirectional Sync</h2>
 
-            <p>mono watches your meetings folder. Edits in Obsidian sync back automatically:</p>
+            <p data-i18n="sync_p1">mono watches your meetings folder. Edits in Obsidian sync back automatically:</p>
 
             <ul>
-                <li><strong>Add a tag</strong> in frontmatter &rarr; the recorder app's library reflects it</li>
-                <li><strong>Check off an action item</strong> &rarr; the recorder app sees it as done</li>
-                <li><strong>Rename the file</strong> &rarr; the recorder renames the audio file to match</li>
-                <li><strong>Edit the transcript</strong> &rarr; the recorder re-indexes it for semantic search</li>
+                <li data-i18n="sync_li1"><strong>Add a tag</strong> in frontmatter &rarr; the recorder app's library reflects it</li>
+                <li data-i18n="sync_li2"><strong>Check off an action item</strong> &rarr; the recorder app sees it as done</li>
+                <li data-i18n="sync_li3"><strong>Rename the file</strong> &rarr; the recorder renames the audio file to match</li>
+                <li data-i18n="sync_li4"><strong>Edit the transcript</strong> &rarr; the recorder re-indexes it for semantic search</li>
             </ul>
 
-            <p>Your own annotations are preserved. Add notes between sections, links to project pages, block references &mdash; mono won't overwrite them.</p>
+            <p data-i18n="sync_p2">Your own annotations are preserved. Add notes between sections, links to project pages, block references &mdash; mono won't overwrite them.</p>
 
-            <h2>Setup</h2>
+            <h2 data-i18n="h2_setup">Setup</h2>
 
             <ol>
-                <li>Create a folder in your vault for meetings</li>
-                <li>Settings &rarr; Recordings folder &rarr; select that folder</li>
-                <li>Record a meeting &mdash; file appears when transcription finishes</li>
+                <li data-i18n="setup_li1">Create a folder in your vault for meetings</li>
+                <li data-i18n="setup_li2">Settings &rarr; Recordings folder &rarr; select that folder</li>
+                <li data-i18n="setup_li3">Record a meeting &mdash; file appears when transcription finishes</li>
             </ol>
 
-            <h2>Workflow Examples</h2>
+            <h2 data-i18n="h2_workflow">Workflow Examples</h2>
 
             <ul>
-                <li><strong>Daily note:</strong> Dataview query shows today's meetings automatically (filter by <code>date</code>)</li>
-                <li><strong>Project page:</strong> Tag meetings with a project tag, Dataview lists them chronologically</li>
-                <li><strong>Weekly review:</strong> Tasks query aggregates action items from all calls</li>
+                <li data-i18n="workflow_li1"><strong>Daily note:</strong> Dataview query shows today's meetings automatically (filter by <code>date</code>)</li>
+                <li data-i18n="workflow_li2"><strong>Project page:</strong> Tag meetings with a project tag, Dataview lists them chronologically</li>
+                <li data-i18n="workflow_li3"><strong>Weekly review:</strong> Tasks query aggregates action items from all calls</li>
             </ul>
 
             <div class="cta-card">
-                <p class="cta-title">Your meetings belong in your vault</p>
-                <p class="cta-sub">mono records any meeting app, transcribes locally with Whisper, and writes native markdown files directly into your Obsidian vault. One recording free, no account needed.</p>
+                <p class="cta-title" data-i18n="cta_title">Your meetings belong in your vault</p>
+                <p class="cta-sub" data-i18n="cta_sub">mono records any meeting app, transcribes locally with Whisper, and writes native markdown files directly into your Obsidian vault. One recording free, no account needed.</p>
                 <div class="cta-buttons">
                     <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO"
-                       class="cta-btn-primary" target="_blank" rel="noopener sponsored">Buy mono &mdash; $50</a>
-                    <a href="../?buy" class="cta-btn-secondary">Download free</a>
+                       class="cta-btn-primary" target="_blank" rel="noopener sponsored" data-i18n="cta_buy">Buy mono &mdash; $50</a>
+                    <a href="../?buy" class="cta-btn-secondary" data-i18n="cta_download">Download free</a>
                 </div>
             </div>
 
@@ -438,6 +438,558 @@ not done
 
     <script>
         if (window.initFoldEffect) window.initFoldEffect();
+    </script>
+
+    <script>
+    // Translations matching the rest of the blog. English is the static default
+    // and is also listed here in full so switching back restores every string.
+    // Code-block mockups (markdown/Dataview/Tasks examples) stay in English.
+    const translations = {
+        en: {
+            'back_link': '← blog',
+            'category': '[Guide]',
+            'title': 'How to Turn Your Obsidian Vault into a Meeting Knowledge Base',
+            'meta': 'Apr 10, 2026 · 5 min read · By Daniil Lefanov',
+            'intro_p1': 'Meetings are the one knowledge source that doesn\'t fit into Obsidian. Cloud recorders like Otter and Fireflies store transcripts behind a login, in their own format. Export is a PDF or plain text dump you\'d have to reformat.',
+            'intro_p2': 'mono writes recordings directly as markdown files in your vault — YAML frontmatter, AI summary, action item checkboxes, full transcript. No export step, no copy-paste.',
+            'tldr_label': 'TL;DR',
+            'tldr_1': '<strong>The gap:</strong> Meetings are your vault\'s biggest blind spot — decisions and context that exist nowhere in your PKM system',
+            'tldr_2': '<strong>The fix:</strong> A recorder that writes native .md files directly into your vault folder',
+            'tldr_3': '<strong>Bases &amp; Dataview-ready:</strong> YAML frontmatter with date, duration, tags — queryable with built-in Bases or Dataview',
+            'tldr_4': '<strong>Tasks-ready:</strong> Action items as standard <code>- [ ]</code> checkboxes, bidirectional sync',
+            'tldr_5': '<strong>Semantic search:</strong> Ask questions across all meetings by meaning, not just keywords',
+            'h2_note': 'What a Meeting Note Looks Like',
+            'note_p1': 'Imagine you finish a Zoom call. A few seconds later, this file appears in your vault:',
+            'note_p2': 'That\'s a real Obsidian note. You can tag it, link it to your project page, add your own annotations between sections. The audio file embeds as a playable audio widget — click play right inside the note to hear the exact tone of a discussion.',
+            'note_p3': 'The file structure in your vault is clean:',
+            'note_p4': 'Flat files, sorted by date naturally. Audio tucked away in <code>_audio/</code> so your sidebar stays clean. No database, no proprietary format. Just markdown and mp3.',
+            'h2_query': 'Queryable with Bases and Dataview',
+            'query_p1': 'Every meeting note has standard YAML frontmatter: <code>date</code>, <code>duration</code>, <code>tags</code>, <code>language</code>, and <code>mono_id</code>. Title is derived from the filename. Status is derived from which sections exist (has <code>## Transcript</code> = transcribed, has <code>## Notes</code> = summarized). That means two powerful ways to query them.',
+            'h3_bases': 'Obsidian Bases (built-in)',
+            'bases_p1': 'Create a Base, point it at your Meetings folder. You get a sortable, filterable table with columns for date, duration, and tags. Edit properties inline — changes write directly to frontmatter.',
+            'h3_dataview': 'Dataview (for power users)',
+            'dataview_p1': 'If you prefer queries in code, Dataview works just as well:',
+            'dataview_q1': '<strong>All meetings this week tagged #project-alpha:</strong>',
+            'dataview_q2': '<strong>Meetings longer than 30 minutes that haven\'t been summarized:</strong>',
+            'query_p2': 'Both approaches work because the underlying data is the same: standard YAML frontmatter. Use Bases for quick visual browsing, Dataview for complex queries embedded in your project pages. Or both.',
+            'h2_tasks': 'Action Items That Work with Obsidian Tasks',
+            'tasks_p1': 'This is the part that makes the biggest difference in practice.',
+            'tasks_p2': 'Meeting action items are standard markdown checkboxes under <code>### Action Items</code> within the <code>## Notes</code> section. The format the Tasks plugin already queries natively:',
+            'tasks_p3': 'One Tasks query to see every uncompleted action item from every meeting this month:',
+            'tasks_p4': 'Check off an item in Obsidian. The recorder app sees the change. Check it off in the recorder app. Obsidian sees the change. Bidirectional — because it\'s the same file.',
+            'tasks_p5': 'No more action items buried inside AI-generated summaries you never re-read. No more "wait, who was supposed to do that?" No more searching through three different tools to find what you committed to last Tuesday.',
+            'tasks_tip': '<strong>Why checkboxes, not YAML arrays:</strong> Obsidian Tasks queries <code>- [ ]</code> lines. YAML frontmatter arrays are invisible to it. By keeping action items in the body as checkboxes, they work with Tasks out of the box — no configuration, no workarounds.',
+            'h2_audio': 'Embedded Audio Playback',
+            'audio_p1': 'Each meeting note embeds its audio file with Obsidian\'s standard image/file embed syntax:',
+            'audio_p2': 'Obsidian renders this as a playable audio widget right inside the note. You\'re reading the transcript, you hit a section where tone matters — a disagreement, a hesitation, a joke that changed the direction of the conversation — and you click play right there.',
+            'audio_caption': 'A mono recording in Obsidian — frontmatter, audio player, AI summary, all in one note',
+            'audio_p3': 'Audio files live in a <code>_audio/</code> subfolder. The underscore prefix sorts it to the top and out of the way. Your sidebar shows clean, date-sorted note titles, not a mix of markdown and mp3 files.',
+            'h2_search': 'Semantic Search',
+            'search_p1': 'mono chunks transcripts and embeds them into a local vector database. Search by meaning, not just keywords:',
+            'search_li1': '<strong>"What did we decide about the API timeline?"</strong> — finds the discussion even if nobody said "API timeline" exactly',
+            'search_li2': '<strong>"What\'s Sarah\'s concern about the migration?"</strong> — surfaces every relevant mention across multiple meetings',
+            'search_li3': '<strong>"Prep me for the project review"</strong> — pulls together decisions, open items, and context from the last month of calls',
+            'search_p2': 'This complements Obsidian\'s search rather than replacing it. Obsidian finds the notes; semantic search finds the moments within them.',
+            'search_p3': 'And because the vector index is stored in a hidden <code>.mono/</code> folder inside your meetings directory, it\'s invisible to Obsidian. Delete it, and it gets rebuilt from your markdown files. Your notes are always the source of truth — the search index is just a cache.',
+            'h2_ownership': 'Data Ownership',
+            'ownership_p1': 'Every meeting is a plain <code>.md</code> and <code>.mp3</code> file. No database, no proprietary format, no cloud account required.',
+            'th_cloud': 'Cloud recorders',
+            'th_md': 'Markdown-first',
+            'row1_label': 'Your data lives...',
+            'row1_cloud': 'On their servers',
+            'row1_md': 'On your disk',
+            'row2_label': 'Export format',
+            'row2_cloud': 'PDF, plain text, or nothing',
+            'row2_md': 'Already markdown',
+            'row3_label': 'Obsidian integration',
+            'row3_cloud': 'Manual copy-paste',
+            'row3_md': 'Native — files appear in your vault',
+            'row4_label': 'Bases / Dataview / Tasks',
+            'row4_cloud': 'Not possible',
+            'row4_md': 'Works out of the box',
+            'row5_label': 'If you stop paying',
+            'row5_cloud': 'Scramble to export before lockout',
+            'row5_md': 'Nothing changes — files are yours',
+            'row6_label': 'If the app disappears',
+            'row6_cloud': 'Your recordings may too',
+            'row6_md': 'You still have .md + .mp3 files',
+            'h2_sync': 'Bidirectional Sync',
+            'sync_p1': 'mono watches your meetings folder. Edits in Obsidian sync back automatically:',
+            'sync_li1': '<strong>Add a tag</strong> in frontmatter → the recorder app\'s library reflects it',
+            'sync_li2': '<strong>Check off an action item</strong> → the recorder app sees it as done',
+            'sync_li3': '<strong>Rename the file</strong> → the recorder renames the audio file to match',
+            'sync_li4': '<strong>Edit the transcript</strong> → the recorder re-indexes it for semantic search',
+            'sync_p2': 'Your own annotations are preserved. Add notes between sections, links to project pages, block references — mono won\'t overwrite them.',
+            'h2_setup': 'Setup',
+            'setup_li1': 'Create a folder in your vault for meetings',
+            'setup_li2': 'Settings → Recordings folder → select that folder',
+            'setup_li3': 'Record a meeting — file appears when transcription finishes',
+            'h2_workflow': 'Workflow Examples',
+            'workflow_li1': '<strong>Daily note:</strong> Dataview query shows today\'s meetings automatically (filter by <code>date</code>)',
+            'workflow_li2': '<strong>Project page:</strong> Tag meetings with a project tag, Dataview lists them chronologically',
+            'workflow_li3': '<strong>Weekly review:</strong> Tasks query aggregates action items from all calls',
+            'cta_title': 'Your meetings belong in your vault',
+            'cta_sub': 'mono records any meeting app, transcribes locally with Whisper, and writes native markdown files directly into your Obsidian vault. One recording free, no account needed.',
+            'cta_buy': 'Buy mono — $50',
+            'cta_download': 'Download free'
+        },
+        es: {
+            'back_link': '← blog',
+            'category': '[Guía]',
+            'title': 'Cómo convertir tu bóveda de Obsidian en una base de conocimiento de reuniones',
+            'meta': '10 abr 2026 · 5 min de lectura · Por Daniil Lefanov',
+            'intro_p1': 'Las reuniones son la única fuente de conocimiento que no encaja en Obsidian. Los grabadores en la nube como Otter y Fireflies almacenan las transcripciones tras un inicio de sesión, en su propio formato. La exportación es un volcado en PDF o texto plano que tendrías que reformatear.',
+            'intro_p2': 'mono escribe las grabaciones directamente como archivos markdown en tu bóveda — frontmatter YAML, resumen con IA, casillas de tareas, transcripción completa. Sin paso de exportación, sin copiar y pegar.',
+            'tldr_label': 'Resumen',
+            'tldr_1': '<strong>El vacío:</strong> Las reuniones son el mayor punto ciego de tu bóveda — decisiones y contexto que no existen en ningún lugar de tu sistema PKM',
+            'tldr_2': '<strong>La solución:</strong> Un grabador que escribe archivos .md nativos directamente en la carpeta de tu bóveda',
+            'tldr_3': '<strong>Listo para Bases y Dataview:</strong> frontmatter YAML con fecha, duración y etiquetas — consultable con Bases integrado o Dataview',
+            'tldr_4': '<strong>Listo para Tasks:</strong> Tareas como casillas estándar <code>- [ ]</code>, sincronización bidireccional',
+            'tldr_5': '<strong>Búsqueda semántica:</strong> Haz preguntas a todas tus reuniones por significado, no solo por palabras clave',
+            'h2_note': 'Cómo se ve una nota de reunión',
+            'note_p1': 'Imagina que terminas una llamada de Zoom. Unos segundos después, este archivo aparece en tu bóveda:',
+            'note_p2': 'Esa es una nota real de Obsidian. Puedes etiquetarla, enlazarla a la página de tu proyecto, añadir tus propias anotaciones entre secciones. El archivo de audio se incrusta como un reproductor — haz clic en reproducir dentro de la nota para oír el tono exacto de una conversación.',
+            'note_p3': 'La estructura de archivos en tu bóveda es limpia:',
+            'note_p4': 'Archivos planos, ordenados por fecha de forma natural. El audio guardado en <code>_audio/</code> para que tu barra lateral quede limpia. Sin base de datos, sin formato propietario. Solo markdown y mp3.',
+            'h2_query': 'Consultable con Bases y Dataview',
+            'query_p1': 'Cada nota de reunión tiene frontmatter YAML estándar: <code>date</code>, <code>duration</code>, <code>tags</code>, <code>language</code> y <code>mono_id</code>. El título se deriva del nombre del archivo. El estado se deriva de qué secciones existen (tiene <code>## Transcript</code> = transcrita, tiene <code>## Notes</code> = resumida). Eso significa dos formas potentes de consultarlas.',
+            'h3_bases': 'Obsidian Bases (integrado)',
+            'bases_p1': 'Crea una Base y apúntala a tu carpeta de Reuniones. Obtienes una tabla ordenable y filtrable con columnas de fecha, duración y etiquetas. Edita propiedades en línea — los cambios se escriben directamente en el frontmatter.',
+            'h3_dataview': 'Dataview (para usuarios avanzados)',
+            'dataview_p1': 'Si prefieres consultas en código, Dataview funciona igual de bien:',
+            'dataview_q1': '<strong>Todas las reuniones de esta semana etiquetadas con #project-alpha:</strong>',
+            'dataview_q2': '<strong>Reuniones de más de 30 minutos que no se han resumido:</strong>',
+            'query_p2': 'Ambos enfoques funcionan porque los datos subyacentes son los mismos: frontmatter YAML estándar. Usa Bases para una navegación visual rápida, Dataview para consultas complejas incrustadas en las páginas de tu proyecto. O ambos.',
+            'h2_tasks': 'Tareas que funcionan con Obsidian Tasks',
+            'tasks_p1': 'Esta es la parte que marca la mayor diferencia en la práctica.',
+            'tasks_p2': 'Las tareas de la reunión son casillas markdown estándar bajo <code>### Action Items</code> dentro de la sección <code>## Notes</code>. El formato que el plugin Tasks ya consulta de forma nativa:',
+            'tasks_p3': 'Una consulta de Tasks para ver cada tarea sin completar de cada reunión de este mes:',
+            'tasks_p4': 'Marca un elemento en Obsidian. La app de grabación ve el cambio. Márcalo en la app de grabación. Obsidian ve el cambio. Bidireccional — porque es el mismo archivo.',
+            'tasks_p5': 'Se acabaron las tareas enterradas en resúmenes generados por IA que nunca vuelves a leer. Se acabó el "espera, ¿quién tenía que hacer eso?". Se acabó buscar en tres herramientas distintas lo que te comprometiste a hacer el martes pasado.',
+            'tasks_tip': '<strong>Por qué casillas y no arrays YAML:</strong> Obsidian Tasks consulta líneas <code>- [ ]</code>. Los arrays del frontmatter YAML le son invisibles. Al mantener las tareas en el cuerpo como casillas, funcionan con Tasks de inmediato — sin configuración, sin apaños.',
+            'h2_audio': 'Reproducción de audio incrustada',
+            'audio_p1': 'Cada nota de reunión incrusta su archivo de audio con la sintaxis estándar de incrustación de imagen/archivo de Obsidian:',
+            'audio_p2': 'Obsidian lo muestra como un reproductor de audio dentro de la nota. Estás leyendo la transcripción, llegas a una parte donde el tono importa — un desacuerdo, una duda, una broma que cambió el rumbo de la conversación — y haces clic en reproducir justo ahí.',
+            'audio_caption': 'Una grabación de mono en Obsidian — frontmatter, reproductor de audio, resumen con IA, todo en una nota',
+            'audio_p3': 'Los archivos de audio viven en una subcarpeta <code>_audio/</code>. El prefijo de guion bajo la ordena arriba y fuera del camino. Tu barra lateral muestra títulos de notas limpios y ordenados por fecha, no una mezcla de archivos markdown y mp3.',
+            'h2_search': 'Búsqueda semántica',
+            'search_p1': 'mono divide las transcripciones en fragmentos y las incrusta en una base de datos vectorial local. Busca por significado, no solo por palabras clave:',
+            'search_li1': '<strong>"¿Qué decidimos sobre el calendario de la API?"</strong> — encuentra la conversación aunque nadie dijera "calendario de la API" exactamente',
+            'search_li2': '<strong>"¿Cuál es la preocupación de Sarah sobre la migración?"</strong> — saca a la luz cada mención relevante en varias reuniones',
+            'search_li3': '<strong>"Prepárame para la revisión del proyecto"</strong> — reúne decisiones, asuntos pendientes y contexto del último mes de llamadas',
+            'search_p2': 'Esto complementa la búsqueda de Obsidian en lugar de reemplazarla. Obsidian encuentra las notas; la búsqueda semántica encuentra los momentos dentro de ellas.',
+            'search_p3': 'Y como el índice vectorial se guarda en una carpeta oculta <code>.mono/</code> dentro de tu directorio de reuniones, es invisible para Obsidian. Bórralo y se reconstruye a partir de tus archivos markdown. Tus notas son siempre la fuente de verdad — el índice de búsqueda es solo una caché.',
+            'h2_ownership': 'Propiedad de los datos',
+            'ownership_p1': 'Cada reunión es un simple archivo <code>.md</code> y <code>.mp3</code>. Sin base de datos, sin formato propietario, sin cuenta en la nube.',
+            'th_cloud': 'Grabadores en la nube',
+            'th_md': 'Markdown primero',
+            'row1_label': 'Tus datos viven...',
+            'row1_cloud': 'En sus servidores',
+            'row1_md': 'En tu disco',
+            'row2_label': 'Formato de exportación',
+            'row2_cloud': 'PDF, texto plano o nada',
+            'row2_md': 'Ya es markdown',
+            'row3_label': 'Integración con Obsidian',
+            'row3_cloud': 'Copiar y pegar manual',
+            'row3_md': 'Nativa — los archivos aparecen en tu bóveda',
+            'row4_label': 'Bases / Dataview / Tasks',
+            'row4_cloud': 'No es posible',
+            'row4_md': 'Funciona de inmediato',
+            'row5_label': 'Si dejas de pagar',
+            'row5_cloud': 'Corre a exportar antes del bloqueo',
+            'row5_md': 'Nada cambia — los archivos son tuyos',
+            'row6_label': 'Si la app desaparece',
+            'row6_cloud': 'Tus grabaciones también pueden',
+            'row6_md': 'Sigues teniendo archivos .md + .mp3',
+            'h2_sync': 'Sincronización bidireccional',
+            'sync_p1': 'mono vigila tu carpeta de reuniones. Las ediciones en Obsidian se sincronizan de vuelta automáticamente:',
+            'sync_li1': '<strong>Añade una etiqueta</strong> en el frontmatter → la biblioteca de la app lo refleja',
+            'sync_li2': '<strong>Marca una tarea</strong> → la app la ve como completada',
+            'sync_li3': '<strong>Renombra el archivo</strong> → el grabador renombra el archivo de audio para que coincida',
+            'sync_li4': '<strong>Edita la transcripción</strong> → el grabador la reindexa para la búsqueda semántica',
+            'sync_p2': 'Tus propias anotaciones se conservan. Añade notas entre secciones, enlaces a páginas de proyecto, referencias de bloque — mono no las sobrescribirá.',
+            'h2_setup': 'Configuración',
+            'setup_li1': 'Crea una carpeta en tu bóveda para las reuniones',
+            'setup_li2': 'Ajustes → Carpeta de grabaciones → selecciona esa carpeta',
+            'setup_li3': 'Graba una reunión — el archivo aparece cuando termina la transcripción',
+            'h2_workflow': 'Ejemplos de flujo de trabajo',
+            'workflow_li1': '<strong>Nota diaria:</strong> una consulta de Dataview muestra las reuniones de hoy automáticamente (filtra por <code>date</code>)',
+            'workflow_li2': '<strong>Página de proyecto:</strong> etiqueta las reuniones con una etiqueta de proyecto, Dataview las lista cronológicamente',
+            'workflow_li3': '<strong>Revisión semanal:</strong> una consulta de Tasks agrupa las tareas de todas las llamadas',
+            'cta_title': 'Tus reuniones pertenecen a tu bóveda',
+            'cta_sub': 'mono graba cualquier app de reuniones, transcribe localmente con Whisper y escribe archivos markdown nativos directamente en tu bóveda de Obsidian. Una grabación gratis, sin necesidad de cuenta.',
+            'cta_buy': 'Compra mono — $50',
+            'cta_download': 'Descargar gratis'
+        },
+        fr: {
+            'back_link': '← blog',
+            'category': '[Guide]',
+            'title': 'Comment transformer votre coffre Obsidian en base de connaissances de réunions',
+            'meta': '10 avril 2026 · 5 min de lecture · Par Daniil Lefanov',
+            'intro_p1': 'Les réunions sont la seule source de connaissances qui ne rentre pas dans Obsidian. Les enregistreurs cloud comme Otter et Fireflies stockent les transcriptions derrière une connexion, dans leur propre format. L\'export est un PDF ou un texte brut que vous devriez reformater.',
+            'intro_p2': 'mono écrit les enregistrements directement sous forme de fichiers markdown dans votre coffre — frontmatter YAML, résumé par IA, cases de tâches, transcription complète. Pas d\'étape d\'export, pas de copier-coller.',
+            'tldr_label': 'En bref',
+            'tldr_1': '<strong>Le manque :</strong> Les réunions sont le plus grand angle mort de votre coffre — des décisions et un contexte qui n\'existent nulle part dans votre système PKM',
+            'tldr_2': '<strong>La solution :</strong> Un enregistreur qui écrit des fichiers .md natifs directement dans le dossier de votre coffre',
+            'tldr_3': '<strong>Prêt pour Bases et Dataview :</strong> frontmatter YAML avec date, durée, étiquettes — interrogeable avec Bases intégré ou Dataview',
+            'tldr_4': '<strong>Prêt pour Tasks :</strong> Tâches sous forme de cases standard <code>- [ ]</code>, synchronisation bidirectionnelle',
+            'tldr_5': '<strong>Recherche sémantique :</strong> Posez des questions à toutes vos réunions par le sens, pas seulement par mots-clés',
+            'h2_note': 'À quoi ressemble une note de réunion',
+            'note_p1': 'Imaginez que vous terminez un appel Zoom. Quelques secondes plus tard, ce fichier apparaît dans votre coffre :',
+            'note_p2': 'C\'est une vraie note Obsidian. Vous pouvez l\'étiqueter, la lier à la page de votre projet, ajouter vos propres annotations entre les sections. Le fichier audio s\'intègre comme un lecteur — cliquez sur lecture dans la note pour entendre le ton exact d\'une discussion.',
+            'note_p3': 'La structure des fichiers dans votre coffre est propre :',
+            'note_p4': 'Des fichiers plats, triés par date naturellement. L\'audio rangé dans <code>_audio/</code> pour que votre barre latérale reste propre. Pas de base de données, pas de format propriétaire. Juste du markdown et du mp3.',
+            'h2_query': 'Interrogeable avec Bases et Dataview',
+            'query_p1': 'Chaque note de réunion a un frontmatter YAML standard : <code>date</code>, <code>duration</code>, <code>tags</code>, <code>language</code> et <code>mono_id</code>. Le titre est dérivé du nom de fichier. Le statut est dérivé des sections présentes (a <code>## Transcript</code> = transcrite, a <code>## Notes</code> = résumée). Cela offre deux façons puissantes de les interroger.',
+            'h3_bases': 'Obsidian Bases (intégré)',
+            'bases_p1': 'Créez une Base, pointez-la sur votre dossier Réunions. Vous obtenez un tableau triable et filtrable avec des colonnes pour la date, la durée et les étiquettes. Modifiez les propriétés en ligne — les changements s\'écrivent directement dans le frontmatter.',
+            'h3_dataview': 'Dataview (pour les utilisateurs avancés)',
+            'dataview_p1': 'Si vous préférez les requêtes en code, Dataview fonctionne tout aussi bien :',
+            'dataview_q1': '<strong>Toutes les réunions de cette semaine étiquetées #project-alpha :</strong>',
+            'dataview_q2': '<strong>Réunions de plus de 30 minutes qui n\'ont pas été résumées :</strong>',
+            'query_p2': 'Les deux approches fonctionnent car les données sous-jacentes sont les mêmes : un frontmatter YAML standard. Utilisez Bases pour une navigation visuelle rapide, Dataview pour des requêtes complexes intégrées dans les pages de votre projet. Ou les deux.',
+            'h2_tasks': 'Des tâches qui fonctionnent avec Obsidian Tasks',
+            'tasks_p1': 'C\'est la partie qui fait la plus grande différence en pratique.',
+            'tasks_p2': 'Les tâches de réunion sont des cases markdown standard sous <code>### Action Items</code> dans la section <code>## Notes</code>. Le format que le plugin Tasks interroge déjà nativement :',
+            'tasks_p3': 'Une requête Tasks pour voir chaque tâche non terminée de chaque réunion ce mois-ci :',
+            'tasks_p4': 'Cochez un élément dans Obsidian. L\'application d\'enregistrement voit le changement. Cochez-le dans l\'application. Obsidian voit le changement. Bidirectionnel — parce que c\'est le même fichier.',
+            'tasks_p5': 'Fini les tâches enfouies dans des résumés générés par IA que vous ne relisez jamais. Fini le « attendez, qui devait faire ça ? ». Fini de chercher dans trois outils différents ce que vous vous étiez engagé à faire mardi dernier.',
+            'tasks_tip': '<strong>Pourquoi des cases et non des tableaux YAML :</strong> Obsidian Tasks interroge les lignes <code>- [ ]</code>. Les tableaux du frontmatter YAML lui sont invisibles. En gardant les tâches dans le corps sous forme de cases, elles fonctionnent avec Tasks d\'emblée — sans configuration, sans contournement.',
+            'h2_audio': 'Lecture audio intégrée',
+            'audio_p1': 'Chaque note de réunion intègre son fichier audio avec la syntaxe d\'intégration image/fichier standard d\'Obsidian :',
+            'audio_p2': 'Obsidian l\'affiche comme un lecteur audio dans la note. Vous lisez la transcription, vous arrivez à un passage où le ton compte — un désaccord, une hésitation, une blague qui a changé le cours de la conversation — et vous cliquez sur lecture juste là.',
+            'audio_caption': 'Un enregistrement mono dans Obsidian — frontmatter, lecteur audio, résumé par IA, le tout dans une note',
+            'audio_p3': 'Les fichiers audio vivent dans un sous-dossier <code>_audio/</code>. Le préfixe de soulignement le trie en haut et hors du chemin. Votre barre latérale affiche des titres de notes propres, triés par date, pas un mélange de fichiers markdown et mp3.',
+            'h2_search': 'Recherche sémantique',
+            'search_p1': 'mono découpe les transcriptions en morceaux et les intègre dans une base de données vectorielle locale. Cherchez par le sens, pas seulement par mots-clés :',
+            'search_li1': '<strong>« Qu\'avons-nous décidé sur le calendrier de l\'API ? »</strong> — trouve la discussion même si personne n\'a dit « calendrier de l\'API » exactement',
+            'search_li2': '<strong>« Quelle est la préoccupation de Sarah à propos de la migration ? »</strong> — fait remonter chaque mention pertinente sur plusieurs réunions',
+            'search_li3': '<strong>« Prépare-moi pour la revue du projet »</strong> — rassemble décisions, points ouverts et contexte du dernier mois d\'appels',
+            'search_p2': 'Cela complète la recherche d\'Obsidian plutôt que de la remplacer. Obsidian trouve les notes ; la recherche sémantique trouve les moments à l\'intérieur.',
+            'search_p3': 'Et comme l\'index vectoriel est stocké dans un dossier caché <code>.mono/</code> à l\'intérieur de votre répertoire de réunions, il est invisible pour Obsidian. Supprimez-le, et il se reconstruit à partir de vos fichiers markdown. Vos notes sont toujours la source de vérité — l\'index de recherche n\'est qu\'un cache.',
+            'h2_ownership': 'Propriété des données',
+            'ownership_p1': 'Chaque réunion est un simple fichier <code>.md</code> et <code>.mp3</code>. Pas de base de données, pas de format propriétaire, pas de compte cloud requis.',
+            'th_cloud': 'Enregistreurs cloud',
+            'th_md': 'Markdown d\'abord',
+            'row1_label': 'Vos données vivent...',
+            'row1_cloud': 'Sur leurs serveurs',
+            'row1_md': 'Sur votre disque',
+            'row2_label': 'Format d\'export',
+            'row2_cloud': 'PDF, texte brut ou rien',
+            'row2_md': 'Déjà en markdown',
+            'row3_label': 'Intégration Obsidian',
+            'row3_cloud': 'Copier-coller manuel',
+            'row3_md': 'Native — les fichiers apparaissent dans votre coffre',
+            'row4_label': 'Bases / Dataview / Tasks',
+            'row4_cloud': 'Impossible',
+            'row4_md': 'Fonctionne d\'emblée',
+            'row5_label': 'Si vous arrêtez de payer',
+            'row5_cloud': 'Courez exporter avant le verrouillage',
+            'row5_md': 'Rien ne change — les fichiers sont à vous',
+            'row6_label': 'Si l\'app disparaît',
+            'row6_cloud': 'Vos enregistrements aussi, peut-être',
+            'row6_md': 'Vous avez toujours les fichiers .md + .mp3',
+            'h2_sync': 'Synchronisation bidirectionnelle',
+            'sync_p1': 'mono surveille votre dossier de réunions. Les modifications dans Obsidian se resynchronisent automatiquement :',
+            'sync_li1': '<strong>Ajoutez une étiquette</strong> dans le frontmatter → la bibliothèque de l\'app la reflète',
+            'sync_li2': '<strong>Cochez une tâche</strong> → l\'app la voit comme terminée',
+            'sync_li3': '<strong>Renommez le fichier</strong> → l\'enregistreur renomme le fichier audio pour correspondre',
+            'sync_li4': '<strong>Modifiez la transcription</strong> → l\'enregistreur la réindexe pour la recherche sémantique',
+            'sync_p2': 'Vos propres annotations sont préservées. Ajoutez des notes entre les sections, des liens vers des pages de projet, des références de bloc — mono ne les écrasera pas.',
+            'h2_setup': 'Configuration',
+            'setup_li1': 'Créez un dossier dans votre coffre pour les réunions',
+            'setup_li2': 'Paramètres → Dossier des enregistrements → sélectionnez ce dossier',
+            'setup_li3': 'Enregistrez une réunion — le fichier apparaît à la fin de la transcription',
+            'h2_workflow': 'Exemples de flux de travail',
+            'workflow_li1': '<strong>Note quotidienne :</strong> une requête Dataview affiche automatiquement les réunions du jour (filtrez par <code>date</code>)',
+            'workflow_li2': '<strong>Page de projet :</strong> étiquetez les réunions avec une étiquette de projet, Dataview les liste chronologiquement',
+            'workflow_li3': '<strong>Revue hebdomadaire :</strong> une requête Tasks regroupe les tâches de tous les appels',
+            'cta_title': 'Vos réunions ont leur place dans votre coffre',
+            'cta_sub': 'mono enregistre n\'importe quelle app de réunion, transcrit localement avec Whisper et écrit des fichiers markdown natifs directement dans votre coffre Obsidian. Un enregistrement gratuit, sans compte.',
+            'cta_buy': 'Acheter mono — 50 $',
+            'cta_download': 'Télécharger gratuitement'
+        },
+        de: {
+            'back_link': '← blog',
+            'category': '[Anleitung]',
+            'title': 'So machen Sie aus Ihrem Obsidian-Vault eine Meeting-Wissensdatenbank',
+            'meta': '10. April 2026 · 5 Min. Lesezeit · Von Daniil Lefanov',
+            'intro_p1': 'Meetings sind die eine Wissensquelle, die nicht in Obsidian passt. Cloud-Recorder wie Otter und Fireflies speichern Transkripte hinter einem Login, in ihrem eigenen Format. Der Export ist ein PDF- oder Klartext-Dump, den Sie neu formatieren müssten.',
+            'intro_p2': 'mono schreibt Aufnahmen direkt als Markdown-Dateien in Ihren Vault — YAML-Frontmatter, KI-Zusammenfassung, Aufgaben-Kästchen, vollständiges Transkript. Kein Export-Schritt, kein Kopieren und Einfügen.',
+            'tldr_label': 'Kurzfassung',
+            'tldr_1': '<strong>Die Lücke:</strong> Meetings sind der größte blinde Fleck Ihres Vaults — Entscheidungen und Kontext, die nirgends in Ihrem PKM-System existieren',
+            'tldr_2': '<strong>Die Lösung:</strong> Ein Recorder, der native .md-Dateien direkt in Ihren Vault-Ordner schreibt',
+            'tldr_3': '<strong>Bereit für Bases &amp; Dataview:</strong> YAML-Frontmatter mit Datum, Dauer, Tags — abfragbar mit integriertem Bases oder Dataview',
+            'tldr_4': '<strong>Bereit für Tasks:</strong> Aufgaben als Standard-Kästchen <code>- [ ]</code>, bidirektionale Synchronisierung',
+            'tldr_5': '<strong>Semantische Suche:</strong> Stellen Sie Fragen an alle Meetings nach Bedeutung, nicht nur nach Schlüsselwörtern',
+            'h2_note': 'Wie eine Meeting-Notiz aussieht',
+            'note_p1': 'Stellen Sie sich vor, Sie beenden einen Zoom-Anruf. Ein paar Sekunden später erscheint diese Datei in Ihrem Vault:',
+            'note_p2': 'Das ist eine echte Obsidian-Notiz. Sie können sie taggen, mit Ihrer Projektseite verlinken, eigene Anmerkungen zwischen den Abschnitten einfügen. Die Audiodatei wird als abspielbarer Player eingebettet — klicken Sie direkt in der Notiz auf Wiedergabe, um den genauen Ton einer Diskussion zu hören.',
+            'note_p3': 'Die Dateistruktur in Ihrem Vault ist sauber:',
+            'note_p4': 'Flache Dateien, natürlich nach Datum sortiert. Audio in <code>_audio/</code> verstaut, damit Ihre Seitenleiste sauber bleibt. Keine Datenbank, kein proprietäres Format. Nur Markdown und mp3.',
+            'h2_query': 'Abfragbar mit Bases und Dataview',
+            'query_p1': 'Jede Meeting-Notiz hat ein Standard-YAML-Frontmatter: <code>date</code>, <code>duration</code>, <code>tags</code>, <code>language</code> und <code>mono_id</code>. Der Titel wird aus dem Dateinamen abgeleitet. Der Status ergibt sich daraus, welche Abschnitte existieren (hat <code>## Transcript</code> = transkribiert, hat <code>## Notes</code> = zusammengefasst). Das ergibt zwei mächtige Wege, sie abzufragen.',
+            'h3_bases': 'Obsidian Bases (integriert)',
+            'bases_p1': 'Erstellen Sie eine Base und richten Sie sie auf Ihren Meetings-Ordner. Sie erhalten eine sortier- und filterbare Tabelle mit Spalten für Datum, Dauer und Tags. Bearbeiten Sie Eigenschaften inline — Änderungen werden direkt ins Frontmatter geschrieben.',
+            'h3_dataview': 'Dataview (für Power-User)',
+            'dataview_p1': 'Wenn Sie Abfragen im Code bevorzugen, funktioniert Dataview genauso gut:',
+            'dataview_q1': '<strong>Alle Meetings dieser Woche mit dem Tag #project-alpha:</strong>',
+            'dataview_q2': '<strong>Meetings länger als 30 Minuten, die nicht zusammengefasst wurden:</strong>',
+            'query_p2': 'Beide Ansätze funktionieren, weil die zugrunde liegenden Daten dieselben sind: Standard-YAML-Frontmatter. Nutzen Sie Bases zum schnellen visuellen Durchsehen, Dataview für komplexe Abfragen, eingebettet in Ihre Projektseiten. Oder beides.',
+            'h2_tasks': 'Aufgaben, die mit Obsidian Tasks funktionieren',
+            'tasks_p1': 'Das ist der Teil, der in der Praxis den größten Unterschied macht.',
+            'tasks_p2': 'Meeting-Aufgaben sind Standard-Markdown-Kästchen unter <code>### Action Items</code> innerhalb des Abschnitts <code>## Notes</code>. Das Format, das das Tasks-Plugin bereits nativ abfragt:',
+            'tasks_p3': 'Eine Tasks-Abfrage, um jede unerledigte Aufgabe aus jedem Meeting dieses Monats zu sehen:',
+            'tasks_p4': 'Haken Sie ein Element in Obsidian ab. Die Recorder-App sieht die Änderung. Haken Sie es in der Recorder-App ab. Obsidian sieht die Änderung. Bidirektional — weil es dieselbe Datei ist.',
+            'tasks_p5': 'Keine Aufgaben mehr, die in KI-generierten Zusammenfassungen vergraben sind, die Sie nie wieder lesen. Kein „Moment, wer sollte das machen?" mehr. Kein Durchsuchen von drei verschiedenen Tools mehr, um herauszufinden, wozu Sie sich letzten Dienstag verpflichtet haben.',
+            'tasks_tip': '<strong>Warum Kästchen statt YAML-Arrays:</strong> Obsidian Tasks fragt <code>- [ ]</code>-Zeilen ab. YAML-Frontmatter-Arrays sind für es unsichtbar. Indem Sie Aufgaben im Text als Kästchen halten, funktionieren sie mit Tasks sofort — keine Konfiguration, keine Umwege.',
+            'h2_audio': 'Eingebettete Audiowiedergabe',
+            'audio_p1': 'Jede Meeting-Notiz bettet ihre Audiodatei mit Obsidians Standard-Syntax zum Einbetten von Bildern/Dateien ein:',
+            'audio_p2': 'Obsidian zeigt dies als abspielbaren Audio-Player direkt in der Notiz. Sie lesen das Transkript, kommen an eine Stelle, an der der Ton zählt — eine Meinungsverschiedenheit, ein Zögern, ein Witz, der die Richtung des Gesprächs änderte — und klicken genau dort auf Wiedergabe.',
+            'audio_caption': 'Eine mono-Aufnahme in Obsidian — Frontmatter, Audio-Player, KI-Zusammenfassung, alles in einer Notiz',
+            'audio_p3': 'Audiodateien liegen in einem Unterordner <code>_audio/</code>. Das Unterstrich-Präfix sortiert ihn nach oben und aus dem Weg. Ihre Seitenleiste zeigt saubere, nach Datum sortierte Notiztitel, keine Mischung aus Markdown- und mp3-Dateien.',
+            'h2_search': 'Semantische Suche',
+            'search_p1': 'mono zerlegt Transkripte in Abschnitte und bettet sie in eine lokale Vektordatenbank ein. Suchen Sie nach Bedeutung, nicht nur nach Schlüsselwörtern:',
+            'search_li1': '<strong>„Was haben wir zum API-Zeitplan beschlossen?"</strong> — findet die Diskussion, selbst wenn niemand genau „API-Zeitplan" gesagt hat',
+            'search_li2': '<strong>„Was ist Sarahs Bedenken zur Migration?"</strong> — bringt jede relevante Erwähnung über mehrere Meetings hinweg zum Vorschein',
+            'search_li3': '<strong>„Bereite mich auf das Projekt-Review vor"</strong> — trägt Entscheidungen, offene Punkte und Kontext aus dem letzten Monat an Anrufen zusammen',
+            'search_p2': 'Das ergänzt die Suche von Obsidian, statt sie zu ersetzen. Obsidian findet die Notizen; die semantische Suche findet die Momente darin.',
+            'search_p3': 'Und da der Vektorindex in einem versteckten Ordner <code>.mono/</code> in Ihrem Meetings-Verzeichnis gespeichert ist, ist er für Obsidian unsichtbar. Löschen Sie ihn, und er wird aus Ihren Markdown-Dateien neu aufgebaut. Ihre Notizen sind immer die Quelle der Wahrheit — der Suchindex ist nur ein Cache.',
+            'h2_ownership': 'Datenhoheit',
+            'ownership_p1': 'Jedes Meeting ist eine einfache <code>.md</code>- und <code>.mp3</code>-Datei. Keine Datenbank, kein proprietäres Format, kein Cloud-Konto erforderlich.',
+            'th_cloud': 'Cloud-Recorder',
+            'th_md': 'Markdown zuerst',
+            'row1_label': 'Ihre Daten liegen...',
+            'row1_cloud': 'Auf deren Servern',
+            'row1_md': 'Auf Ihrer Festplatte',
+            'row2_label': 'Exportformat',
+            'row2_cloud': 'PDF, Klartext oder nichts',
+            'row2_md': 'Bereits Markdown',
+            'row3_label': 'Obsidian-Integration',
+            'row3_cloud': 'Manuelles Kopieren und Einfügen',
+            'row3_md': 'Nativ — Dateien erscheinen in Ihrem Vault',
+            'row4_label': 'Bases / Dataview / Tasks',
+            'row4_cloud': 'Nicht möglich',
+            'row4_md': 'Funktioniert sofort',
+            'row5_label': 'Wenn Sie aufhören zu zahlen',
+            'row5_cloud': 'Hastiger Export vor der Sperre',
+            'row5_md': 'Nichts ändert sich — die Dateien gehören Ihnen',
+            'row6_label': 'Wenn die App verschwindet',
+            'row6_cloud': 'Ihre Aufnahmen vielleicht auch',
+            'row6_md': 'Sie haben weiterhin .md- + .mp3-Dateien',
+            'h2_sync': 'Bidirektionale Synchronisierung',
+            'sync_p1': 'mono überwacht Ihren Meetings-Ordner. Änderungen in Obsidian werden automatisch zurücksynchronisiert:',
+            'sync_li1': '<strong>Tag hinzufügen</strong> im Frontmatter → die Bibliothek der App spiegelt es wider',
+            'sync_li2': '<strong>Aufgabe abhaken</strong> → die App sieht sie als erledigt',
+            'sync_li3': '<strong>Datei umbenennen</strong> → der Recorder benennt die Audiodatei passend um',
+            'sync_li4': '<strong>Transkript bearbeiten</strong> → der Recorder indexiert es für die semantische Suche neu',
+            'sync_p2': 'Ihre eigenen Anmerkungen bleiben erhalten. Fügen Sie Notizen zwischen Abschnitten, Links zu Projektseiten, Blockreferenzen hinzu — mono überschreibt sie nicht.',
+            'h2_setup': 'Einrichtung',
+            'setup_li1': 'Erstellen Sie in Ihrem Vault einen Ordner für Meetings',
+            'setup_li2': 'Einstellungen → Aufnahmeordner → diesen Ordner auswählen',
+            'setup_li3': 'Nehmen Sie ein Meeting auf — die Datei erscheint, wenn die Transkription fertig ist',
+            'h2_workflow': 'Workflow-Beispiele',
+            'workflow_li1': '<strong>Tagesnotiz:</strong> Eine Dataview-Abfrage zeigt die heutigen Meetings automatisch (nach <code>date</code> filtern)',
+            'workflow_li2': '<strong>Projektseite:</strong> Taggen Sie Meetings mit einem Projekt-Tag, Dataview listet sie chronologisch',
+            'workflow_li3': '<strong>Wöchentliches Review:</strong> Eine Tasks-Abfrage bündelt die Aufgaben aus allen Anrufen',
+            'cta_title': 'Ihre Meetings gehören in Ihren Vault',
+            'cta_sub': 'mono nimmt jede Meeting-App auf, transkribiert lokal mit Whisper und schreibt native Markdown-Dateien direkt in Ihren Obsidian-Vault. Eine Aufnahme kostenlos, kein Konto nötig.',
+            'cta_buy': 'mono kaufen — 50 $',
+            'cta_download': 'Kostenlos herunterladen'
+        },
+        zh: {
+            'back_link': '← 博客',
+            'category': '[教程]',
+            'title': '如何把你的Obsidian仓库变成会议知识库',
+            'meta': '2026年4月10日 · 约5分钟 · 作者 Daniil Lefanov',
+            'intro_p1': '会议是唯一一种放不进Obsidian的知识来源。像Otter和Fireflies这样的云端录制工具把转录存放在登录之后、用它们自己的格式。导出是PDF或纯文本，你还得重新排版。',
+            'intro_p2': 'mono直接把录音写成你仓库里的markdown文件——YAML frontmatter、AI摘要、任务复选框、完整转录。无需导出，无需复制粘贴。',
+            'tldr_label': '摘要',
+            'tldr_1': '<strong>缺口：</strong>会议是你仓库最大的盲点——决策与上下文在你的PKM系统里无处可寻',
+            'tldr_2': '<strong>解决办法：</strong>一个把原生.md文件直接写进你仓库文件夹的录制工具',
+            'tldr_3': '<strong>支持Bases和Dataview：</strong>带日期、时长、标签的YAML frontmatter——可用内置Bases或Dataview查询',
+            'tldr_4': '<strong>支持Tasks：</strong>任务以标准<code>- [ ]</code>复选框形式，双向同步',
+            'tldr_5': '<strong>语义搜索：</strong>按含义而非仅按关键词，向所有会议提问',
+            'h2_note': '一条会议笔记长什么样',
+            'note_p1': '想象你结束了一次Zoom通话。几秒后，这个文件出现在你的仓库里：',
+            'note_p2': '这是一条真正的Obsidian笔记。你可以给它打标签、链接到项目页面、在各小节之间加入自己的批注。音频文件以可播放的音频小组件嵌入——直接在笔记里点击播放，听到讨论的真实语气。',
+            'note_p3': '你仓库里的文件结构很干净：',
+            'note_p4': '扁平文件，自然按日期排序。音频收纳在<code>_audio/</code>里，让你的侧边栏保持整洁。没有数据库，没有专有格式。只有markdown和mp3。',
+            'h2_query': '可用Bases和Dataview查询',
+            'query_p1': '每条会议笔记都有标准YAML frontmatter：<code>date</code>、<code>duration</code>、<code>tags</code>、<code>language</code>和<code>mono_id</code>。标题由文件名派生。状态由存在哪些小节派生（有<code>## Transcript</code>=已转录，有<code>## Notes</code>=已总结）。这意味着有两种强大的查询方式。',
+            'h3_bases': 'Obsidian Bases（内置）',
+            'bases_p1': '创建一个Base，指向你的Meetings文件夹。你会得到一个可排序、可筛选的表格，带有日期、时长和标签列。就地编辑属性——更改直接写入frontmatter。',
+            'h3_dataview': 'Dataview（面向高级用户）',
+            'dataview_p1': '如果你偏好用代码查询，Dataview同样好用：',
+            'dataview_q1': '<strong>本周所有标记为#project-alpha的会议：</strong>',
+            'dataview_q2': '<strong>时长超过30分钟且尚未总结的会议：</strong>',
+            'query_p2': '两种方式都行，因为底层数据是相同的：标准YAML frontmatter。用Bases做快速可视化浏览，用Dataview在项目页面里嵌入复杂查询。或者两者并用。',
+            'h2_tasks': '与Obsidian Tasks配合的行动项',
+            'tasks_p1': '这是在实践中带来最大差别的部分。',
+            'tasks_p2': '会议行动项是<code>## Notes</code>小节内<code>### Action Items</code>下的标准markdown复选框。这正是Tasks插件已经原生查询的格式：',
+            'tasks_p3': '一条Tasks查询，查看本月每次会议的每个未完成行动项：',
+            'tasks_p4': '在Obsidian里勾选一项。录制应用看到这个更改。在录制应用里勾选它。Obsidian看到这个更改。双向的——因为它是同一个文件。',
+            'tasks_p5': '不再有埋在你从不重读的AI摘要里的行动项。不再有"等等，那件事该谁来做？"。不再为了找出你上周二答应的事而翻遍三个不同的工具。',
+            'tasks_tip': '<strong>为什么用复选框，而不是YAML数组：</strong>Obsidian Tasks查询<code>- [ ]</code>行。YAML frontmatter数组对它是不可见的。把行动项作为复选框保留在正文中，它们就能与Tasks开箱即用——无需配置，无需变通。',
+            'h2_audio': '内嵌音频播放',
+            'audio_p1': '每条会议笔记都用Obsidian标准的图片/文件嵌入语法嵌入它的音频文件：',
+            'audio_p2': 'Obsidian把它渲染成笔记里的可播放音频小组件。你在读转录，读到一处语气很重要的地方——一次分歧、一次犹豫、一个改变了对话走向的玩笑——你就在那里点击播放。',
+            'audio_caption': 'Obsidian中的一段mono录音——frontmatter、音频播放器、AI摘要，全在一条笔记里',
+            'audio_p3': '音频文件放在<code>_audio/</code>子文件夹里。下划线前缀把它排到顶部、挪开不碍事。你的侧边栏显示干净的、按日期排序的笔记标题，而不是markdown和mp3文件的混杂。',
+            'h2_search': '语义搜索',
+            'search_p1': 'mono把转录切成块并嵌入到本地向量数据库中。按含义搜索，而不仅是关键词：',
+            'search_li1': '<strong>"关于API时间表我们决定了什么？"</strong>——即使没人确切说过"API时间表"也能找到那段讨论',
+            'search_li2': '<strong>"Sarah对迁移的顾虑是什么？"</strong>——把跨多次会议的每一处相关提及都浮现出来',
+            'search_li3': '<strong>"帮我为项目评审做准备"</strong>——汇集过去一个月通话里的决策、未决事项和上下文',
+            'search_p2': '这是对Obsidian搜索的补充，而非替代。Obsidian找到笔记；语义搜索找到笔记里的那些瞬间。',
+            'search_p3': '而且由于向量索引存放在你会议目录内一个隐藏的<code>.mono/</code>文件夹里，它对Obsidian不可见。删掉它，它会从你的markdown文件重新构建。你的笔记始终是真相之源——搜索索引只是一个缓存。',
+            'h2_ownership': '数据所有权',
+            'ownership_p1': '每次会议都是一个纯粹的<code>.md</code>和<code>.mp3</code>文件。没有数据库，没有专有格式，无需云端账户。',
+            'th_cloud': '云端录制工具',
+            'th_md': 'Markdown优先',
+            'row1_label': '你的数据存放在...',
+            'row1_cloud': '它们的服务器上',
+            'row1_md': '你的磁盘上',
+            'row2_label': '导出格式',
+            'row2_cloud': 'PDF、纯文本，或没有',
+            'row2_md': '已经是markdown',
+            'row3_label': 'Obsidian集成',
+            'row3_cloud': '手动复制粘贴',
+            'row3_md': '原生——文件出现在你的仓库里',
+            'row4_label': 'Bases / Dataview / Tasks',
+            'row4_cloud': '不可能',
+            'row4_md': '开箱即用',
+            'row5_label': '如果你停止付费',
+            'row5_cloud': '赶在锁定前手忙脚乱地导出',
+            'row5_md': '一切照旧——文件是你的',
+            'row6_label': '如果应用消失',
+            'row6_cloud': '你的录音可能也没了',
+            'row6_md': '你仍然拥有.md + .mp3文件',
+            'h2_sync': '双向同步',
+            'sync_p1': 'mono监视你的会议文件夹。Obsidian里的编辑会自动同步回来：',
+            'sync_li1': '<strong>添加标签</strong>到frontmatter → 录制应用的库会反映出来',
+            'sync_li2': '<strong>勾选一个行动项</strong> → 录制应用看到它已完成',
+            'sync_li3': '<strong>重命名文件</strong> → 录制工具会把音频文件重命名以保持一致',
+            'sync_li4': '<strong>编辑转录</strong> → 录制工具会为语义搜索重新索引它',
+            'sync_p2': '你自己的批注会被保留。在各小节之间添加笔记、指向项目页面的链接、块引用——mono不会覆盖它们。',
+            'h2_setup': '设置',
+            'setup_li1': '在你的仓库里为会议创建一个文件夹',
+            'setup_li2': '设置 → 录音文件夹 → 选择该文件夹',
+            'setup_li3': '录制一次会议——转录完成时文件就会出现',
+            'h2_workflow': '工作流示例',
+            'workflow_li1': '<strong>每日笔记：</strong>一条Dataview查询自动显示今天的会议（按<code>date</code>筛选）',
+            'workflow_li2': '<strong>项目页面：</strong>给会议打上项目标签，Dataview按时间顺序列出它们',
+            'workflow_li3': '<strong>每周回顾：</strong>一条Tasks查询汇总所有通话的行动项',
+            'cta_title': '你的会议属于你的仓库',
+            'cta_sub': 'mono可录制任何会议应用，用Whisper在本地转录，并把原生markdown文件直接写入你的Obsidian仓库。一次录音免费，无需账户。',
+            'cta_buy': '购买mono — $50',
+            'cta_download': '免费下载'
+        },
+        ru: {
+            'back_link': '← блог',
+            'category': '[Гайд]',
+            'title': 'Как превратить ваше хранилище Obsidian в базу знаний о встречах',
+            'meta': '10 апреля 2026 · 5 мин чтения · Автор Daniil Lefanov',
+            'intro_p1': 'Встречи — единственный источник знаний, который не вписывается в Obsidian. Облачные рекордеры вроде Otter и Fireflies хранят расшифровки за логином, в собственном формате. Экспорт — это PDF или дамп простого текста, который пришлось бы переформатировать.',
+            'intro_p2': 'mono записывает встречи прямо в виде markdown-файлов в вашем хранилище — YAML-frontmatter, ИИ-сводка, чекбоксы задач, полная расшифровка. Без шага экспорта, без копирования-вставки.',
+            'tldr_label': 'Кратко',
+            'tldr_1': '<strong>Пробел:</strong> Встречи — самое большое слепое пятно вашего хранилища: решения и контекст, которых нет нигде в вашей PKM-системе',
+            'tldr_2': '<strong>Решение:</strong> Рекордер, который пишет нативные .md-файлы прямо в папку вашего хранилища',
+            'tldr_3': '<strong>Готово для Bases и Dataview:</strong> YAML-frontmatter с датой, длительностью, тегами — можно запрашивать встроенным Bases или Dataview',
+            'tldr_4': '<strong>Готово для Tasks:</strong> Задачи как стандартные чекбоксы <code>- [ ]</code>, двусторонняя синхронизация',
+            'tldr_5': '<strong>Семантический поиск:</strong> Задавайте вопросы ко всем встречам по смыслу, а не только по ключевым словам',
+            'h2_note': 'Как выглядит заметка о встрече',
+            'note_p1': 'Представьте, что вы завершили звонок в Zoom. Через несколько секунд этот файл появляется в вашем хранилище:',
+            'note_p2': 'Это настоящая заметка Obsidian. Вы можете присвоить ей теги, связать со страницей проекта, добавить собственные пометки между разделами. Аудиофайл встраивается как проигрываемый виджет — нажмите воспроизведение прямо в заметке, чтобы услышать точную интонацию обсуждения.',
+            'note_p3': 'Структура файлов в вашем хранилище аккуратна:',
+            'note_p4': 'Плоские файлы, естественно отсортированные по дате. Аудио убрано в <code>_audio/</code>, чтобы боковая панель оставалась чистой. Без базы данных, без проприетарного формата. Только markdown и mp3.',
+            'h2_query': 'Можно запрашивать через Bases и Dataview',
+            'query_p1': 'У каждой заметки о встрече есть стандартный YAML-frontmatter: <code>date</code>, <code>duration</code>, <code>tags</code>, <code>language</code> и <code>mono_id</code>. Заголовок выводится из имени файла. Статус выводится из того, какие разделы есть (есть <code>## Transcript</code> = расшифровано, есть <code>## Notes</code> = резюмировано). Это даёт два мощных способа их запрашивать.',
+            'h3_bases': 'Obsidian Bases (встроенный)',
+            'bases_p1': 'Создайте Base и нацельте её на папку Meetings. Вы получите сортируемую и фильтруемую таблицу со столбцами даты, длительности и тегов. Редактируйте свойства прямо в таблице — изменения пишутся прямо в frontmatter.',
+            'h3_dataview': 'Dataview (для продвинутых пользователей)',
+            'dataview_p1': 'Если вы предпочитаете запросы в коде, Dataview работает не хуже:',
+            'dataview_q1': '<strong>Все встречи на этой неделе с тегом #project-alpha:</strong>',
+            'dataview_q2': '<strong>Встречи длиннее 30 минут, которые не были резюмированы:</strong>',
+            'query_p2': 'Оба подхода работают, потому что в основе одни и те же данные: стандартный YAML-frontmatter. Используйте Bases для быстрого визуального просмотра, Dataview — для сложных запросов, встроенных в страницы проекта. Или и то, и другое.',
+            'h2_tasks': 'Задачи, которые работают с Obsidian Tasks',
+            'tasks_p1': 'Именно эта часть на практике даёт самую большую разницу.',
+            'tasks_p2': 'Задачи встречи — это стандартные markdown-чекбоксы под <code>### Action Items</code> внутри раздела <code>## Notes</code>. Формат, который плагин Tasks уже запрашивает нативно:',
+            'tasks_p3': 'Один запрос Tasks, чтобы увидеть каждую невыполненную задачу из каждой встречи за этот месяц:',
+            'tasks_p4': 'Отметьте пункт в Obsidian. Приложение-рекордер видит изменение. Отметьте его в приложении-рекордере. Obsidian видит изменение. Двусторонне — потому что это один и тот же файл.',
+            'tasks_p5': 'Больше никаких задач, погребённых в ИИ-сводках, которые вы никогда не перечитываете. Больше никакого "стоп, а кто должен был это сделать?". Больше никакого поиска по трём разным инструментам того, что вы пообещали в прошлый вторник.',
+            'tasks_tip': '<strong>Почему чекбоксы, а не YAML-массивы:</strong> Obsidian Tasks запрашивает строки <code>- [ ]</code>. Массивы YAML-frontmatter ему не видны. Держа задачи в теле как чекбоксы, вы получаете работу с Tasks из коробки — без настройки, без обходных путей.',
+            'h2_audio': 'Встроенное воспроизведение аудио',
+            'audio_p1': 'Каждая заметка о встрече встраивает свой аудиофайл стандартным синтаксисом вставки изображения/файла Obsidian:',
+            'audio_p2': 'Obsidian отображает это как проигрываемый аудиовиджет прямо в заметке. Вы читаете расшифровку, доходите до места, где важна интонация — несогласие, заминка, шутка, изменившая направление разговора — и нажимаете воспроизведение прямо там.',
+            'audio_caption': 'Запись mono в Obsidian — frontmatter, аудиоплеер, ИИ-сводка, всё в одной заметке',
+            'audio_p3': 'Аудиофайлы лежат в подпапке <code>_audio/</code>. Префикс-подчёркивание сортирует её наверх и убирает с глаз. В боковой панели — чистые, отсортированные по дате заголовки заметок, а не смесь markdown и mp3.',
+            'h2_search': 'Семантический поиск',
+            'search_p1': 'mono разбивает расшифровки на фрагменты и встраивает их в локальную векторную базу. Ищите по смыслу, а не только по ключевым словам:',
+            'search_li1': '<strong>«Что мы решили про сроки по API?»</strong> — находит обсуждение, даже если никто не сказал «сроки по API» дословно',
+            'search_li2': '<strong>«В чём беспокойство Sarah по поводу миграции?»</strong> — выводит каждое релевантное упоминание по нескольким встречам',
+            'search_li3': '<strong>«Подготовь меня к обзору проекта»</strong> — собирает воедино решения, открытые вопросы и контекст за последний месяц звонков',
+            'search_p2': 'Это дополняет поиск Obsidian, а не заменяет его. Obsidian находит заметки; семантический поиск находит моменты внутри них.',
+            'search_p3': 'А поскольку векторный индекс хранится в скрытой папке <code>.mono/</code> внутри вашего каталога встреч, он невидим для Obsidian. Удалите его — и он перестроится из ваших markdown-файлов. Ваши заметки всегда являются источником истины — поисковый индекс лишь кэш.',
+            'h2_ownership': 'Владение данными',
+            'ownership_p1': 'Каждая встреча — это простой файл <code>.md</code> и <code>.mp3</code>. Без базы данных, без проприетарного формата, без облачного аккаунта.',
+            'th_cloud': 'Облачные рекордеры',
+            'th_md': 'Markdown в первую очередь',
+            'row1_label': 'Ваши данные живут...',
+            'row1_cloud': 'На их серверах',
+            'row1_md': 'На вашем диске',
+            'row2_label': 'Формат экспорта',
+            'row2_cloud': 'PDF, простой текст или ничего',
+            'row2_md': 'Уже markdown',
+            'row3_label': 'Интеграция с Obsidian',
+            'row3_cloud': 'Ручное копирование-вставка',
+            'row3_md': 'Нативная — файлы появляются в вашем хранилище',
+            'row4_label': 'Bases / Dataview / Tasks',
+            'row4_cloud': 'Невозможно',
+            'row4_md': 'Работает из коробки',
+            'row5_label': 'Если вы перестанете платить',
+            'row5_cloud': 'Срочный экспорт до блокировки',
+            'row5_md': 'Ничего не меняется — файлы ваши',
+            'row6_label': 'Если приложение исчезнет',
+            'row6_cloud': 'Ваши записи, возможно, тоже',
+            'row6_md': 'У вас по-прежнему есть файлы .md + .mp3',
+            'h2_sync': 'Двусторонняя синхронизация',
+            'sync_p1': 'mono следит за вашей папкой встреч. Правки в Obsidian синхронизируются обратно автоматически:',
+            'sync_li1': '<strong>Добавьте тег</strong> в frontmatter → библиотека приложения это отразит',
+            'sync_li2': '<strong>Отметьте задачу</strong> → приложение видит её как выполненную',
+            'sync_li3': '<strong>Переименуйте файл</strong> → рекордер переименует аудиофайл в соответствие',
+            'sync_li4': '<strong>Отредактируйте расшифровку</strong> → рекордер переиндексирует её для семантического поиска',
+            'sync_p2': 'Ваши собственные пометки сохраняются. Добавляйте заметки между разделами, ссылки на страницы проектов, блочные ссылки — mono их не перезапишет.',
+            'h2_setup': 'Настройка',
+            'setup_li1': 'Создайте в хранилище папку для встреч',
+            'setup_li2': 'Настройки → Папка записей → выберите эту папку',
+            'setup_li3': 'Запишите встречу — файл появится, когда завершится расшифровка',
+            'h2_workflow': 'Примеры рабочих процессов',
+            'workflow_li1': '<strong>Ежедневная заметка:</strong> запрос Dataview автоматически показывает сегодняшние встречи (фильтр по <code>date</code>)',
+            'workflow_li2': '<strong>Страница проекта:</strong> помечайте встречи тегом проекта, Dataview перечислит их хронологически',
+            'workflow_li3': '<strong>Еженедельный обзор:</strong> запрос Tasks собирает задачи со всех звонков',
+            'cta_title': 'Ваши встречи — место в вашем хранилище',
+            'cta_sub': 'mono записывает любое приложение для встреч, расшифровывает локально с Whisper и пишет нативные markdown-файлы прямо в ваше хранилище Obsidian. Одна запись бесплатно, без аккаунта.',
+            'cta_buy': 'Купить mono — $50',
+            'cta_download': 'Скачать бесплатно'
+        }
+    };
+
+    const siteNav = document.querySelector('site-nav');
+    let currentLang = 'en';
+    if (siteNav) {
+        siteNav.addEventListener('language-change', (e) => {
+            const lang = e.detail.language;
+            if (lang === currentLang) return;
+            currentLang = lang;
+            const t = translations[lang];
+            if (!t) return;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (t[key] !== undefined) el.innerHTML = t[key];
+            });
+        });
+    }
     </script>
 
 </body>
