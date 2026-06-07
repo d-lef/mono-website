@@ -203,6 +203,12 @@
                             <td data-i18n="yes_local">Yes (local)</td>
                         </tr>
                         <tr>
+                            <td>Granola</td>
+                            <td data-i18n="price_granola">From $18/mo</td>
+                            <td data-i18n="no6">No</td>
+                            <td data-i18n="yes_cloud">Yes (cloud)</td>
+                        </tr>
+                        <tr>
                             <td>OBS Studio</td>
                             <td data-i18n="price_free">Free</td>
                             <td data-i18n="no2">No</td>
@@ -224,9 +230,16 @@
                 </table>
             </div>
 
+            <p data-i18n="granola_note">Granola is the closest bot-free alternative and a capable notetaker, but it bills monthly and sends your transcripts to its servers for AI processing — where mono is a one-time purchase that transcribes on your own machine. The rest of this guide focuses on getting an actual recording.</p>
+
             <h2 data-i18n="h2_method1">Method 1: mono (Recommended)</h2>
 
             <p data-i18n="method1_p1">mono records a Slack huddle by capturing the audio coming out of your computer. It doesn't join the huddle, so no one sees a bot and there's no notification. Because it records system audio, it captures every participant — including external guests, which Slack's own AI Notes can't do.</p>
+
+            <figure class="article-figure">
+                <img src="images/mono-recording-meet.png" alt="mono's recording widget visible in the corner of an active call, showing the recording timer running" width="1919" height="1021" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
+                <figcaption style="font-size:13px;color:var(--text-secondary);margin-top:8px;text-align:center;" data-i18n="mono_figure_caption">mono's recording widget stays in the corner — invisible to everyone in the huddle while you talk.</figcaption>
+            </figure>
 
             <p data-i18n="method1_p2">When you stop, mono transcribes the call locally — the AI runs on your computer, so the audio never leaves it. The transcript includes speaker labels, and every recording becomes searchable by keyword afterwards.</p>
 
@@ -266,6 +279,11 @@
                 <li data-i18n="obs_step7">Run your huddle as usual</li>
                 <li data-i18n="obs_step8">Click "Stop Recording" when it ends; find the file in your Videos folder</li>
             </ol>
+
+            <figure class="article-figure">
+                <img src="images/obs-how-to-record-teams.webp" alt="OBS Studio Audio Output Capture setup" width="800" height="450" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
+                <figcaption style="font-size:13px;color:var(--text-secondary);margin-top:8px;text-align:center;" data-i18n="obs_figure_caption">Add an Audio Output Capture source in OBS, then click Start Recording.</figcaption>
+            </figure>
 
             <p data-i18n="obs_pros"><strong>Pros:</strong> Completely free and open source, no bot, captures screen-share video, highly configurable.</p>
 
@@ -319,20 +337,6 @@
             <p data-i18n="av_audio"><strong>Audio + transcript:</strong> mono captures the conversation and transcribes it locally. Best when you want a searchable record of what was said.</p>
 
             <p data-i18n="av_video"><strong>Screen share or video:</strong> OBS or your built-in screen recorder captures the visuals. Bigger files, and no transcript.</p>
-
-            <h2 data-i18n="h2_legal">Legal Considerations</h2>
-
-            <p data-i18n="legal_p1">Recording laws apply to huddles like any other call:</p>
-
-            <p data-i18n="legal_oneparty"><strong>One-party consent:</strong> Many jurisdictions let you record a conversation you're part of.</p>
-
-            <p data-i18n="legal_allparty"><strong>All-party consent:</strong> Some regions — including California, Germany, and others — require everyone to agree first.</p>
-
-            <p data-i18n="legal_p2">For work calls, many companies also require you to disclose recording. Tell the huddle you're recording, and check your company policy and local law before you do.</p>
-
-            <div class="tip-box">
-                <p data-i18n="tips_box"><strong>Use headphones</strong> so the huddle audio is captured cleanly without echo. <strong>Mute notifications</strong> from other apps so they don't end up in the recording. <strong>Run a 10-second test</strong> before an important call to confirm everyone is audible.</p>
-            </div>
 
             <h2 data-i18n="h2_which">Which Method Should You Use?</h2>
 
@@ -414,6 +418,12 @@ const translations = {
         'price_paid': 'Paid plan',
         'native_label': 'Native',
         'summary_only': 'Summary only',
+        'price_granola': 'From $18/mo',
+        'no6': 'No',
+        'yes_cloud': 'Yes (cloud)',
+        'granola_note': 'Granola is the closest bot-free alternative and a capable notetaker, but it bills monthly and sends your transcripts to its servers for AI processing — where mono is a one-time purchase that transcribes on your own machine. The rest of this guide focuses on getting an actual recording.',
+        'mono_figure_caption': 'mono\'s recording widget stays in the corner — invisible to everyone in the huddle while you talk.',
+        'obs_figure_caption': 'Add an Audio Output Capture source in OBS, then click Start Recording.',
         'h2_method1': 'Method 1: mono (Recommended)',
         'method1_p1': 'mono records a Slack huddle by capturing the audio coming out of your computer. It doesn\'t join the huddle, so no one sees a bot and there\'s no notification. Because it records system audio, it captures every participant — including external guests, which Slack\'s own AI Notes can\'t do.',
         'method1_p2': 'When you stop, mono transcribes the call locally — the AI runs on your computer, so the audio never leaves it. The transcript includes speaker labels, and every recording becomes searchable by keyword afterwards.',
@@ -468,12 +478,6 @@ const translations = {
         'av_p1': 'Most huddles are audio, but Slack supports video and screen sharing on paid plans. Pick your method by what you actually need to keep:',
         'av_audio': '<strong>Audio + transcript:</strong> mono captures the conversation and transcribes it locally. Best when you want a searchable record of what was said.',
         'av_video': '<strong>Screen share or video:</strong> OBS or your built-in screen recorder captures the visuals. Bigger files, and no transcript.',
-        'h2_legal': 'Legal Considerations',
-        'legal_p1': 'Recording laws apply to huddles like any other call:',
-        'legal_oneparty': '<strong>One-party consent:</strong> Many jurisdictions let you record a conversation you\'re part of.',
-        'legal_allparty': '<strong>All-party consent:</strong> Some regions — including California, Germany, and others — require everyone to agree first.',
-        'legal_p2': 'For work calls, many companies also require you to disclose recording. Tell the huddle you\'re recording, and check your company policy and local law before you do.',
-        'tips_box': '<strong>Use headphones</strong> so the huddle audio is captured cleanly without echo. <strong>Mute notifications</strong> from other apps so they don\'t end up in the recording. <strong>Run a 10-second test</strong> before an important call to confirm everyone is audible.',
         'h2_which': 'Which Method Should You Use?',
         'which_p1': '<strong>Want a transcript without a bot?</strong> mono records locally and transcribes automatically, works with external guests and on any Slack plan.',
         'which_p2': '<strong>Need the screen share on video?</strong> OBS Studio, or your built-in recorder, captures the visuals for free.',
@@ -526,6 +530,12 @@ const translations = {
         'price_paid': 'Plan de pago',
         'native_label': 'Nativo',
         'summary_only': 'Solo resumen',
+        'price_granola': 'Desde $18/mes',
+        'no6': 'No',
+        'yes_cloud': 'Sí (nube)',
+        'granola_note': 'Granola es la alternativa sin bot más parecida y un buen tomador de notas, pero cobra mensualmente y envía tus transcripciones a sus servidores para el procesamiento de IA — mientras que mono es una compra única que transcribe en tu propia máquina. El resto de esta guía se centra en conseguir una grabación real.',
+        'mono_figure_caption': 'El widget de grabación de mono se queda en la esquina — invisible para todos en el huddle mientras hablas.',
+        'obs_figure_caption': 'Añade una fuente de Captura de salida de audio en OBS y haz clic en Iniciar grabación.',
         'h2_method1': 'Método 1: mono (Recomendado)',
         'method1_p1': 'mono graba un huddle de Slack capturando el audio que sale de tu computadora. No se une al huddle, así que nadie ve un bot y no hay notificación. Como graba el audio del sistema, captura a todos los participantes — incluidos los invitados externos, algo que las propias AI Notes de Slack no pueden hacer.',
         'method1_p2': 'Cuando paras, mono transcribe la llamada localmente — la IA se ejecuta en tu computadora, así que el audio nunca sale de ella. La transcripción incluye etiquetas de hablante, y cada grabación se vuelve buscable por palabra clave después.',
@@ -580,12 +590,6 @@ const translations = {
         'av_p1': 'La mayoría de los huddles son de audio, pero Slack admite vídeo y pantalla compartida en los planes de pago. Elige tu método según lo que realmente necesites conservar:',
         'av_audio': '<strong>Audio + transcripción:</strong> mono captura la conversación y la transcribe localmente. Mejor cuando quieres un registro buscable de lo que se dijo.',
         'av_video': '<strong>Pantalla compartida o vídeo:</strong> OBS o tu grabador de pantalla integrado captura lo visual. Archivos más grandes, y sin transcripción.',
-        'h2_legal': 'Consideraciones legales',
-        'legal_p1': 'Las leyes de grabación se aplican a los huddles como a cualquier otra llamada:',
-        'legal_oneparty': '<strong>Consentimiento de una parte:</strong> Muchas jurisdicciones te permiten grabar una conversación en la que participas.',
-        'legal_allparty': '<strong>Consentimiento de todas las partes:</strong> Algunas regiones — incluidas California, Alemania y otras — requieren que todos estén de acuerdo primero.',
-        'legal_p2': 'Para llamadas de trabajo, muchas empresas también exigen que informes de la grabación. Avisa al huddle de que estás grabando, y revisa la política de tu empresa y la ley local antes de hacerlo.',
-        'tips_box': '<strong>Usa auriculares</strong> para que el audio del huddle se capture limpio y sin eco. <strong>Silencia las notificaciones</strong> de otras apps para que no acaben en la grabación. <strong>Haz una prueba de 10 segundos</strong> antes de una llamada importante para confirmar que todos se oyen.',
         'h2_which': '¿Qué método deberías usar?',
         'which_p1': '<strong>¿Quieres una transcripción sin bot?</strong> mono graba localmente y transcribe automáticamente, funciona con invitados externos y en cualquier plan de Slack.',
         'which_p2': '<strong>¿Necesitas la pantalla compartida en vídeo?</strong> OBS Studio, o tu grabador integrado, captura lo visual gratis.',
@@ -638,6 +642,12 @@ const translations = {
         'price_paid': 'Plan payant',
         'native_label': 'Natif',
         'summary_only': 'Résumé seul',
+        'price_granola': 'À partir de 18 $/mois',
+        'no6': 'Non',
+        'yes_cloud': 'Oui (cloud)',
+        'granola_note': 'Granola est l\'alternative sans bot la plus proche et un bon outil de prise de notes, mais il facture au mois et envoie vos transcriptions sur ses serveurs pour le traitement IA — alors que mono est un achat unique qui transcrit sur votre propre machine. Le reste de ce guide se concentre sur l\'obtention d\'un véritable enregistrement.',
+        'mono_figure_caption': 'Le widget d\'enregistrement de mono reste dans le coin — invisible pour tout le monde dans le huddle pendant que vous parlez.',
+        'obs_figure_caption': 'Ajoutez une source « Capture de sortie audio » dans OBS, puis cliquez sur Démarrer l\'enregistrement.',
         'h2_method1': 'Méthode 1 : mono (Recommandé)',
         'method1_p1': 'mono enregistre un huddle Slack en capturant le son qui sort de votre ordinateur. Il ne rejoint pas le huddle, donc personne ne voit de bot et il n\'y a pas de notification. Comme il enregistre le son du système, il capture tous les participants — y compris les invités externes, ce que les AI Notes de Slack ne peuvent pas faire.',
         'method1_p2': 'Quand vous arrêtez, mono transcrit l\'appel localement — l\'IA s\'exécute sur votre ordinateur, donc l\'audio ne le quitte jamais. La transcription inclut des étiquettes de locuteur, et chaque enregistrement devient consultable par mot-clé ensuite.',
@@ -692,12 +702,6 @@ const translations = {
         'av_p1': 'La plupart des huddles sont en audio, mais Slack prend en charge la vidéo et le partage d\'écran sur les plans payants. Choisissez votre méthode selon ce que vous devez réellement conserver :',
         'av_audio': '<strong>Audio + transcription :</strong> mono capture la conversation et la transcrit localement. Idéal quand vous voulez un compte rendu consultable de ce qui a été dit.',
         'av_video': '<strong>Partage d\'écran ou vidéo :</strong> OBS ou votre enregistreur d\'écran intégré capture le visuel. Fichiers plus volumineux, et pas de transcription.',
-        'h2_legal': 'Considérations juridiques',
-        'legal_p1': 'Les lois sur l\'enregistrement s\'appliquent aux huddles comme à tout autre appel :',
-        'legal_oneparty': '<strong>Consentement d\'une partie :</strong> De nombreuses juridictions vous autorisent à enregistrer une conversation à laquelle vous participez.',
-        'legal_allparty': '<strong>Consentement de toutes les parties :</strong> Certaines régions — dont la Californie, l\'Allemagne et d\'autres — exigent l\'accord de tous au préalable.',
-        'legal_p2': 'Pour les appels professionnels, de nombreuses entreprises exigent aussi que vous signaliez l\'enregistrement. Prévenez le huddle que vous enregistrez, et vérifiez la politique de votre entreprise et la loi locale avant de le faire.',
-        'tips_box': '<strong>Utilisez un casque</strong> pour que l\'audio du huddle soit capté proprement sans écho. <strong>Coupez les notifications</strong> des autres apps pour qu\'elles ne se retrouvent pas dans l\'enregistrement. <strong>Faites un test de 10 secondes</strong> avant un appel important pour confirmer que tout le monde est audible.',
         'h2_which': 'Quelle méthode choisir ?',
         'which_p1': '<strong>Vous voulez une transcription sans bot ?</strong> mono enregistre localement et transcrit automatiquement, fonctionne avec les invités externes et sur n\'importe quel plan Slack.',
         'which_p2': '<strong>Besoin du partage d\'écran en vidéo ?</strong> OBS Studio, ou votre enregistreur intégré, capture le visuel gratuitement.',
@@ -750,6 +754,12 @@ const translations = {
         'price_paid': 'Bezahlter Plan',
         'native_label': 'Nativ',
         'summary_only': 'Nur Zusammenfassung',
+        'price_granola': 'Ab 18 $/Monat',
+        'no6': 'Nein',
+        'yes_cloud': 'Ja (Cloud)',
+        'granola_note': 'Granola ist die nächstgelegene bot-freie Alternative und ein fähiges Notiztool, aber es rechnet monatlich ab und sendet Ihre Transkripte zur KI-Verarbeitung an seine Server — während mono ein einmaliger Kauf ist, der auf Ihrem eigenen Rechner transkribiert. Der Rest dieser Anleitung konzentriert sich darauf, eine echte Aufnahme zu bekommen.',
+        'mono_figure_caption': 'Das Aufnahme-Widget von mono bleibt in der Ecke — für alle im Huddle unsichtbar, während Sie sprechen.',
+        'obs_figure_caption': 'Fügen Sie in OBS eine Quelle „Audioausgabe aufnehmen" hinzu und klicken Sie auf Aufnahme starten.',
         'h2_method1': 'Methode 1: mono (Empfohlen)',
         'method1_p1': 'mono zeichnet einen Slack-Huddle auf, indem es den aus Ihrem Computer kommenden Ton erfasst. Es tritt dem Huddle nicht bei, also sieht niemand einen Bot und es erscheint keine Benachrichtigung. Da es den Systemton aufnimmt, erfasst es jeden Teilnehmer — auch externe Gäste, was Slacks eigene AI Notes nicht können.',
         'method1_p2': 'Wenn Sie stoppen, transkribiert mono den Anruf lokal — die KI läuft auf Ihrem Computer, der Ton verlässt ihn also nie. Das Transkript enthält Sprecher-Labels, und jede Aufnahme wird danach per Stichwort durchsuchbar.',
@@ -804,12 +814,6 @@ const translations = {
         'av_p1': 'Die meisten Huddles sind Audio, aber Slack unterstützt Video und Bildschirmfreigabe in bezahlten Plänen. Wählen Sie Ihre Methode danach, was Sie wirklich behalten müssen:',
         'av_audio': '<strong>Audio + Transkript:</strong> mono erfasst das Gespräch und transkribiert es lokal. Am besten, wenn Sie eine durchsuchbare Aufzeichnung des Gesagten wollen.',
         'av_video': '<strong>Bildschirmfreigabe oder Video:</strong> OBS oder Ihr integrierter Bildschirmrecorder erfasst das Visuelle. Größere Dateien, und kein Transkript.',
-        'h2_legal': 'Rechtliche Überlegungen',
-        'legal_p1': 'Aufnahmegesetze gelten für Huddles wie für jeden anderen Anruf:',
-        'legal_oneparty': '<strong>Einwilligung einer Partei:</strong> Viele Rechtsordnungen erlauben es Ihnen, ein Gespräch aufzunehmen, an dem Sie teilnehmen.',
-        'legal_allparty': '<strong>Einwilligung aller Parteien:</strong> Manche Regionen — darunter Kalifornien, Deutschland und andere — verlangen, dass zuerst alle zustimmen.',
-        'legal_p2': 'Bei beruflichen Anrufen verlangen viele Unternehmen außerdem, dass Sie die Aufnahme offenlegen. Sagen Sie dem Huddle, dass Sie aufnehmen, und prüfen Sie die Richtlinie Ihres Unternehmens und das lokale Recht, bevor Sie es tun.',
-        'tips_box': '<strong>Verwenden Sie Kopfhörer</strong>, damit der Huddle-Ton sauber und ohne Echo erfasst wird. <strong>Stummschalten Sie Benachrichtigungen</strong> anderer Apps, damit sie nicht in der Aufnahme landen. <strong>Machen Sie einen 10-Sekunden-Test</strong> vor einem wichtigen Anruf, um zu prüfen, dass alle hörbar sind.',
         'h2_which': 'Welche Methode sollten Sie verwenden?',
         'which_p1': '<strong>Wollen Sie ein Transkript ohne Bot?</strong> mono nimmt lokal auf und transkribiert automatisch, funktioniert mit externen Gästen und in jedem Slack-Plan.',
         'which_p2': '<strong>Brauchen Sie die Bildschirmfreigabe als Video?</strong> OBS Studio oder Ihr integrierter Recorder erfasst das Visuelle kostenlos.',
@@ -862,6 +866,12 @@ const translations = {
         'price_paid': '付费套餐',
         'native_label': '原生',
         'summary_only': '仅摘要',
+        'price_granola': '$18/月起',
+        'no6': '否',
+        'yes_cloud': '是（云端）',
+        'granola_note': 'Granola是最接近的无机器人替代品，也是一款不错的笔记工具，但它按月收费，并将你的转录发送到其服务器进行AI处理——而mono是一次性购买，在你自己的机器上转录。本指南的其余部分聚焦于获得真正的录音。',
+        'mono_figure_caption': 'mono的录制小组件停留在角落——你说话时对huddle中的所有人都不可见。',
+        'obs_figure_caption': '在OBS中添加一个“音频输出采集”来源，然后点击开始录制。',
         'h2_method1': '方法一：mono（推荐）',
         'method1_p1': 'mono通过捕获从你电脑输出的声音来录制Slack Huddle。它不加入Huddle，因此没人看到机器人，也没有通知。由于它录制系统音频，它能捕获每位参与者——包括外部访客，而这是Slack自家的AI Notes做不到的。',
         'method1_p2': '当你停止时，mono在本地转录通话——AI在你的电脑上运行，所以音频永远不会离开它。转录包含发言人标签，之后每段录音都可按关键词搜索。',
@@ -916,12 +926,6 @@ const translations = {
         'av_p1': '大多数Huddle是音频，但Slack在付费套餐中支持视频和屏幕共享。根据你真正需要保存的内容选择方法：',
         'av_audio': '<strong>音频+转录：</strong>mono捕获对话并在本地转录。当你想要一份关于谈话内容的可搜索记录时最佳。',
         'av_video': '<strong>屏幕共享或视频：</strong>OBS或你的内置屏幕录制器捕获画面。文件更大，且无转录。',
-        'h2_legal': '法律注意事项',
-        'legal_p1': '录制法律对Huddle与任何其他通话一样适用：',
-        'legal_oneparty': '<strong>单方同意：</strong>许多司法辖区允许你录制自己参与的对话。',
-        'legal_allparty': '<strong>全体同意：</strong>一些地区——包括加利福尼亚、德国等——要求所有人先同意。',
-        'legal_p2': '对于工作通话，许多公司还要求你披露录制。告知Huddle你正在录制，并在录制前查看公司政策和当地法律。',
-        'tips_box': '<strong>使用耳机</strong>，让Huddle音频被干净地捕获而无回声。<strong>静音其他应用的通知</strong>，以免它们出现在录音中。在重要通话前<strong>做10秒测试</strong>，确认每个人都清晰可闻。',
         'h2_which': '你该使用哪种方法？',
         'which_p1': '<strong>想要无机器人的转录？</strong>mono在本地录制并自动转录，支持外部访客和任何Slack套餐。',
         'which_p2': '<strong>需要屏幕共享的视频？</strong>OBS Studio或你的内置录制器可免费捕获画面。',
@@ -974,6 +978,12 @@ const translations = {
         'price_paid': 'Платный тариф',
         'native_label': 'Встроенный',
         'summary_only': 'Только сводка',
+        'price_granola': 'От $18/мес',
+        'no6': 'Нет',
+        'yes_cloud': 'Да (облако)',
+        'granola_note': 'Granola — ближайшая альтернатива без бота и неплохой инструмент заметок, но он берёт плату ежемесячно и отправляет ваши расшифровки на свои серверы для ИИ-обработки — тогда как mono покупается единоразово и расшифровывает на вашей собственной машине. Остальная часть этого гайда посвящена тому, как получить настоящую запись.',
+        'mono_figure_caption': 'Виджет записи mono остаётся в углу — невидимый для всех в huddle, пока вы говорите.',
+        'obs_figure_caption': 'Добавьте источник «Захват аудиовыхода» в OBS, затем нажмите «Начать запись».',
         'h2_method1': 'Метод 1: mono (Рекомендуется)',
         'method1_p1': 'mono записывает Slack huddle, захватывая звук, выходящий из вашего компьютера. Он не присоединяется к huddle, поэтому никто не видит бота и нет уведомления. Поскольку он записывает системный звук, он захватывает каждого участника — включая внешних гостей, чего не могут собственные AI Notes от Slack.',
         'method1_p2': 'Когда вы останавливаете, mono расшифровывает звонок локально — ИИ работает на вашем компьютере, поэтому звук никогда его не покидает. Расшифровка включает метки говорящих, и каждая запись потом становится доступной для поиска по ключевым словам.',
@@ -1028,12 +1038,6 @@ const translations = {
         'av_p1': 'Большинство huddle — аудио, но Slack поддерживает видео и демонстрацию экрана на платных тарифах. Выбирайте метод по тому, что вам действительно нужно сохранить:',
         'av_audio': '<strong>Аудио + расшифровка:</strong> mono захватывает разговор и расшифровывает его локально. Лучше всего, когда нужна запись сказанного с возможностью поиска.',
         'av_video': '<strong>Демонстрация экрана или видео:</strong> OBS или ваш встроенный экранный рекордер захватывает картинку. Файлы крупнее, и без расшифровки.',
-        'h2_legal': 'Юридические аспекты',
-        'legal_p1': 'Законы о записи применяются к huddle, как и к любому другому звонку:',
-        'legal_oneparty': '<strong>Согласие одной стороны:</strong> Многие юрисдикции разрешают записывать разговор, в котором вы участвуете.',
-        'legal_allparty': '<strong>Согласие всех сторон:</strong> Некоторые регионы — включая Калифорнию, Германию и другие — требуют, чтобы сначала согласились все.',
-        'legal_p2': 'Для рабочих звонков многие компании также требуют раскрывать факт записи. Сообщите huddle, что вы записываете, и проверьте политику компании и местный закон, прежде чем это делать.',
-        'tips_box': '<strong>Используйте наушники</strong>, чтобы звук huddle захватывался чисто, без эха. <strong>Отключите уведомления</strong> других приложений, чтобы они не попали в запись. <strong>Сделайте 10-секундный тест</strong> перед важным звонком, чтобы убедиться, что всех слышно.',
         'h2_which': 'Какой метод выбрать?',
         'which_p1': '<strong>Нужна расшифровка без бота?</strong> mono записывает локально и расшифровывает автоматически, работает с внешними гостями и на любом тарифе Slack.',
         'which_p2': '<strong>Нужна демонстрация экрана на видео?</strong> OBS Studio или ваш встроенный рекордер захватывает картинку бесплатно.',
