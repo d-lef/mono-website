@@ -358,8 +358,6 @@
                 </table>
             </div>
 
-            <p data-i18n="granola-note">Granola is another bot-free option and a polished notetaker, but it's a monthly subscription, processes your audio in the cloud, and won't let you export the audio recording itself — where mono is a one-time $50 and every file, audio and transcript, stays yours on your machine.</p>
-
             <h2 data-i18n="h2-method1">Method 1: mono (Recommended)</h2>
 
             <p data-i18n="method1-p1">mono captures audio directly from your computer's sound output — no bot joins the voice channel, no notification appears, and your audio never leaves your device. Unlike cloud-based tools, mono processes everything locally. Your Discord recordings stay on your computer, not on third-party servers.</p>
@@ -389,7 +387,17 @@
 
             <p data-i18n="method1-cons"><strong>Cons:</strong> Requires local processing power (works on most modern computers), no real-time transcription during the call, standalone app (no Slack/HubSpot integrations).</p>
 
-            <h2 data-i18n="h2-method2">Method 2: OBS Studio (Free)</h2>
+            <h2 data-i18n="h2-method-granola">Method 2: Granola (Cloud Notetaker)</h2>
+
+            <p data-i18n="granola-p1">Granola is a bot-free AI notetaker for Mac and Windows. Like mono, it captures your computer's audio without joining the call, so nothing shows up in Discord and no one is notified. The notes are polished — but it's built for work meetings, not Discord, and the trade-offs are real.</p>
+
+            <p data-i18n="granola-p2">It's a monthly subscription, and your audio is processed in Granola's cloud rather than on your device. Most importantly, Granola keeps only the text — it won't let you export the audio recording itself, so you never get a file of the actual call. With mono you pay $50 once and every file, audio and transcript, stays yours on your machine.</p>
+
+            <p data-i18n="granola-pros"><strong>Pros:</strong> No bot, bot-free system-audio capture, polished AI notes and summaries, works on Mac and Windows.</p>
+
+            <p data-i18n="granola-cons"><strong>Cons:</strong> Monthly subscription (from $18/mo), audio processed in the cloud, no audio export — you can't keep the recording, and it's built for business meetings rather than Discord.</p>
+
+            <h2 data-i18n="h2-method2">Method 3: OBS Studio (Free)</h2>
 
             <p data-i18n="method2-p1">OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn't join the call as a participant, works with any Discord account, and is completely invisible to others in the call.</p>
 
@@ -419,7 +427,7 @@
 
             <p data-i18n="method2-cons"><strong>Cons:</strong> Requires initial setup, must manually start and stop recording for each call, no transcription — produces only raw audio/video files.</p>
 
-            <h2 data-i18n="h2-method3">Method 3: Craig Bot (Server Channels Only)</h2>
+            <h2 data-i18n="h2-method3">Method 4: Craig Bot (Server Channels Only)</h2>
 
             <p data-i18n="method3-p1">Craig Bot is a Discord bot specifically designed for recording voice channels. Unlike the previous methods, Craig joins your server's voice channel as a visible participant. Everyone in the channel can see Craig is there, making it transparent that recording is happening.</p>
 
@@ -520,7 +528,11 @@ const translations = {
         'td-craig-cloud': 'Craig servers',
         'td-granola-price': 'From $18/mo',
         'td-granola-cloud': 'Granola cloud',
-        'granola-note': 'Granola is another bot-free option and a polished notetaker, but it\'s a monthly subscription, processes your audio in the cloud, and won\'t let you export the audio recording itself — where mono is a one-time $50 and every file, audio and transcript, stays yours on your machine.',
+        'h2-method-granola': 'Method 2: Granola (Cloud Notetaker)',
+        'granola-p1': 'Granola is a bot-free AI notetaker for Mac and Windows. Like mono, it captures your computer\'s audio without joining the call, so nothing shows up in Discord and no one is notified. The notes are polished — but it\'s built for work meetings, not Discord, and the trade-offs are real.',
+        'granola-p2': 'It\'s a monthly subscription, and your audio is processed in Granola\'s cloud rather than on your device. Most importantly, Granola keeps only the text — it won\'t let you export the audio recording itself, so you never get a file of the actual call. With mono you pay $50 once and every file, audio and transcript, stays yours on your machine.',
+        'granola-pros': '<strong>Pros:</strong> No bot, bot-free system-audio capture, polished AI notes and summaries, works on Mac and Windows.',
+        'granola-cons': '<strong>Cons:</strong> Monthly subscription (from $18/mo), audio processed in the cloud, no audio export — you can\'t keep the recording, and it\'s built for business meetings rather than Discord.',
         'td-yes-bot': 'Yes (bot joins)',
         'h2-method1': 'Method 1: mono (Recommended)',
         'method1-p1': 'mono captures audio directly from your computer\'s sound output &mdash; no bot joins the voice channel, no notification appears, and your audio never leaves your device. Unlike cloud-based tools, mono processes everything locally. Your Discord recordings stay on your computer, not on third-party servers.',
@@ -536,7 +548,7 @@ const translations = {
         'method1-p4': 'After transcription, mono\'s local AI lets you search by meaning (not just keywords), ask questions about your recordings ("What did we decide about the schedule?"), and auto-generate summaries with action items. All processing happens on your device.',
         'method1-pros': '<strong>Pros:</strong> Audio stays on your device (no cloud upload), works offline, no subscription ($50 once vs $100-200/yr), works with any app, AI chat and summaries, semantic search across all recordings.',
         'method1-cons': '<strong>Cons:</strong> Requires local processing power (works on most modern computers), no real-time transcription during the call, standalone app (no Slack/HubSpot integrations).',
-        'h2-method2': 'Method 2: OBS Studio (Free)',
+        'h2-method2': 'Method 3: OBS Studio (Free)',
         'method2-p1': 'OBS Studio is a free, open-source screen recorder that can capture system audio and your screen. It doesn\'t join the call as a participant, works with any Discord account, and is completely invisible to others in the call.',
         'method2-p2': 'OBS is popular among streamers and content creators, but it works just as well for recording Discord audio calls. The main limitation is that it produces raw audio or video files without transcription.',
         'h3-obs-steps': 'How to record Discord with OBS',
@@ -553,7 +565,7 @@ const translations = {
         'obs-figure-caption': 'Add an Audio Output Capture source in OBS, then click Start Recording',
         'method2-pros': '<strong>Pros:</strong> Completely free and open source, no visible bot, works with any Discord call, can record video calls with screen capture.',
         'method2-cons': '<strong>Cons:</strong> Requires initial setup, must manually start and stop recording for each call, no transcription &mdash; produces only raw audio/video files.',
-        'h2-method3': 'Method 3: Craig Bot (Server Channels Only)',
+        'h2-method3': 'Method 4: Craig Bot (Server Channels Only)',
         'method3-p1': 'Craig Bot is a Discord bot specifically designed for recording voice channels. Unlike the previous methods, Craig joins your server\'s voice channel as a visible participant. Everyone in the channel can see Craig is there, making it transparent that recording is happening.',
         'method3-p2': 'Craig\'s unique feature is multi-track recording: it captures each participant on a separate audio track. This is invaluable for podcast production, as you can adjust individual volume levels, remove background noise from specific speakers, or edit out one person\'s audio without affecting others.',
         'h3-craig-steps': 'How to record Discord with Craig Bot',
@@ -614,7 +626,11 @@ const translations = {
         'td-craig-cloud': 'Servidores Craig',
         'td-granola-price': 'Desde $18/mes',
         'td-granola-cloud': 'Nube de Granola',
-        'granola-note': 'Granola es otra opción sin bot y un buen tomador de notas, pero es una suscripción mensual, procesa tu audio en la nube y ni siquiera te deja exportar la grabación de audio — mientras que mono es un único pago de $50 y cada archivo, audio y transcripción, es tuyo y se queda en tu máquina.',
+        'h2-method-granola': 'Método 2: Granola (tomador de notas en la nube)',
+        'granola-p1': 'Granola es un tomador de notas con IA sin bot para Mac y Windows. Como mono, captura el audio de tu computadora sin unirse a la llamada, así que no aparece nada en Discord ni se notifica a nadie. Las notas son pulidas — pero está pensado para reuniones de trabajo, no para Discord, y las desventajas son reales.',
+        'granola-p2': 'Es una suscripción mensual, y tu audio se procesa en la nube de Granola en lugar de en tu dispositivo. Lo más importante: Granola solo conserva el texto — no te deja exportar la grabación de audio, así que nunca obtienes un archivo de la llamada real. Con mono pagas $50 una sola vez y cada archivo, audio y transcripción, es tuyo y se queda en tu máquina.',
+        'granola-pros': '<strong>Ventajas:</strong> Sin bot, captura del audio del sistema sin bot, notas y resúmenes de IA pulidos, funciona en Mac y Windows.',
+        'granola-cons': '<strong>Desventajas:</strong> Suscripción mensual (desde $18/mes), audio procesado en la nube, sin exportación de audio — no puedes conservar la grabación, y está pensado para reuniones de trabajo más que para Discord.',
         'td-yes-bot': 'Sí (bot entra)',
         'h2-method1': 'Método 1: mono (Recomendado)',
         'method1-p1': 'mono captura audio directamente de la salida de sonido de tu computadora &mdash; ningún bot se une al canal de voz, no aparece notificación, y tu audio nunca sale de tu dispositivo. A diferencia de herramientas basadas en la nube, mono procesa todo localmente. Tus grabaciones de Discord quedan en tu computadora, no en servidores de terceros.',
@@ -630,7 +646,7 @@ const translations = {
         'method1-p4': 'Después de la transcripción, la IA local de mono te permite buscar por significado (no solo palabras clave), hacer preguntas sobre tus grabaciones ("¿Qué decidimos sobre el horario?"), y generar resúmenes automáticos con acciones. Todo el procesamiento ocurre en tu dispositivo.',
         'method1-pros': '<strong>Pros:</strong> El audio queda en tu dispositivo (sin subir a la nube), funciona sin conexión, sin suscripción ($50 una vez vs $100-200/año), funciona con cualquier app, chat IA y resúmenes, búsqueda semántica en todas las grabaciones.',
         'method1-cons': '<strong>Contras:</strong> Requiere poder de procesamiento local (funciona en la mayoría de computadoras modernas), sin transcripción en tiempo real durante la llamada, app independiente (sin integraciones Slack/HubSpot).',
-        'h2-method2': 'Método 2: OBS Studio (Gratis)',
+        'h2-method2': 'Método 3: OBS Studio (Gratis)',
         'method2-p1': 'OBS Studio es un grabador de pantalla gratuito y de código abierto que puede capturar audio del sistema y tu pantalla. No se une a la llamada como participante, funciona con cualquier cuenta de Discord, y es completamente invisible para otros en la llamada.',
         'method2-p2': 'OBS es popular entre streamers y creadores de contenido, pero funciona igual de bien para grabar llamadas de audio de Discord. La principal limitación es que produce archivos de audio o video sin transcripción.',
         'h3-obs-steps': 'Cómo grabar Discord con OBS',
@@ -647,7 +663,7 @@ const translations = {
         'obs-figure-caption': 'Añade una fuente de Captura de Salida de Audio en OBS, luego haz clic en Iniciar Grabación',
         'method2-pros': '<strong>Pros:</strong> Completamente gratis y de código abierto, sin bot visible, funciona con cualquier llamada de Discord, puede grabar videollamadas con captura de pantalla.',
         'method2-cons': '<strong>Contras:</strong> Requiere configuración inicial, debes iniciar y detener manualmente la grabación para cada llamada, sin transcripción &mdash; solo produce archivos de audio/video sin procesar.',
-        'h2-method3': 'Método 3: Craig Bot (Solo canales de servidor)',
+        'h2-method3': 'Método 4: Craig Bot (Solo canales de servidor)',
         'method3-p1': 'Craig Bot es un bot de Discord diseñado específicamente para grabar canales de voz. A diferencia de los métodos anteriores, Craig se une al canal de voz de tu servidor como un participante visible. Todos en el canal pueden ver que Craig está allí, haciendo transparente que se está grabando.',
         'method3-p2': 'La característica única de Craig es la grabación multipista: captura a cada participante en una pista de audio separada. Esto es invaluable para la producción de podcasts, ya que puedes ajustar niveles de volumen individuales, eliminar ruido de fondo de hablantes específicos o editar el audio de una persona sin afectar a otros.',
         'h3-craig-steps': 'Cómo grabar Discord con Craig Bot',
@@ -708,7 +724,11 @@ const translations = {
         'td-craig-cloud': 'Serveurs Craig',
         'td-granola-price': 'À partir de 18 $/mois',
         'td-granola-cloud': 'Cloud Granola',
-        'granola-note': 'Granola est une autre option sans bot et un outil de prise de notes soigné, mais c\'est un abonnement mensuel, il traite votre audio dans le cloud et ne vous laisse pas exporter l\'enregistrement audio lui-même — alors que mono est un paiement unique de 50 $ et chaque fichier, audio et transcription, vous appartient et reste sur votre machine.',
+        'h2-method-granola': 'Méthode 2 : Granola (prise de notes dans le cloud)',
+        'granola-p1': 'Granola est un outil de prise de notes par IA sans bot pour Mac et Windows. Comme mono, il capture l\'audio de votre ordinateur sans rejoindre l\'appel, donc rien n\'apparaît dans Discord et personne n\'est notifié. Les notes sont soignées — mais il est conçu pour les réunions de travail, pas pour Discord, et les compromis sont réels.',
+        'granola-p2': 'C\'est un abonnement mensuel, et votre audio est traité dans le cloud de Granola plutôt que sur votre appareil. Plus important encore : Granola ne conserve que le texte — il ne vous laisse pas exporter l\'enregistrement audio, donc vous n\'obtenez jamais un fichier de l\'appel réel. Avec mono, vous payez 50 $ une fois et chaque fichier, audio et transcription, vous appartient et reste sur votre machine.',
+        'granola-pros': '<strong>Avantages :</strong> Sans bot, capture du son système sans bot, notes et résumés IA soignés, fonctionne sur Mac et Windows.',
+        'granola-cons': '<strong>Inconvénients :</strong> Abonnement mensuel (à partir de 18 $/mois), audio traité dans le cloud, pas d\'export audio — vous ne pouvez pas conserver l\'enregistrement, et il est conçu pour les réunions de travail plutôt que pour Discord.',
         'td-yes-bot': 'Oui (bot rejoint)',
         'h2-method1': 'Méthode 1 : mono (Recommandé)',
         'method1-p1': 'mono capture l\'audio directement depuis la sortie sonore de votre ordinateur &mdash; aucun bot ne rejoint le canal vocal, aucune notification n\'apparaît, et votre audio ne quitte jamais votre appareil. Contrairement aux outils cloud, mono traite tout localement. Vos enregistrements Discord restent sur votre ordinateur, pas sur des serveurs tiers.',
@@ -724,7 +744,7 @@ const translations = {
         'method1-p4': 'Après la transcription, l\'IA locale de mono vous permet de rechercher par sens (pas seulement les mots-clés), poser des questions sur vos enregistrements ("Qu\'avons-nous décidé pour le planning ?"), et générer automatiquement des résumés avec actions. Tout le traitement se fait sur votre appareil.',
         'method1-pros': '<strong>Avantages :</strong> L\'audio reste sur votre appareil (pas de téléchargement cloud), fonctionne hors ligne, pas d\'abonnement (50 $ une fois vs 100-200 $/an), fonctionne avec toute app, chat IA et résumés, recherche sémantique sur tous les enregistrements.',
         'method1-cons': '<strong>Inconvénients :</strong> Nécessite puissance de traitement locale (fonctionne sur la plupart des ordinateurs modernes), pas de transcription en temps réel pendant l\'appel, app autonome (pas d\'intégrations Slack/HubSpot).',
-        'h2-method2': 'Méthode 2 : OBS Studio (Gratuit)',
+        'h2-method2': 'Méthode 3 : OBS Studio (Gratuit)',
         'method2-p1': 'OBS Studio est un enregistreur d\'écran gratuit et open source qui peut capturer l\'audio système et votre écran. Il ne rejoint pas l\'appel en tant que participant, fonctionne avec n\'importe quel compte Discord, et est complètement invisible pour les autres dans l\'appel.',
         'method2-p2': 'OBS est populaire auprès des streamers et créateurs de contenu, mais fonctionne aussi bien pour enregistrer les appels audio Discord. La principale limitation est qu\'il produit des fichiers audio ou vidéo bruts sans transcription.',
         'h3-obs-steps': 'Comment enregistrer Discord avec OBS',
@@ -741,7 +761,7 @@ const translations = {
         'obs-figure-caption': 'Ajoutez une source Capture de Sortie Audio dans OBS, puis cliquez sur Démarrer l\'enregistrement',
         'method2-pros': '<strong>Avantages :</strong> Entièrement gratuit et open source, pas de bot visible, fonctionne avec n\'importe quel appel Discord, peut enregistrer les appels vidéo avec capture d\'écran.',
         'method2-cons': '<strong>Inconvénients :</strong> Nécessite configuration initiale, vous devez démarrer et arrêter manuellement l\'enregistrement pour chaque appel, pas de transcription &mdash; produit uniquement des fichiers audio/vidéo bruts.',
-        'h2-method3': 'Méthode 3 : Craig Bot (Canaux serveur uniquement)',
+        'h2-method3': 'Méthode 4 : Craig Bot (Canaux serveur uniquement)',
         'method3-p1': 'Craig Bot est un bot Discord spécifiquement conçu pour enregistrer les canaux vocaux. Contrairement aux méthodes précédentes, Craig rejoint le canal vocal de votre serveur en tant que participant visible. Tout le monde dans le canal peut voir que Craig est là, rendant transparent le fait qu\'un enregistrement est en cours.',
         'method3-p2': 'La caractéristique unique de Craig est l\'enregistrement multipiste : il capture chaque participant sur une piste audio séparée. C\'est inestimable pour la production de podcasts, car vous pouvez ajuster les niveaux de volume individuels, supprimer le bruit de fond de locuteurs spécifiques ou éditer l\'audio d\'une personne sans affecter les autres.',
         'h3-craig-steps': 'Comment enregistrer Discord avec Craig Bot',
@@ -802,7 +822,11 @@ const translations = {
         'td-craig-cloud': 'Craig-Server',
         'td-granola-price': 'Ab 18 $/Monat',
         'td-granola-cloud': 'Granola-Cloud',
-        'granola-note': 'Granola ist eine weitere bot-freie Option und ein gepflegtes Notiztool, aber es ist ein Monatsabo, verarbeitet Ihr Audio in der Cloud und lässt Sie die Audioaufnahme selbst nicht exportieren — während mono einmalig 50 $ kostet und jede Datei, Audio und Transkript, Ihnen gehört und auf Ihrem Rechner bleibt.',
+        'h2-method-granola': 'Methode 2: Granola (Cloud-Notiztool)',
+        'granola-p1': 'Granola ist ein bot-freies KI-Notiztool für Mac und Windows. Wie mono erfasst es den Ton Ihres Computers, ohne dem Anruf beizutreten, sodass in Discord nichts erscheint und niemand benachrichtigt wird. Die Notizen sind gepflegt — aber es ist für berufliche Meetings gemacht, nicht für Discord, und die Kompromisse sind real.',
+        'granola-p2': 'Es ist ein Monatsabo, und Ihr Audio wird in Granolas Cloud statt auf Ihrem Gerät verarbeitet. Am wichtigsten: Granola behält nur den Text — es lässt Sie die Audioaufnahme nicht exportieren, sodass Sie nie eine Datei des eigentlichen Anrufs erhalten. Mit mono zahlen Sie einmalig 50 $, und jede Datei, Audio und Transkript, gehört Ihnen und bleibt auf Ihrem Rechner.',
+        'granola-pros': '<strong>Vorteile:</strong> Kein Bot, bot-freie Systemton-Erfassung, gepflegte KI-Notizen und Zusammenfassungen, funktioniert auf Mac und Windows.',
+        'granola-cons': '<strong>Nachteile:</strong> Monatsabo (ab 18 $/Monat), Audio in der Cloud verarbeitet, kein Audio-Export — Sie können die Aufnahme nicht behalten, und es ist eher für berufliche Meetings als für Discord gemacht.',
         'td-yes-bot': 'Ja (Bot tritt bei)',
         'h2-method1': 'Methode 1: mono (Empfohlen)',
         'method1-p1': 'mono erfasst Audio direkt von der Soundausgabe Ihres Computers &mdash; kein Bot tritt dem Sprachkanal bei, keine Benachrichtigung erscheint, und Ihr Audio verlässt nie Ihr Gerät. Anders als Cloud-basierte Tools verarbeitet mono alles lokal. Ihre Discord-Aufnahmen bleiben auf Ihrem Computer, nicht auf Drittanbieter-Servern.',
@@ -818,7 +842,7 @@ const translations = {
         'method1-p4': 'Nach der Transkription ermöglicht monos lokale KI die Suche nach Bedeutung (nicht nur Stichwörtern), Fragen zu Ihren Aufnahmen zu stellen ("Was haben wir zum Zeitplan beschlossen?"), und automatisch Zusammenfassungen mit Aktionspunkten zu erstellen. Die gesamte Verarbeitung erfolgt auf Ihrem Gerät.',
         'method1-pros': '<strong>Vorteile:</strong> Audio bleibt auf Ihrem Gerät (kein Cloud-Upload), funktioniert offline, kein Abonnement ($50 einmalig vs $100-200/Jahr), funktioniert mit jeder App, KI-Chat und Zusammenfassungen, semantische Suche über alle Aufnahmen.',
         'method1-cons': '<strong>Nachteile:</strong> Erfordert lokale Rechenleistung (funktioniert auf den meisten modernen Computern), keine Echtzeit-Transkription während des Anrufs, eigenständige App (keine Slack/HubSpot-Integrationen).',
-        'h2-method2': 'Methode 2: OBS Studio (Kostenlos)',
+        'h2-method2': 'Methode 3: OBS Studio (Kostenlos)',
         'method2-p1': 'OBS Studio ist ein kostenloser, Open-Source-Bildschirmrekorder, der Systemaudio und Ihren Bildschirm erfassen kann. Er tritt dem Anruf nicht als Teilnehmer bei, funktioniert mit jedem Discord-Konto, und ist für andere im Anruf völlig unsichtbar.',
         'method2-p2': 'OBS ist beliebt bei Streamern und Content-Erstellern, funktioniert aber genauso gut für die Aufnahme von Discord-Audioanrufen. Die Haupteinschränkung ist, dass es rohe Audio- oder Videodateien ohne Transkription produziert.',
         'h3-obs-steps': 'Discord mit OBS aufzeichnen',
@@ -835,7 +859,7 @@ const translations = {
         'obs-figure-caption': 'Fügen Sie eine Audioausgabe-Erfassung-Quelle in OBS hinzu, dann klicken Sie auf Aufnahme starten',
         'method2-pros': '<strong>Vorteile:</strong> Vollständig kostenlos und Open Source, kein sichtbarer Bot, funktioniert mit jedem Discord-Anruf, kann Videoanrufe mit Bildschirmaufnahme aufzeichnen.',
         'method2-cons': '<strong>Nachteile:</strong> Erfordert anfängliche Einrichtung, Sie müssen die Aufnahme für jeden Anruf manuell starten und stoppen, keine Transkription &mdash; produziert nur rohe Audio/Video-Dateien.',
-        'h2-method3': 'Methode 3: Craig Bot (Nur Serverkanäle)',
+        'h2-method3': 'Methode 4: Craig Bot (Nur Serverkanäle)',
         'method3-p1': 'Craig Bot ist ein Discord-Bot, der speziell für die Aufnahme von Sprachkanälen entwickelt wurde. Im Gegensatz zu den vorherigen Methoden tritt Craig dem Sprachkanal Ihres Servers als sichtbarer Teilnehmer bei. Jeder im Kanal kann sehen, dass Craig da ist, was transparent macht, dass aufgenommen wird.',
         'method3-p2': 'Craigs einzigartige Funktion ist die Mehrspur-Aufnahme: Er erfasst jeden Teilnehmer auf einer separaten Audiospur. Dies ist für die Podcast-Produktion unschätzbar wertvoll, da Sie individuelle Lautstärkepegel anpassen, Hintergrundgeräusche von bestimmten Sprechern entfernen oder das Audio einer Person bearbeiten können, ohne andere zu beeinflussen.',
         'h3-craig-steps': 'Discord mit Craig Bot aufzeichnen',
@@ -896,7 +920,11 @@ const translations = {
         'td-craig-cloud': 'Craig服务器',
         'td-granola-price': '$18/月起',
         'td-granola-cloud': 'Granola云端',
-        'granola-note': 'Granola是另一个无机器人的选择，也是一款精致的笔记工具，但它是按月订阅，在云端处理你的音频，而且不让你导出音频录音本身——而mono是一次性$50，每个文件、音频和转录都归你所有，留在你自己的机器上。',
+        'h2-method-granola': '方法2：Granola（云端笔记工具）',
+        'granola-p1': 'Granola是一款适用于Mac和Windows的无机器人AI笔记工具。和mono一样，它捕获你电脑的音频而不加入通话，因此Discord里不会出现任何东西，也不会通知任何人。它的笔记很精致——但它是为工作会议而非Discord设计的，取舍是实实在在的。',
+        'granola-p2': '它是按月订阅，而且你的音频在Granola的云端而非你的设备上处理。最重要的是：Granola只保留文本——它不让你导出音频录音本身，所以你永远拿不到真正通话的文件。用mono，你只需一次性支付$50，每个文件、音频和转录都归你所有，留在你自己的机器上。',
+        'granola-pros': '<strong>优点：</strong>无机器人，无机器人的系统音频捕获，精致的AI笔记与摘要，支持Mac和Windows。',
+        'granola-cons': '<strong>缺点：</strong>按月订阅（$18/月起），音频在云端处理，无法导出音频——你无法保留录音，而且它是为商务会议而非Discord设计的。',
         'td-yes-bot': '是（机器人加入）',
         'h2-method1': '方法1：mono（推荐）',
         'method1-p1': 'mono直接从计算机的声音输出捕获音频 &mdash; 没有机器人加入语音频道，不会出现通知，您的音频永远不会离开您的设备。与基于云的工具不同，mono在本地处理所有内容。您的Discord录音保留在您的计算机上，而不是第三方服务器上。',
@@ -912,7 +940,7 @@ const translations = {
         'method1-p4': '转录完成后，mono的本地AI允许您按含义搜索（不仅限于关键字）、对您的录音提问（"我们关于时间安排做了什么决定？"），并自动生成带行动项的摘要。所有处理都在您的设备上进行。',
         'method1-pros': '<strong>优点：</strong>音频保留在您的设备上（不上传云端），离线工作，无订阅（一次性50美元对比每年100-200美元），适用于任何应用，AI聊天和摘要，跨所有录音的语义搜索。',
         'method1-cons': '<strong>缺点：</strong>需要本地处理能力（适用于大多数现代计算机），通话期间无实时转录，独立应用（无Slack/HubSpot集成）。',
-        'h2-method2': '方法2：OBS Studio（免费）',
+        'h2-method2': '方法3：OBS Studio（免费）',
         'method2-p1': 'OBS Studio是一款免费开源的录屏软件，可以捕获系统音频和您的屏幕。它不作为参与者加入通话，可与任何Discord账户配合使用，对通话中的其他人完全隐形。',
         'method2-p2': 'OBS在主播和内容创作者中很受欢迎，但它同样适合录制Discord音频通话。主要限制是它生成原始音频或视频文件，没有转录。',
         'h3-obs-steps': '如何使用OBS录制Discord',
@@ -929,7 +957,7 @@ const translations = {
         'obs-figure-caption': '在OBS中添加音频输出捕获源，然后点击开始录制',
         'method2-pros': '<strong>优点：</strong>完全免费且开源，没有可见的机器人，适用于任何Discord通话，可以通过屏幕捕获录制视频通话。',
         'method2-cons': '<strong>缺点：</strong>需要初始设置，必须为每次通话手动开始和停止录制，无转录 &mdash; 仅生成原始音频/视频文件。',
-        'h2-method3': '方法3：Craig Bot（仅限服务器频道）',
+        'h2-method3': '方法4：Craig Bot（仅限服务器频道）',
         'method3-p1': 'Craig Bot是一个专门为录制语音频道设计的Discord机器人。与之前的方法不同，Craig作为可见参与者加入您服务器的语音频道。频道中的每个人都可以看到Craig在那里，这使录音变得透明。',
         'method3-p2': 'Craig的独特功能是多轨录音：它将每个参与者捕获在单独的音频轨道上。这对于播客制作非常宝贵，因为您可以调整单独的音量级别，从特定说话者中去除背景噪音，或编辑一个人的音频而不影响其他人。',
         'h3-craig-steps': '如何使用Craig Bot录制Discord',
@@ -990,7 +1018,11 @@ const translations = {
         'td-craig-cloud': 'Серверы Craig',
         'td-granola-price': 'От $18/мес',
         'td-granola-cloud': 'Облако Granola',
-        'granola-note': 'Granola — ещё один вариант без бота и аккуратный инструмент заметок, но это ежемесячная подписка, он обрабатывает ваше аудио в облаке и не даёт экспортировать саму аудиозапись — тогда как mono стоит единоразово $50, и каждый файл, аудио и расшифровка, принадлежит вам и остаётся на вашей машине.',
+        'h2-method-granola': 'Метод 2: Granola (облачный инструмент заметок)',
+        'granola-p1': 'Granola — это инструмент заметок с ИИ без бота для Mac и Windows. Как и mono, он захватывает звук вашего компьютера, не присоединяясь к звонку, поэтому в Discord ничего не появляется и никого не уведомляют. Заметки аккуратные — но он создан для рабочих встреч, а не для Discord, и компромиссы реальны.',
+        'granola-p2': 'Это ежемесячная подписка, и ваше аудио обрабатывается в облаке Granola, а не на вашем устройстве. Самое важное: Granola хранит только текст — он не даёт экспортировать саму аудиозапись, так что вы никогда не получите файл реального звонка. С mono вы платите $50 один раз, и каждый файл, аудио и расшифровка, принадлежит вам и остаётся на вашей машине.',
+        'granola-pros': '<strong>Плюсы:</strong> Без бота, захват системного звука без бота, аккуратные ИИ-заметки и сводки, работает на Mac и Windows.',
+        'granola-cons': '<strong>Минусы:</strong> Ежемесячная подписка (от $18/мес), аудио обрабатывается в облаке, нет экспорта аудио — вы не можете сохранить запись, и он создан для деловых встреч, а не для Discord.',
         'td-yes-bot': 'Да (бот заходит)',
         'h2-method1': 'Метод 1: mono (Рекомендуется)',
         'method1-p1': 'mono захватывает звук напрямую с аудиовыхода вашего компьютера &mdash; никакой бот не подключается к голосовому каналу, не появляется никаких уведомлений, а ваш звук никогда не покидает устройство. В отличие от облачных инструментов, mono обрабатывает всё локально. Ваши записи Discord остаются на вашем компьютере, а не на сторонних серверах.',
@@ -1006,7 +1038,7 @@ const translations = {
         'method1-p4': 'После транскрипции локальный ИИ mono позволяет искать по смыслу (а не только по ключевым словам), задавать вопросы о своих записях («Что мы решили насчёт расписания?») и автоматически создавать резюме с пунктами действий. Вся обработка происходит на вашем устройстве.',
         'method1-pros': '<strong>Плюсы:</strong> Звук остаётся на вашем устройстве (без загрузки в облако), работает офлайн, без подписки ($50 единоразово вместо $100-200/год), работает с любым приложением, ИИ-чат и резюме, семантический поиск по всем записям.',
         'method1-cons': '<strong>Минусы:</strong> Требует локальной вычислительной мощности (работает на большинстве современных компьютеров), нет транскрипции в реальном времени во время звонка, отдельное приложение (нет интеграций со Slack/HubSpot).',
-        'h2-method2': 'Метод 2: OBS Studio (Бесплатно)',
+        'h2-method2': 'Метод 3: OBS Studio (Бесплатно)',
         'method2-p1': 'OBS Studio — бесплатная программа для записи экрана с открытым исходным кодом, которая может захватывать системный звук и ваш экран. Не подключается к звонку как участник, работает с любым аккаунтом Discord и полностью невидима для остальных в звонке.',
         'method2-p2': 'OBS популярна среди стримеров и создателей контента, но так же хорошо подходит для записи аудиозвонков Discord. Главное ограничение — она создаёт необработанные аудио- или видеофайлы без транскрипции.',
         'h3-obs-steps': 'Как записывать Discord с помощью OBS',
@@ -1023,7 +1055,7 @@ const translations = {
         'obs-figure-caption': 'Добавьте источник «Захват выходного аудио» в OBS, затем нажмите «Начать запись»',
         'method2-pros': '<strong>Плюсы:</strong> Полностью бесплатна и с открытым исходным кодом, нет видимого бота, работает с любым звонком Discord, может записывать видеозвонки с захватом экрана.',
         'method2-cons': '<strong>Минусы:</strong> Требует начальной настройки, нужно вручную начинать и останавливать запись для каждого звонка, без транскрипции &mdash; создаёт только необработанные аудио-/видеофайлы.',
-        'h2-method3': 'Метод 3: Craig Bot (Только серверные каналы)',
+        'h2-method3': 'Метод 4: Craig Bot (Только серверные каналы)',
         'method3-p1': 'Craig Bot — это Discord-бот, специально разработанный для записи голосовых каналов. В отличие от предыдущих методов, Craig присоединяется к голосовому каналу вашего сервера как видимый участник. Все в канале видят, что Craig там, что делает запись прозрачной.',
         'method3-p2': 'Уникальная особенность Craig — многодорожечная запись: он записывает каждого участника на отдельную аудиодорожку. Это бесценно для производства подкастов: можно регулировать громкость отдельных участников, убирать фоновый шум у конкретных говорящих или вырезать аудио одного человека, не затрагивая других.',
         'h3-craig-steps': 'Как записывать Discord с помощью Craig Bot',
