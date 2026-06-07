@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61BNYMZ7FD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-61BNYMZ7FD');
+    </script>
+    <!-- Mono Analytics -->
+    <script>
+    (function(){if(location.search.includes("optout")){localStorage.setItem("_ma_optout","1");return}if(localStorage.getItem("_ma_optout"))return;var u="https://t.mono-ai.uk/api/event";var p=new URLSearchParams(location.search);var uvid=p.get("_ma_vid");if(uvid&&/^[a-z0-9]{8,16}$/i.test(uvid))localStorage.setItem("_ma_vid",uvid);var v=localStorage.getItem("_ma_vid");if(!v){v=crypto.randomUUID().slice(0,12);localStorage.setItem("_ma_vid",v)}var s=sessionStorage.getItem("_ma_sid");if(!s){s=crypto.randomUUID().slice(0,12);sessionStorage.setItem("_ma_sid",s)}var t={};["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var val=p.get(k);if(val){t[k]=val;sessionStorage.setItem("_ma_"+k,val)}else{t[k]=sessionStorage.getItem("_ma_"+k)||""}});var r=document.referrer||"";function ma(e,o){var d=Object.assign({session_id:s,visitor_id:v,event_name:e,page_path:location.pathname,label:null,platform:null,value:null,utm_source:t.utm_source,utm_medium:t.utm_medium,utm_campaign:t.utm_campaign,utm_content:t.utm_content,utm_term:t.utm_term,referrer:r,screen_width:screen.width},o||{});if(navigator.sendBeacon)navigator.sendBeacon(u,JSON.stringify(d));else fetch(u,{method:"POST",body:JSON.stringify(d),keepalive:true})}ma("pageview");window.ma=ma})();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Record a Slack Huddle (2026): 4 Methods That Work</title>
+    <meta name="description" content="Slack has no Record button for huddles. Here are 4 ways to record a Slack huddle in 2026 — locally, with transcription, and without a bot joining the call.">
+    <link rel="canonical" href="https://mono-ai.uk/blog/how-to-record-slack-huddle">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Record a Slack Huddle (2026): 4 Methods That Work">
+    <meta property="og:description" content="Slack has no native huddle recording. Here's how to record one locally, with transcription, and no bot.">
+    <meta property="og:url" content="https://mono-ai.uk/blog/how-to-record-slack-huddle">
+    <meta property="og:site_name" content="Mono">
+    <meta property="og:image" content="https://mono-ai.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-06-07T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Record a Slack Huddle">
+    <meta name="twitter:description" content="4 ways to record a Slack huddle — locally, with transcription, no bot.">
+    <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Record a Slack Huddle (2026): 4 Methods That Work",
+      "description": "Slack has no native huddle recording. Four ways to record a Slack huddle locally, with transcription, and without a bot.",
+      "datePublished": "2026-06-07",
+      "dateModified": "2026-06-07",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "Mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "url": "https://mono-ai.uk/blog/how-to-record-slack-huddle"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you record a Slack huddle?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not with Slack itself — Slack has no native huddle recording on any plan, including Enterprise Grid. To record a huddle you use a separate tool such as mono (local audio + transcription), OBS Studio, or your computer's built-in screen recorder." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Slack notify others when you record a huddle?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Slack has no recording feature, so there is no recording notification. Tools like mono capture system audio locally and don't join the huddle, so no bot is visible. You should still tell participants you're recording where the law requires it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Slack AI transcribe huddles?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On paid plans (Business+ and Enterprise Grid) with Slack AI, Slack generates AI Notes — a summary and rough transcript in a canvas after the huddle. It is not a recording file, it isn't searchable across the workspace, and it doesn't work in huddles with external guests." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I record a Slack huddle with external guests?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Slack's native AI Notes don't work with external guests. A local recorder like mono captures everyone's audio regardless of who is in the huddle, because it records your computer's sound output rather than relying on Slack." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/font-ready.js"></script>
+    <script src="/components/nav.js" defer></script>
+    <script src="/components/discount-float.js" defer></script>
+    <script src="/components/fold-effect.js" defer></script>
+    <script src="/components/cta-card.js" defer></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-primary: #252525; --bg-secondary: #2D2D2D; --bg-hover: #3A3A3A; --bg-pressed: #454545; --text-primary: #FFFFFF; --text-secondary: #B0B0B0; }
+        @media (prefers-color-scheme: light) { :root:not(.dark) { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; } }
+        :root.light { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; }
+        html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-width: none; }
+        html::-webkit-scrollbar { display: none; }
+        body { font-family: 'Comfortaa', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
+        .back-link { display: inline-block; font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; }
+        .back-link:hover { color: var(--text-primary); }
+        .article-category { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 16px; }
+        .article-title { font-weight: 500; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; margin-bottom: 12px; }
+        .article-meta { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+        .article-disclosure { font-size: 12px; color: var(--text-secondary); opacity: 0.7; font-style: italic; margin-bottom: 48px; }
+        .article-body { font-size: 16px; }
+        .article-body p { margin-bottom: 20px; }
+        .article-body h2 { font-weight: 500; font-size: 24px; margin-top: 48px; margin-bottom: 16px; }
+        .article-body h3 { font-weight: 500; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
+        .article-body strong { font-weight: 700; }
+        .article-body a { color: var(--text-primary); }
+        .tldr { background: var(--bg-secondary); border-left: 3px solid rgba(255,255,255,0.15); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; }
+        .tldr-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+        .tldr ul { list-style: none; padding: 0; margin: 0; }
+        .tldr li { font-size: 15px; padding: 4px 0; }
+        .table-wrap { overflow-x: auto; margin-bottom: 24px; }
+        .compare-table { border-collapse: collapse; width: 100%; min-width: 400px; }
+        .compare-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
+        .compare-table td { font-size: 14px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .compare-table tr.mono-row td { background: rgba(255,255,255,0.04); font-weight: 700; }
+        .steps-list { list-style: none; counter-reset: step; padding: 0; margin-bottom: 24px; }
+        .steps-list li { counter-increment: step; position: relative; padding: 10px 0 10px 40px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .steps-list li::before { content: counter(step); position: absolute; left: 0; top: 12px; width: 22px; height: 22px; background: rgba(255,255,255,0.08); border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); }
+        .steps-list li:last-child { border-bottom: none; }
+        .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
+        .tip-box p { margin-bottom: 0; }
+
+        /* Related articles */
+        .related-articles { margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); }
+        :root.light .related-articles { border-top-color: rgba(0,0,0,0.1); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .related-articles { border-top-color: rgba(0,0,0,0.1); } }
+        .related-title { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 20px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+        .related-card { display: block; text-decoration: none; background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; transition: background 0.2s ease, border-color 0.2s ease; }
+        .related-card:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.14); }
+        :root.light .related-card { border-color: rgba(0,0,0,0.08); }
+        :root.light .related-card:hover { border-color: rgba(0,0,0,0.16); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .related-card { border-color: rgba(0,0,0,0.08); } :root:not(.dark) .related-card:hover { border-color: rgba(0,0,0,0.16); } }
+        .related-card-title { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 6px; line-height: 1.3; }
+        .related-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <site-nav base-path="../"></site-nav>
+    <discount-float></discount-float>
+
+    <main class="article-wrap">
+        <a href="./" class="back-link" data-i18n="back_link">← blog</a>
+
+        <header>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Record a Slack Huddle</h1>
+            <p class="article-meta" data-i18n="meta">Jun 7, 2026 · 7 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">Disclosure: mono is our product. We've included it in this guide and tried to be fair, but you should know we have a stake in it.</p>
+        </header>
+
+        <div class="article-body">
+
+            <p data-i18n="intro_p1">Slack Huddles are made for quick calls, but they have one obvious gap: there is no Record button. Slack can't save a huddle as an audio or video file you can replay later — not on the free plan, and not even on Enterprise Grid. If you want a recording or a transcript you can actually keep, you need a separate tool.</p>
+
+            <p data-i18n="intro_p2">This guide covers every method that actually works for recording a Slack huddle in 2026 — including ways to capture the call locally, with transcription, and without anyone in the huddle seeing a bot.</p>
+
+            <div class="tldr">
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
+                <ul>
+                    <li data-i18n="tldr_1"><strong>Best overall:</strong> mono — no bot, local AI transcription, works with external guests, $50 once</li>
+                    <li data-i18n="tldr_2"><strong>Best free:</strong> OBS Studio — no bot, captures audio + screen share, needs setup, no transcription</li>
+                    <li data-i18n="tldr_3"><strong>Native (limited):</strong> Slack AI Notes — paid plans only, a summary not a recording, no external guests</li>
+                    <li data-i18n="tldr_4"><strong>Quick & free:</strong> Windows Game Bar / Mac QuickTime — screen capture, fiddly audio, no transcription</li>
+                </ul>
+            </div>
+
+            <h2 data-i18n="h2_builtin">Does Slack have built-in recording?</h2>
+
+            <p data-i18n="builtin_p1">Short answer: no. Slack Huddles have no native recording on any plan — there is no button that produces an audio or video file of a live huddle. Two features come close but are not recordings:</p>
+
+            <p data-i18n="builtin_ainotes"><strong>Slack AI Notes.</strong> On paid plans (Business+ and Enterprise Grid) with Slack AI enabled, Slack can generate a summary and a rough transcript after a huddle ends. These land in a canvas attached to the huddle thread. It's notes, not a saved call — there's no audio file, the transcript isn't searchable across your workspace, it's not available in huddles with external guests, and an admin can switch it off.</p>
+
+            <p data-i18n="builtin_clips"><strong>Clips.</strong> Slack Clips let you record a short asynchronous message — audio, video, or screen, up to 5 minutes. They're for leaving a message, not capturing a live huddle, and they have no speaker labels.</p>
+
+            <p data-i18n="builtin_p2">So if you want a real recording of a live huddle — something you can replay, archive, or get a full transcript from — you'll use one of the methods below.</p>
+
+            <h2 data-i18n="h2_comparison">Quick Comparison</h2>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th_method">Method</th>
+                            <th data-i18n="th_price">Price</th>
+                            <th data-i18n="th_bot">Bot/Visible?</th>
+                            <th data-i18n="th_transcription">Transcription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="mono-row">
+                            <td>mono</td>
+                            <td data-i18n="price_mono">$50 once</td>
+                            <td data-i18n="no">No</td>
+                            <td data-i18n="yes_local">Yes (local)</td>
+                        </tr>
+                        <tr>
+                            <td>OBS Studio</td>
+                            <td data-i18n="price_free">Free</td>
+                            <td data-i18n="no2">No</td>
+                            <td data-i18n="no3">No</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="gamebar_qt">Game Bar / QuickTime</td>
+                            <td data-i18n="price_free2">Free</td>
+                            <td data-i18n="no4">No</td>
+                            <td data-i18n="no5">No</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ainotes_row">Slack AI Notes</td>
+                            <td data-i18n="price_paid">Paid plan</td>
+                            <td data-i18n="native_label">Native</td>
+                            <td data-i18n="summary_only">Summary only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 data-i18n="h2_method1">Method 1: mono (Recommended)</h2>
+
+            <p data-i18n="method1_p1">mono records a Slack huddle by capturing the audio coming out of your computer. It doesn't join the huddle, so no one sees a bot and there's no notification. Because it records system audio, it captures every participant — including external guests, which Slack's own AI Notes can't do.</p>
+
+            <p data-i18n="method1_p2">When you stop, mono transcribes the call locally — the AI runs on your computer, so the audio never leaves it. The transcript includes speaker labels, and every recording becomes searchable by keyword afterwards.</p>
+
+            <h3 data-i18n="h3_mono_steps">How to record a Slack huddle with mono</h3>
+
+            <ol class="steps-list">
+                <li data-i18n="mono_step1">Download mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
+                <li data-i18n="mono_step2">Open mono and click Record, before or during your huddle</li>
+                <li data-i18n="mono_step3">Start or join the Slack huddle as normal</li>
+                <li data-i18n="mono_step4">Talk, share your screen, do whatever you need</li>
+                <li data-i18n="mono_step5">Click Stop in mono when the huddle ends</li>
+                <li data-i18n="mono_step6">Wait for the local transcription to finish</li>
+                <li data-i18n="mono_step7">Read, search, or export the transcript with speaker labels</li>
+            </ol>
+
+            <p data-i18n="method1_p3">Because mono captures whatever plays through your speakers or headphones, it works the same whether the huddle is audio-only, video, or a screen share — and regardless of your Slack plan.</p>
+
+            <p data-i18n="mono_pros"><strong>Pros:</strong> No bot, no notification, works with external guests and on the free Slack plan, local AI transcription with speaker labels, searchable recordings, one-time $50 payment with no subscription.</p>
+
+            <p data-i18n="mono_cons"><strong>Cons:</strong> Captures audio, not the video/screen as a video file; paid software (one free recording to try first).</p>
+
+            <h2 data-i18n="h2_method2">Method 2: OBS Studio (Free)</h2>
+
+            <p data-i18n="method2_p1">OBS Studio is a free, open-source recorder. It doesn't join the huddle, and it can capture both system audio and your screen — useful if you want a video of someone's screen share, not just the audio.</p>
+
+            <p data-i18n="method2_p2">The trade-off is setup and no transcription: OBS gives you a raw audio or video file that you'll have to transcribe somewhere else if you want searchable text.</p>
+
+            <h3 data-i18n="h3_obs_steps">How to record a Slack huddle with OBS</h3>
+
+            <ol class="steps-list">
+                <li data-i18n="obs_step1">Download OBS Studio from obsproject.com and install it</li>
+                <li data-i18n="obs_step2">Open OBS and go to Settings → Audio</li>
+                <li data-i18n="obs_step3">Set "Desktop Audio" to your playback device (speakers or headphones)</li>
+                <li data-i18n="obs_step4">In the main window, click + under Sources and add "Audio Output Capture" for audio-only</li>
+                <li data-i18n="obs_step5">To capture a screen share, also add "Display Capture" or "Window Capture"</li>
+                <li data-i18n="obs_step6">Click "Start Recording" before the huddle begins</li>
+                <li data-i18n="obs_step7">Run your huddle as usual</li>
+                <li data-i18n="obs_step8">Click "Stop Recording" when it ends; find the file in your Videos folder</li>
+            </ol>
+
+            <p data-i18n="obs_pros"><strong>Pros:</strong> Completely free and open source, no bot, captures screen-share video, highly configurable.</p>
+
+            <p data-i18n="obs_cons"><strong>Cons:</strong> Requires setup, you must start and stop recording manually each time, no transcription — produces raw audio/video files only.</p>
+
+            <h2 data-i18n="h2_method3">Method 3: Built-in Screen Recording (Windows &amp; Mac)</h2>
+
+            <p data-i18n="method3_p1">Both Windows and macOS ship a screen recorder that can capture a huddle window. They're free and already installed — the catch is audio capture.</p>
+
+            <h3 data-i18n="h3_win">Windows (Xbox Game Bar)</h3>
+
+            <ol class="steps-list">
+                <li data-i18n="win_step1">Press Win+G to open the Game Bar</li>
+                <li data-i18n="win_step2">Open the Capture widget and click Record</li>
+                <li data-i18n="win_step3">Check that system audio and mic capture are switched on</li>
+                <li data-i18n="win_step4">Keep the Slack window focused during the huddle</li>
+                <li data-i18n="win_step5">Stop from the Game Bar; the clip saves to Videos\Captures</li>
+            </ol>
+
+            <p data-i18n="win_note">Game Bar records the active app window and can be picky about capturing other participants' system audio — test it on a short call first.</p>
+
+            <h3 data-i18n="h3_mac">Mac (QuickTime / Screenshot toolbar)</h3>
+
+            <ol class="steps-list">
+                <li data-i18n="mac_step1">Press Cmd+Shift+5 to open the screen-recording toolbar</li>
+                <li data-i18n="mac_step2">macOS can't capture system audio on its own — install a free virtual audio driver like BlackHole and route your output to it</li>
+                <li data-i18n="mac_step3">Select BlackHole as the recording audio source, then click Record</li>
+                <li data-i18n="mac_step4">Stop from the menu bar; the file saves to your Desktop by default</li>
+            </ol>
+
+            <p data-i18n="mac_note">Without a virtual audio device, QuickTime only records your microphone — not the other participants.</p>
+
+            <p data-i18n="method3_pros"><strong>Pros:</strong> Free, already on your computer, can capture video and screen share.</p>
+
+            <p data-i18n="method3_cons"><strong>Cons:</strong> System-audio capture is fiddly (Mac needs extra software), no transcription, no speaker labels.</p>
+
+            <h2 data-i18n="h2_method4">Method 4: Slack AI Notes (Native, Paid)</h2>
+
+            <p data-i18n="method4_p1">If your workspace is on a paid plan (Business+ or Enterprise Grid) with Slack AI, you can turn on AI Notes for huddles. After the call, Slack drops a summary and a rough transcript into a canvas in the huddle thread — no extra software needed.</p>
+
+            <p data-i18n="method4_p2">This is the only native option, but it's notes, not a recording. There's no audio or video file, the transcript isn't searchable across your workspace, it doesn't work in huddles with external guests, and an admin can disable it. For internal team huddles where a summary is all you need, it's convenient.</p>
+
+            <p data-i18n="method4_pros"><strong>Pros:</strong> Native, nothing to install, automatic summary and action items.</p>
+
+            <p data-i18n="method4_cons"><strong>Cons:</strong> Paid plans only, no recording file, no external guests, transcript not searchable, can be admin-disabled.</p>
+
+            <h2 data-i18n="h2_av">Audio vs Video Huddles</h2>
+
+            <p data-i18n="av_p1">Most huddles are audio, but Slack supports video and screen sharing on paid plans. Pick your method by what you actually need to keep:</p>
+
+            <p data-i18n="av_audio"><strong>Audio + transcript:</strong> mono captures the conversation and transcribes it locally. Best when you want a searchable record of what was said.</p>
+
+            <p data-i18n="av_video"><strong>Screen share or video:</strong> OBS or your built-in screen recorder captures the visuals. Bigger files, and no transcript.</p>
+
+            <h2 data-i18n="h2_legal">Legal Considerations</h2>
+
+            <p data-i18n="legal_p1">Recording laws apply to huddles like any other call:</p>
+
+            <p data-i18n="legal_oneparty"><strong>One-party consent:</strong> Many jurisdictions let you record a conversation you're part of.</p>
+
+            <p data-i18n="legal_allparty"><strong>All-party consent:</strong> Some regions — including California, Germany, and others — require everyone to agree first.</p>
+
+            <p data-i18n="legal_p2">For work calls, many companies also require you to disclose recording. Tell the huddle you're recording, and check your company policy and local law before you do.</p>
+
+            <div class="tip-box">
+                <p data-i18n="tips_box"><strong>Use headphones</strong> so the huddle audio is captured cleanly without echo. <strong>Mute notifications</strong> from other apps so they don't end up in the recording. <strong>Run a 10-second test</strong> before an important call to confirm everyone is audible.</p>
+            </div>
+
+            <h2 data-i18n="h2_which">Which Method Should You Use?</h2>
+
+            <p data-i18n="which_p1"><strong>Want a transcript without a bot?</strong> mono records locally and transcribes automatically, works with external guests and on any Slack plan.</p>
+
+            <p data-i18n="which_p2"><strong>Need the screen share on video?</strong> OBS Studio, or your built-in recorder, captures the visuals for free.</p>
+
+            <p data-i18n="which_p3"><strong>On a paid plan and only need a summary?</strong> Slack AI Notes is built in — just no recording file and no external guests.</p>
+
+            <p data-i18n="which_p4"><strong>Just need a quick free capture?</strong> Windows Game Bar or Mac QuickTime work in a pinch, but expect fiddly audio and no transcription.</p>
+
+            <cta-card base-path="../"></cta-card>
+
+            <section class="related-articles">
+                <h2 class="related-title" data-i18n="related_title">Related Guides</h2>
+                <div class="related-grid">
+                    <a href="how-to-record-microsoft-teams" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_teams_title">How to Record Microsoft Teams</h3>
+                        <p class="related-card-desc" data-i18n="related_teams_desc">4 ways to record Teams meetings without a bot.</p>
+                    </a>
+                    <a href="how-to-record-zoom-calls" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_zoom_title">How to Record Zoom Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_zoom_desc">4 ways to record Zoom without a visible bot.</p>
+                    </a>
+                    <a href="how-to-record-discord-calls" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_discord_title">How to Record Discord Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_discord_desc">4 methods to record Discord voice calls and video chats.</p>
+                    </a>
+                    <a href="record-discord-whatsapp-viber-telegram" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_messaging_title">Record Messaging App Calls</h3>
+                        <p class="related-card-desc" data-i18n="related_messaging_desc">Record Discord, WhatsApp, Viber or Telegram calls.</p>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+<script>
+// Translations matching the rest of the blog. English is the static default
+// and is also listed here in full so switching back from another language
+// restores every string. The handler is guarded so any future not-yet-
+// translated language simply keeps the English text.
+const translations = {
+    en: {
+        'back_link': '← blog',
+        'category': '[Guide]',
+        'title': 'How to Record a Slack Huddle',
+        'meta': 'Jun 7, 2026 · 7 min read · By Daniil Lefanov',
+        'disclosure': 'Disclosure: mono is our product. We\'ve included it in this guide and tried to be fair, but you should know we have a stake in it.',
+        'intro_p1': 'Slack Huddles are made for quick calls, but they have one obvious gap: there is no Record button. Slack can\'t save a huddle as an audio or video file you can replay later — not on the free plan, and not even on Enterprise Grid. If you want a recording or a transcript you can actually keep, you need a separate tool.',
+        'intro_p2': 'This guide covers every method that actually works for recording a Slack huddle in 2026 — including ways to capture the call locally, with transcription, and without anyone in the huddle seeing a bot.',
+        'tldr_label': 'TL;DR',
+        'tldr_1': '<strong>Best overall:</strong> mono — no bot, local AI transcription, works with external guests, $50 once',
+        'tldr_2': '<strong>Best free:</strong> OBS Studio — no bot, captures audio + screen share, needs setup, no transcription',
+        'tldr_3': '<strong>Native (limited):</strong> Slack AI Notes — paid plans only, a summary not a recording, no external guests',
+        'tldr_4': '<strong>Quick &amp; free:</strong> Windows Game Bar / Mac QuickTime — screen capture, fiddly audio, no transcription',
+        'h2_builtin': 'Does Slack have built-in recording?',
+        'builtin_p1': 'Short answer: no. Slack Huddles have no native recording on any plan — there is no button that produces an audio or video file of a live huddle. Two features come close but are not recordings:',
+        'builtin_ainotes': '<strong>Slack AI Notes.</strong> On paid plans (Business+ and Enterprise Grid) with Slack AI enabled, Slack can generate a summary and a rough transcript after a huddle ends. These land in a canvas attached to the huddle thread. It\'s notes, not a saved call — there\'s no audio file, the transcript isn\'t searchable across your workspace, it\'s not available in huddles with external guests, and an admin can switch it off.',
+        'builtin_clips': '<strong>Clips.</strong> Slack Clips let you record a short asynchronous message — audio, video, or screen, up to 5 minutes. They\'re for leaving a message, not capturing a live huddle, and they have no speaker labels.',
+        'builtin_p2': 'So if you want a real recording of a live huddle — something you can replay, archive, or get a full transcript from — you\'ll use one of the methods below.',
+        'h2_comparison': 'Quick Comparison',
+        'th_method': 'Method',
+        'th_price': 'Price',
+        'th_bot': 'Bot/Visible?',
+        'th_transcription': 'Transcription',
+        'price_mono': '$50 once',
+        'no': 'No',
+        'yes_local': 'Yes (local)',
+        'price_free': 'Free',
+        'no2': 'No',
+        'no3': 'No',
+        'gamebar_qt': 'Game Bar / QuickTime',
+        'price_free2': 'Free',
+        'no4': 'No',
+        'no5': 'No',
+        'ainotes_row': 'Slack AI Notes',
+        'price_paid': 'Paid plan',
+        'native_label': 'Native',
+        'summary_only': 'Summary only',
+        'h2_method1': 'Method 1: mono (Recommended)',
+        'method1_p1': 'mono records a Slack huddle by capturing the audio coming out of your computer. It doesn\'t join the huddle, so no one sees a bot and there\'s no notification. Because it records system audio, it captures every participant — including external guests, which Slack\'s own AI Notes can\'t do.',
+        'method1_p2': 'When you stop, mono transcribes the call locally — the AI runs on your computer, so the audio never leaves it. The transcript includes speaker labels, and every recording becomes searchable by keyword afterwards.',
+        'h3_mono_steps': 'How to record a Slack huddle with mono',
+        'mono_step1': 'Download mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
+        'mono_step2': 'Open mono and click Record, before or during your huddle',
+        'mono_step3': 'Start or join the Slack huddle as normal',
+        'mono_step4': 'Talk, share your screen, do whatever you need',
+        'mono_step5': 'Click Stop in mono when the huddle ends',
+        'mono_step6': 'Wait for the local transcription to finish',
+        'mono_step7': 'Read, search, or export the transcript with speaker labels',
+        'method1_p3': 'Because mono captures whatever plays through your speakers or headphones, it works the same whether the huddle is audio-only, video, or a screen share — and regardless of your Slack plan.',
+        'mono_pros': '<strong>Pros:</strong> No bot, no notification, works with external guests and on the free Slack plan, local AI transcription with speaker labels, searchable recordings, one-time $50 payment with no subscription.',
+        'mono_cons': '<strong>Cons:</strong> Captures audio, not the video/screen as a video file; paid software (one free recording to try first).',
+        'h2_method2': 'Method 2: OBS Studio (Free)',
+        'method2_p1': 'OBS Studio is a free, open-source recorder. It doesn\'t join the huddle, and it can capture both system audio and your screen — useful if you want a video of someone\'s screen share, not just the audio.',
+        'method2_p2': 'The trade-off is setup and no transcription: OBS gives you a raw audio or video file that you\'ll have to transcribe somewhere else if you want searchable text.',
+        'h3_obs_steps': 'How to record a Slack huddle with OBS',
+        'obs_step1': 'Download OBS Studio from obsproject.com and install it',
+        'obs_step2': 'Open OBS and go to Settings → Audio',
+        'obs_step3': 'Set "Desktop Audio" to your playback device (speakers or headphones)',
+        'obs_step4': 'In the main window, click + under Sources and add "Audio Output Capture" for audio-only',
+        'obs_step5': 'To capture a screen share, also add "Display Capture" or "Window Capture"',
+        'obs_step6': 'Click "Start Recording" before the huddle begins',
+        'obs_step7': 'Run your huddle as usual',
+        'obs_step8': 'Click "Stop Recording" when it ends; find the file in your Videos folder',
+        'obs_pros': '<strong>Pros:</strong> Completely free and open source, no bot, captures screen-share video, highly configurable.',
+        'obs_cons': '<strong>Cons:</strong> Requires setup, you must start and stop recording manually each time, no transcription — produces raw audio/video files only.',
+        'h2_method3': 'Method 3: Built-in Screen Recording (Windows &amp; Mac)',
+        'method3_p1': 'Both Windows and macOS ship a screen recorder that can capture a huddle window. They\'re free and already installed — the catch is audio capture.',
+        'h3_win': 'Windows (Xbox Game Bar)',
+        'win_step1': 'Press Win+G to open the Game Bar',
+        'win_step2': 'Open the Capture widget and click Record',
+        'win_step3': 'Check that system audio and mic capture are switched on',
+        'win_step4': 'Keep the Slack window focused during the huddle',
+        'win_step5': 'Stop from the Game Bar; the clip saves to Videos\\Captures',
+        'win_note': 'Game Bar records the active app window and can be picky about capturing other participants\' system audio — test it on a short call first.',
+        'h3_mac': 'Mac (QuickTime / Screenshot toolbar)',
+        'mac_step1': 'Press Cmd+Shift+5 to open the screen-recording toolbar',
+        'mac_step2': 'macOS can\'t capture system audio on its own — install a free virtual audio driver like BlackHole and route your output to it',
+        'mac_step3': 'Select BlackHole as the recording audio source, then click Record',
+        'mac_step4': 'Stop from the menu bar; the file saves to your Desktop by default',
+        'mac_note': 'Without a virtual audio device, QuickTime only records your microphone — not the other participants.',
+        'method3_pros': '<strong>Pros:</strong> Free, already on your computer, can capture video and screen share.',
+        'method3_cons': '<strong>Cons:</strong> System-audio capture is fiddly (Mac needs extra software), no transcription, no speaker labels.',
+        'h2_method4': 'Method 4: Slack AI Notes (Native, Paid)',
+        'method4_p1': 'If your workspace is on a paid plan (Business+ or Enterprise Grid) with Slack AI, you can turn on AI Notes for huddles. After the call, Slack drops a summary and a rough transcript into a canvas in the huddle thread — no extra software needed.',
+        'method4_p2': 'This is the only native option, but it\'s notes, not a recording. There\'s no audio or video file, the transcript isn\'t searchable across your workspace, it doesn\'t work in huddles with external guests, and an admin can disable it. For internal team huddles where a summary is all you need, it\'s convenient.',
+        'method4_pros': '<strong>Pros:</strong> Native, nothing to install, automatic summary and action items.',
+        'method4_cons': '<strong>Cons:</strong> Paid plans only, no recording file, no external guests, transcript not searchable, can be admin-disabled.',
+        'h2_av': 'Audio vs Video Huddles',
+        'av_p1': 'Most huddles are audio, but Slack supports video and screen sharing on paid plans. Pick your method by what you actually need to keep:',
+        'av_audio': '<strong>Audio + transcript:</strong> mono captures the conversation and transcribes it locally. Best when you want a searchable record of what was said.',
+        'av_video': '<strong>Screen share or video:</strong> OBS or your built-in screen recorder captures the visuals. Bigger files, and no transcript.',
+        'h2_legal': 'Legal Considerations',
+        'legal_p1': 'Recording laws apply to huddles like any other call:',
+        'legal_oneparty': '<strong>One-party consent:</strong> Many jurisdictions let you record a conversation you\'re part of.',
+        'legal_allparty': '<strong>All-party consent:</strong> Some regions — including California, Germany, and others — require everyone to agree first.',
+        'legal_p2': 'For work calls, many companies also require you to disclose recording. Tell the huddle you\'re recording, and check your company policy and local law before you do.',
+        'tips_box': '<strong>Use headphones</strong> so the huddle audio is captured cleanly without echo. <strong>Mute notifications</strong> from other apps so they don\'t end up in the recording. <strong>Run a 10-second test</strong> before an important call to confirm everyone is audible.',
+        'h2_which': 'Which Method Should You Use?',
+        'which_p1': '<strong>Want a transcript without a bot?</strong> mono records locally and transcribes automatically, works with external guests and on any Slack plan.',
+        'which_p2': '<strong>Need the screen share on video?</strong> OBS Studio, or your built-in recorder, captures the visuals for free.',
+        'which_p3': '<strong>On a paid plan and only need a summary?</strong> Slack AI Notes is built in — just no recording file and no external guests.',
+        'which_p4': '<strong>Just need a quick free capture?</strong> Windows Game Bar or Mac QuickTime work in a pinch, but expect fiddly audio and no transcription.',
+        'related_title': 'Related Guides',
+        'related_teams_title': 'How to Record Microsoft Teams',
+        'related_teams_desc': '4 ways to record Teams meetings without a bot.',
+        'related_zoom_title': 'How to Record Zoom Calls',
+        'related_zoom_desc': '4 ways to record Zoom without a visible bot.',
+        'related_discord_title': 'How to Record Discord Calls',
+        'related_discord_desc': '4 methods to record Discord voice calls and video chats.',
+        'related_messaging_title': 'Record Messaging App Calls',
+        'related_messaging_desc': 'Record Discord, WhatsApp, Viber or Telegram calls.'
+    },
+    es: {
+        'back_link': '← blog',
+        'category': '[Guía]',
+        'title': 'Cómo grabar un huddle de Slack',
+        'meta': '7 jun 2026 · 7 min de lectura · Por Daniil Lefanov',
+        'disclosure': 'Aviso: mono es nuestro producto. Lo hemos incluido en esta guía e intentamos ser justos, pero debes saber que tenemos interés en él.',
+        'intro_p1': 'Los huddles de Slack están pensados para llamadas rápidas, pero tienen una carencia evidente: no hay botón de grabar. Slack no puede guardar un huddle como archivo de audio o vídeo que puedas reproducir después — ni en el plan gratuito, ni siquiera en Enterprise Grid. Si quieres una grabación o una transcripción que puedas conservar, necesitas una herramienta aparte.',
+        'intro_p2': 'Esta guía cubre todos los métodos que realmente funcionan para grabar un huddle de Slack en 2026 — incluyendo formas de capturar la llamada localmente, con transcripción, y sin que nadie en el huddle vea un bot.',
+        'tldr_label': 'Resumen',
+        'tldr_1': '<strong>Mejor opción general:</strong> mono — sin bot, transcripción de IA local, funciona con invitados externos, $50 una vez',
+        'tldr_2': '<strong>Mejor opción gratuita:</strong> OBS Studio — sin bot, captura audio + pantalla compartida, requiere configuración, sin transcripción',
+        'tldr_3': '<strong>Nativo (limitado):</strong> Slack AI Notes — solo planes de pago, un resumen no una grabación, sin invitados externos',
+        'tldr_4': '<strong>Rápido y gratis:</strong> Windows Game Bar / Mac QuickTime — captura de pantalla, audio complicado, sin transcripción',
+        'h2_builtin': '¿Slack tiene grabación integrada?',
+        'builtin_p1': 'Respuesta corta: no. Los huddles de Slack no tienen grabación nativa en ningún plan — no hay botón que produzca un archivo de audio o vídeo de un huddle en vivo. Dos funciones se acercan pero no son grabaciones:',
+        'builtin_ainotes': '<strong>Slack AI Notes.</strong> En los planes de pago (Business+ y Enterprise Grid) con Slack AI activado, Slack puede generar un resumen y una transcripción aproximada después de que termine el huddle. Aparecen en un canvas adjunto al hilo del huddle. Son notas, no una llamada guardada — no hay archivo de audio, la transcripción no se puede buscar en todo el espacio de trabajo, no está disponible en huddles con invitados externos, y un administrador puede desactivarla.',
+        'builtin_clips': '<strong>Clips.</strong> Los Clips de Slack te permiten grabar un mensaje asíncrono corto — audio, vídeo o pantalla, hasta 5 minutos. Son para dejar un mensaje, no para capturar un huddle en vivo, y no tienen etiquetas de hablante.',
+        'builtin_p2': 'Así que si quieres una grabación real de un huddle en vivo — algo que puedas reproducir, archivar o de lo que obtener una transcripción completa — usarás uno de los métodos de abajo.',
+        'h2_comparison': 'Comparación rápida',
+        'th_method': 'Método',
+        'th_price': 'Precio',
+        'th_bot': '¿Bot/Visible?',
+        'th_transcription': 'Transcripción',
+        'price_mono': '$50 una vez',
+        'no': 'No',
+        'yes_local': 'Sí (local)',
+        'price_free': 'Gratis',
+        'no2': 'No',
+        'no3': 'No',
+        'gamebar_qt': 'Game Bar / QuickTime',
+        'price_free2': 'Gratis',
+        'no4': 'No',
+        'no5': 'No',
+        'ainotes_row': 'Slack AI Notes',
+        'price_paid': 'Plan de pago',
+        'native_label': 'Nativo',
+        'summary_only': 'Solo resumen',
+        'h2_method1': 'Método 1: mono (Recomendado)',
+        'method1_p1': 'mono graba un huddle de Slack capturando el audio que sale de tu computadora. No se une al huddle, así que nadie ve un bot y no hay notificación. Como graba el audio del sistema, captura a todos los participantes — incluidos los invitados externos, algo que las propias AI Notes de Slack no pueden hacer.',
+        'method1_p2': 'Cuando paras, mono transcribe la llamada localmente — la IA se ejecuta en tu computadora, así que el audio nunca sale de ella. La transcripción incluye etiquetas de hablante, y cada grabación se vuelve buscable por palabra clave después.',
+        'h3_mono_steps': 'Cómo grabar un huddle de Slack con mono',
+        'mono_step1': 'Descarga mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instálalo',
+        'mono_step2': 'Abre mono y haz clic en Grabar, antes o durante tu huddle',
+        'mono_step3': 'Inicia o únete al huddle de Slack con normalidad',
+        'mono_step4': 'Habla, comparte tu pantalla, haz lo que necesites',
+        'mono_step5': 'Haz clic en Detener en mono cuando termine el huddle',
+        'mono_step6': 'Espera a que termine la transcripción local',
+        'mono_step7': 'Lee, busca o exporta la transcripción con etiquetas de hablante',
+        'method1_p3': 'Como mono captura todo lo que suena por tus altavoces o auriculares, funciona igual tanto si el huddle es solo audio, vídeo o pantalla compartida — y sin importar tu plan de Slack.',
+        'mono_pros': '<strong>Ventajas:</strong> Sin bot, sin notificación, funciona con invitados externos y en el plan gratuito de Slack, transcripción de IA local con etiquetas de hablante, grabaciones buscables, pago único de $50 sin suscripción.',
+        'mono_cons': '<strong>Desventajas:</strong> Captura audio, no el vídeo/pantalla como archivo de vídeo; software de pago (una grabación gratis para probar primero).',
+        'h2_method2': 'Método 2: OBS Studio (Gratis)',
+        'method2_p1': 'OBS Studio es un grabador gratuito y de código abierto. No se une al huddle, y puede capturar tanto el audio del sistema como tu pantalla — útil si quieres un vídeo de la pantalla compartida de alguien, no solo el audio.',
+        'method2_p2': 'El inconveniente es la configuración y la falta de transcripción: OBS te da un archivo de audio o vídeo en bruto que tendrás que transcribir en otro lugar si quieres texto buscable.',
+        'h3_obs_steps': 'Cómo grabar un huddle de Slack con OBS',
+        'obs_step1': 'Descarga OBS Studio desde obsproject.com e instálalo',
+        'obs_step2': 'Abre OBS y ve a Ajustes → Audio',
+        'obs_step3': 'Configura "Audio de escritorio" en tu dispositivo de reproducción (altavoces o auriculares)',
+        'obs_step4': 'En la ventana principal, haz clic en + bajo Fuentes y añade "Captura de salida de audio" para solo audio',
+        'obs_step5': 'Para capturar una pantalla compartida, añade también "Captura de pantalla" o "Captura de ventana"',
+        'obs_step6': 'Haz clic en "Iniciar grabación" antes de que empiece el huddle',
+        'obs_step7': 'Realiza tu huddle como de costumbre',
+        'obs_step8': 'Haz clic en "Detener grabación" cuando termine; busca el archivo en tu carpeta Vídeos',
+        'obs_pros': '<strong>Ventajas:</strong> Totalmente gratis y de código abierto, sin bot, captura vídeo de pantalla compartida, muy configurable.',
+        'obs_cons': '<strong>Desventajas:</strong> Requiere configuración, debes iniciar y detener la grabación manualmente cada vez, sin transcripción — solo produce archivos de audio/vídeo en bruto.',
+        'h2_method3': 'Método 3: Grabación de pantalla integrada (Windows y Mac)',
+        'method3_p1': 'Tanto Windows como macOS incluyen un grabador de pantalla que puede capturar una ventana de huddle. Son gratis y ya están instalados — el truco está en la captura de audio.',
+        'h3_win': 'Windows (Xbox Game Bar)',
+        'win_step1': 'Pulsa Win+G para abrir la Game Bar',
+        'win_step2': 'Abre el widget de Captura y haz clic en Grabar',
+        'win_step3': 'Comprueba que la captura de audio del sistema y del micrófono estén activadas',
+        'win_step4': 'Mantén la ventana de Slack en primer plano durante el huddle',
+        'win_step5': 'Detén desde la Game Bar; el clip se guarda en Vídeos\\Capturas',
+        'win_note': 'La Game Bar graba la ventana de la app activa y puede ser quisquillosa al capturar el audio del sistema de otros participantes — pruébala primero en una llamada corta.',
+        'h3_mac': 'Mac (QuickTime / barra de capturas)',
+        'mac_step1': 'Pulsa Cmd+Shift+5 para abrir la barra de grabación de pantalla',
+        'mac_step2': 'macOS no puede capturar el audio del sistema por sí solo — instala un controlador de audio virtual gratuito como BlackHole y dirige tu salida hacia él',
+        'mac_step3': 'Selecciona BlackHole como fuente de audio de grabación y haz clic en Grabar',
+        'mac_step4': 'Detén desde la barra de menús; el archivo se guarda en tu Escritorio por defecto',
+        'mac_note': 'Sin un dispositivo de audio virtual, QuickTime solo graba tu micrófono — no a los demás participantes.',
+        'method3_pros': '<strong>Ventajas:</strong> Gratis, ya está en tu computadora, puede capturar vídeo y pantalla compartida.',
+        'method3_cons': '<strong>Desventajas:</strong> La captura de audio del sistema es complicada (Mac necesita software extra), sin transcripción, sin etiquetas de hablante.',
+        'h2_method4': 'Método 4: Slack AI Notes (Nativo, de pago)',
+        'method4_p1': 'Si tu espacio de trabajo está en un plan de pago (Business+ o Enterprise Grid) con Slack AI, puedes activar AI Notes para los huddles. Después de la llamada, Slack coloca un resumen y una transcripción aproximada en un canvas dentro del hilo del huddle — sin software extra.',
+        'method4_p2': 'Es la única opción nativa, pero son notas, no una grabación. No hay archivo de audio o vídeo, la transcripción no se puede buscar en todo el espacio de trabajo, no funciona en huddles con invitados externos, y un administrador puede desactivarla. Para huddles internos de equipo donde solo necesitas un resumen, es cómodo.',
+        'method4_pros': '<strong>Ventajas:</strong> Nativo, nada que instalar, resumen automático y tareas pendientes.',
+        'method4_cons': '<strong>Desventajas:</strong> Solo planes de pago, sin archivo de grabación, sin invitados externos, transcripción no buscable, puede desactivarla un administrador.',
+        'h2_av': 'Huddles de audio vs vídeo',
+        'av_p1': 'La mayoría de los huddles son de audio, pero Slack admite vídeo y pantalla compartida en los planes de pago. Elige tu método según lo que realmente necesites conservar:',
+        'av_audio': '<strong>Audio + transcripción:</strong> mono captura la conversación y la transcribe localmente. Mejor cuando quieres un registro buscable de lo que se dijo.',
+        'av_video': '<strong>Pantalla compartida o vídeo:</strong> OBS o tu grabador de pantalla integrado captura lo visual. Archivos más grandes, y sin transcripción.',
+        'h2_legal': 'Consideraciones legales',
+        'legal_p1': 'Las leyes de grabación se aplican a los huddles como a cualquier otra llamada:',
+        'legal_oneparty': '<strong>Consentimiento de una parte:</strong> Muchas jurisdicciones te permiten grabar una conversación en la que participas.',
+        'legal_allparty': '<strong>Consentimiento de todas las partes:</strong> Algunas regiones — incluidas California, Alemania y otras — requieren que todos estén de acuerdo primero.',
+        'legal_p2': 'Para llamadas de trabajo, muchas empresas también exigen que informes de la grabación. Avisa al huddle de que estás grabando, y revisa la política de tu empresa y la ley local antes de hacerlo.',
+        'tips_box': '<strong>Usa auriculares</strong> para que el audio del huddle se capture limpio y sin eco. <strong>Silencia las notificaciones</strong> de otras apps para que no acaben en la grabación. <strong>Haz una prueba de 10 segundos</strong> antes de una llamada importante para confirmar que todos se oyen.',
+        'h2_which': '¿Qué método deberías usar?',
+        'which_p1': '<strong>¿Quieres una transcripción sin bot?</strong> mono graba localmente y transcribe automáticamente, funciona con invitados externos y en cualquier plan de Slack.',
+        'which_p2': '<strong>¿Necesitas la pantalla compartida en vídeo?</strong> OBS Studio, o tu grabador integrado, captura lo visual gratis.',
+        'which_p3': '<strong>¿En un plan de pago y solo necesitas un resumen?</strong> Slack AI Notes está integrado — solo que sin archivo de grabación y sin invitados externos.',
+        'which_p4': '<strong>¿Solo necesitas una captura rápida y gratis?</strong> Windows Game Bar o Mac QuickTime sirven en un apuro, pero espera audio complicado y sin transcripción.',
+        'related_title': 'Guías relacionadas',
+        'related_teams_title': 'Cómo grabar Microsoft Teams',
+        'related_teams_desc': '4 formas de grabar reuniones de Teams sin bot.',
+        'related_zoom_title': 'Cómo grabar llamadas de Zoom',
+        'related_zoom_desc': '4 formas de grabar Zoom sin un bot visible.',
+        'related_discord_title': 'Cómo grabar llamadas de Discord',
+        'related_discord_desc': '4 métodos para grabar llamadas de voz y vídeo de Discord.',
+        'related_messaging_title': 'Grabar llamadas de apps de mensajería',
+        'related_messaging_desc': 'Graba llamadas de Discord, WhatsApp, Viber o Telegram.'
+    },
+    fr: {
+        'back_link': '← blog',
+        'category': '[Guide]',
+        'title': 'Comment enregistrer un huddle Slack',
+        'meta': '7 juin 2026 · 7 min de lecture · Par Daniil Lefanov',
+        'disclosure': 'Divulgation : mono est notre produit. Nous l\'avons inclus dans ce guide en essayant d\'être justes, mais sachez que nous y avons un intérêt.',
+        'intro_p1': 'Les huddles Slack sont faits pour les appels rapides, mais ils ont une lacune évidente : il n\'y a pas de bouton Enregistrer. Slack ne peut pas sauvegarder un huddle sous forme de fichier audio ou vidéo que vous pourrez réécouter plus tard — ni sur le plan gratuit, ni même sur Enterprise Grid. Si vous voulez un enregistrement ou une transcription à conserver, il vous faut un outil séparé.',
+        'intro_p2': 'Ce guide couvre toutes les méthodes qui fonctionnent réellement pour enregistrer un huddle Slack en 2026 — y compris des façons de capturer l\'appel localement, avec transcription, et sans que personne dans le huddle ne voie de bot.',
+        'tldr_label': 'En bref',
+        'tldr_1': '<strong>Meilleur choix global :</strong> mono — sans bot, transcription IA locale, fonctionne avec les invités externes, 50 $ une fois',
+        'tldr_2': '<strong>Meilleur gratuit :</strong> OBS Studio — sans bot, capture audio + partage d\'écran, nécessite une configuration, sans transcription',
+        'tldr_3': '<strong>Natif (limité) :</strong> Slack AI Notes — plans payants uniquement, un résumé pas un enregistrement, pas d\'invités externes',
+        'tldr_4': '<strong>Rapide et gratuit :</strong> Windows Game Bar / Mac QuickTime — capture d\'écran, audio capricieux, sans transcription',
+        'h2_builtin': 'Slack a-t-il un enregistrement intégré ?',
+        'builtin_p1': 'Réponse courte : non. Les huddles Slack n\'ont pas d\'enregistrement natif, quel que soit le plan — aucun bouton ne produit de fichier audio ou vidéo d\'un huddle en direct. Deux fonctionnalités s\'en approchent mais ne sont pas des enregistrements :',
+        'builtin_ainotes': '<strong>Slack AI Notes.</strong> Sur les plans payants (Business+ et Enterprise Grid) avec Slack AI activé, Slack peut générer un résumé et une transcription approximative après la fin d\'un huddle. Ils apparaissent dans un canvas attaché au fil du huddle. Ce sont des notes, pas un appel sauvegardé — pas de fichier audio, la transcription n\'est pas consultable dans tout l\'espace de travail, elle n\'est pas disponible dans les huddles avec des invités externes, et un administrateur peut la désactiver.',
+        'builtin_clips': '<strong>Clips.</strong> Les Clips Slack permettent d\'enregistrer un court message asynchrone — audio, vidéo ou écran, jusqu\'à 5 minutes. Ils servent à laisser un message, pas à capturer un huddle en direct, et n\'ont pas d\'étiquettes de locuteur.',
+        'builtin_p2': 'Donc si vous voulez un vrai enregistrement d\'un huddle en direct — quelque chose à réécouter, archiver ou dont tirer une transcription complète — vous utiliserez l\'une des méthodes ci-dessous.',
+        'h2_comparison': 'Comparatif rapide',
+        'th_method': 'Méthode',
+        'th_price': 'Prix',
+        'th_bot': 'Bot/Visible ?',
+        'th_transcription': 'Transcription',
+        'price_mono': '50 $ une fois',
+        'no': 'Non',
+        'yes_local': 'Oui (local)',
+        'price_free': 'Gratuit',
+        'no2': 'Non',
+        'no3': 'Non',
+        'gamebar_qt': 'Game Bar / QuickTime',
+        'price_free2': 'Gratuit',
+        'no4': 'Non',
+        'no5': 'Non',
+        'ainotes_row': 'Slack AI Notes',
+        'price_paid': 'Plan payant',
+        'native_label': 'Natif',
+        'summary_only': 'Résumé seul',
+        'h2_method1': 'Méthode 1 : mono (Recommandé)',
+        'method1_p1': 'mono enregistre un huddle Slack en capturant le son qui sort de votre ordinateur. Il ne rejoint pas le huddle, donc personne ne voit de bot et il n\'y a pas de notification. Comme il enregistre le son du système, il capture tous les participants — y compris les invités externes, ce que les AI Notes de Slack ne peuvent pas faire.',
+        'method1_p2': 'Quand vous arrêtez, mono transcrit l\'appel localement — l\'IA s\'exécute sur votre ordinateur, donc l\'audio ne le quitte jamais. La transcription inclut des étiquettes de locuteur, et chaque enregistrement devient consultable par mot-clé ensuite.',
+        'h3_mono_steps': 'Comment enregistrer un huddle Slack avec mono',
+        'mono_step1': 'Téléchargez mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
+        'mono_step2': 'Ouvrez mono et cliquez sur Enregistrer, avant ou pendant votre huddle',
+        'mono_step3': 'Démarrez ou rejoignez le huddle Slack normalement',
+        'mono_step4': 'Parlez, partagez votre écran, faites ce dont vous avez besoin',
+        'mono_step5': 'Cliquez sur Arrêter dans mono à la fin du huddle',
+        'mono_step6': 'Attendez la fin de la transcription locale',
+        'mono_step7': 'Lisez, cherchez ou exportez la transcription avec les étiquettes de locuteur',
+        'method1_p3': 'Comme mono capture tout ce qui passe par vos haut-parleurs ou votre casque, il fonctionne de la même façon que le huddle soit audio seul, vidéo ou partage d\'écran — et quel que soit votre plan Slack.',
+        'mono_pros': '<strong>Avantages :</strong> Sans bot, sans notification, fonctionne avec les invités externes et sur le plan Slack gratuit, transcription IA locale avec étiquettes de locuteur, enregistrements consultables, paiement unique de 50 $ sans abonnement.',
+        'mono_cons': '<strong>Inconvénients :</strong> Capture l\'audio, pas la vidéo/l\'écran comme fichier vidéo ; logiciel payant (un enregistrement gratuit pour essayer d\'abord).',
+        'h2_method2': 'Méthode 2 : OBS Studio (Gratuit)',
+        'method2_p1': 'OBS Studio est un enregistreur gratuit et open source. Il ne rejoint pas le huddle, et peut capturer à la fois le son du système et votre écran — utile si vous voulez une vidéo du partage d\'écran de quelqu\'un, pas seulement l\'audio.',
+        'method2_p2': 'Le compromis, c\'est la configuration et l\'absence de transcription : OBS vous donne un fichier audio ou vidéo brut que vous devrez transcrire ailleurs si vous voulez du texte consultable.',
+        'h3_obs_steps': 'Comment enregistrer un huddle Slack avec OBS',
+        'obs_step1': 'Téléchargez OBS Studio depuis obsproject.com et installez-le',
+        'obs_step2': 'Ouvrez OBS et allez dans Paramètres → Audio',
+        'obs_step3': 'Réglez « Audio du bureau » sur votre périphérique de lecture (haut-parleurs ou casque)',
+        'obs_step4': 'Dans la fenêtre principale, cliquez sur + sous Sources et ajoutez « Capture de sortie audio » pour l\'audio seul',
+        'obs_step5': 'Pour capturer un partage d\'écran, ajoutez aussi « Capture d\'écran » ou « Capture de fenêtre »',
+        'obs_step6': 'Cliquez sur « Démarrer l\'enregistrement » avant le début du huddle',
+        'obs_step7': 'Déroulez votre huddle comme d\'habitude',
+        'obs_step8': 'Cliquez sur « Arrêter l\'enregistrement » à la fin ; trouvez le fichier dans votre dossier Vidéos',
+        'obs_pros': '<strong>Avantages :</strong> Entièrement gratuit et open source, sans bot, capture la vidéo du partage d\'écran, très configurable.',
+        'obs_cons': '<strong>Inconvénients :</strong> Nécessite une configuration, vous devez démarrer et arrêter l\'enregistrement manuellement à chaque fois, sans transcription — ne produit que des fichiers audio/vidéo bruts.',
+        'h2_method3': 'Méthode 3 : Enregistrement d\'écran intégré (Windows et Mac)',
+        'method3_p1': 'Windows comme macOS sont livrés avec un enregistreur d\'écran capable de capturer une fenêtre de huddle. Ils sont gratuits et déjà installés — le piège, c\'est la capture audio.',
+        'h3_win': 'Windows (Xbox Game Bar)',
+        'win_step1': 'Appuyez sur Win+G pour ouvrir la Game Bar',
+        'win_step2': 'Ouvrez le widget Capture et cliquez sur Enregistrer',
+        'win_step3': 'Vérifiez que la capture du son système et du micro sont activées',
+        'win_step4': 'Gardez la fenêtre Slack au premier plan pendant le huddle',
+        'win_step5': 'Arrêtez depuis la Game Bar ; le clip est enregistré dans Vidéos\\Captures',
+        'win_note': 'La Game Bar enregistre la fenêtre de l\'app active et peut être capricieuse pour capturer le son système des autres participants — testez-la d\'abord sur un appel court.',
+        'h3_mac': 'Mac (QuickTime / barre de capture)',
+        'mac_step1': 'Appuyez sur Cmd+Shift+5 pour ouvrir la barre d\'enregistrement d\'écran',
+        'mac_step2': 'macOS ne peut pas capturer le son système seul — installez un pilote audio virtuel gratuit comme BlackHole et dirigez votre sortie vers lui',
+        'mac_step3': 'Sélectionnez BlackHole comme source audio d\'enregistrement, puis cliquez sur Enregistrer',
+        'mac_step4': 'Arrêtez depuis la barre de menus ; le fichier est enregistré sur votre Bureau par défaut',
+        'mac_note': 'Sans périphérique audio virtuel, QuickTime n\'enregistre que votre microphone — pas les autres participants.',
+        'method3_pros': '<strong>Avantages :</strong> Gratuit, déjà sur votre ordinateur, peut capturer la vidéo et le partage d\'écran.',
+        'method3_cons': '<strong>Inconvénients :</strong> La capture du son système est capricieuse (le Mac nécessite un logiciel supplémentaire), sans transcription, sans étiquettes de locuteur.',
+        'h2_method4': 'Méthode 4 : Slack AI Notes (Natif, payant)',
+        'method4_p1': 'Si votre espace de travail est sur un plan payant (Business+ ou Enterprise Grid) avec Slack AI, vous pouvez activer AI Notes pour les huddles. Après l\'appel, Slack dépose un résumé et une transcription approximative dans un canvas du fil du huddle — sans logiciel supplémentaire.',
+        'method4_p2': 'C\'est la seule option native, mais ce sont des notes, pas un enregistrement. Pas de fichier audio ou vidéo, la transcription n\'est pas consultable dans tout l\'espace de travail, elle ne fonctionne pas dans les huddles avec invités externes, et un administrateur peut la désactiver. Pour les huddles internes d\'équipe où un résumé suffit, c\'est pratique.',
+        'method4_pros': '<strong>Avantages :</strong> Natif, rien à installer, résumé et tâches automatiques.',
+        'method4_cons': '<strong>Inconvénients :</strong> Plans payants uniquement, pas de fichier d\'enregistrement, pas d\'invités externes, transcription non consultable, peut être désactivé par un administrateur.',
+        'h2_av': 'Huddles audio vs vidéo',
+        'av_p1': 'La plupart des huddles sont en audio, mais Slack prend en charge la vidéo et le partage d\'écran sur les plans payants. Choisissez votre méthode selon ce que vous devez réellement conserver :',
+        'av_audio': '<strong>Audio + transcription :</strong> mono capture la conversation et la transcrit localement. Idéal quand vous voulez un compte rendu consultable de ce qui a été dit.',
+        'av_video': '<strong>Partage d\'écran ou vidéo :</strong> OBS ou votre enregistreur d\'écran intégré capture le visuel. Fichiers plus volumineux, et pas de transcription.',
+        'h2_legal': 'Considérations juridiques',
+        'legal_p1': 'Les lois sur l\'enregistrement s\'appliquent aux huddles comme à tout autre appel :',
+        'legal_oneparty': '<strong>Consentement d\'une partie :</strong> De nombreuses juridictions vous autorisent à enregistrer une conversation à laquelle vous participez.',
+        'legal_allparty': '<strong>Consentement de toutes les parties :</strong> Certaines régions — dont la Californie, l\'Allemagne et d\'autres — exigent l\'accord de tous au préalable.',
+        'legal_p2': 'Pour les appels professionnels, de nombreuses entreprises exigent aussi que vous signaliez l\'enregistrement. Prévenez le huddle que vous enregistrez, et vérifiez la politique de votre entreprise et la loi locale avant de le faire.',
+        'tips_box': '<strong>Utilisez un casque</strong> pour que l\'audio du huddle soit capté proprement sans écho. <strong>Coupez les notifications</strong> des autres apps pour qu\'elles ne se retrouvent pas dans l\'enregistrement. <strong>Faites un test de 10 secondes</strong> avant un appel important pour confirmer que tout le monde est audible.',
+        'h2_which': 'Quelle méthode choisir ?',
+        'which_p1': '<strong>Vous voulez une transcription sans bot ?</strong> mono enregistre localement et transcrit automatiquement, fonctionne avec les invités externes et sur n\'importe quel plan Slack.',
+        'which_p2': '<strong>Besoin du partage d\'écran en vidéo ?</strong> OBS Studio, ou votre enregistreur intégré, capture le visuel gratuitement.',
+        'which_p3': '<strong>Sur un plan payant et besoin seulement d\'un résumé ?</strong> Slack AI Notes est intégré — mais sans fichier d\'enregistrement et sans invités externes.',
+        'which_p4': '<strong>Besoin juste d\'une capture rapide et gratuite ?</strong> Windows Game Bar ou Mac QuickTime dépannent, mais attendez-vous à un audio capricieux et à aucune transcription.',
+        'related_title': 'Guides connexes',
+        'related_teams_title': 'Comment enregistrer Microsoft Teams',
+        'related_teams_desc': '4 façons d\'enregistrer des réunions Teams sans bot.',
+        'related_zoom_title': 'Comment enregistrer des appels Zoom',
+        'related_zoom_desc': '4 façons d\'enregistrer Zoom sans bot visible.',
+        'related_discord_title': 'Comment enregistrer des appels Discord',
+        'related_discord_desc': '4 méthodes pour enregistrer les appels vocaux et vidéo Discord.',
+        'related_messaging_title': 'Enregistrer les appels de messagerie',
+        'related_messaging_desc': 'Enregistrez les appels Discord, WhatsApp, Viber ou Telegram.'
+    },
+    de: {
+        'back_link': '← blog',
+        'category': '[Anleitung]',
+        'title': 'Einen Slack-Huddle aufzeichnen',
+        'meta': '7. Juni 2026 · 7 Min. Lesezeit · Von Daniil Lefanov',
+        'disclosure': 'Offenlegung: mono ist unser Produkt. Wir haben es in diese Anleitung aufgenommen und versucht, fair zu sein, aber Sie sollten wissen, dass wir ein Interesse daran haben.',
+        'intro_p1': 'Slack-Huddles sind für schnelle Anrufe gemacht, aber sie haben eine offensichtliche Lücke: Es gibt keinen Aufnahme-Button. Slack kann einen Huddle nicht als Audio- oder Videodatei speichern, die Sie später abspielen können — weder im kostenlosen Plan noch in Enterprise Grid. Wenn Sie eine Aufnahme oder ein Transkript zum Behalten wollen, brauchen Sie ein separates Tool.',
+        'intro_p2': 'Diese Anleitung deckt jede Methode ab, die 2026 tatsächlich funktioniert, um einen Slack-Huddle aufzuzeichnen — einschließlich Wege, den Anruf lokal aufzunehmen, mit Transkription und ohne dass jemand im Huddle einen Bot sieht.',
+        'tldr_label': 'Kurzfassung',
+        'tldr_1': '<strong>Beste Wahl insgesamt:</strong> mono — kein Bot, lokale KI-Transkription, funktioniert mit externen Gästen, einmalig 50 $',
+        'tldr_2': '<strong>Beste kostenlose:</strong> OBS Studio — kein Bot, erfasst Audio + Bildschirmfreigabe, braucht Einrichtung, keine Transkription',
+        'tldr_3': '<strong>Nativ (eingeschränkt):</strong> Slack AI Notes — nur bezahlte Pläne, eine Zusammenfassung keine Aufnahme, keine externen Gäste',
+        'tldr_4': '<strong>Schnell &amp; kostenlos:</strong> Windows Game Bar / Mac QuickTime — Bildschirmaufnahme, heikles Audio, keine Transkription',
+        'h2_builtin': 'Hat Slack eine integrierte Aufnahme?',
+        'builtin_p1': 'Kurze Antwort: nein. Slack-Huddles haben in keinem Plan eine native Aufnahme — es gibt keinen Button, der eine Audio- oder Videodatei eines laufenden Huddles erzeugt. Zwei Funktionen kommen nah heran, sind aber keine Aufnahmen:',
+        'builtin_ainotes': '<strong>Slack AI Notes.</strong> In bezahlten Plänen (Business+ und Enterprise Grid) mit aktiviertem Slack AI kann Slack nach dem Ende eines Huddles eine Zusammenfassung und ein grobes Transkript erzeugen. Diese landen in einem Canvas, das am Huddle-Thread hängt. Es sind Notizen, kein gespeicherter Anruf — es gibt keine Audiodatei, das Transkript ist nicht im gesamten Workspace durchsuchbar, es ist in Huddles mit externen Gästen nicht verfügbar, und ein Admin kann es abschalten.',
+        'builtin_clips': '<strong>Clips.</strong> Mit Slack Clips können Sie eine kurze asynchrone Nachricht aufnehmen — Audio, Video oder Bildschirm, bis zu 5 Minuten. Sie dienen dazu, eine Nachricht zu hinterlassen, nicht einen laufenden Huddle zu erfassen, und haben keine Sprecher-Labels.',
+        'builtin_p2': 'Wenn Sie also eine echte Aufnahme eines laufenden Huddles wollen — etwas, das Sie abspielen, archivieren oder als vollständiges Transkript bekommen können — verwenden Sie eine der Methoden unten.',
+        'h2_comparison': 'Schneller Vergleich',
+        'th_method': 'Methode',
+        'th_price': 'Preis',
+        'th_bot': 'Bot/Sichtbar?',
+        'th_transcription': 'Transkription',
+        'price_mono': 'Einmalig 50 $',
+        'no': 'Nein',
+        'yes_local': 'Ja (lokal)',
+        'price_free': 'Kostenlos',
+        'no2': 'Nein',
+        'no3': 'Nein',
+        'gamebar_qt': 'Game Bar / QuickTime',
+        'price_free2': 'Kostenlos',
+        'no4': 'Nein',
+        'no5': 'Nein',
+        'ainotes_row': 'Slack AI Notes',
+        'price_paid': 'Bezahlter Plan',
+        'native_label': 'Nativ',
+        'summary_only': 'Nur Zusammenfassung',
+        'h2_method1': 'Methode 1: mono (Empfohlen)',
+        'method1_p1': 'mono zeichnet einen Slack-Huddle auf, indem es den aus Ihrem Computer kommenden Ton erfasst. Es tritt dem Huddle nicht bei, also sieht niemand einen Bot und es erscheint keine Benachrichtigung. Da es den Systemton aufnimmt, erfasst es jeden Teilnehmer — auch externe Gäste, was Slacks eigene AI Notes nicht können.',
+        'method1_p2': 'Wenn Sie stoppen, transkribiert mono den Anruf lokal — die KI läuft auf Ihrem Computer, der Ton verlässt ihn also nie. Das Transkript enthält Sprecher-Labels, und jede Aufnahme wird danach per Stichwort durchsuchbar.',
+        'h3_mono_steps': 'So zeichnen Sie einen Slack-Huddle mit mono auf',
+        'mono_step1': 'Laden Sie mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
+        'mono_step2': 'Öffnen Sie mono und klicken Sie auf Aufnehmen, vor oder während Ihres Huddles',
+        'mono_step3': 'Starten Sie den Slack-Huddle oder treten Sie ihm normal bei',
+        'mono_step4': 'Sprechen Sie, teilen Sie Ihren Bildschirm, tun Sie, was Sie brauchen',
+        'mono_step5': 'Klicken Sie in mono auf Stopp, wenn der Huddle endet',
+        'mono_step6': 'Warten Sie, bis die lokale Transkription fertig ist',
+        'mono_step7': 'Lesen, durchsuchen oder exportieren Sie das Transkript mit Sprecher-Labels',
+        'method1_p3': 'Da mono alles erfasst, was über Ihre Lautsprecher oder Kopfhörer läuft, funktioniert es gleich, ob der Huddle nur Audio, Video oder eine Bildschirmfreigabe ist — und unabhängig von Ihrem Slack-Plan.',
+        'mono_pros': '<strong>Vorteile:</strong> Kein Bot, keine Benachrichtigung, funktioniert mit externen Gästen und im kostenlosen Slack-Plan, lokale KI-Transkription mit Sprecher-Labels, durchsuchbare Aufnahmen, einmalige Zahlung von 50 $ ohne Abo.',
+        'mono_cons': '<strong>Nachteile:</strong> Erfasst Audio, nicht das Video/den Bildschirm als Videodatei; kostenpflichtige Software (eine kostenlose Aufnahme zum Ausprobieren).',
+        'h2_method2': 'Methode 2: OBS Studio (Kostenlos)',
+        'method2_p1': 'OBS Studio ist ein kostenloser, quelloffener Recorder. Es tritt dem Huddle nicht bei und kann sowohl den Systemton als auch Ihren Bildschirm erfassen — nützlich, wenn Sie ein Video der Bildschirmfreigabe von jemandem wollen, nicht nur den Ton.',
+        'method2_p2': 'Der Kompromiss sind Einrichtung und fehlende Transkription: OBS gibt Ihnen eine rohe Audio- oder Videodatei, die Sie anderswo transkribieren müssen, wenn Sie durchsuchbaren Text wollen.',
+        'h3_obs_steps': 'So zeichnen Sie einen Slack-Huddle mit OBS auf',
+        'obs_step1': 'Laden Sie OBS Studio von obsproject.com herunter und installieren Sie es',
+        'obs_step2': 'Öffnen Sie OBS und gehen Sie zu Einstellungen → Audio',
+        'obs_step3': 'Stellen Sie „Desktop-Audio" auf Ihr Wiedergabegerät (Lautsprecher oder Kopfhörer)',
+        'obs_step4': 'Klicken Sie im Hauptfenster auf + unter Quellen und fügen Sie „Audioausgabe aufnehmen" für reines Audio hinzu',
+        'obs_step5': 'Um eine Bildschirmfreigabe zu erfassen, fügen Sie auch „Bildschirmaufnahme" oder „Fensteraufnahme" hinzu',
+        'obs_step6': 'Klicken Sie auf „Aufnahme starten", bevor der Huddle beginnt',
+        'obs_step7': 'Führen Sie Ihren Huddle wie gewohnt durch',
+        'obs_step8': 'Klicken Sie auf „Aufnahme stoppen", wenn er endet; die Datei finden Sie in Ihrem Videos-Ordner',
+        'obs_pros': '<strong>Vorteile:</strong> Völlig kostenlos und quelloffen, kein Bot, erfasst Bildschirmfreigabe-Video, hochgradig konfigurierbar.',
+        'obs_cons': '<strong>Nachteile:</strong> Erfordert Einrichtung, Sie müssen die Aufnahme jedes Mal manuell starten und stoppen, keine Transkription — erzeugt nur rohe Audio-/Videodateien.',
+        'h2_method3': 'Methode 3: Integrierte Bildschirmaufnahme (Windows &amp; Mac)',
+        'method3_p1': 'Sowohl Windows als auch macOS liefern einen Bildschirmrecorder, der ein Huddle-Fenster erfassen kann. Sie sind kostenlos und bereits installiert — der Haken ist die Audioaufnahme.',
+        'h3_win': 'Windows (Xbox Game Bar)',
+        'win_step1': 'Drücken Sie Win+G, um die Game Bar zu öffnen',
+        'win_step2': 'Öffnen Sie das Aufnahme-Widget und klicken Sie auf Aufnehmen',
+        'win_step3': 'Prüfen Sie, dass System- und Mikrofon-Audioaufnahme eingeschaltet sind',
+        'win_step4': 'Halten Sie das Slack-Fenster während des Huddles im Vordergrund',
+        'win_step5': 'Stoppen Sie über die Game Bar; der Clip wird in Videos\\Aufnahmen gespeichert',
+        'win_note': 'Die Game Bar nimmt das aktive App-Fenster auf und kann beim Erfassen des Systemtons anderer Teilnehmer heikel sein — testen Sie sie zuerst bei einem kurzen Anruf.',
+        'h3_mac': 'Mac (QuickTime / Screenshot-Leiste)',
+        'mac_step1': 'Drücken Sie Cmd+Shift+5, um die Bildschirmaufnahme-Leiste zu öffnen',
+        'mac_step2': 'macOS kann den Systemton nicht allein erfassen — installieren Sie einen kostenlosen virtuellen Audiotreiber wie BlackHole und leiten Sie Ihre Ausgabe dorthin',
+        'mac_step3': 'Wählen Sie BlackHole als Audioquelle der Aufnahme und klicken Sie auf Aufnehmen',
+        'mac_step4': 'Stoppen Sie über die Menüleiste; die Datei wird standardmäßig auf Ihrem Schreibtisch gespeichert',
+        'mac_note': 'Ohne virtuelles Audiogerät nimmt QuickTime nur Ihr Mikrofon auf — nicht die anderen Teilnehmer.',
+        'method3_pros': '<strong>Vorteile:</strong> Kostenlos, bereits auf Ihrem Computer, kann Video und Bildschirmfreigabe erfassen.',
+        'method3_cons': '<strong>Nachteile:</strong> Die Systemton-Erfassung ist heikel (Mac braucht Zusatzsoftware), keine Transkription, keine Sprecher-Labels.',
+        'h2_method4': 'Methode 4: Slack AI Notes (Nativ, kostenpflichtig)',
+        'method4_p1': 'Wenn Ihr Workspace auf einem bezahlten Plan (Business+ oder Enterprise Grid) mit Slack AI ist, können Sie AI Notes für Huddles aktivieren. Nach dem Anruf legt Slack eine Zusammenfassung und ein grobes Transkript in ein Canvas im Huddle-Thread — ohne Zusatzsoftware.',
+        'method4_p2': 'Das ist die einzige native Option, aber es sind Notizen, keine Aufnahme. Es gibt keine Audio- oder Videodatei, das Transkript ist nicht im gesamten Workspace durchsuchbar, es funktioniert nicht in Huddles mit externen Gästen, und ein Admin kann es deaktivieren. Für interne Team-Huddles, in denen eine Zusammenfassung reicht, ist es praktisch.',
+        'method4_pros': '<strong>Vorteile:</strong> Nativ, nichts zu installieren, automatische Zusammenfassung und Aufgaben.',
+        'method4_cons': '<strong>Nachteile:</strong> Nur bezahlte Pläne, keine Aufnahmedatei, keine externen Gäste, Transkript nicht durchsuchbar, kann vom Admin deaktiviert werden.',
+        'h2_av': 'Audio- vs. Video-Huddles',
+        'av_p1': 'Die meisten Huddles sind Audio, aber Slack unterstützt Video und Bildschirmfreigabe in bezahlten Plänen. Wählen Sie Ihre Methode danach, was Sie wirklich behalten müssen:',
+        'av_audio': '<strong>Audio + Transkript:</strong> mono erfasst das Gespräch und transkribiert es lokal. Am besten, wenn Sie eine durchsuchbare Aufzeichnung des Gesagten wollen.',
+        'av_video': '<strong>Bildschirmfreigabe oder Video:</strong> OBS oder Ihr integrierter Bildschirmrecorder erfasst das Visuelle. Größere Dateien, und kein Transkript.',
+        'h2_legal': 'Rechtliche Überlegungen',
+        'legal_p1': 'Aufnahmegesetze gelten für Huddles wie für jeden anderen Anruf:',
+        'legal_oneparty': '<strong>Einwilligung einer Partei:</strong> Viele Rechtsordnungen erlauben es Ihnen, ein Gespräch aufzunehmen, an dem Sie teilnehmen.',
+        'legal_allparty': '<strong>Einwilligung aller Parteien:</strong> Manche Regionen — darunter Kalifornien, Deutschland und andere — verlangen, dass zuerst alle zustimmen.',
+        'legal_p2': 'Bei beruflichen Anrufen verlangen viele Unternehmen außerdem, dass Sie die Aufnahme offenlegen. Sagen Sie dem Huddle, dass Sie aufnehmen, und prüfen Sie die Richtlinie Ihres Unternehmens und das lokale Recht, bevor Sie es tun.',
+        'tips_box': '<strong>Verwenden Sie Kopfhörer</strong>, damit der Huddle-Ton sauber und ohne Echo erfasst wird. <strong>Stummschalten Sie Benachrichtigungen</strong> anderer Apps, damit sie nicht in der Aufnahme landen. <strong>Machen Sie einen 10-Sekunden-Test</strong> vor einem wichtigen Anruf, um zu prüfen, dass alle hörbar sind.',
+        'h2_which': 'Welche Methode sollten Sie verwenden?',
+        'which_p1': '<strong>Wollen Sie ein Transkript ohne Bot?</strong> mono nimmt lokal auf und transkribiert automatisch, funktioniert mit externen Gästen und in jedem Slack-Plan.',
+        'which_p2': '<strong>Brauchen Sie die Bildschirmfreigabe als Video?</strong> OBS Studio oder Ihr integrierter Recorder erfasst das Visuelle kostenlos.',
+        'which_p3': '<strong>Auf einem bezahlten Plan und brauchen nur eine Zusammenfassung?</strong> Slack AI Notes ist integriert — nur ohne Aufnahmedatei und ohne externe Gäste.',
+        'which_p4': '<strong>Brauchen Sie nur eine schnelle kostenlose Aufnahme?</strong> Windows Game Bar oder Mac QuickTime helfen im Notfall, aber rechnen Sie mit heiklem Audio und ohne Transkription.',
+        'related_title': 'Verwandte Anleitungen',
+        'related_teams_title': 'Microsoft Teams aufzeichnen',
+        'related_teams_desc': '4 Wege, Teams-Meetings ohne Bot aufzuzeichnen.',
+        'related_zoom_title': 'Zoom-Anrufe aufzeichnen',
+        'related_zoom_desc': '4 Wege, Zoom ohne sichtbaren Bot aufzuzeichnen.',
+        'related_discord_title': 'Discord-Anrufe aufzeichnen',
+        'related_discord_desc': '4 Methoden für Discord-Sprach- und Videoanrufe.',
+        'related_messaging_title': 'Messaging-App-Anrufe aufzeichnen',
+        'related_messaging_desc': 'Discord-, WhatsApp-, Viber- oder Telegram-Anrufe aufzeichnen.'
+    },
+    zh: {
+        'back_link': '← 博客',
+        'category': '[教程]',
+        'title': '如何录制Slack Huddle通话',
+        'meta': '2026年6月7日 · 约7分钟 · 作者 Daniil Lefanov',
+        'disclosure': '披露：mono是我们的产品。我们在本指南中包含了它并尽量保持公正，但你应该知道我们与它有利益关系。',
+        'intro_p1': 'Slack Huddle专为快速通话设计，但有一个明显的缺陷：没有录制按钮。Slack无法将Huddle保存为可供日后回放的音频或视频文件——免费套餐不行，连Enterprise Grid也不行。如果你想要一份能真正保存下来的录音或转录，就需要单独的工具。',
+        'intro_p2': '本指南涵盖2026年录制Slack Huddle真正可行的每一种方法——包括在本地捕获通话、带转录，且不让Huddle中任何人看到机器人的方式。',
+        'tldr_label': '摘要',
+        'tldr_1': '<strong>综合最佳：</strong>mono——无机器人，本地AI转录，支持外部访客，一次性$50',
+        'tldr_2': '<strong>最佳免费：</strong>OBS Studio——无机器人，捕获音频+屏幕共享，需要设置，无转录',
+        'tldr_3': '<strong>原生（受限）：</strong>Slack AI Notes——仅付费套餐，是摘要而非录音，不支持外部访客',
+        'tldr_4': '<strong>快速且免费：</strong>Windows Game Bar / Mac QuickTime——屏幕捕获，音频麻烦，无转录',
+        'h2_builtin': 'Slack有内置录制功能吗？',
+        'builtin_p1': '简短回答：没有。Slack Huddle在任何套餐中都没有原生录制功能——没有任何按钮能生成实时Huddle的音频或视频文件。有两个功能接近但并非录制：',
+        'builtin_ainotes': '<strong>Slack AI Notes。</strong>在启用Slack AI的付费套餐（Business+和Enterprise Grid）中，Slack可在Huddle结束后生成摘要和粗略转录。它们出现在附加于Huddle消息串的画布（canvas）中。这是笔记，不是保存的通话——没有音频文件，转录无法在整个工作区中搜索，在有外部访客的Huddle中不可用，管理员还可以将其关闭。',
+        'builtin_clips': '<strong>Clips。</strong>Slack Clips让你录制简短的异步消息——音频、视频或屏幕，最长5分钟。它用于留言，而非捕获实时Huddle，且没有发言人标签。',
+        'builtin_p2': '所以，如果你想要实时Huddle的真正录音——可以回放、归档或从中获得完整转录的东西——你就要使用下面的方法之一。',
+        'h2_comparison': '快速对比',
+        'th_method': '方法',
+        'th_price': '价格',
+        'th_bot': '机器人/可见？',
+        'th_transcription': '转录',
+        'price_mono': '一次性$50',
+        'no': '否',
+        'yes_local': '是（本地）',
+        'price_free': '免费',
+        'no2': '否',
+        'no3': '否',
+        'gamebar_qt': 'Game Bar / QuickTime',
+        'price_free2': '免费',
+        'no4': '否',
+        'no5': '否',
+        'ainotes_row': 'Slack AI Notes',
+        'price_paid': '付费套餐',
+        'native_label': '原生',
+        'summary_only': '仅摘要',
+        'h2_method1': '方法一：mono（推荐）',
+        'method1_p1': 'mono通过捕获从你电脑输出的声音来录制Slack Huddle。它不加入Huddle，因此没人看到机器人，也没有通知。由于它录制系统音频，它能捕获每位参与者——包括外部访客，而这是Slack自家的AI Notes做不到的。',
+        'method1_p2': '当你停止时，mono在本地转录通话——AI在你的电脑上运行，所以音频永远不会离开它。转录包含发言人标签，之后每段录音都可按关键词搜索。',
+        'h3_mono_steps': '如何用mono录制Slack Huddle',
+        'mono_step1': '从<a href="https://mono-ai.uk">mono-ai.uk</a>下载mono并安装',
+        'mono_step2': '打开mono，在Huddle之前或期间点击录制',
+        'mono_step3': '像往常一样开始或加入Slack Huddle',
+        'mono_step4': '交谈、共享屏幕，做你需要做的事',
+        'mono_step5': 'Huddle结束时在mono中点击停止',
+        'mono_step6': '等待本地转录完成',
+        'mono_step7': '阅读、搜索或导出带发言人标签的转录',
+        'method1_p3': '由于mono捕获通过你扬声器或耳机播放的一切，无论Huddle是纯音频、视频还是屏幕共享，它都同样有效——而且不受你Slack套餐的影响。',
+        'mono_pros': '<strong>优点：</strong>无机器人、无通知，支持外部访客和免费Slack套餐，带发言人标签的本地AI转录，可搜索的录音，一次性$50无订阅。',
+        'mono_cons': '<strong>缺点：</strong>捕获音频，而非将视频/屏幕作为视频文件；付费软件（可先用一段免费录音试用）。',
+        'h2_method2': '方法二：OBS Studio（免费）',
+        'method2_p1': 'OBS Studio是一款免费开源录制工具。它不加入Huddle，可同时捕获系统音频和你的屏幕——如果你想要某人屏幕共享的视频而不仅是音频，会很有用。',
+        'method2_p2': '代价是设置和没有转录：OBS给你的是原始音频或视频文件，如果你想要可搜索的文本，得在别处转录。',
+        'h3_obs_steps': '如何用OBS录制Slack Huddle',
+        'obs_step1': '从obsproject.com下载OBS Studio并安装',
+        'obs_step2': '打开OBS，进入设置 → 音频',
+        'obs_step3': '将“桌面音频”设为你的播放设备（扬声器或耳机）',
+        'obs_step4': '在主窗口中点击来源下的+，添加“音频输出采集”用于纯音频',
+        'obs_step5': '若要捕获屏幕共享，还需添加“显示器采集”或“窗口采集”',
+        'obs_step6': '在Huddle开始前点击“开始录制”',
+        'obs_step7': '像往常一样进行你的Huddle',
+        'obs_step8': '结束时点击“停止录制”；在你的视频文件夹中找到文件',
+        'obs_pros': '<strong>优点：</strong>完全免费且开源，无机器人，可捕获屏幕共享视频，高度可配置。',
+        'obs_cons': '<strong>缺点：</strong>需要设置，每次都要手动开始和停止录制，无转录——只产生原始音频/视频文件。',
+        'h2_method3': '方法三：内置屏幕录制（Windows和Mac）',
+        'method3_p1': 'Windows和macOS都自带可捕获Huddle窗口的屏幕录制器。它们免费且已安装——难点在于音频捕获。',
+        'h3_win': 'Windows（Xbox Game Bar）',
+        'win_step1': '按Win+G打开Game Bar',
+        'win_step2': '打开捕获小组件并点击录制',
+        'win_step3': '确认系统音频和麦克风捕获已开启',
+        'win_step4': '在Huddle期间保持Slack窗口处于焦点',
+        'win_step5': '从Game Bar停止；剪辑保存到“视频\\捕获”',
+        'win_note': 'Game Bar录制活动应用窗口，在捕获其他参与者的系统音频时可能很挑剔——先用一通短电话测试。',
+        'h3_mac': 'Mac（QuickTime / 截图工具栏）',
+        'mac_step1': '按Cmd+Shift+5打开屏幕录制工具栏',
+        'mac_step2': 'macOS无法独自捕获系统音频——安装一个像BlackHole这样的免费虚拟音频驱动并将输出路由到它',
+        'mac_step3': '选择BlackHole作为录制音频源，然后点击录制',
+        'mac_step4': '从菜单栏停止；文件默认保存到你的桌面',
+        'mac_note': '没有虚拟音频设备，QuickTime只录制你的麦克风——而非其他参与者。',
+        'method3_pros': '<strong>优点：</strong>免费，已在你电脑上，可捕获视频和屏幕共享。',
+        'method3_cons': '<strong>缺点：</strong>系统音频捕获很麻烦（Mac需要额外软件），无转录，无发言人标签。',
+        'h2_method4': '方法四：Slack AI Notes（原生，付费）',
+        'method4_p1': '如果你的工作区使用启用了Slack AI的付费套餐（Business+或Enterprise Grid），你可以为Huddle开启AI Notes。通话后，Slack会把摘要和粗略转录放入Huddle消息串中的画布——无需额外软件。',
+        'method4_p2': '这是唯一的原生选项，但它是笔记，不是录音。没有音频或视频文件，转录无法在整个工作区中搜索，在有外部访客的Huddle中不起作用，管理员还可禁用它。对于只需要摘要的内部团队Huddle，它很方便。',
+        'method4_pros': '<strong>优点：</strong>原生，无需安装，自动生成摘要和行动项。',
+        'method4_cons': '<strong>缺点：</strong>仅付费套餐，无录音文件，不支持外部访客，转录不可搜索，可能被管理员禁用。',
+        'h2_av': '音频Huddle vs 视频Huddle',
+        'av_p1': '大多数Huddle是音频，但Slack在付费套餐中支持视频和屏幕共享。根据你真正需要保存的内容选择方法：',
+        'av_audio': '<strong>音频+转录：</strong>mono捕获对话并在本地转录。当你想要一份关于谈话内容的可搜索记录时最佳。',
+        'av_video': '<strong>屏幕共享或视频：</strong>OBS或你的内置屏幕录制器捕获画面。文件更大，且无转录。',
+        'h2_legal': '法律注意事项',
+        'legal_p1': '录制法律对Huddle与任何其他通话一样适用：',
+        'legal_oneparty': '<strong>单方同意：</strong>许多司法辖区允许你录制自己参与的对话。',
+        'legal_allparty': '<strong>全体同意：</strong>一些地区——包括加利福尼亚、德国等——要求所有人先同意。',
+        'legal_p2': '对于工作通话，许多公司还要求你披露录制。告知Huddle你正在录制，并在录制前查看公司政策和当地法律。',
+        'tips_box': '<strong>使用耳机</strong>，让Huddle音频被干净地捕获而无回声。<strong>静音其他应用的通知</strong>，以免它们出现在录音中。在重要通话前<strong>做10秒测试</strong>，确认每个人都清晰可闻。',
+        'h2_which': '你该使用哪种方法？',
+        'which_p1': '<strong>想要无机器人的转录？</strong>mono在本地录制并自动转录，支持外部访客和任何Slack套餐。',
+        'which_p2': '<strong>需要屏幕共享的视频？</strong>OBS Studio或你的内置录制器可免费捕获画面。',
+        'which_p3': '<strong>在付费套餐上且只需摘要？</strong>Slack AI Notes是内置的——只是没有录音文件且不支持外部访客。',
+        'which_p4': '<strong>只需快速免费的捕获？</strong>Windows Game Bar或Mac QuickTime可应急，但要预料到音频麻烦且无转录。',
+        'related_title': '相关指南',
+        'related_teams_title': '如何录制Microsoft Teams',
+        'related_teams_desc': '4种无需机器人录制Teams会议的方法。',
+        'related_zoom_title': '如何录制Zoom通话',
+        'related_zoom_desc': '4种无需可见机器人录制Zoom的方法。',
+        'related_discord_title': '如何录制Discord通话',
+        'related_discord_desc': '4种录制Discord语音和视频通话的方法。',
+        'related_messaging_title': '录制消息应用通话',
+        'related_messaging_desc': '录制Discord、WhatsApp、Viber或Telegram通话。'
+    },
+    ru: {
+        'back_link': '← блог',
+        'category': '[Гайд]',
+        'title': 'Как записать Slack Huddle',
+        'meta': '7 июня 2026 · 7 мин чтения · Автор Daniil Lefanov',
+        'disclosure': 'Раскрытие: mono — наш продукт. Мы включили его в этот гайд и постарались быть честными, но вам стоит знать, что мы в нём заинтересованы.',
+        'intro_p1': 'Slack Huddle созданы для быстрых звонков, но у них есть очевидный пробел: нет кнопки записи. Slack не может сохранить huddle как аудио- или видеофайл, который можно воспроизвести позже — ни на бесплатном тарифе, ни даже в Enterprise Grid. Если вам нужна запись или расшифровка, которую можно сохранить, понадобится отдельный инструмент.',
+        'intro_p2': 'Этот гайд охватывает все реально работающие способы записи Slack huddle в 2026 году — включая методы захвата звонка локально, с расшифровкой и без того, чтобы кто-либо в huddle видел бота.',
+        'tldr_label': 'Кратко',
+        'tldr_1': '<strong>Лучший в целом:</strong> mono — без бота, локальная ИИ-расшифровка, работает с внешними гостями, $50 единоразово',
+        'tldr_2': '<strong>Лучший бесплатный:</strong> OBS Studio — без бота, захватывает аудио + демонстрацию экрана, нужна настройка, без расшифровки',
+        'tldr_3': '<strong>Встроенный (ограниченный):</strong> Slack AI Notes — только платные тарифы, сводка а не запись, без внешних гостей',
+        'tldr_4': '<strong>Быстро и бесплатно:</strong> Windows Game Bar / Mac QuickTime — захват экрана, капризное аудио, без расшифровки',
+        'h2_builtin': 'Есть ли в Slack встроенная запись?',
+        'builtin_p1': 'Короткий ответ: нет. У Slack Huddle нет встроенной записи ни на одном тарифе — нет кнопки, которая создавала бы аудио- или видеофайл живого huddle. Две функции близки к этому, но записью не являются:',
+        'builtin_ainotes': '<strong>Slack AI Notes.</strong> На платных тарифах (Business+ и Enterprise Grid) с включённым Slack AI Slack может сгенерировать сводку и приблизительную расшифровку после окончания huddle. Они появляются в canvas, прикреплённом к ветке huddle. Это заметки, а не сохранённый звонок — нет аудиофайла, расшифровка не ищется по всему рабочему пространству, она недоступна в huddle с внешними гостями, и администратор может её отключить.',
+        'builtin_clips': '<strong>Clips.</strong> Slack Clips позволяют записать короткое асинхронное сообщение — аудио, видео или экран, до 5 минут. Они нужны, чтобы оставить сообщение, а не захватить живой huddle, и в них нет меток говорящих.',
+        'builtin_p2': 'Так что если вам нужна настоящая запись живого huddle — то, что можно воспроизвести, заархивировать или получить полную расшифровку — используйте один из методов ниже.',
+        'h2_comparison': 'Быстрое сравнение',
+        'th_method': 'Метод',
+        'th_price': 'Цена',
+        'th_bot': 'Бот/Виден?',
+        'th_transcription': 'Расшифровка',
+        'price_mono': '$50 единоразово',
+        'no': 'Нет',
+        'yes_local': 'Да (локально)',
+        'price_free': 'Бесплатно',
+        'no2': 'Нет',
+        'no3': 'Нет',
+        'gamebar_qt': 'Game Bar / QuickTime',
+        'price_free2': 'Бесплатно',
+        'no4': 'Нет',
+        'no5': 'Нет',
+        'ainotes_row': 'Slack AI Notes',
+        'price_paid': 'Платный тариф',
+        'native_label': 'Встроенный',
+        'summary_only': 'Только сводка',
+        'h2_method1': 'Метод 1: mono (Рекомендуется)',
+        'method1_p1': 'mono записывает Slack huddle, захватывая звук, выходящий из вашего компьютера. Он не присоединяется к huddle, поэтому никто не видит бота и нет уведомления. Поскольку он записывает системный звук, он захватывает каждого участника — включая внешних гостей, чего не могут собственные AI Notes от Slack.',
+        'method1_p2': 'Когда вы останавливаете, mono расшифровывает звонок локально — ИИ работает на вашем компьютере, поэтому звук никогда его не покидает. Расшифровка включает метки говорящих, и каждая запись потом становится доступной для поиска по ключевым словам.',
+        'h3_mono_steps': 'Как записать Slack huddle с помощью mono',
+        'mono_step1': 'Скачайте mono с <a href="https://mono-ai.uk">mono-ai.uk</a> и установите его',
+        'mono_step2': 'Откройте mono и нажмите Запись, до или во время huddle',
+        'mono_step3': 'Начните или присоединитесь к Slack huddle как обычно',
+        'mono_step4': 'Говорите, демонстрируйте экран, делайте что нужно',
+        'mono_step5': 'Нажмите Стоп в mono, когда huddle закончится',
+        'mono_step6': 'Дождитесь завершения локальной расшифровки',
+        'mono_step7': 'Читайте, ищите или экспортируйте расшифровку с метками говорящих',
+        'method1_p3': 'Поскольку mono захватывает всё, что воспроизводится через ваши динамики или наушники, он работает одинаково — будь huddle только аудио, видео или демонстрация экрана — и независимо от вашего тарифа Slack.',
+        'mono_pros': '<strong>Плюсы:</strong> Без бота, без уведомления, работает с внешними гостями и на бесплатном тарифе Slack, локальная ИИ-расшифровка с метками говорящих, записи с поиском, единоразовый платёж $50 без подписки.',
+        'mono_cons': '<strong>Минусы:</strong> Захватывает аудио, а не видео/экран как видеофайл; платное ПО (одна бесплатная запись, чтобы попробовать).',
+        'h2_method2': 'Метод 2: OBS Studio (Бесплатно)',
+        'method2_p1': 'OBS Studio — бесплатный рекордер с открытым исходным кодом. Он не присоединяется к huddle и может захватывать как системный звук, так и ваш экран — полезно, если вам нужно видео чьей-то демонстрации экрана, а не только звук.',
+        'method2_p2': 'Компромисс — это настройка и отсутствие расшифровки: OBS даёт вам сырой аудио- или видеофайл, который придётся расшифровывать где-то ещё, если нужен текст с поиском.',
+        'h3_obs_steps': 'Как записать Slack huddle с помощью OBS',
+        'obs_step1': 'Скачайте OBS Studio с obsproject.com и установите',
+        'obs_step2': 'Откройте OBS и перейдите в Настройки → Аудио',
+        'obs_step3': 'Установите «Звук рабочего стола» на ваше устройство вывода (динамики или наушники)',
+        'obs_step4': 'В главном окне нажмите + под Источники и добавьте «Захват аудиовыхода» для записи только звука',
+        'obs_step5': 'Чтобы захватить демонстрацию экрана, добавьте также «Захват экрана» или «Захват окна»',
+        'obs_step6': 'Нажмите «Начать запись» до начала huddle',
+        'obs_step7': 'Проведите свой huddle как обычно',
+        'obs_step8': 'Нажмите «Остановить запись», когда он закончится; найдите файл в папке Видео',
+        'obs_pros': '<strong>Плюсы:</strong> Полностью бесплатный и с открытым кодом, без бота, захватывает видео демонстрации экрана, гибко настраивается.',
+        'obs_cons': '<strong>Минусы:</strong> Требует настройки, нужно вручную начинать и останавливать запись каждый раз, без расшифровки — создаёт только сырые аудио-/видеофайлы.',
+        'h2_method3': 'Метод 3: Встроенная запись экрана (Windows и Mac)',
+        'method3_p1': 'И Windows, и macOS поставляются с экранным рекордером, способным захватить окно huddle. Они бесплатны и уже установлены — загвоздка в захвате звука.',
+        'h3_win': 'Windows (Xbox Game Bar)',
+        'win_step1': 'Нажмите Win+G, чтобы открыть Game Bar',
+        'win_step2': 'Откройте виджет «Снимок» и нажмите Запись',
+        'win_step3': 'Проверьте, что захват системного звука и микрофона включён',
+        'win_step4': 'Держите окно Slack в фокусе во время huddle',
+        'win_step5': 'Остановите из Game Bar; клип сохраняется в Видео\\Клипы',
+        'win_note': 'Game Bar записывает активное окно приложения и может капризничать при захвате системного звука других участников — сначала протестируйте на коротком звонке.',
+        'h3_mac': 'Mac (QuickTime / панель снимков)',
+        'mac_step1': 'Нажмите Cmd+Shift+5, чтобы открыть панель записи экрана',
+        'mac_step2': 'macOS не может захватить системный звук сама — установите бесплатный виртуальный аудиодрайвер вроде BlackHole и направьте вывод в него',
+        'mac_step3': 'Выберите BlackHole как источник звука для записи, затем нажмите Запись',
+        'mac_step4': 'Остановите из строки меню; файл по умолчанию сохраняется на Рабочий стол',
+        'mac_note': 'Без виртуального аудиоустройства QuickTime записывает только ваш микрофон — а не других участников.',
+        'method3_pros': '<strong>Плюсы:</strong> Бесплатно, уже на вашем компьютере, может захватывать видео и демонстрацию экрана.',
+        'method3_cons': '<strong>Минусы:</strong> Захват системного звука капризен (для Mac нужно доп. ПО), без расшифровки, без меток говорящих.',
+        'h2_method4': 'Метод 4: Slack AI Notes (Встроенный, платный)',
+        'method4_p1': 'Если ваше рабочее пространство на платном тарифе (Business+ или Enterprise Grid) со Slack AI, вы можете включить AI Notes для huddle. После звонка Slack помещает сводку и приблизительную расшифровку в canvas в ветке huddle — без дополнительного ПО.',
+        'method4_p2': 'Это единственный встроенный вариант, но это заметки, а не запись. Нет аудио- или видеофайла, расшифровка не ищется по всему рабочему пространству, она не работает в huddle с внешними гостями, и администратор может её отключить. Для внутренних командных huddle, где нужна лишь сводка, это удобно.',
+        'method4_pros': '<strong>Плюсы:</strong> Встроенный, ничего не нужно устанавливать, автоматическая сводка и задачи.',
+        'method4_cons': '<strong>Минусы:</strong> Только платные тарифы, нет файла записи, без внешних гостей, расшифровка без поиска, может быть отключён администратором.',
+        'h2_av': 'Аудио- vs видео-huddle',
+        'av_p1': 'Большинство huddle — аудио, но Slack поддерживает видео и демонстрацию экрана на платных тарифах. Выбирайте метод по тому, что вам действительно нужно сохранить:',
+        'av_audio': '<strong>Аудио + расшифровка:</strong> mono захватывает разговор и расшифровывает его локально. Лучше всего, когда нужна запись сказанного с возможностью поиска.',
+        'av_video': '<strong>Демонстрация экрана или видео:</strong> OBS или ваш встроенный экранный рекордер захватывает картинку. Файлы крупнее, и без расшифровки.',
+        'h2_legal': 'Юридические аспекты',
+        'legal_p1': 'Законы о записи применяются к huddle, как и к любому другому звонку:',
+        'legal_oneparty': '<strong>Согласие одной стороны:</strong> Многие юрисдикции разрешают записывать разговор, в котором вы участвуете.',
+        'legal_allparty': '<strong>Согласие всех сторон:</strong> Некоторые регионы — включая Калифорнию, Германию и другие — требуют, чтобы сначала согласились все.',
+        'legal_p2': 'Для рабочих звонков многие компании также требуют раскрывать факт записи. Сообщите huddle, что вы записываете, и проверьте политику компании и местный закон, прежде чем это делать.',
+        'tips_box': '<strong>Используйте наушники</strong>, чтобы звук huddle захватывался чисто, без эха. <strong>Отключите уведомления</strong> других приложений, чтобы они не попали в запись. <strong>Сделайте 10-секундный тест</strong> перед важным звонком, чтобы убедиться, что всех слышно.',
+        'h2_which': 'Какой метод выбрать?',
+        'which_p1': '<strong>Нужна расшифровка без бота?</strong> mono записывает локально и расшифровывает автоматически, работает с внешними гостями и на любом тарифе Slack.',
+        'which_p2': '<strong>Нужна демонстрация экрана на видео?</strong> OBS Studio или ваш встроенный рекордер захватывает картинку бесплатно.',
+        'which_p3': '<strong>На платном тарифе и нужна только сводка?</strong> Slack AI Notes встроен — просто без файла записи и без внешних гостей.',
+        'which_p4': '<strong>Нужен просто быстрый бесплатный захват?</strong> Windows Game Bar или Mac QuickTime выручат, но ждите капризного аудио и отсутствия расшифровки.',
+        'related_title': 'Похожие гайды',
+        'related_teams_title': 'Как записать Microsoft Teams',
+        'related_teams_desc': '4 способа записи встреч Teams без бота.',
+        'related_zoom_title': 'Как записать звонки Zoom',
+        'related_zoom_desc': '4 способа записи Zoom без видимого бота.',
+        'related_discord_title': 'Как записать звонки Discord',
+        'related_discord_desc': '4 метода записи голосовых и видеозвонков Discord.',
+        'related_messaging_title': 'Запись звонков в мессенджерах',
+        'related_messaging_desc': 'Записывайте звонки Discord, WhatsApp, Viber или Telegram.'
+    }
+};
+
+const siteNav = document.querySelector('site-nav');
+let currentLang = 'en';
+if (siteNav) {
+    siteNav.addEventListener('language-change', (e) => {
+        const lang = e.detail.language;
+        if (lang === currentLang) return;
+        currentLang = lang;
+        const t = translations[lang];
+        if (!t) return;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.dataset.i18n;
+            if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+    });
+}
+</script>
+</body>
+</html>
