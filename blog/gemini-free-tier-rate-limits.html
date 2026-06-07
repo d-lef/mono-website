@@ -159,85 +159,85 @@
     <discount-float></discount-float>
 
     <main class="article-wrap">
-        <a href="./" class="back-link">← blog</a>
+        <a href="./" class="back-link" data-i18n="back_link">← blog</a>
 
         <header>
-            <span class="article-category">[Guide]</span>
-            <h1 class="article-title">How to Use the Gemini Free Tier Without Getting Blocked</h1>
-            <p class="article-meta">Jun 6, 2026 · 7 min read · By Daniil Lefanov</p>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">How to Use the Gemini Free Tier Without Getting Blocked</h1>
+            <p class="article-meta" data-i18n="meta">Jun 6, 2026 · 7 min read · By Daniil Lefanov</p>
         </header>
 
         <div class="article-body">
 
-            <p>Google's Gemini API has a free tier that's good enough for real work — transcription, summaries, chat, even audio processing. But there's a catch: if you hit the rate limits too often, Google doesn't just throttle you. They revoke your API key entirely, and you have to create a new one.</p>
+            <p data-i18n="intro_p1">Google's Gemini API has a free tier that's good enough for real work — transcription, summaries, chat, even audio processing. But there's a catch: if you hit the rate limits too often, Google doesn't just throttle you. They revoke your API key entirely, and you have to create a new one.</p>
 
-            <p>This guide shows you how to get a free Gemini API key, what the limits actually are, and how to write code that stays within them. We'll use a pattern we developed for <a href="https://mono-ai.uk/">mono</a> that has run for months without a single key revocation.</p>
+            <p data-i18n="intro_p2">This guide shows you how to get a free Gemini API key, what the limits actually are, and how to write code that stays within them. We'll use a pattern we developed for <a href="https://mono-ai.uk/">mono</a> that has run for months without a single key revocation.</p>
 
             <div class="tldr">
-                <p class="tldr-label">The short version</p>
+                <p class="tldr-label" data-i18n="tldr_label">The short version</p>
                 <ul>
-                    <li>1. Free tier: <strong>10 requests/minute</strong> and <strong>250 requests/day</strong></li>
-                    <li>2. Don't wait for 429 errors — count requests yourself</li>
-                    <li>3. Save your daily count to a file so it survives restarts</li>
-                    <li>4. Add a 30-minute backoff if you ever do get a 429</li>
-                    <li>5. Have a fallback provider ready for when you hit the limit</li>
+                    <li data-i18n="tldr_1">1. Free tier: <strong>10 requests/minute</strong> and <strong>250 requests/day</strong></li>
+                    <li data-i18n="tldr_2">2. Don't wait for 429 errors — count requests yourself</li>
+                    <li data-i18n="tldr_3">3. Save your daily count to a file so it survives restarts</li>
+                    <li data-i18n="tldr_4">4. Add a 30-minute backoff if you ever do get a 429</li>
+                    <li data-i18n="tldr_5">5. Have a fallback provider ready for when you hit the limit</li>
                 </ul>
             </div>
 
-            <h2>Step 1 — Get a free API key</h2>
+            <h2 data-i18n="h2_step1">Step 1 — Get a free API key</h2>
 
-            <p>Go to <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> and sign in with your Google account. Click <strong>Create API key</strong>, pick a project (or create one), and copy the key.</p>
+            <p data-i18n="step1_p1">Go to <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> and sign in with your Google account. Click <strong>Create API key</strong>, pick a project (or create one), and copy the key.</p>
 
             <figure class="article-figure">
                 <img src="images/api-gemini-console.png" alt="Google AI Studio showing the Create API key dialog" loading="lazy">
-                <figcaption>Creating an API key in Google AI Studio. Name it something you'll recognize, then click Create.</figcaption>
+                <figcaption data-i18n="step1_caption">Creating an API key in Google AI Studio. Name it something you'll recognize, then click Create.</figcaption>
             </figure>
 
-            <p>That's it — no credit card, no billing setup. The key works immediately with the free tier limits.</p>
+            <p data-i18n="step1_p2">That's it — no credit card, no billing setup. The key works immediately with the free tier limits.</p>
 
             <div class="tip-box">
-                <p><strong>Keep your key safe.</strong> Anyone with your key can use your quota (and get it revoked). Store it in an environment variable or a secrets manager, not in your code.</p>
+                <p data-i18n="step1_tip"><strong>Keep your key safe.</strong> Anyone with your key can use your quota (and get it revoked). Store it in an environment variable or a secrets manager, not in your code.</p>
             </div>
 
-            <h2>Step 2 — Understand the limits</h2>
+            <h2 data-i18n="h2_step2">Step 2 — Understand the limits</h2>
 
-            <p>The free tier has two limits that matter:</p>
+            <p data-i18n="step2_p1">The free tier has two limits that matter:</p>
 
             <div class="table-wrap">
                 <table class="compare-table">
                     <thead>
                         <tr>
-                            <th>Limit</th>
-                            <th>Value</th>
-                            <th>Resets</th>
+                            <th data-i18n="th_limit">Limit</th>
+                            <th data-i18n="th_value">Value</th>
+                            <th data-i18n="th_resets">Resets</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>RPM</strong> (requests per minute)</td>
+                            <td data-i18n="rpm_label"><strong>RPM</strong> (requests per minute)</td>
                             <td>10</td>
-                            <td>Rolling 60-second window</td>
+                            <td data-i18n="rpm_reset">Rolling 60-second window</td>
                         </tr>
                         <tr>
-                            <td><strong>RPD</strong> (requests per day)</td>
+                            <td data-i18n="rpd_label"><strong>RPD</strong> (requests per day)</td>
                             <td>250</td>
-                            <td>Midnight Pacific time</td>
+                            <td data-i18n="rpd_reset">Midnight Pacific time</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <p>There's also a token limit (about 1 million tokens per minute), but in practice you'll hit RPM or RPD first unless you're sending huge documents.</p>
+            <p data-i18n="step2_p2">There's also a token limit (about 1 million tokens per minute), but in practice you'll hit RPM or RPD first unless you're sending huge documents.</p>
 
             <div class="warning-box">
-                <p><strong>The real risk isn't the 429.</strong> When you exceed the limit, Google returns a 429 "Too Many Requests" error. That's fine — you can retry later. The problem is that if your code keeps hitting 429s, Google's abuse detection kicks in and revokes your key. Then you need to create a new one, and your old code stops working.</p>
+                <p data-i18n="step2_warning"><strong>The real risk isn't the 429.</strong> When you exceed the limit, Google returns a 429 "Too Many Requests" error. That's fine — you can retry later. The problem is that if your code keeps hitting 429s, Google's abuse detection kicks in and revokes your key. Then you need to create a new one, and your old code stops working.</p>
             </div>
 
-            <h2>Step 3 — Track your usage proactively</h2>
+            <h2 data-i18n="h2_step3">Step 3 — Track your usage proactively</h2>
 
-            <p>The key insight is: <strong>don't wait for 429 errors</strong>. Instead, count your requests yourself and stop before you hit the limit. This way Google never sees you as abusive.</p>
+            <p data-i18n="step3_p1">The key insight is: <strong>don't wait for 429 errors</strong>. Instead, count your requests yourself and stop before you hit the limit. This way Google never sees you as abusive.</p>
 
-            <p>Here's the pattern in Python:</p>
+            <p data-i18n="step3_p2">Here's the pattern in Python:</p>
 
             <div class="code-block">
 <pre># Rate limiting state
@@ -280,17 +280,17 @@ def track_request():
     request_timestamps.append(time.time())</pre>
             </div>
 
-            <p>Before every API call, check <code>is_available()</code>. If it returns False, don't make the request — either wait, or fall back to another provider.</p>
+            <p data-i18n="step3_p3">Before every API call, check <code>is_available()</code>. If it returns False, don't make the request — either wait, or fall back to another provider.</p>
 
-            <h3>Why use 9 and 240 instead of 10 and 250?</h3>
+            <h3 data-i18n="step3_h3">Why use 9 and 240 instead of 10 and 250?</h3>
 
-            <p>Buffer room. Network timing isn't perfect, and Google's counting might differ slightly from yours. Staying a bit under the limit means you never accidentally go over.</p>
+            <p data-i18n="step3_p4">Buffer room. Network timing isn't perfect, and Google's counting might differ slightly from yours. Staying a bit under the limit means you never accidentally go over.</p>
 
-            <h2>Step 4 — Persist the counter across restarts</h2>
+            <h2 data-i18n="h2_step4">Step 4 — Persist the counter across restarts</h2>
 
-            <p>If your app restarts, your in-memory counter resets to zero — but Google's counter doesn't. If you've used 200 requests today and your app restarts, it thinks it has 240 left when it actually has 50. That's a fast track to a 429.</p>
+            <p data-i18n="step4_p1">If your app restarts, your in-memory counter resets to zero — but Google's counter doesn't. If you've used 200 requests today and your app restarts, it thinks it has 240 left when it actually has 50. That's a fast track to a 429.</p>
 
-            <p>The fix: save your daily count to a file.</p>
+            <p data-i18n="step4_p2">The fix: save your daily count to a file.</p>
 
             <div class="code-block">
 <pre>import json
@@ -317,11 +317,11 @@ def load_state():
         pass  # Start fresh</pre>
             </div>
 
-            <p>Call <code>load_state()</code> when your app starts, and <code>save_state()</code> after each request. Now restarts don't lose your count.</p>
+            <p data-i18n="step4_p3">Call <code>load_state()</code> when your app starts, and <code>save_state()</code> after each request. Now restarts don't lose your count.</p>
 
-            <h2>Step 5 — Handle 429s gracefully</h2>
+            <h2 data-i18n="h2_step5">Step 5 — Handle 429s gracefully</h2>
 
-            <p>Even with proactive counting, you might still get a 429. Maybe Google's clock differs from yours, or there's a bug in your code. When that happens, don't just retry immediately — that makes things worse.</p>
+            <p data-i18n="step5_p1">Even with proactive counting, you might still get a 429. Maybe Google's clock differs from yours, or there's a bug in your code. When that happens, don't just retry immediately — that makes things worse.</p>
 
             <div class="code-block">
 <pre>unavailable_until = None
@@ -342,21 +342,21 @@ def is_available():
     # ... rest of function ...</pre>
             </div>
 
-            <p>Why 30 minutes? Google's throttling after a 429 is inconsistent — sometimes requests pass, sometimes they don't. A longer backoff avoids hammering the API while it's already unhappy with you.</p>
+            <p data-i18n="step5_p2">Why 30 minutes? Google's throttling after a 429 is inconsistent — sometimes requests pass, sometimes they don't. A longer backoff avoids hammering the API while it's already unhappy with you.</p>
 
-            <h2>Step 6 — Add a fallback provider</h2>
+            <h2 data-i18n="h2_step6">Step 6 — Add a fallback provider</h2>
 
-            <p>The free tier is great, but 250 requests per day isn't infinite. For a production app, you need a fallback for when the quota runs out.</p>
+            <p data-i18n="step6_p1">The free tier is great, but 250 requests per day isn't infinite. For a production app, you need a fallback for when the quota runs out.</p>
 
-            <p>Options:</p>
+            <p data-i18n="step6_options">Options:</p>
 
             <ul>
-                <li><strong>OpenAI</strong> — no free tier, but GPT-4.1 Mini is cheap (fractions of a cent per request)</li>
-                <li><strong>Anthropic Claude</strong> — also no free tier, Claude Haiku is similarly priced</li>
-                <li><strong>Local models</strong> — free and unlimited, but needs decent hardware</li>
+                <li data-i18n="step6_li1"><strong>OpenAI</strong> — no free tier, but GPT-4.1 Mini is cheap (fractions of a cent per request)</li>
+                <li data-i18n="step6_li2"><strong>Anthropic Claude</strong> — also no free tier, Claude Haiku is similarly priced</li>
+                <li data-i18n="step6_li3"><strong>Local models</strong> — free and unlimited, but needs decent hardware</li>
             </ul>
 
-            <p>The pattern is simple:</p>
+            <p data-i18n="step6_p2">The pattern is simple:</p>
 
             <div class="code-block">
 <pre>def make_llm_request(prompt):
@@ -372,11 +372,11 @@ def is_available():
     return openai.generate(prompt)</pre>
             </div>
 
-            <p>This way you use the free tier when available and automatically switch when it's not.</p>
+            <p data-i18n="step6_p3">This way you use the free tier when available and automatically switch when it's not.</p>
 
-            <h2>Complete example</h2>
+            <h2 data-i18n="h2_complete">Complete example</h2>
 
-            <p>Here's everything together in a single module:</p>
+            <p data-i18n="complete_p1">Here's everything together in a single module:</p>
 
             <div class="code-block">
 <pre>import json
@@ -471,19 +471,19 @@ def generate(prompt):
     return data["candidates"][0]["content"]["parts"][0]["text"]</pre>
             </div>
 
-            <h2>FAQ</h2>
+            <h2 data-i18n="h2_faq">FAQ</h2>
 
-            <h3>What if I need more than 250 requests per day?</h3>
-            <p>You have three options: create multiple API keys (risky — Google may notice), upgrade to a paid tier (starts at $0.075 per million input tokens), or use a fallback provider for overflow.</p>
+            <h3 data-i18n="faq_q1">What if I need more than 250 requests per day?</h3>
+            <p data-i18n="faq_a1">You have three options: create multiple API keys (risky — Google may notice), upgrade to a paid tier (starts at $0.075 per million input tokens), or use a fallback provider for overflow.</p>
 
-            <h3>Does the free tier work for audio transcription?</h3>
-            <p>Yes. Gemini 2.5 Flash can transcribe audio directly — send the audio as base64 and ask it to transcribe. Same rate limits apply.</p>
+            <h3 data-i18n="faq_q2">Does the free tier work for audio transcription?</h3>
+            <p data-i18n="faq_a2">Yes. Gemini 2.5 Flash can transcribe audio directly — send the audio as base64 and ask it to transcribe. Same rate limits apply.</p>
 
-            <h3>Why Pacific time for the daily reset?</h3>
-            <p>That's when Google resets the counter. If you're in another timezone and reset at your local midnight, your count won't match Google's.</p>
+            <h3 data-i18n="faq_q3">Why Pacific time for the daily reset?</h3>
+            <p data-i18n="faq_a3">That's when Google resets the counter. If you're in another timezone and reset at your local midnight, your count won't match Google's.</p>
 
-            <h3>Can I use this for a production app?</h3>
-            <p>With a fallback, yes. Without one, you'll hit the daily limit during heavy use. The free tier is best for personal projects or as a cost-saver alongside a paid provider.</p>
+            <h3 data-i18n="faq_q4">Can I use this for a production app?</h3>
+            <p data-i18n="faq_a4">With a fallback, yes. Without one, you'll hit the daily limit during heavy use. The free tier is best for personal projects or as a cost-saver alongside a paid provider.</p>
 
             <cta-card base-path="../"></cta-card>
 
@@ -492,6 +492,402 @@ def generate(prompt):
 
     <script>
         if (window.initFoldEffect) window.initFoldEffect();
+    </script>
+
+    <script>
+    // Translations matching the rest of the blog. English is the static default
+    // and is also listed here in full so switching back restores every string.
+    // Code blocks stay in English by convention and are not translated.
+    const translations = {
+        en: {
+            'back_link': '← blog',
+            'category': '[Guide]',
+            'title': 'How to Use the Gemini Free Tier Without Getting Blocked',
+            'meta': 'Jun 6, 2026 · 7 min read · By Daniil Lefanov',
+            'intro_p1': 'Google\'s Gemini API has a free tier that\'s good enough for real work — transcription, summaries, chat, even audio processing. But there\'s a catch: if you hit the rate limits too often, Google doesn\'t just throttle you. They revoke your API key entirely, and you have to create a new one.',
+            'intro_p2': 'This guide shows you how to get a free Gemini API key, what the limits actually are, and how to write code that stays within them. We\'ll use a pattern we developed for <a href="https://mono-ai.uk/">mono</a> that has run for months without a single key revocation.',
+            'tldr_label': 'The short version',
+            'tldr_1': '1. Free tier: <strong>10 requests/minute</strong> and <strong>250 requests/day</strong>',
+            'tldr_2': '2. Don\'t wait for 429 errors — count requests yourself',
+            'tldr_3': '3. Save your daily count to a file so it survives restarts',
+            'tldr_4': '4. Add a 30-minute backoff if you ever do get a 429',
+            'tldr_5': '5. Have a fallback provider ready for when you hit the limit',
+            'h2_step1': 'Step 1 — Get a free API key',
+            'step1_p1': 'Go to <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> and sign in with your Google account. Click <strong>Create API key</strong>, pick a project (or create one), and copy the key.',
+            'step1_caption': 'Creating an API key in Google AI Studio. Name it something you\'ll recognize, then click Create.',
+            'step1_p2': 'That\'s it — no credit card, no billing setup. The key works immediately with the free tier limits.',
+            'step1_tip': '<strong>Keep your key safe.</strong> Anyone with your key can use your quota (and get it revoked). Store it in an environment variable or a secrets manager, not in your code.',
+            'h2_step2': 'Step 2 — Understand the limits',
+            'step2_p1': 'The free tier has two limits that matter:',
+            'th_limit': 'Limit',
+            'th_value': 'Value',
+            'th_resets': 'Resets',
+            'rpm_label': '<strong>RPM</strong> (requests per minute)',
+            'rpm_reset': 'Rolling 60-second window',
+            'rpd_label': '<strong>RPD</strong> (requests per day)',
+            'rpd_reset': 'Midnight Pacific time',
+            'step2_p2': 'There\'s also a token limit (about 1 million tokens per minute), but in practice you\'ll hit RPM or RPD first unless you\'re sending huge documents.',
+            'step2_warning': '<strong>The real risk isn\'t the 429.</strong> When you exceed the limit, Google returns a 429 "Too Many Requests" error. That\'s fine — you can retry later. The problem is that if your code keeps hitting 429s, Google\'s abuse detection kicks in and revokes your key. Then you need to create a new one, and your old code stops working.',
+            'h2_step3': 'Step 3 — Track your usage proactively',
+            'step3_p1': 'The key insight is: <strong>don\'t wait for 429 errors</strong>. Instead, count your requests yourself and stop before you hit the limit. This way Google never sees you as abusive.',
+            'step3_p2': 'Here\'s the pattern in Python:',
+            'step3_p3': 'Before every API call, check <code>is_available()</code>. If it returns False, don\'t make the request — either wait, or fall back to another provider.',
+            'step3_h3': 'Why use 9 and 240 instead of 10 and 250?',
+            'step3_p4': 'Buffer room. Network timing isn\'t perfect, and Google\'s counting might differ slightly from yours. Staying a bit under the limit means you never accidentally go over.',
+            'h2_step4': 'Step 4 — Persist the counter across restarts',
+            'step4_p1': 'If your app restarts, your in-memory counter resets to zero — but Google\'s counter doesn\'t. If you\'ve used 200 requests today and your app restarts, it thinks it has 240 left when it actually has 50. That\'s a fast track to a 429.',
+            'step4_p2': 'The fix: save your daily count to a file.',
+            'step4_p3': 'Call <code>load_state()</code> when your app starts, and <code>save_state()</code> after each request. Now restarts don\'t lose your count.',
+            'h2_step5': 'Step 5 — Handle 429s gracefully',
+            'step5_p1': 'Even with proactive counting, you might still get a 429. Maybe Google\'s clock differs from yours, or there\'s a bug in your code. When that happens, don\'t just retry immediately — that makes things worse.',
+            'step5_p2': 'Why 30 minutes? Google\'s throttling after a 429 is inconsistent — sometimes requests pass, sometimes they don\'t. A longer backoff avoids hammering the API while it\'s already unhappy with you.',
+            'h2_step6': 'Step 6 — Add a fallback provider',
+            'step6_p1': 'The free tier is great, but 250 requests per day isn\'t infinite. For a production app, you need a fallback for when the quota runs out.',
+            'step6_options': 'Options:',
+            'step6_li1': '<strong>OpenAI</strong> — no free tier, but GPT-4.1 Mini is cheap (fractions of a cent per request)',
+            'step6_li2': '<strong>Anthropic Claude</strong> — also no free tier, Claude Haiku is similarly priced',
+            'step6_li3': '<strong>Local models</strong> — free and unlimited, but needs decent hardware',
+            'step6_p2': 'The pattern is simple:',
+            'step6_p3': 'This way you use the free tier when available and automatically switch when it\'s not.',
+            'h2_complete': 'Complete example',
+            'complete_p1': 'Here\'s everything together in a single module:',
+            'h2_faq': 'FAQ',
+            'faq_q1': 'What if I need more than 250 requests per day?',
+            'faq_a1': 'You have three options: create multiple API keys (risky — Google may notice), upgrade to a paid tier (starts at $0.075 per million input tokens), or use a fallback provider for overflow.',
+            'faq_q2': 'Does the free tier work for audio transcription?',
+            'faq_a2': 'Yes. Gemini 2.5 Flash can transcribe audio directly — send the audio as base64 and ask it to transcribe. Same rate limits apply.',
+            'faq_q3': 'Why Pacific time for the daily reset?',
+            'faq_a3': 'That\'s when Google resets the counter. If you\'re in another timezone and reset at your local midnight, your count won\'t match Google\'s.',
+            'faq_q4': 'Can I use this for a production app?',
+            'faq_a4': 'With a fallback, yes. Without one, you\'ll hit the daily limit during heavy use. The free tier is best for personal projects or as a cost-saver alongside a paid provider.'
+        },
+        es: {
+            'back_link': '← blog',
+            'category': '[Guía]',
+            'title': 'Cómo usar la capa gratuita de Gemini sin que te bloqueen',
+            'meta': '6 jun 2026 · 7 min de lectura · Por Daniil Lefanov',
+            'intro_p1': 'La API de Gemini de Google tiene una capa gratuita lo bastante buena para trabajo real — transcripción, resúmenes, chat, incluso procesamiento de audio. Pero hay una trampa: si superas los límites de frecuencia con demasiada frecuencia, Google no solo te ralentiza. Revoca por completo tu clave de API, y tienes que crear una nueva.',
+            'intro_p2': 'Esta guía te muestra cómo obtener una clave de API gratuita de Gemini, cuáles son realmente los límites y cómo escribir código que se mantenga dentro de ellos. Usaremos un patrón que desarrollamos para <a href="https://mono-ai.uk/">mono</a> que ha funcionado durante meses sin una sola revocación de clave.',
+            'tldr_label': 'La versión corta',
+            'tldr_1': '1. Capa gratuita: <strong>10 solicitudes/minuto</strong> y <strong>250 solicitudes/día</strong>',
+            'tldr_2': '2. No esperes a los errores 429 — cuenta las solicitudes tú mismo',
+            'tldr_3': '3. Guarda tu conteo diario en un archivo para que sobreviva a los reinicios',
+            'tldr_4': '4. Añade una espera de 30 minutos si alguna vez recibes un 429',
+            'tldr_5': '5. Ten listo un proveedor de respaldo para cuando alcances el límite',
+            'h2_step1': 'Paso 1 — Consigue una clave de API gratuita',
+            'step1_p1': 'Ve a <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> e inicia sesión con tu cuenta de Google. Haz clic en <strong>Crear clave de API</strong>, elige un proyecto (o crea uno) y copia la clave.',
+            'step1_caption': 'Creando una clave de API en Google AI Studio. Ponle un nombre que reconozcas y haz clic en Crear.',
+            'step1_p2': 'Eso es todo — sin tarjeta de crédito, sin configuración de facturación. La clave funciona de inmediato con los límites de la capa gratuita.',
+            'step1_tip': '<strong>Mantén tu clave segura.</strong> Cualquiera con tu clave puede usar tu cuota (y hacer que la revoquen). Guárdala en una variable de entorno o un gestor de secretos, no en tu código.',
+            'h2_step2': 'Paso 2 — Entiende los límites',
+            'step2_p1': 'La capa gratuita tiene dos límites que importan:',
+            'th_limit': 'Límite',
+            'th_value': 'Valor',
+            'th_resets': 'Se reinicia',
+            'rpm_label': '<strong>RPM</strong> (solicitudes por minuto)',
+            'rpm_reset': 'Ventana móvil de 60 segundos',
+            'rpd_label': '<strong>RPD</strong> (solicitudes por día)',
+            'rpd_reset': 'Medianoche hora del Pacífico',
+            'step2_p2': 'También hay un límite de tokens (alrededor de 1 millón de tokens por minuto), pero en la práctica alcanzarás RPM o RPD primero, a menos que envíes documentos enormes.',
+            'step2_warning': '<strong>El verdadero riesgo no es el 429.</strong> Cuando superas el límite, Google devuelve un error 429 "Too Many Requests". Eso está bien — puedes reintentar más tarde. El problema es que si tu código sigue recibiendo 429, la detección de abuso de Google se activa y revoca tu clave. Entonces tienes que crear una nueva y tu código antiguo deja de funcionar.',
+            'h2_step3': 'Paso 3 — Controla tu uso de forma proactiva',
+            'step3_p1': 'La idea clave es: <strong>no esperes a los errores 429</strong>. En su lugar, cuenta tus solicitudes tú mismo y detente antes de alcanzar el límite. Así Google nunca te ve como abusivo.',
+            'step3_p2': 'Aquí está el patrón en Python:',
+            'step3_p3': 'Antes de cada llamada a la API, comprueba <code>is_available()</code>. Si devuelve False, no hagas la solicitud — espera o recurre a otro proveedor.',
+            'step3_h3': '¿Por qué usar 9 y 240 en lugar de 10 y 250?',
+            'step3_p4': 'Margen de seguridad. El tiempo de red no es perfecto, y el conteo de Google puede diferir ligeramente del tuyo. Quedarte un poco por debajo del límite significa que nunca te pasas por accidente.',
+            'h2_step4': 'Paso 4 — Conserva el contador entre reinicios',
+            'step4_p1': 'Si tu app se reinicia, tu contador en memoria vuelve a cero — pero el de Google no. Si has usado 200 solicitudes hoy y tu app se reinicia, cree que le quedan 240 cuando en realidad le quedan 50. Eso es un atajo rápido hacia un 429.',
+            'step4_p2': 'La solución: guarda tu conteo diario en un archivo.',
+            'step4_p3': 'Llama a <code>load_state()</code> cuando tu app arranca, y a <code>save_state()</code> después de cada solicitud. Ahora los reinicios no pierden tu conteo.',
+            'h2_step5': 'Paso 5 — Maneja los 429 con elegancia',
+            'step5_p1': 'Incluso con un conteo proactivo, aún podrías recibir un 429. Quizás el reloj de Google difiere del tuyo, o hay un error en tu código. Cuando eso ocurra, no reintentes de inmediato — eso empeora las cosas.',
+            'step5_p2': '¿Por qué 30 minutos? La limitación de Google tras un 429 es inconsistente — a veces las solicitudes pasan, a veces no. Una espera más larga evita martillear la API mientras ya está molesta contigo.',
+            'h2_step6': 'Paso 6 — Añade un proveedor de respaldo',
+            'step6_p1': 'La capa gratuita es estupenda, pero 250 solicitudes por día no es infinito. Para una app en producción, necesitas un respaldo para cuando se agote la cuota.',
+            'step6_options': 'Opciones:',
+            'step6_li1': '<strong>OpenAI</strong> — sin capa gratuita, pero GPT-4.1 Mini es barato (fracciones de centavo por solicitud)',
+            'step6_li2': '<strong>Anthropic Claude</strong> — tampoco tiene capa gratuita, Claude Haiku tiene un precio similar',
+            'step6_li3': '<strong>Modelos locales</strong> — gratis e ilimitados, pero necesitan hardware decente',
+            'step6_p2': 'El patrón es simple:',
+            'step6_p3': 'Así usas la capa gratuita cuando está disponible y cambias automáticamente cuando no lo está.',
+            'h2_complete': 'Ejemplo completo',
+            'complete_p1': 'Aquí está todo junto en un solo módulo:',
+            'h2_faq': 'Preguntas frecuentes',
+            'faq_q1': '¿Y si necesito más de 250 solicitudes por día?',
+            'faq_a1': 'Tienes tres opciones: crear varias claves de API (arriesgado — Google podría notarlo), pasar a una capa de pago (desde $0.075 por millón de tokens de entrada) o usar un proveedor de respaldo para el exceso.',
+            'faq_q2': '¿Funciona la capa gratuita para transcripción de audio?',
+            'faq_a2': 'Sí. Gemini 2.5 Flash puede transcribir audio directamente — envía el audio como base64 y pídele que lo transcriba. Se aplican los mismos límites de frecuencia.',
+            'faq_q3': '¿Por qué hora del Pacífico para el reinicio diario?',
+            'faq_a3': 'Es cuando Google reinicia el contador. Si estás en otra zona horaria y reinicias a tu medianoche local, tu conteo no coincidirá con el de Google.',
+            'faq_q4': '¿Puedo usar esto para una app en producción?',
+            'faq_a4': 'Con un respaldo, sí. Sin él, alcanzarás el límite diario durante un uso intenso. La capa gratuita es mejor para proyectos personales o como ahorro de costes junto a un proveedor de pago.'
+        },
+        fr: {
+            'back_link': '← blog',
+            'category': '[Guide]',
+            'title': 'Comment utiliser le palier gratuit de Gemini sans se faire bloquer',
+            'meta': '6 juin 2026 · 7 min de lecture · Par Daniil Lefanov',
+            'intro_p1': 'L\'API Gemini de Google a un palier gratuit suffisant pour du vrai travail — transcription, résumés, chat, même traitement audio. Mais il y a un piège : si vous dépassez trop souvent les limites de débit, Google ne se contente pas de vous ralentir. Il révoque entièrement votre clé d\'API, et vous devez en créer une nouvelle.',
+            'intro_p2': 'Ce guide vous montre comment obtenir une clé d\'API Gemini gratuite, quelles sont réellement les limites et comment écrire du code qui les respecte. Nous utiliserons un modèle que nous avons développé pour <a href="https://mono-ai.uk/">mono</a> et qui tourne depuis des mois sans une seule révocation de clé.',
+            'tldr_label': 'La version courte',
+            'tldr_1': '1. Palier gratuit : <strong>10 requêtes/minute</strong> et <strong>250 requêtes/jour</strong>',
+            'tldr_2': '2. N\'attendez pas les erreurs 429 — comptez les requêtes vous-même',
+            'tldr_3': '3. Enregistrez votre compteur quotidien dans un fichier pour qu\'il survive aux redémarrages',
+            'tldr_4': '4. Ajoutez un délai de 30 minutes si vous obtenez un 429',
+            'tldr_5': '5. Ayez un fournisseur de secours prêt pour quand vous atteignez la limite',
+            'h2_step1': 'Étape 1 — Obtenez une clé d\'API gratuite',
+            'step1_p1': 'Allez sur <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> et connectez-vous avec votre compte Google. Cliquez sur <strong>Créer une clé d\'API</strong>, choisissez un projet (ou créez-en un) et copiez la clé.',
+            'step1_caption': 'Création d\'une clé d\'API dans Google AI Studio. Donnez-lui un nom reconnaissable, puis cliquez sur Créer.',
+            'step1_p2': 'C\'est tout — pas de carte bancaire, pas de configuration de facturation. La clé fonctionne immédiatement avec les limites du palier gratuit.',
+            'step1_tip': '<strong>Gardez votre clé en sécurité.</strong> Quiconque possède votre clé peut utiliser votre quota (et la faire révoquer). Stockez-la dans une variable d\'environnement ou un gestionnaire de secrets, pas dans votre code.',
+            'h2_step2': 'Étape 2 — Comprenez les limites',
+            'step2_p1': 'Le palier gratuit a deux limites qui comptent :',
+            'th_limit': 'Limite',
+            'th_value': 'Valeur',
+            'th_resets': 'Réinitialisation',
+            'rpm_label': '<strong>RPM</strong> (requêtes par minute)',
+            'rpm_reset': 'Fenêtre glissante de 60 secondes',
+            'rpd_label': '<strong>RPD</strong> (requêtes par jour)',
+            'rpd_reset': 'Minuit heure du Pacifique',
+            'step2_p2': 'Il y a aussi une limite de tokens (environ 1 million de tokens par minute), mais en pratique vous atteindrez RPM ou RPD d\'abord, sauf si vous envoyez d\'énormes documents.',
+            'step2_warning': '<strong>Le vrai risque n\'est pas le 429.</strong> Quand vous dépassez la limite, Google renvoie une erreur 429 « Too Many Requests ». Ce n\'est pas grave — vous pouvez réessayer plus tard. Le problème, c\'est que si votre code continue d\'enchaîner les 429, la détection d\'abus de Google s\'active et révoque votre clé. Vous devez alors en créer une nouvelle, et votre ancien code cesse de fonctionner.',
+            'h2_step3': 'Étape 3 — Suivez votre utilisation de façon proactive',
+            'step3_p1': 'L\'idée clé est : <strong>n\'attendez pas les erreurs 429</strong>. Comptez plutôt vos requêtes vous-même et arrêtez-vous avant d\'atteindre la limite. Ainsi Google ne vous voit jamais comme abusif.',
+            'step3_p2': 'Voici le modèle en Python :',
+            'step3_p3': 'Avant chaque appel API, vérifiez <code>is_available()</code>. S\'il renvoie False, ne faites pas la requête — attendez, ou basculez vers un autre fournisseur.',
+            'step3_h3': 'Pourquoi utiliser 9 et 240 au lieu de 10 et 250 ?',
+            'step3_p4': 'Une marge de sécurité. Le timing réseau n\'est pas parfait, et le comptage de Google peut différer légèrement du vôtre. Rester un peu sous la limite signifie ne jamais la dépasser par accident.',
+            'h2_step4': 'Étape 4 — Conservez le compteur entre les redémarrages',
+            'step4_p1': 'Si votre application redémarre, votre compteur en mémoire revient à zéro — mais pas celui de Google. Si vous avez utilisé 200 requêtes aujourd\'hui et que votre application redémarre, elle croit qu\'il en reste 240 alors qu\'il en reste 50. C\'est la voie rapide vers un 429.',
+            'step4_p2': 'La solution : enregistrez votre compteur quotidien dans un fichier.',
+            'step4_p3': 'Appelez <code>load_state()</code> au démarrage de votre application, et <code>save_state()</code> après chaque requête. Désormais, les redémarrages ne perdent plus votre compteur.',
+            'h2_step5': 'Étape 5 — Gérez les 429 avec élégance',
+            'step5_p1': 'Même avec un comptage proactif, vous pourriez encore obtenir un 429. Peut-être que l\'horloge de Google diffère de la vôtre, ou qu\'il y a un bug dans votre code. Quand cela arrive, ne réessayez pas immédiatement — cela aggrave les choses.',
+            'step5_p2': 'Pourquoi 30 minutes ? La limitation de Google après un 429 est incohérente — parfois les requêtes passent, parfois non. Un délai plus long évite de marteler l\'API alors qu\'elle est déjà mécontente.',
+            'h2_step6': 'Étape 6 — Ajoutez un fournisseur de secours',
+            'step6_p1': 'Le palier gratuit est génial, mais 250 requêtes par jour n\'est pas infini. Pour une application en production, il vous faut un secours pour quand le quota est épuisé.',
+            'step6_options': 'Options :',
+            'step6_li1': '<strong>OpenAI</strong> — pas de palier gratuit, mais GPT-4.1 Mini est bon marché (des fractions de centime par requête)',
+            'step6_li2': '<strong>Anthropic Claude</strong> — pas de palier gratuit non plus, Claude Haiku est à un prix similaire',
+            'step6_li3': '<strong>Modèles locaux</strong> — gratuits et illimités, mais nécessitent un matériel correct',
+            'step6_p2': 'Le modèle est simple :',
+            'step6_p3': 'Ainsi vous utilisez le palier gratuit quand il est disponible et basculez automatiquement quand il ne l\'est pas.',
+            'h2_complete': 'Exemple complet',
+            'complete_p1': 'Voici le tout réuni dans un seul module :',
+            'h2_faq': 'FAQ',
+            'faq_q1': 'Et si j\'ai besoin de plus de 250 requêtes par jour ?',
+            'faq_a1': 'Vous avez trois options : créer plusieurs clés d\'API (risqué — Google pourrait le remarquer), passer à un palier payant (à partir de 0,075 $ par million de tokens d\'entrée), ou utiliser un fournisseur de secours pour le surplus.',
+            'faq_q2': 'Le palier gratuit fonctionne-t-il pour la transcription audio ?',
+            'faq_a2': 'Oui. Gemini 2.5 Flash peut transcrire l\'audio directement — envoyez l\'audio en base64 et demandez-lui de le transcrire. Les mêmes limites de débit s\'appliquent.',
+            'faq_q3': 'Pourquoi l\'heure du Pacifique pour la réinitialisation quotidienne ?',
+            'faq_a3': 'C\'est quand Google réinitialise le compteur. Si vous êtes dans un autre fuseau horaire et réinitialisez à votre minuit local, votre compteur ne correspondra pas à celui de Google.',
+            'faq_q4': 'Puis-je utiliser ceci pour une application en production ?',
+            'faq_a4': 'Avec un secours, oui. Sans, vous atteindrez la limite quotidienne en cas d\'usage intensif. Le palier gratuit est idéal pour des projets personnels ou comme économie aux côtés d\'un fournisseur payant.'
+        },
+        de: {
+            'back_link': '← blog',
+            'category': '[Anleitung]',
+            'title': 'So nutzen Sie den kostenlosen Gemini-Tarif, ohne blockiert zu werden',
+            'meta': '6. Juni 2026 · 7 Min. Lesezeit · Von Daniil Lefanov',
+            'intro_p1': 'Die Gemini-API von Google hat einen kostenlosen Tarif, der für echte Arbeit ausreicht — Transkription, Zusammenfassungen, Chat, sogar Audioverarbeitung. Aber es gibt einen Haken: Wenn Sie die Ratenlimits zu oft überschreiten, drosselt Google Sie nicht nur. Es widerruft Ihren API-Schlüssel komplett, und Sie müssen einen neuen erstellen.',
+            'intro_p2': 'Diese Anleitung zeigt Ihnen, wie Sie einen kostenlosen Gemini-API-Schlüssel erhalten, wie die Limits wirklich aussehen und wie Sie Code schreiben, der sie einhält. Wir verwenden ein Muster, das wir für <a href="https://mono-ai.uk/">mono</a> entwickelt haben und das seit Monaten ohne einen einzigen Schlüsselwiderruf läuft.',
+            'tldr_label': 'Die Kurzfassung',
+            'tldr_1': '1. Kostenloser Tarif: <strong>10 Anfragen/Minute</strong> und <strong>250 Anfragen/Tag</strong>',
+            'tldr_2': '2. Warten Sie nicht auf 429-Fehler — zählen Sie die Anfragen selbst',
+            'tldr_3': '3. Speichern Sie Ihren Tageszähler in einer Datei, damit er Neustarts übersteht',
+            'tldr_4': '4. Fügen Sie eine 30-minütige Wartezeit hinzu, falls Sie doch ein 429 bekommen',
+            'tldr_5': '5. Halten Sie einen Ersatzanbieter bereit, wenn Sie das Limit erreichen',
+            'h2_step1': 'Schritt 1 — Holen Sie sich einen kostenlosen API-Schlüssel',
+            'step1_p1': 'Gehen Sie zu <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> und melden Sie sich mit Ihrem Google-Konto an. Klicken Sie auf <strong>API-Schlüssel erstellen</strong>, wählen Sie ein Projekt (oder erstellen Sie eines) und kopieren Sie den Schlüssel.',
+            'step1_caption': 'Erstellen eines API-Schlüssels in Google AI Studio. Geben Sie ihm einen Namen, den Sie wiedererkennen, und klicken Sie auf Erstellen.',
+            'step1_p2': 'Das war\'s — keine Kreditkarte, keine Abrechnungseinrichtung. Der Schlüssel funktioniert sofort mit den Limits des kostenlosen Tarifs.',
+            'step1_tip': '<strong>Bewahren Sie Ihren Schlüssel sicher auf.</strong> Jeder mit Ihrem Schlüssel kann Ihr Kontingent nutzen (und ihn widerrufen lassen). Speichern Sie ihn in einer Umgebungsvariablen oder einem Secrets-Manager, nicht in Ihrem Code.',
+            'h2_step2': 'Schritt 2 — Verstehen Sie die Limits',
+            'step2_p1': 'Der kostenlose Tarif hat zwei Limits, die zählen:',
+            'th_limit': 'Limit',
+            'th_value': 'Wert',
+            'th_resets': 'Zurücksetzung',
+            'rpm_label': '<strong>RPM</strong> (Anfragen pro Minute)',
+            'rpm_reset': 'Gleitendes 60-Sekunden-Fenster',
+            'rpd_label': '<strong>RPD</strong> (Anfragen pro Tag)',
+            'rpd_reset': 'Mitternacht pazifischer Zeit',
+            'step2_p2': 'Es gibt auch ein Token-Limit (etwa 1 Million Tokens pro Minute), aber in der Praxis erreichen Sie zuerst RPM oder RPD, es sei denn, Sie senden riesige Dokumente.',
+            'step2_warning': '<strong>Das eigentliche Risiko ist nicht der 429.</strong> Wenn Sie das Limit überschreiten, gibt Google einen 429-Fehler "Too Many Requests" zurück. Das ist in Ordnung — Sie können es später erneut versuchen. Das Problem ist: Wenn Ihr Code ständig 429er erzeugt, schlägt Googles Missbrauchserkennung an und widerruft Ihren Schlüssel. Dann müssen Sie einen neuen erstellen, und Ihr alter Code funktioniert nicht mehr.',
+            'h2_step3': 'Schritt 3 — Verfolgen Sie Ihre Nutzung proaktiv',
+            'step3_p1': 'Die zentrale Erkenntnis lautet: <strong>Warten Sie nicht auf 429-Fehler</strong>. Zählen Sie stattdessen Ihre Anfragen selbst und stoppen Sie, bevor Sie das Limit erreichen. So sieht Google Sie nie als missbräuchlich.',
+            'step3_p2': 'Hier ist das Muster in Python:',
+            'step3_p3': 'Prüfen Sie vor jedem API-Aufruf <code>is_available()</code>. Wenn es False zurückgibt, stellen Sie die Anfrage nicht — warten Sie oder weichen Sie auf einen anderen Anbieter aus.',
+            'step3_h3': 'Warum 9 und 240 statt 10 und 250 verwenden?',
+            'step3_p4': 'Pufferraum. Das Netzwerk-Timing ist nicht perfekt, und Googles Zählung kann leicht von Ihrer abweichen. Etwas unter dem Limit zu bleiben bedeutet, dass Sie es nie versehentlich überschreiten.',
+            'h2_step4': 'Schritt 4 — Bewahren Sie den Zähler über Neustarts hinweg',
+            'step4_p1': 'Wenn Ihre App neu startet, wird Ihr In-Memory-Zähler auf null zurückgesetzt — Googles Zähler aber nicht. Wenn Sie heute 200 Anfragen verbraucht haben und Ihre App neu startet, denkt sie, es seien noch 240 übrig, obwohl es eigentlich 50 sind. Das ist der schnelle Weg zu einem 429.',
+            'step4_p2': 'Die Lösung: Speichern Sie Ihren Tageszähler in einer Datei.',
+            'step4_p3': 'Rufen Sie <code>load_state()</code> beim Start Ihrer App auf und <code>save_state()</code> nach jeder Anfrage. Jetzt verlieren Neustarts Ihren Zähler nicht mehr.',
+            'h2_step5': 'Schritt 5 — Behandeln Sie 429er elegant',
+            'step5_p1': 'Selbst mit proaktivem Zählen könnten Sie noch ein 429 bekommen. Vielleicht weicht Googles Uhr von Ihrer ab, oder es gibt einen Fehler in Ihrem Code. Wenn das passiert, versuchen Sie es nicht sofort erneut — das macht es schlimmer.',
+            'step5_p2': 'Warum 30 Minuten? Googles Drosselung nach einem 429 ist inkonsistent — mal gehen Anfragen durch, mal nicht. Eine längere Wartezeit vermeidet es, die API zu bombardieren, während sie ohnehin schon verärgert ist.',
+            'h2_step6': 'Schritt 6 — Fügen Sie einen Ersatzanbieter hinzu',
+            'step6_p1': 'Der kostenlose Tarif ist großartig, aber 250 Anfragen pro Tag sind nicht unendlich. Für eine Produktiv-App brauchen Sie einen Ersatz, wenn das Kontingent aufgebraucht ist.',
+            'step6_options': 'Optionen:',
+            'step6_li1': '<strong>OpenAI</strong> — kein kostenloser Tarif, aber GPT-4.1 Mini ist günstig (Bruchteile eines Cents pro Anfrage)',
+            'step6_li2': '<strong>Anthropic Claude</strong> — ebenfalls kein kostenloser Tarif, Claude Haiku ist ähnlich bepreist',
+            'step6_li3': '<strong>Lokale Modelle</strong> — kostenlos und unbegrenzt, brauchen aber anständige Hardware',
+            'step6_p2': 'Das Muster ist einfach:',
+            'step6_p3': 'So nutzen Sie den kostenlosen Tarif, wenn er verfügbar ist, und wechseln automatisch, wenn nicht.',
+            'h2_complete': 'Vollständiges Beispiel',
+            'complete_p1': 'Hier ist alles zusammen in einem einzigen Modul:',
+            'h2_faq': 'FAQ',
+            'faq_q1': 'Was, wenn ich mehr als 250 Anfragen pro Tag brauche?',
+            'faq_a1': 'Sie haben drei Optionen: mehrere API-Schlüssel erstellen (riskant — Google könnte es bemerken), auf einen kostenpflichtigen Tarif upgraden (ab 0,075 $ pro Million Eingabe-Tokens) oder einen Ersatzanbieter für den Überlauf nutzen.',
+            'faq_q2': 'Funktioniert der kostenlose Tarif für Audiotranskription?',
+            'faq_a2': 'Ja. Gemini 2.5 Flash kann Audio direkt transkribieren — senden Sie das Audio als base64 und bitten Sie es, zu transkribieren. Es gelten dieselben Ratenlimits.',
+            'faq_q3': 'Warum pazifische Zeit für die tägliche Zurücksetzung?',
+            'faq_a3': 'Dann setzt Google den Zähler zurück. Wenn Sie in einer anderen Zeitzone sind und um Ihre lokale Mitternacht zurücksetzen, stimmt Ihr Zähler nicht mit Googles überein.',
+            'faq_q4': 'Kann ich das für eine Produktiv-App verwenden?',
+            'faq_a4': 'Mit einem Ersatz, ja. Ohne erreichen Sie bei starker Nutzung das Tageslimit. Der kostenlose Tarif eignet sich am besten für persönliche Projekte oder als Kostensparer neben einem kostenpflichtigen Anbieter.'
+        },
+        zh: {
+            'back_link': '← 博客',
+            'category': '[教程]',
+            'title': '如何使用Gemini免费层而不被封禁',
+            'meta': '2026年6月6日 · 约7分钟 · 作者 Daniil Lefanov',
+            'intro_p1': 'Google的Gemini API有一个足以应对实际工作的免费层——转录、摘要、聊天，甚至音频处理。但有个陷阱：如果你过于频繁地触及速率限制，Google不只是限速，而是直接吊销你的API密钥，你得重新创建一个。',
+            'intro_p2': '本指南将向你展示如何获取免费的Gemini API密钥、限制究竟是什么，以及如何编写不超出限制的代码。我们将使用为<a href="https://mono-ai.uk/">mono</a>开发的一套模式，它已运行数月，没有一次密钥被吊销。',
+            'tldr_label': '简短版',
+            'tldr_1': '1. 免费层：<strong>每分钟10次请求</strong>，<strong>每天250次请求</strong>',
+            'tldr_2': '2. 不要等到429错误——自己计数请求',
+            'tldr_3': '3. 把每日计数保存到文件，让它在重启后依然有效',
+            'tldr_4': '4. 如果真的收到429，加一个30分钟的退避',
+            'tldr_5': '5. 准备好一个后备提供商，以应对触及限制时',
+            'h2_step1': '第1步——获取免费API密钥',
+            'step1_p1': '前往<a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a>，用你的Google账号登录。点击<strong>创建API密钥</strong>，选择一个项目（或新建一个），然后复制密钥。',
+            'step1_caption': '在Google AI Studio中创建API密钥。给它起一个你能认出的名字，然后点击创建。',
+            'step1_p2': '就这样——无需信用卡，无需设置账单。该密钥立即可用，受免费层限制约束。',
+            'step1_tip': '<strong>妥善保管你的密钥。</strong>任何拿到你密钥的人都能用你的配额（并可能导致它被吊销）。把它存在环境变量或密钥管理器中，而不是代码里。',
+            'h2_step2': '第2步——了解限制',
+            'step2_p1': '免费层有两个重要的限制：',
+            'th_limit': '限制',
+            'th_value': '数值',
+            'th_resets': '重置',
+            'rpm_label': '<strong>RPM</strong>（每分钟请求数）',
+            'rpm_reset': '滚动的60秒窗口',
+            'rpd_label': '<strong>RPD</strong>（每天请求数）',
+            'rpd_reset': '太平洋时间午夜',
+            'step2_p2': '还有一个token限制（约每分钟100万token），但实际上，除非你发送超大文档，否则你会先触及RPM或RPD。',
+            'step2_warning': '<strong>真正的风险不是429。</strong>当你超出限制时，Google返回429"Too Many Requests"错误。这没关系——你可以稍后重试。问题在于，如果你的代码不断触发429，Google的滥用检测就会启动并吊销你的密钥。然后你得创建一个新的，而你的旧代码就失效了。',
+            'h2_step3': '第3步——主动跟踪你的用量',
+            'step3_p1': '关键的洞见是：<strong>不要等待429错误</strong>。相反，自己计数请求，在触及限制之前停止。这样Google永远不会把你视为滥用。',
+            'step3_p2': '下面是Python中的模式：',
+            'step3_p3': '在每次API调用之前，检查<code>is_available()</code>。如果它返回False，就不要发出请求——要么等待，要么切换到另一个提供商。',
+            'step3_h3': '为什么用9和240，而不是10和250？',
+            'step3_p4': '缓冲空间。网络时序并不完美，Google的计数可能与你的略有差异。略低于限制意味着你永远不会意外越界。',
+            'h2_step4': '第4步——让计数器在重启后保持',
+            'step4_p1': '如果你的应用重启，你的内存计数器会归零——但Google的计数器不会。如果你今天用了200次请求而应用重启，它会以为还剩240次，而实际上只剩50次。这就是通往429的捷径。',
+            'step4_p2': '解决办法：把每日计数保存到文件。',
+            'step4_p3': '在应用启动时调用<code>load_state()</code>，每次请求后调用<code>save_state()</code>。现在重启不会丢失你的计数。',
+            'h2_step5': '第5步——优雅地处理429',
+            'step5_p1': '即使有主动计数，你仍可能收到429。也许Google的时钟与你的不同，或者你的代码有bug。发生时，不要立即重试——那只会让情况更糟。',
+            'step5_p2': '为什么是30分钟？Google在429之后的限速并不一致——有时请求能通过，有时不能。更长的退避可以避免在API已经对你不满时还去猛敲它。',
+            'h2_step6': '第6步——添加后备提供商',
+            'step6_p1': '免费层很棒，但每天250次请求并非无限。对于生产应用，你需要在配额用尽时有个后备。',
+            'step6_options': '选项：',
+            'step6_li1': '<strong>OpenAI</strong>——没有免费层，但GPT-4.1 Mini很便宜（每次请求只要几分之一美分）',
+            'step6_li2': '<strong>Anthropic Claude</strong>——同样没有免费层，Claude Haiku价格相近',
+            'step6_li3': '<strong>本地模型</strong>——免费且无限，但需要不错的硬件',
+            'step6_p2': '模式很简单：',
+            'step6_p3': '这样，免费层可用时你就用它，不可用时自动切换。',
+            'h2_complete': '完整示例',
+            'complete_p1': '下面把所有内容放在一个模块里：',
+            'h2_faq': '常见问题',
+            'faq_q1': '如果我每天需要超过250次请求怎么办？',
+            'faq_a1': '你有三个选择：创建多个API密钥（有风险——Google可能会注意到）、升级到付费层（从每百万输入token $0.075起），或为溢出部分使用后备提供商。',
+            'faq_q2': '免费层支持音频转录吗？',
+            'faq_a2': '支持。Gemini 2.5 Flash可以直接转录音频——把音频作为base64发送并要求它转录。适用相同的速率限制。',
+            'faq_q3': '为什么每日重置用太平洋时间？',
+            'faq_a3': '那是Google重置计数器的时间。如果你在其他时区并在你的本地午夜重置，你的计数将与Google的不一致。',
+            'faq_q4': '我可以把这个用于生产应用吗？',
+            'faq_a4': '有后备的话，可以。没有的话，在高强度使用时你会触及每日限制。免费层最适合个人项目，或作为付费提供商之外的省钱手段。'
+        },
+        ru: {
+            'back_link': '← блог',
+            'category': '[Гайд]',
+            'title': 'Как использовать бесплатный тариф Gemini и не получить блокировку',
+            'meta': '6 июня 2026 · 7 мин чтения · Автор Daniil Lefanov',
+            'intro_p1': 'У Gemini API от Google есть бесплатный тариф, которого хватает для реальной работы — транскрипция, сводки, чат, даже обработка аудио. Но есть подвох: если слишком часто упираться в лимиты запросов, Google не просто притормозит вас. Он полностью отзовёт ваш API-ключ, и придётся создавать новый.',
+            'intro_p2': 'Это руководство показывает, как получить бесплатный API-ключ Gemini, каковы лимиты на самом деле и как писать код, который их не превышает. Мы используем приём, разработанный для <a href="https://mono-ai.uk/">mono</a>, который работает уже месяцами без единого отзыва ключа.',
+            'tldr_label': 'Коротко',
+            'tldr_1': '1. Бесплатный тариф: <strong>10 запросов/минуту</strong> и <strong>250 запросов/день</strong>',
+            'tldr_2': '2. Не ждите ошибок 429 — считайте запросы сами',
+            'tldr_3': '3. Сохраняйте дневной счётчик в файл, чтобы он переживал перезапуски',
+            'tldr_4': '4. Добавьте 30-минутную паузу, если всё же получили 429',
+            'tldr_5': '5. Держите наготове резервного провайдера на случай достижения лимита',
+            'h2_step1': 'Шаг 1 — Получите бесплатный API-ключ',
+            'step1_p1': 'Перейдите на <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a> и войдите со своим аккаунтом Google. Нажмите <strong>Create API key</strong>, выберите проект (или создайте новый) и скопируйте ключ.',
+            'step1_caption': 'Создание API-ключа в Google AI Studio. Дайте ему узнаваемое имя и нажмите Create.',
+            'step1_p2': 'Вот и всё — без кредитной карты, без настройки оплаты. Ключ сразу работает с лимитами бесплатного тарифа.',
+            'step1_tip': '<strong>Берегите свой ключ.</strong> Любой, у кого есть ваш ключ, может расходовать вашу квоту (и довести до отзыва). Храните его в переменной окружения или менеджере секретов, а не в коде.',
+            'h2_step2': 'Шаг 2 — Разберитесь с лимитами',
+            'step2_p1': 'У бесплатного тарифа есть два важных лимита:',
+            'th_limit': 'Лимит',
+            'th_value': 'Значение',
+            'th_resets': 'Сброс',
+            'rpm_label': '<strong>RPM</strong> (запросов в минуту)',
+            'rpm_reset': 'Скользящее окно 60 секунд',
+            'rpd_label': '<strong>RPD</strong> (запросов в день)',
+            'rpd_reset': 'Полночь по тихоокеанскому времени',
+            'step2_p2': 'Есть ещё лимит на токены (около 1 миллиона токенов в минуту), но на практике вы сначала упрётесь в RPM или RPD, если только не отправляете огромные документы.',
+            'step2_warning': '<strong>Настоящий риск — не 429.</strong> Когда вы превышаете лимит, Google возвращает ошибку 429 "Too Many Requests". Это нормально — можно повторить позже. Проблема в том, что если ваш код продолжает ловить 429, срабатывает система обнаружения злоупотреблений Google и отзывает ключ. Тогда придётся создавать новый, а старый код перестаёт работать.',
+            'h2_step3': 'Шаг 3 — Отслеживайте использование заранее',
+            'step3_p1': 'Ключевая мысль: <strong>не ждите ошибок 429</strong>. Вместо этого считайте свои запросы сами и останавливайтесь до достижения лимита. Так Google никогда не сочтёт вас нарушителем.',
+            'step3_p2': 'Вот приём на Python:',
+            'step3_p3': 'Перед каждым вызовом API проверяйте <code>is_available()</code>. Если он возвращает False, не делайте запрос — подождите или переключитесь на другого провайдера.',
+            'step3_h3': 'Почему 9 и 240, а не 10 и 250?',
+            'step3_p4': 'Запас. Сетевые задержки неидеальны, и подсчёт Google может немного отличаться от вашего. Держась чуть ниже лимита, вы никогда не превысите его случайно.',
+            'h2_step4': 'Шаг 4 — Сохраняйте счётчик между перезапусками',
+            'step4_p1': 'Если ваше приложение перезапускается, счётчик в памяти обнуляется — а счётчик Google нет. Если вы использовали сегодня 200 запросов и приложение перезапустилось, оно думает, что осталось 240, тогда как на самом деле 50. Это быстрый путь к 429.',
+            'step4_p2': 'Решение: сохраняйте дневной счётчик в файл.',
+            'step4_p3': 'Вызывайте <code>load_state()</code> при запуске приложения и <code>save_state()</code> после каждого запроса. Теперь перезапуски не теряют ваш счёт.',
+            'h2_step5': 'Шаг 5 — Аккуратно обрабатывайте 429',
+            'step5_p1': 'Даже с упреждающим подсчётом вы всё ещё можете получить 429. Возможно, часы Google отличаются от ваших, или в коде ошибка. Когда это происходит, не повторяйте сразу — это лишь усугубляет ситуацию.',
+            'step5_p2': 'Почему 30 минут? Троттлинг Google после 429 непостоянен — иногда запросы проходят, иногда нет. Более длинная пауза не даёт долбить API, пока он уже вами недоволен.',
+            'h2_step6': 'Шаг 6 — Добавьте резервного провайдера',
+            'step6_p1': 'Бесплатный тариф хорош, но 250 запросов в день — не бесконечность. Для рабочего приложения нужен резерв на случай, когда квота закончится.',
+            'step6_options': 'Варианты:',
+            'step6_li1': '<strong>OpenAI</strong> — нет бесплатного тарифа, но GPT-4.1 Mini дёшев (доли цента за запрос)',
+            'step6_li2': '<strong>Anthropic Claude</strong> — тоже без бесплатного тарифа, Claude Haiku по схожей цене',
+            'step6_li3': '<strong>Локальные модели</strong> — бесплатно и без ограничений, но нужно приличное железо',
+            'step6_p2': 'Приём прост:',
+            'step6_p3': 'Так вы используете бесплатный тариф, когда он доступен, и автоматически переключаетесь, когда нет.',
+            'h2_complete': 'Полный пример',
+            'complete_p1': 'Вот всё вместе в одном модуле:',
+            'h2_faq': 'Частые вопросы',
+            'faq_q1': 'А если мне нужно больше 250 запросов в день?',
+            'faq_a1': 'Есть три варианта: создать несколько API-ключей (рискованно — Google может заметить), перейти на платный тариф (от $0,075 за миллион входных токенов) или использовать резервного провайдера для излишка.',
+            'faq_q2': 'Работает ли бесплатный тариф для транскрипции аудио?',
+            'faq_a2': 'Да. Gemini 2.5 Flash может транскрибировать аудио напрямую — отправьте аудио в base64 и попросите его расшифровать. Действуют те же лимиты запросов.',
+            'faq_q3': 'Почему тихоокеанское время для ежедневного сброса?',
+            'faq_a3': 'Именно тогда Google сбрасывает счётчик. Если вы в другом часовом поясе и сбрасываете в свою местную полночь, ваш счёт не совпадёт с Google.',
+            'faq_q4': 'Можно ли использовать это для рабочего приложения?',
+            'faq_a4': 'С резервом — да. Без него вы упрётесь в дневной лимит при активном использовании. Бесплатный тариф лучше всего для личных проектов или как способ сэкономить рядом с платным провайдером.'
+        }
+    };
+
+    const siteNav = document.querySelector('site-nav');
+    let currentLang = 'en';
+    if (siteNav) {
+        siteNav.addEventListener('language-change', (e) => {
+            const lang = e.detail.language;
+            if (lang === currentLang) return;
+            currentLang = lang;
+            const t = translations[lang];
+            if (!t) return;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (t[key] !== undefined) el.innerHTML = t[key];
+            });
+        });
+    }
     </script>
 </body>
 </html>
