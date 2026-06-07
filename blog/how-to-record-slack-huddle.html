@@ -241,23 +241,23 @@
                 <figcaption style="font-size:13px;color:var(--text-secondary);margin-top:8px;text-align:center;" data-i18n="mono_figure_caption">mono's recording widget stays in the corner — invisible to everyone in the huddle while you talk.</figcaption>
             </figure>
 
-            <p data-i18n="method1_p2">When you stop, mono transcribes the call locally — the AI runs on your computer, so the audio never leaves it. The transcript includes speaker labels, and every recording becomes searchable by keyword afterwards.</p>
+            <p data-i18n="method1_p2">mono detects when a call starts and ends, so recording and transcription happen automatically — and because the AI runs on your computer, the audio never leaves it. The transcript includes speaker labels, and every recording becomes searchable by keyword afterwards.</p>
 
             <h3 data-i18n="h3_mono_steps">How to record a Slack huddle with mono</h3>
 
             <ol class="steps-list">
                 <li data-i18n="mono_step1">Download mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it</li>
-                <li data-i18n="mono_step2">Open mono and click Record, before or during your huddle</li>
-                <li data-i18n="mono_step3">Start or join the Slack huddle as normal</li>
+                <li data-i18n="mono_step2">Leave mono running in the background — there's no need to arm it manually</li>
+                <li data-i18n="mono_step3">Start or join the Slack huddle as normal — mono detects the call and starts recording automatically</li>
                 <li data-i18n="mono_step4">Talk, share your screen, do whatever you need</li>
-                <li data-i18n="mono_step5">Click Stop in mono when the huddle ends</li>
-                <li data-i18n="mono_step6">Wait for the local transcription to finish</li>
+                <li data-i18n="mono_step5">When the huddle ends, mono stops recording on its own</li>
+                <li data-i18n="mono_step6">Transcription runs automatically, right on your computer</li>
                 <li data-i18n="mono_step7">Read, search, or export the transcript with speaker labels</li>
             </ol>
 
             <p data-i18n="method1_p3">Because mono captures whatever plays through your speakers or headphones, it works the same whether the huddle is audio-only, video, or a screen share — and regardless of your Slack plan.</p>
 
-            <p data-i18n="mono_pros"><strong>Pros:</strong> No bot, no notification, works with external guests and on the free Slack plan, local AI transcription with speaker labels, searchable recordings, one-time $50 payment with no subscription.</p>
+            <p data-i18n="mono_pros"><strong>Pros:</strong> No bot, no notification, automatic start and stop, works with external guests and on the free Slack plan, local AI transcription with speaker labels, searchable recordings, one-time $50 payment with no subscription.</p>
 
             <p data-i18n="mono_cons"><strong>Cons:</strong> Captures audio, not the video/screen as a video file; paid software (one free recording to try first).</p>
 
@@ -426,17 +426,17 @@ const translations = {
         'obs_figure_caption': 'Add an Audio Output Capture source in OBS, then click Start Recording.',
         'h2_method1': 'Method 1: mono (Recommended)',
         'method1_p1': 'mono records a Slack huddle by capturing the audio coming out of your computer. It doesn\'t join the huddle, so no one sees a bot and there\'s no notification. Because it records system audio, it captures every participant — including external guests, which Slack\'s own AI Notes can\'t do.',
-        'method1_p2': 'When you stop, mono transcribes the call locally — the AI runs on your computer, so the audio never leaves it. The transcript includes speaker labels, and every recording becomes searchable by keyword afterwards.',
+        'method1_p2': 'mono detects when a call starts and ends, so recording and transcription happen automatically — and because the AI runs on your computer, the audio never leaves it. The transcript includes speaker labels, and every recording becomes searchable by keyword afterwards.',
         'h3_mono_steps': 'How to record a Slack huddle with mono',
         'mono_step1': 'Download mono from <a href="https://mono-ai.uk">mono-ai.uk</a> and install it',
-        'mono_step2': 'Open mono and click Record, before or during your huddle',
-        'mono_step3': 'Start or join the Slack huddle as normal',
+        'mono_step2': 'Leave mono running in the background — there\'s no need to arm it manually',
+        'mono_step3': 'Start or join the Slack huddle as normal — mono detects the call and starts recording automatically',
         'mono_step4': 'Talk, share your screen, do whatever you need',
-        'mono_step5': 'Click Stop in mono when the huddle ends',
-        'mono_step6': 'Wait for the local transcription to finish',
+        'mono_step5': 'When the huddle ends, mono stops recording on its own',
+        'mono_step6': 'Transcription runs automatically, right on your computer',
         'mono_step7': 'Read, search, or export the transcript with speaker labels',
         'method1_p3': 'Because mono captures whatever plays through your speakers or headphones, it works the same whether the huddle is audio-only, video, or a screen share — and regardless of your Slack plan.',
-        'mono_pros': '<strong>Pros:</strong> No bot, no notification, works with external guests and on the free Slack plan, local AI transcription with speaker labels, searchable recordings, one-time $50 payment with no subscription.',
+        'mono_pros': '<strong>Pros:</strong> No bot, no notification, automatic start and stop, works with external guests and on the free Slack plan, local AI transcription with speaker labels, searchable recordings, one-time $50 payment with no subscription.',
         'mono_cons': '<strong>Cons:</strong> Captures audio, not the video/screen as a video file; paid software (one free recording to try first).',
         'h2_method2': 'Method 2: OBS Studio (Free)',
         'method2_p1': 'OBS Studio is a free, open-source recorder. It doesn\'t join the huddle, and it can capture both system audio and your screen — useful if you want a video of someone\'s screen share, not just the audio.',
@@ -538,17 +538,17 @@ const translations = {
         'obs_figure_caption': 'Añade una fuente de Captura de salida de audio en OBS y haz clic en Iniciar grabación.',
         'h2_method1': 'Método 1: mono (Recomendado)',
         'method1_p1': 'mono graba un huddle de Slack capturando el audio que sale de tu computadora. No se une al huddle, así que nadie ve un bot y no hay notificación. Como graba el audio del sistema, captura a todos los participantes — incluidos los invitados externos, algo que las propias AI Notes de Slack no pueden hacer.',
-        'method1_p2': 'Cuando paras, mono transcribe la llamada localmente — la IA se ejecuta en tu computadora, así que el audio nunca sale de ella. La transcripción incluye etiquetas de hablante, y cada grabación se vuelve buscable por palabra clave después.',
+        'method1_p2': 'mono detecta cuándo empieza y termina una llamada, así que la grabación y la transcripción ocurren automáticamente — y como la IA se ejecuta en tu computadora, el audio nunca sale de ella. La transcripción incluye etiquetas de hablante, y cada grabación se vuelve buscable por palabra clave después.',
         'h3_mono_steps': 'Cómo grabar un huddle de Slack con mono',
         'mono_step1': 'Descarga mono desde <a href="https://mono-ai.uk">mono-ai.uk</a> e instálalo',
-        'mono_step2': 'Abre mono y haz clic en Grabar, antes o durante tu huddle',
-        'mono_step3': 'Inicia o únete al huddle de Slack con normalidad',
+        'mono_step2': 'Deja mono abierto en segundo plano — no hace falta activarlo manualmente',
+        'mono_step3': 'Inicia o únete al huddle de Slack con normalidad — mono detecta la llamada y empieza a grabar automáticamente',
         'mono_step4': 'Habla, comparte tu pantalla, haz lo que necesites',
-        'mono_step5': 'Haz clic en Detener en mono cuando termine el huddle',
-        'mono_step6': 'Espera a que termine la transcripción local',
+        'mono_step5': 'Cuando el huddle termina, mono detiene la grabación por sí solo',
+        'mono_step6': 'La transcripción se ejecuta automáticamente, en tu propia computadora',
         'mono_step7': 'Lee, busca o exporta la transcripción con etiquetas de hablante',
         'method1_p3': 'Como mono captura todo lo que suena por tus altavoces o auriculares, funciona igual tanto si el huddle es solo audio, vídeo o pantalla compartida — y sin importar tu plan de Slack.',
-        'mono_pros': '<strong>Ventajas:</strong> Sin bot, sin notificación, funciona con invitados externos y en el plan gratuito de Slack, transcripción de IA local con etiquetas de hablante, grabaciones buscables, pago único de $50 sin suscripción.',
+        'mono_pros': '<strong>Ventajas:</strong> Sin bot, sin notificación, inicio y parada automáticos, funciona con invitados externos y en el plan gratuito de Slack, transcripción de IA local con etiquetas de hablante, grabaciones buscables, pago único de $50 sin suscripción.',
         'mono_cons': '<strong>Desventajas:</strong> Captura audio, no el vídeo/pantalla como archivo de vídeo; software de pago (una grabación gratis para probar primero).',
         'h2_method2': 'Método 2: OBS Studio (Gratis)',
         'method2_p1': 'OBS Studio es un grabador gratuito y de código abierto. No se une al huddle, y puede capturar tanto el audio del sistema como tu pantalla — útil si quieres un vídeo de la pantalla compartida de alguien, no solo el audio.',
@@ -650,17 +650,17 @@ const translations = {
         'obs_figure_caption': 'Ajoutez une source « Capture de sortie audio » dans OBS, puis cliquez sur Démarrer l\'enregistrement.',
         'h2_method1': 'Méthode 1 : mono (Recommandé)',
         'method1_p1': 'mono enregistre un huddle Slack en capturant le son qui sort de votre ordinateur. Il ne rejoint pas le huddle, donc personne ne voit de bot et il n\'y a pas de notification. Comme il enregistre le son du système, il capture tous les participants — y compris les invités externes, ce que les AI Notes de Slack ne peuvent pas faire.',
-        'method1_p2': 'Quand vous arrêtez, mono transcrit l\'appel localement — l\'IA s\'exécute sur votre ordinateur, donc l\'audio ne le quitte jamais. La transcription inclut des étiquettes de locuteur, et chaque enregistrement devient consultable par mot-clé ensuite.',
+        'method1_p2': 'mono détecte le début et la fin d\'un appel, donc l\'enregistrement et la transcription se font automatiquement — et comme l\'IA s\'exécute sur votre ordinateur, l\'audio ne le quitte jamais. La transcription inclut des étiquettes de locuteur, et chaque enregistrement devient consultable par mot-clé ensuite.',
         'h3_mono_steps': 'Comment enregistrer un huddle Slack avec mono',
         'mono_step1': 'Téléchargez mono depuis <a href="https://mono-ai.uk">mono-ai.uk</a> et installez-le',
-        'mono_step2': 'Ouvrez mono et cliquez sur Enregistrer, avant ou pendant votre huddle',
-        'mono_step3': 'Démarrez ou rejoignez le huddle Slack normalement',
+        'mono_step2': 'Laissez mono ouvert en arrière-plan — pas besoin de l\'activer manuellement',
+        'mono_step3': 'Démarrez ou rejoignez le huddle Slack normalement — mono détecte l\'appel et commence à enregistrer automatiquement',
         'mono_step4': 'Parlez, partagez votre écran, faites ce dont vous avez besoin',
-        'mono_step5': 'Cliquez sur Arrêter dans mono à la fin du huddle',
-        'mono_step6': 'Attendez la fin de la transcription locale',
+        'mono_step5': 'Quand le huddle se termine, mono arrête l\'enregistrement de lui-même',
+        'mono_step6': 'La transcription s\'exécute automatiquement, directement sur votre ordinateur',
         'mono_step7': 'Lisez, cherchez ou exportez la transcription avec les étiquettes de locuteur',
         'method1_p3': 'Comme mono capture tout ce qui passe par vos haut-parleurs ou votre casque, il fonctionne de la même façon que le huddle soit audio seul, vidéo ou partage d\'écran — et quel que soit votre plan Slack.',
-        'mono_pros': '<strong>Avantages :</strong> Sans bot, sans notification, fonctionne avec les invités externes et sur le plan Slack gratuit, transcription IA locale avec étiquettes de locuteur, enregistrements consultables, paiement unique de 50 $ sans abonnement.',
+        'mono_pros': '<strong>Avantages :</strong> Sans bot, sans notification, démarrage et arrêt automatiques, fonctionne avec les invités externes et sur le plan Slack gratuit, transcription IA locale avec étiquettes de locuteur, enregistrements consultables, paiement unique de 50 $ sans abonnement.',
         'mono_cons': '<strong>Inconvénients :</strong> Capture l\'audio, pas la vidéo/l\'écran comme fichier vidéo ; logiciel payant (un enregistrement gratuit pour essayer d\'abord).',
         'h2_method2': 'Méthode 2 : OBS Studio (Gratuit)',
         'method2_p1': 'OBS Studio est un enregistreur gratuit et open source. Il ne rejoint pas le huddle, et peut capturer à la fois le son du système et votre écran — utile si vous voulez une vidéo du partage d\'écran de quelqu\'un, pas seulement l\'audio.',
@@ -762,17 +762,17 @@ const translations = {
         'obs_figure_caption': 'Fügen Sie in OBS eine Quelle „Audioausgabe aufnehmen" hinzu und klicken Sie auf Aufnahme starten.',
         'h2_method1': 'Methode 1: mono (Empfohlen)',
         'method1_p1': 'mono zeichnet einen Slack-Huddle auf, indem es den aus Ihrem Computer kommenden Ton erfasst. Es tritt dem Huddle nicht bei, also sieht niemand einen Bot und es erscheint keine Benachrichtigung. Da es den Systemton aufnimmt, erfasst es jeden Teilnehmer — auch externe Gäste, was Slacks eigene AI Notes nicht können.',
-        'method1_p2': 'Wenn Sie stoppen, transkribiert mono den Anruf lokal — die KI läuft auf Ihrem Computer, der Ton verlässt ihn also nie. Das Transkript enthält Sprecher-Labels, und jede Aufnahme wird danach per Stichwort durchsuchbar.',
+        'method1_p2': 'mono erkennt, wann ein Anruf beginnt und endet, sodass Aufnahme und Transkription automatisch ablaufen — und da die KI auf Ihrem Computer läuft, verlässt der Ton ihn nie. Das Transkript enthält Sprecher-Labels, und jede Aufnahme wird danach per Stichwort durchsuchbar.',
         'h3_mono_steps': 'So zeichnen Sie einen Slack-Huddle mit mono auf',
         'mono_step1': 'Laden Sie mono von <a href="https://mono-ai.uk">mono-ai.uk</a> herunter und installieren Sie es',
-        'mono_step2': 'Öffnen Sie mono und klicken Sie auf Aufnehmen, vor oder während Ihres Huddles',
-        'mono_step3': 'Starten Sie den Slack-Huddle oder treten Sie ihm normal bei',
+        'mono_step2': 'Lassen Sie mono im Hintergrund laufen — Sie müssen es nicht manuell aktivieren',
+        'mono_step3': 'Starten Sie den Slack-Huddle oder treten Sie ihm normal bei — mono erkennt den Anruf und beginnt automatisch mit der Aufnahme',
         'mono_step4': 'Sprechen Sie, teilen Sie Ihren Bildschirm, tun Sie, was Sie brauchen',
-        'mono_step5': 'Klicken Sie in mono auf Stopp, wenn der Huddle endet',
-        'mono_step6': 'Warten Sie, bis die lokale Transkription fertig ist',
+        'mono_step5': 'Wenn der Huddle endet, stoppt mono die Aufnahme von selbst',
+        'mono_step6': 'Die Transkription läuft automatisch, direkt auf Ihrem Computer',
         'mono_step7': 'Lesen, durchsuchen oder exportieren Sie das Transkript mit Sprecher-Labels',
         'method1_p3': 'Da mono alles erfasst, was über Ihre Lautsprecher oder Kopfhörer läuft, funktioniert es gleich, ob der Huddle nur Audio, Video oder eine Bildschirmfreigabe ist — und unabhängig von Ihrem Slack-Plan.',
-        'mono_pros': '<strong>Vorteile:</strong> Kein Bot, keine Benachrichtigung, funktioniert mit externen Gästen und im kostenlosen Slack-Plan, lokale KI-Transkription mit Sprecher-Labels, durchsuchbare Aufnahmen, einmalige Zahlung von 50 $ ohne Abo.',
+        'mono_pros': '<strong>Vorteile:</strong> Kein Bot, keine Benachrichtigung, automatischer Start und Stopp, funktioniert mit externen Gästen und im kostenlosen Slack-Plan, lokale KI-Transkription mit Sprecher-Labels, durchsuchbare Aufnahmen, einmalige Zahlung von 50 $ ohne Abo.',
         'mono_cons': '<strong>Nachteile:</strong> Erfasst Audio, nicht das Video/den Bildschirm als Videodatei; kostenpflichtige Software (eine kostenlose Aufnahme zum Ausprobieren).',
         'h2_method2': 'Methode 2: OBS Studio (Kostenlos)',
         'method2_p1': 'OBS Studio ist ein kostenloser, quelloffener Recorder. Es tritt dem Huddle nicht bei und kann sowohl den Systemton als auch Ihren Bildschirm erfassen — nützlich, wenn Sie ein Video der Bildschirmfreigabe von jemandem wollen, nicht nur den Ton.',
@@ -874,17 +874,17 @@ const translations = {
         'obs_figure_caption': '在OBS中添加一个“音频输出采集”来源，然后点击开始录制。',
         'h2_method1': '方法一：mono（推荐）',
         'method1_p1': 'mono通过捕获从你电脑输出的声音来录制Slack Huddle。它不加入Huddle，因此没人看到机器人，也没有通知。由于它录制系统音频，它能捕获每位参与者——包括外部访客，而这是Slack自家的AI Notes做不到的。',
-        'method1_p2': '当你停止时，mono在本地转录通话——AI在你的电脑上运行，所以音频永远不会离开它。转录包含发言人标签，之后每段录音都可按关键词搜索。',
+        'method1_p2': 'mono会检测通话的开始和结束，因此录制和转录都会自动进行——而且由于AI在你的电脑上运行，音频永远不会离开它。转录包含发言人标签，之后每段录音都可按关键词搜索。',
         'h3_mono_steps': '如何用mono录制Slack Huddle',
         'mono_step1': '从<a href="https://mono-ai.uk">mono-ai.uk</a>下载mono并安装',
-        'mono_step2': '打开mono，在Huddle之前或期间点击录制',
-        'mono_step3': '像往常一样开始或加入Slack Huddle',
+        'mono_step2': '让mono在后台保持运行——无需手动开启',
+        'mono_step3': '像往常一样开始或加入Slack Huddle——mono会检测通话并自动开始录制',
         'mono_step4': '交谈、共享屏幕，做你需要做的事',
-        'mono_step5': 'Huddle结束时在mono中点击停止',
-        'mono_step6': '等待本地转录完成',
+        'mono_step5': 'Huddle结束时，mono会自行停止录制',
+        'mono_step6': '转录会自动进行，就在你自己的电脑上',
         'mono_step7': '阅读、搜索或导出带发言人标签的转录',
         'method1_p3': '由于mono捕获通过你扬声器或耳机播放的一切，无论Huddle是纯音频、视频还是屏幕共享，它都同样有效——而且不受你Slack套餐的影响。',
-        'mono_pros': '<strong>优点：</strong>无机器人、无通知，支持外部访客和免费Slack套餐，带发言人标签的本地AI转录，可搜索的录音，一次性$50无订阅。',
+        'mono_pros': '<strong>优点：</strong>无机器人、无通知、自动开始和停止，支持外部访客和免费Slack套餐，带发言人标签的本地AI转录，可搜索的录音，一次性$50无订阅。',
         'mono_cons': '<strong>缺点：</strong>捕获音频，而非将视频/屏幕作为视频文件；付费软件（可先用一段免费录音试用）。',
         'h2_method2': '方法二：OBS Studio（免费）',
         'method2_p1': 'OBS Studio是一款免费开源录制工具。它不加入Huddle，可同时捕获系统音频和你的屏幕——如果你想要某人屏幕共享的视频而不仅是音频，会很有用。',
@@ -986,17 +986,17 @@ const translations = {
         'obs_figure_caption': 'Добавьте источник «Захват аудиовыхода» в OBS, затем нажмите «Начать запись».',
         'h2_method1': 'Метод 1: mono (Рекомендуется)',
         'method1_p1': 'mono записывает Slack huddle, захватывая звук, выходящий из вашего компьютера. Он не присоединяется к huddle, поэтому никто не видит бота и нет уведомления. Поскольку он записывает системный звук, он захватывает каждого участника — включая внешних гостей, чего не могут собственные AI Notes от Slack.',
-        'method1_p2': 'Когда вы останавливаете, mono расшифровывает звонок локально — ИИ работает на вашем компьютере, поэтому звук никогда его не покидает. Расшифровка включает метки говорящих, и каждая запись потом становится доступной для поиска по ключевым словам.',
+        'method1_p2': 'mono определяет, когда звонок начинается и заканчивается, поэтому запись и расшифровка происходят автоматически — и поскольку ИИ работает на вашем компьютере, звук никогда его не покидает. Расшифровка включает метки говорящих, и каждая запись потом становится доступной для поиска по ключевым словам.',
         'h3_mono_steps': 'Как записать Slack huddle с помощью mono',
         'mono_step1': 'Скачайте mono с <a href="https://mono-ai.uk">mono-ai.uk</a> и установите его',
-        'mono_step2': 'Откройте mono и нажмите Запись, до или во время huddle',
-        'mono_step3': 'Начните или присоединитесь к Slack huddle как обычно',
+        'mono_step2': 'Оставьте mono работать в фоне — вручную включать не нужно',
+        'mono_step3': 'Начните или присоединитесь к Slack huddle как обычно — mono определит звонок и начнёт запись автоматически',
         'mono_step4': 'Говорите, демонстрируйте экран, делайте что нужно',
-        'mono_step5': 'Нажмите Стоп в mono, когда huddle закончится',
-        'mono_step6': 'Дождитесь завершения локальной расшифровки',
+        'mono_step5': 'Когда huddle заканчивается, mono останавливает запись сам',
+        'mono_step6': 'Расшифровка запускается автоматически, прямо на вашем компьютере',
         'mono_step7': 'Читайте, ищите или экспортируйте расшифровку с метками говорящих',
         'method1_p3': 'Поскольку mono захватывает всё, что воспроизводится через ваши динамики или наушники, он работает одинаково — будь huddle только аудио, видео или демонстрация экрана — и независимо от вашего тарифа Slack.',
-        'mono_pros': '<strong>Плюсы:</strong> Без бота, без уведомления, работает с внешними гостями и на бесплатном тарифе Slack, локальная ИИ-расшифровка с метками говорящих, записи с поиском, единоразовый платёж $50 без подписки.',
+        'mono_pros': '<strong>Плюсы:</strong> Без бота, без уведомления, автоматический старт и остановка, работает с внешними гостями и на бесплатном тарифе Slack, локальная ИИ-расшифровка с метками говорящих, записи с поиском, единоразовый платёж $50 без подписки.',
         'mono_cons': '<strong>Минусы:</strong> Захватывает аудио, а не видео/экран как видеофайл; платное ПО (одна бесплатная запись, чтобы попробовать).',
         'h2_method2': 'Метод 2: OBS Studio (Бесплатно)',
         'method2_p1': 'OBS Studio — бесплатный рекордер с открытым исходным кодом. Он не присоединяется к huddle и может захватывать как системный звук, так и ваш экран — полезно, если вам нужно видео чьей-то демонстрации экрана, а не только звук.',
