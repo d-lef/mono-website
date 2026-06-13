@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61BNYMZ7FD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-61BNYMZ7FD');
+    </script>
+    <!-- Mono Analytics -->
+    <script>
+    (function(){if(location.search.includes("optout")){localStorage.setItem("_ma_optout","1");return}if(localStorage.getItem("_ma_optout"))return;var u="https://t.mono-ai.uk/api/event";var p=new URLSearchParams(location.search);var uvid=p.get("_ma_vid");if(uvid&&/^[a-z0-9]{8,16}$/i.test(uvid))localStorage.setItem("_ma_vid",uvid);var v=localStorage.getItem("_ma_vid");if(!v){v=crypto.randomUUID().slice(0,12);localStorage.setItem("_ma_vid",v)}var s=sessionStorage.getItem("_ma_sid");if(!s){s=crypto.randomUUID().slice(0,12);sessionStorage.setItem("_ma_sid",s)}var t={};["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var val=p.get(k);if(val){t[k]=val;sessionStorage.setItem("_ma_"+k,val)}else{t[k]=sessionStorage.getItem("_ma_"+k)||""}});var r=document.referrer||"";function ma(e,o){var d=Object.assign({session_id:s,visitor_id:v,event_name:e,page_path:location.pathname,label:null,platform:null,value:null,utm_source:t.utm_source,utm_medium:t.utm_medium,utm_campaign:t.utm_campaign,utm_content:t.utm_content,utm_term:t.utm_term,referrer:r,screen_width:screen.width},o||{});if(navigator.sendBeacon)navigator.sendBeacon(u,JSON.stringify(d));else fetch(u,{method:"POST",body:JSON.stringify(d),keepalive:true})}ma("pageview");window.ma=ma})();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is It Legal to Record a Meeting? The 2026 Consent-Law Guide</title>
+    <meta name="description" content="Is it legal to record a meeting? Usually yes — if you have consent. A 2026 guide to one-party vs all-party consent, the US states and countries that require everyone's permission, and how AI notetakers change the legal picture.">
+    <link rel="canonical" href="https://mono-ai.uk/blog/is-it-legal-to-record-a-meeting">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Is It Legal to Record a Meeting? The 2026 Consent-Law Guide">
+    <meta property="og:description" content="Usually yes — if you have consent. One-party vs all-party rules, the US states and countries that require everyone's permission, and how AI notetakers change the picture.">
+    <meta property="og:url" content="https://mono-ai.uk/blog/is-it-legal-to-record-a-meeting">
+    <meta property="og:site_name" content="mono">
+    <meta property="og:image" content="https://mono-ai.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-06-13T00:00:00Z">
+    <meta property="article:author" content="Daniil Lefanov">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Is It Legal to Record a Meeting? The 2026 Consent-Law Guide">
+    <meta name="twitter:description" content="Usually yes — if you have consent. The one-party vs all-party rules, by US state and country, plus the AI-notetaker twist.">
+    <meta name="twitter:image" content="https://mono-ai.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Is It Legal to Record a Meeting? The 2026 Consent-Law Guide",
+      "description": "A 2026 guide to the legality of recording meetings: one-party vs all-party consent, the US states and countries that require everyone's permission, penalties, and how AI notetakers change the legal picture.",
+      "datePublished": "2026-06-13",
+      "dateModified": "2026-06-13",
+      "author": { "@type": "Person", "name": "Daniil Lefanov", "url": "https://mono-ai.uk/" },
+      "publisher": {
+        "@type": "Organization", "name": "mono", "url": "https://mono-ai.uk/",
+        "logo": { "@type": "ImageObject", "url": "https://mono-ai.uk/logo-black.png" }
+      },
+      "url": "https://mono-ai.uk/blog/is-it-legal-to-record-a-meeting"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it legal to record a meeting?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually yes — if you have consent. Under US federal law and in most states, you may record a conversation you are part of (one-party consent). But about a dozen US states and many countries (Germany, France, most of the EU, and parts of Canada and Australia) require the consent of everyone in the conversation. The safe rule everywhere is to announce the recording at the start and get agreement before any substantive discussion." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between one-party and all-party consent?",
+          "acceptedAnswer": { "@type": "Answer", "text": "One-party consent means only one person in the conversation needs to agree to the recording — and if you are a participant, that one person can be you, so you may record without telling anyone else. All-party (often called two-party) consent means every participant must agree before you record. In an all-party state or country, secretly recording a meeting is illegal even if you are in it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which US states require all-party (two-party) consent?",
+          "acceptedAnswer": { "@type": "Answer", "text": "About a dozen, most commonly listed as California, Delaware, Florida, Illinois, Maryland, Massachusetts, Montana, Nevada, New Hampshire, Oregon, Pennsylvania and Washington — with Connecticut often added. Several are nuanced: California only covers confidential conversations, Oregon's all-party rule applies to in-person talks while phone calls are one-party, and Nevada and Connecticut treat phone calls as all-party. When a call crosses state lines, follow the strictest state's law." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it illegal to record a meeting without telling the other person?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends where everyone is. Under federal law and in one-party-consent states you can record a meeting you're part of without telling anyone. But in all-party-consent states and in countries like Germany, France and most of the EU, recording without everyone's knowledge is illegal and can be a crime. Because you often can't be sure where every participant sits, the conservative practice is to always disclose and get consent." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are AI notetakers like Otter and Fireflies legal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The tool doesn't change the law — you still need consent to record. But AI notetaker bots add risk: they can auto-join meetings and record before anyone announces it, send audio to a vendor's cloud, and capture voiceprints. In 2025–2026 that triggered class actions, including In re Otter.ai Privacy Litigation and a biometric (BIPA) suit against Fireflies.ai. Whatever tool you use, disclose it and get everyone's consent." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I record a meeting at work or record my boss?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The same state consent rules apply: it's generally lawful in one-party states and risky in all-party states. There's one wrinkle — US labor law (the NLRA) can protect an employee's recording when it documents wages, safety or discrimination as 'protected concerted activity', and employers can't always impose blanket no-recording bans. It's contested and fact-specific, so don't treat it as a blanket license." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="/components/font-ready.js"></script>
+    <script src="/components/nav.js" defer></script>
+    <script src="/components/discount-float.js" defer></script>
+    <script src="/components/fold-effect.js" defer></script>
+    <script src="/components/cta-card.js" defer></script>
+    <script src="/components/lightbox.js" defer></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-primary: #252525; --bg-secondary: #2D2D2D; --bg-hover: #3A3A3A; --bg-pressed: #454545; --text-primary: #FFFFFF; --text-secondary: #B0B0B0; }
+        @media (prefers-color-scheme: light) { :root:not(.dark) { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; } }
+        :root.light { --bg-primary: #F5F5F5; --bg-secondary: #FFFFFF; --bg-hover: #E0E0E0; --bg-pressed: #D0D0D0; --text-primary: #212121; --text-secondary: #757575; }
+        html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-width: none; }
+        html::-webkit-scrollbar { display: none; }
+        body { font-family: 'Comfortaa', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px 120px; }
+        .back-link { display: inline-block; font-size: 13px; color: var(--text-secondary); text-decoration: none; margin-bottom: 32px; }
+        .back-link:hover { color: var(--text-primary); }
+        .article-category { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 16px; }
+        .article-title { font-weight: 500; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; margin-bottom: 12px; }
+        .article-meta { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+        .article-disclosure { font-size: 12px; color: var(--text-secondary); opacity: 0.7; font-style: italic; margin-bottom: 48px; }
+        .article-body { font-size: 16px; }
+        .article-body p { margin-bottom: 20px; }
+        .article-body h2 { font-weight: 500; font-size: 24px; margin-top: 48px; margin-bottom: 16px; }
+        .article-body h3 { font-weight: 500; font-size: 18px; margin-top: 32px; margin-bottom: 12px; }
+        .article-body strong { font-weight: 700; }
+        .article-body a { color: var(--text-primary); }
+        .article-body ul { margin: 0 0 20px 0; padding-left: 22px; }
+        .article-body li { margin-bottom: 10px; }
+        .tldr { background: var(--bg-secondary); border-left: 3px solid rgba(255,255,255,0.15); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px; }
+        :root.light .tldr { border-left-color: rgba(0,0,0,0.12); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .tldr { border-left-color: rgba(0,0,0,0.12); } }
+        .tldr-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+        .tldr ul { list-style: none; padding: 0; margin: 0; }
+        .tldr li { font-size: 15px; padding: 4px 0; }
+        .table-wrap { overflow-x: auto; margin-bottom: 16px; }
+        .compare-table { border-collapse: collapse; width: 100%; min-width: 560px; }
+        .compare-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
+        .compare-table td { font-size: 14px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top; }
+        :root.light .compare-table th { border-bottom-color: rgba(0,0,0,0.1); }
+        :root.light .compare-table td { border-bottom-color: rgba(0,0,0,0.06); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .compare-table th { border-bottom-color: rgba(0,0,0,0.1); } :root:not(.dark) .compare-table td { border-bottom-color: rgba(0,0,0,0.06); } }
+        .table-note { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
+        .tip-box { background: var(--bg-secondary); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
+        .tip-box p { margin-bottom: 0; }
+        .references { margin-top: 56px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); }
+        :root.light .references { border-top-color: rgba(0,0,0,0.1); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .references { border-top-color: rgba(0,0,0,0.1); } }
+        .references-title { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+        .references ol { margin: 0; padding-left: 20px; }
+        .references li { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 8px; }
+        .references a { color: var(--text-secondary); text-decoration: underline; }
+        .references a:hover { color: var(--text-primary); }
+        .related-articles { margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); }
+        :root.light .related-articles { border-top-color: rgba(0,0,0,0.1); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .related-articles { border-top-color: rgba(0,0,0,0.1); } }
+        .related-title { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 20px; }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+        .related-card { display: block; text-decoration: none; background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; transition: background 0.2s ease, border-color 0.2s ease; }
+        .related-card:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.14); }
+        :root.light .related-card { border-color: rgba(0,0,0,0.08); }
+        :root.light .related-card:hover { border-color: rgba(0,0,0,0.16); }
+        @media (prefers-color-scheme: light) { :root:not(.dark) .related-card { border-color: rgba(0,0,0,0.08); } :root:not(.dark) .related-card:hover { border-color: rgba(0,0,0,0.16); } }
+        .related-card-title { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 6px; line-height: 1.3; }
+        .related-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <site-nav base-path="../"></site-nav>
+    <discount-float></discount-float>
+
+    <main class="article-wrap">
+        <a href="./" class="back-link" data-i18n="back_link">← blog</a>
+
+        <header>
+            <span class="article-category" data-i18n="category">[Guide]</span>
+            <h1 class="article-title" data-i18n="title">Is It Legal to Record a Meeting? The 2026 Consent-Law Guide</h1>
+            <p class="article-meta" data-i18n="meta">Jun 13, 2026 · 14 min read · By Daniil Lefanov</p>
+            <p class="article-disclosure" data-i18n="disclosure">This is general information, not legal advice — recording law varies by jurisdiction and changes often, so check your local rules or a lawyer for anything important. Disclosure: mono is our product, a private on-device meeting recorder.</p>
+        </header>
+
+        <div class="article-body">
+
+            <p data-i18n="intro_p1">Short answer: <strong>usually yes — if you have consent.</strong> In most of the United States you can legally record a meeting you're part of without asking anyone, because federal law and most states only require <em>one</em> person in the conversation to agree — <strong>and since you're in the meeting, that person is you.</strong> But about a dozen US states and a long list of countries flip that rule: there, everyone in the conversation has to agree, and recording without it can be a crime.</p>
+
+            <p data-i18n="intro_p2">The catch is that on a modern video call your participants could be anywhere — three states and two countries deep in a single Zoom — and the strictest rule in the room is the one that governs. This guide explains the actual rules, who has to consent and where, what the penalties are, and how AI notetakers quietly raised the stakes in 2026.</p>
+
+            <div class="tldr">
+                <p class="tldr-label" data-i18n="tldr_label">TL;DR</p>
+                <ul>
+                    <li data-i18n="tldr_1"><strong>One-party consent</strong> (US federal + most states): you can record a meeting you're in.</li>
+                    <li data-i18n="tldr_2"><strong>All-party consent</strong> (~12 states + much of the EU): everyone must agree first.</li>
+                    <li data-i18n="tldr_3"><strong>Cross-border calls:</strong> follow the strictest rule among all participants.</li>
+                    <li data-i18n="tldr_4"><strong>The rule that's safe everywhere:</strong> announce the recording and get consent on the record.</li>
+                </ul>
+            </div>
+
+            <h2 data-i18n="h2_consent">One-Party vs All-Party Consent: The Whole Game</h2>
+
+            <p data-i18n="consent_p1">Almost every recording law in the world comes down to a single question: <strong>how many people in the conversation have to agree before you can record it?</strong> There are two answers.</p>
+
+            <ul>
+                <li data-i18n="consent_b1"><strong>One-party consent.</strong> Only one participant needs to agree — and if you're in the meeting, that participant can be you. So you can record without telling anyone else. This is the US federal standard and the rule in most US states.</li>
+                <li data-i18n="consent_b2"><strong>All-party consent</strong> (often called "two-party," though it really means <em>everyone</em>). Every participant must agree before recording. In a five-person meeting, all five must consent. Secretly recording is illegal even if you're a participant.</li>
+            </ul>
+
+            <p data-i18n="consent_p2">That's the entire framework. Everything below is just which rule applies to which people — and the one habit that keeps you safe regardless.</p>
+
+            <h2 data-i18n="h2_us">The United States: A One-Party Floor With All-Party Exceptions</h2>
+
+            <p data-i18n="us_p1">US federal law — the Wiretap Act, <a href="https://www.law.cornell.edu/uscode/text/18/2511" target="_blank" rel="noopener"><strong>18 U.S.C. § 2511</strong></a> — sets a nationwide <strong>one-party consent</strong> floor. If you're a party to the conversation, you can record it; if you're not, you can still record if at least one participant knowingly agrees. One important exception: the protection disappears if you're recording to commit a crime or a tort (blackmail, fraud, and the like).</p>
+
+            <p data-i18n="us_p2">Federal law is a floor, not a ceiling. States are free to demand more, and <strong>about a dozen require all-party consent.</strong> The commonly cited list:</p>
+
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th_state">State</th>
+                            <th data-i18n="th_rule">What it requires</th>
+                            <th data-i18n="th_nuance">Worth knowing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>California</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_ca">Only "confidential" conversations (CIPA §632); the most heavily litigated state.</td>
+                        </tr>
+                        <tr>
+                            <td>Florida</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_fl">Applies where there's a reasonable expectation of privacy.</td>
+                        </tr>
+                        <tr>
+                            <td>Illinois</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_il">Plus BIPA — capturing a "voiceprint" is a separate biometric violation.</td>
+                        </tr>
+                        <tr>
+                            <td>Maryland</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_md">The "Linda Tripp" state; applies to private conversations.</td>
+                        </tr>
+                        <tr>
+                            <td>Massachusetts</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_ma">Strict — secret recording is a felony, with no misdemeanor option.</td>
+                        </tr>
+                        <tr>
+                            <td>Pennsylvania</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_pa">One of the strictest; felony exposure up to 7 years.</td>
+                        </tr>
+                        <tr>
+                            <td>Washington</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_wa">Requires consent of all parties to the communication.</td>
+                        </tr>
+                        <tr>
+                            <td>Montana</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_mt">Requires notice/consent, with some carve-outs.</td>
+                        </tr>
+                        <tr>
+                            <td>New Hampshire</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_nh">Among the strictest, with felony exposure.</td>
+                        </tr>
+                        <tr>
+                            <td>Delaware</td>
+                            <td data-i18n="us_all">All-party</td>
+                            <td data-i18n="state_de">Statutes conflict; treat as all-party to be safe.</td>
+                        </tr>
+                        <tr>
+                            <td>Oregon</td>
+                            <td data-i18n="us_hybrid">Hybrid</td>
+                            <td data-i18n="state_or">All-party for in-person talks (notice required); phone calls are one-party.</td>
+                        </tr>
+                        <tr>
+                            <td>Nevada</td>
+                            <td data-i18n="us_hybrid">Hybrid</td>
+                            <td data-i18n="state_nv">All-party for phone calls (per case law); in-person is one-party.</td>
+                        </tr>
+                        <tr>
+                            <td>Connecticut</td>
+                            <td data-i18n="us_hybrid">Hybrid</td>
+                            <td data-i18n="state_ct">All-party for phone recording (civil law); in-person is closer to one-party.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="table-note" data-i18n="us_table_note">The exact count is genuinely fuzzy — sources say 11, 12 or 13 — because several states are hybrid or have contradictory statutes (Michigan, for instance, reads as all-party but case law lets a participant record). The safe move is to treat all of the above as all-party.</p>
+
+            <h3 data-i18n="h3_crossborder">The cross-border trap</h3>
+
+            <p data-i18n="crossborder_p1">Here's where most people get caught. When one person is in a one-party state and another is in an all-party state, <strong>both states can claim their law applies — and courts tend to side with the stricter one.</strong> In the leading case, <a href="https://caselaw.findlaw.com/court/ca-supreme-court/1099204.html" target="_blank" rel="noopener"><em>Kearney v. Salomon Smith Barney</em></a>, California's all-party rule was applied to a Georgia firm's calls into California. The practical rule for any multi-state or remote meeting: <strong>if anyone might be in an all-party state, get everyone's consent.</strong></p>
+
+            <h2 data-i18n="h2_intl">Outside the US: Most of the World Leans Stricter</h2>
+
+            <p data-i18n="intl_p1">If your meeting includes people abroad, assume the bar is higher than in the US. A recording of an identifiable person is personal data in most of the world, which pulls privacy law into the picture on top of any recording statute.</p>
+
+            <ul>
+                <li data-i18n="intl_eu"><strong>European Union (GDPR).</strong> A recording is personal data, so you need a lawful basis. For external participants or anything beyond routine internal use, that basis is effectively <strong>consent</strong> — which must be freely given and explicit, never inferred from silence. People can also ask for the recording to be deleted.</li>
+                <li data-i18n="intl_germany"><strong>Germany & France — criminal.</strong> Germany makes recording the non-public spoken word without all parties' consent a crime (§201 StGB, up to 3 years); France's Penal Code (Art. 226-1) is similar. These are firmly all-party.</li>
+                <li data-i18n="intl_uk"><strong>United Kingdom.</strong> An individual recording a call for purely personal use is generally fine under a "domestic purposes" exemption — but the moment it's shared or used for business, full UK GDPR transparency (tell people, say why) applies.</li>
+                <li data-i18n="intl_canada"><strong>Canada.</strong> The criminal rule is one-party (you can record a conversation you're in), but once an organization is doing the recording, PIPEDA's notice-and-consent expectations apply — which is why companies announce it.</li>
+                <li data-i18n="intl_australia"><strong>Australia.</strong> A state-by-state patchwork: New South Wales, Western Australia, South Australia, Tasmania and the ACT are effectively all-party; Victoria, Queensland and the Northern Territory are one-party.</li>
+            </ul>
+
+            <div class="tip-box">
+                <p data-i18n="intl_tip"><strong>The EU AI Act twist.</strong> Plain transcription and AI summaries are fine. But the <a href="https://artificialintelligenceact.eu/article/5/" target="_blank" rel="noopener">AI Act</a> bans AI that <em>infers emotions</em> from voice or face in workplaces and schools — that prohibition has applied since February 2025, and from <strong>2 August 2026</strong> the Act is fully enforceable with fines up to €35M or 7% of global turnover. If a notetaker adds "sentiment" or "engagement" scoring of employees, that's the part that gets risky — not the transcript.</p>
+            </div>
+
+            <h2 data-i18n="h2_ai">The AI Notetaker Twist: Same Law, More Exposure</h2>
+
+            <p data-i18n="ai_p1">The law cares about <em>recording a conversation</em>, not which tool does it — so an AI notetaker never lowers the consent bar. What it can do is quietly raise your risk, because a bot behaves very differently from a person discreetly pressing record:</p>
+
+            <ul>
+                <li data-i18n="ai_b1"><strong>It joins and records before anyone announces it.</strong> Notetaker bots connect through your calendar and auto-dial into meetings on schedule — sometimes capturing pre-meeting small talk, or joining calls the account-holder isn't even attending.</li>
+                <li data-i18n="ai_b2"><strong>It sends your audio to a vendor's cloud.</strong> That transmission to third-party servers (and onward to AI sub-processors) can itself be a disclosure of confidential or privileged information — a problem a quiet local recording doesn't create.</li>
+                <li data-i18n="ai_b3"><strong>It can capture a voiceprint.</strong> Extracting a biometric voiceprint of each speaker triggers laws like Illinois' BIPA on its own, separate from any wiretap question.</li>
+            </ul>
+
+            <p data-i18n="ai_p2">This isn't hypothetical. In 2025–2026 the bots became the defendants: the consolidated <a href="https://www.courtlistener.com/docket/71118721/brewer-v-otterai-inc/" target="_blank" rel="noopener"><strong><em>In re Otter.ai Privacy Litigation</em></strong></a> (N.D. Cal.) alleges Otter's notetaker recorded participants — including non-users — without all-party consent and used the audio to train its models, while <a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener"><strong><em>Cruz v. Fireflies.ai</em></strong></a> (Dec 2025) alleges illegal collection of voiceprints under Illinois' biometric law. Earlier, Otter famously auto-emailed a startup founder the full transcript of a VC firm's <em>private</em> post-meeting conversation, and in a separate incident a notetaker bot emailed a transcript containing seven patients' health information to 65 people. The common thread in every cautionary tale is a bot doing something automatically that a human never would.</p>
+
+            <h2 data-i18n="h2_penalties">What Happens If You Get It Wrong</h2>
+
+            <p data-i18n="penalties_p1">Illegal recording isn't just inadmissible evidence — it carries real penalties. Under federal law it's a felony (up to 5 years) plus civil damages with a <strong>$10,000 floor</strong> (or $100 per day). State laws stack on top: California's CIPA allows <strong>$5,000 per violation</strong>, Illinois' BIPA runs <strong>$1,000–$5,000 per violation</strong> (the engine behind the notetaker class actions), and Pennsylvania and New Hampshire reach felony territory. Because biometric and wiretap statutes count <em>per violation</em>, a single recorded meeting with many participants can multiply fast.</p>
+
+            <h2 data-i18n="h2_work">Recording at Work — and Recording Your Boss</h2>
+
+            <p data-i18n="work_p1">The same one-party/all-party map applies at work, with two wrinkles. Employers can generally record (with notice, and never in genuinely private spaces like restrooms). And employees have a surprising shield: US labor law (the NLRA) can protect a worker's recording when it documents wages, unsafe conditions or discrimination as <strong>"protected concerted activity,"</strong> and the labor board has repeatedly struck down blanket no-recording policies as too broad. But it's contested and fact-specific — don't treat it as a free pass to secretly record in an all-party state.</p>
+
+            <h2 data-i18n="h2_how">How to Record a Meeting Legally (the Safe Workflow)</h2>
+
+            <p data-i18n="how_p1">You don't need to memorize 50 states and 30 countries. One disciplined habit over-complies with nearly all of them:</p>
+
+            <ul>
+                <li data-i18n="how_b1"><strong>Default to all-party consent.</strong> Treat every recording as if the strictest rule applies. This automatically covers cross-border and multi-state calls where you can't know everyone's location.</li>
+                <li data-i18n="how_b2"><strong>Announce it at the very start — and capture the consent on the recording.</strong> Begin recording, state that you're recording, and let people verbally agree. Now the consent is part of the record.</li>
+                <li data-i18n="how_b3"><strong>Put it in the calendar invite.</strong> No one should be surprised that a meeting — or a bot — is recording.</li>
+                <li data-i18n="how_b4"><strong>Give people a real chance to say no.</strong> And honor it. It's completely fine for a participant to decline.</li>
+                <li data-i18n="how_b5"><strong>Get consent before you start, not after.</strong> Late consent doesn't cure an already-unlawful recording.</li>
+                <li data-i18n="how_b6"><strong>Take extra care with privileged, medical or biometric content.</strong> Attorney–client calls, health information and meetings with Illinois participants carry their own rules on top.</li>
+                <li data-i18n="how_b7"><strong>Store it securely and delete on a schedule.</strong> A lawful recording you leak is still a problem.</li>
+            </ul>
+
+            <h2 data-i18n="h2_mono">Where mono Fits — and What It Doesn't Change</h2>
+
+            <p data-i18n="mono_p1">We'll be straight with you: <strong>no recorder makes consent optional.</strong> <a href="https://mono-ai.uk/">mono</a> is a private, on-device meeting recorder, and it still requires you to get permission before you record someone — the checklist above applies no matter what software you run.</p>
+
+            <p data-i18n="mono_p2">What an on-device, no-bot tool like mono <em>does</em> change is the cluster of risks that are unique to notetaker bots. Nothing auto-joins your calls through a calendar connection, so there's no bot recording a meeting you didn't attend. The audio and transcript stay on your own computer instead of a vendor's cloud, so there's no third-party disclosure and nothing is used to train someone's model. No outside service is harvesting a voiceprint. And because the output never auto-emails itself to anyone, the "it sent everyone the private part" failure mode can't happen. mono changes the <em>attack surface</em>; you still own the responsibility to get consent — and, because you keep the files, the ability to honor a deletion request yourself.</p>
+
+            <h2 data-i18n="h2_faq">FAQ</h2>
+
+            <h3 data-i18n="faq_q1">Is it legal to record a meeting?</h3>
+            <p data-i18n="faq_a1">Usually yes — if you have consent. Under US federal law and most states you may record a conversation you're part of (one-party consent). But about a dozen US states and many countries require everyone's agreement. The rule that's safe everywhere is to announce the recording and get consent before any real discussion.</p>
+
+            <h3 data-i18n="faq_q2">What's the difference between one-party and all-party consent?</h3>
+            <p data-i18n="faq_a2">One-party consent means only one person — which can be you, if you're in the meeting — has to agree, so you can record without telling anyone else. All-party (or "two-party") consent means every participant must agree first; secretly recording is illegal even if you're in the conversation.</p>
+
+            <h3 data-i18n="faq_q3">Which US states require all-party consent?</h3>
+            <p data-i18n="faq_a3">About a dozen, most commonly California, Delaware, Florida, Illinois, Maryland, Massachusetts, Montana, Nevada, New Hampshire, Oregon, Pennsylvania and Washington, with Connecticut often added. Several are nuanced — California covers only confidential talks, and Oregon, Nevada and Connecticut split the rule between phone and in-person. When a call crosses state lines, follow the strictest one.</p>
+
+            <h3 data-i18n="faq_q4">Is it illegal to record a meeting without telling the other person?</h3>
+            <p data-i18n="faq_a4">It depends where everyone is. In one-party states and under federal law you can record a meeting you're part of without telling anyone. In all-party states and countries like Germany, France and most of the EU it's illegal and can be a crime. Since you often can't be sure where everyone sits, the conservative practice is to always disclose.</p>
+
+            <h3 data-i18n="faq_q5">Are AI notetakers like Otter and Fireflies legal?</h3>
+            <p data-i18n="faq_a5">The tool doesn't change the law — you still need consent. But notetaker bots add risk by auto-joining, recording before anyone announces it, sending audio to the cloud and capturing voiceprints. That triggered 2025–2026 class actions including In re Otter.ai Privacy Litigation and a BIPA suit against Fireflies.ai. Whatever you use, disclose it and get consent.</p>
+
+            <h3 data-i18n="faq_q6">Can I record a meeting at work or record my boss?</h3>
+            <p data-i18n="faq_a6">The same state consent rules apply — lawful in one-party states, risky in all-party states. One wrinkle: US labor law (the NLRA) can protect a recording that documents wages, safety or discrimination as "protected concerted activity," and blanket no-recording bans are often unlawful. It's contested and fact-specific, so don't rely on it as a blanket license.</p>
+
+            <section class="references">
+                <h2 class="references-title" data-i18n="references_title">References &amp; Sources</h2>
+                <ol>
+                    <li data-i18n="ref_1">Federal Wiretap Act, <a href="https://www.law.cornell.edu/uscode/text/18/2511" target="_blank" rel="noopener">18 U.S.C. § 2511</a> and <a href="https://www.law.cornell.edu/uscode/text/18/2520" target="_blank" rel="noopener">§ 2520</a> (civil damages) — Cornell Legal Information Institute.</li>
+                    <li data-i18n="ref_2">The Reporters Committee for Freedom of the Press, <a href="https://www.rcfp.org/reporters-recording-guide/" target="_blank" rel="noopener">Reporter's Recording Guide</a> — state-by-state consent rules.</li>
+                    <li data-i18n="ref_3"><a href="https://caselaw.findlaw.com/court/ca-supreme-court/1099204.html" target="_blank" rel="noopener"><em>Kearney v. Salomon Smith Barney, Inc.</em>, 39 Cal. 4th 95 (2006)</a> — FindLaw (cross-border choice of law).</li>
+                    <li data-i18n="ref_4"><a href="https://www.courtlistener.com/docket/71118721/brewer-v-otterai-inc/" target="_blank" rel="noopener"><em>In re Otter.ai Privacy Litigation</em>, No. 5:25-cv-06911 (N.D. Cal.)</a> — CourtListener docket.</li>
+                    <li data-i18n="ref_5"><a href="https://natlawreview.com/article/lawsuit-alleges-firefliesai-corp-illegally-collects-biometric-data-virtual-meetings" target="_blank" rel="noopener"><em>Cruz v. Fireflies.ai Corp.</em></a> (Illinois BIPA voiceprint suit, Dec. 2025) — National Law Review.</li>
+                    <li data-i18n="ref_6">EU AI Act, <a href="https://artificialintelligenceact.eu/article/5/" target="_blank" rel="noopener">Article 5 — Prohibited AI Practices</a> (workplace emotion recognition).</li>
+                </ol>
+            </section>
+
+            <cta-card base-path="../"></cta-card>
+
+            <section class="related-articles">
+                <h2 class="related-title" data-i18n="related_title">Related Guides</h2>
+                <div class="related-grid">
+                    <a href="ai-meeting-privacy-lawsuits-2026" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_lawsuits_title">AI Meeting Recorders &amp; Privacy</h3>
+                        <p class="related-card-desc" data-i18n="related_lawsuits_desc">Why cloud meeting recorders became a legal liability in 2026.</p>
+                    </a>
+                    <a href="bot-free-ai-note-takers-2026" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_botfree_title">Bot-Free AI Note Takers</h3>
+                        <p class="related-card-desc" data-i18n="related_botfree_desc">The complete 2026 guide — and why bot-free isn't the same as private.</p>
+                    </a>
+                    <a href="otter-ai-alternatives-2026" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_otter_title">Otter.ai Alternatives in 2026</h3>
+                        <p class="related-card-desc" data-i18n="related_otter_desc">Compare Otter, Fireflies, Fathom, Krisp and mono side by side.</p>
+                    </a>
+                    <a href="granola-alternatives-2026" class="related-card">
+                        <h3 class="related-card-title" data-i18n="related_granola_title">Granola Alternatives in 2026</h3>
+                        <p class="related-card-desc" data-i18n="related_granola_desc">Bot-free notes you actually own — the local, one-time-pay options.</p>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+<script>
+// English is the static default. Translations for other languages are added
+// here later as drop-in keys; the handler is guarded so any not-yet-translated
+// language simply keeps the English text.
+const translations = {
+    en: {
+        'back_link': '← blog',
+        'category': '[Guide]',
+        'title': 'Is It Legal to Record a Meeting? The 2026 Consent-Law Guide',
+        'meta': 'Jun 13, 2026 · 14 min read · By Daniil Lefanov',
+        'disclosure': 'This is general information, not legal advice — recording law varies by jurisdiction and changes often, so check your local rules or a lawyer for anything important. Disclosure: mono is our product, a private on-device meeting recorder.'
+    }
+};
+
+const siteNav = document.querySelector('site-nav');
+let currentLang = 'en';
+if (siteNav) {
+    siteNav.addEventListener('language-change', (e) => {
+        const lang = e.detail.language;
+        if (lang === currentLang) return;
+        currentLang = lang;
+        const t = translations[lang];
+        if (!t) return;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.dataset.i18n;
+            if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+    });
+}
+</script>
+</body>
+</html>
