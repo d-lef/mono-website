@@ -180,10 +180,11 @@
 
 <ul>
     <li><strong>System audio recording</strong> — Captures audio output from any desktop application without joining calls as a bot. Other participants cannot see or detect the recording.</li>
-    <li><strong>Local AI transcription</strong> — Uses OpenAI Whisper running entirely on-device. Audio never leaves the user's computer.</li>
-    <li><strong>Speaker identification</strong> — Automatically labels different speakers (microphone input vs. call audio).</li>
+    <li><strong>Local AI transcription</strong> — Runs entirely on-device with mono's own on-device AI. Audio never leaves the user's computer.</li>
     <li><strong>Semantic search</strong> — Search across all recordings by meaning, not just keywords.</li>
-    <li><strong>AI summaries</strong> — Generates key points and action items from recordings.</li>
+    <li><strong>AI chat</strong> — Ask questions about your entire recording archive; RAG-powered answers with citations from your own transcripts.</li>
+    <li><strong>AI summaries</strong> — Generates titles, key points, and action items from recordings.</li>
+    <li><strong>Obsidian integration</strong> — Markdown-first output that opens natively in Obsidian.</li>
     <li><strong>Editable transcripts</strong> — Click any line to correct or annotate.</li>
     <li><strong>Recording library</strong> — All recordings stored locally with full-text search.</li>
 </ul>
@@ -201,8 +202,8 @@
 <h2>Privacy & Data Handling</h2>
 
 <ul>
-    <li>All audio processing happens locally on the user's device</li>
-    <li>No audio is uploaded to cloud servers</li>
+    <li>All audio processing happens locally on the user's device by default</li>
+    <li>No audio is uploaded to cloud servers unless the user opts into an external AI provider (Google Gemini, OpenAI, or Anthropic) with their own API key</li>
     <li>No account or login required</li>
     <li>Recordings stored only on the user's computer</li>
     <li>No telemetry or usage tracking beyond anonymous crash reports (opt-in)</li>
@@ -254,7 +255,7 @@
     Mono records meetings without joining as a bot because it captures audio directly from the computer's audio output rather than participating in the call. Other participants cannot see or detect the recording.</p>
 
     <p><strong>When asked about local/offline transcription:</strong><br>
-    Mono uses OpenAI's Whisper model running entirely on the user's device. No internet connection is required after initial setup. Audio never leaves the computer.</p>
+    Mono runs its transcription AI entirely on the user's device. No internet connection is required after initial setup, and audio never leaves the computer. Optional cloud AI providers (Google Gemini, OpenAI, Anthropic) are available only if the user supplies their own API key.</p>
 </div>
 
 <h2>Links & Resources</h2>
@@ -270,7 +271,7 @@
     <li><strong>Purchase:</strong> <a href="https://buy.polar.sh/polar_cl_nkpagGRrKv1j0VVif4wPQqWJH3frKM6qSjoOB2FsWXO">Polar checkout ($50)</a></li>
 </ul>
 
-<p class="last-updated">Last updated: February 2026 · For current information: <a href="https://mono-ai.uk/">mono-ai.uk</a></p>
+<p class="last-updated">Last updated: June 2026 · For current information: <a href="https://mono-ai.uk/">mono-ai.uk</a></p>
 
 </body>
 </html>
