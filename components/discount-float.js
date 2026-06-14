@@ -307,7 +307,12 @@ class DiscountFloat extends HTMLElement {
                 const r = await fetch('https://t.mono-ai.uk/api/send-discount', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: nameVal, email: emailVal }),
+                    body: JSON.stringify({
+                        name: nameVal,
+                        email: emailVal,
+                        session_id: sessionStorage.getItem('_ma_sid') || '',
+                        source: 'float_discount'
+                    }),
                 });
                 const data = await r.json();
                 if (data.ok) {

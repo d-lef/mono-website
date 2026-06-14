@@ -2211,7 +2211,11 @@
                 const r = await fetch('https://t.mono-ai.uk/api/send-discount', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: email }),
+                    body: JSON.stringify({
+                        email: email,
+                        session_id: sessionStorage.getItem('_ma_sid') || '',
+                        source: 'mobile_discount'
+                    }),
                 });
                 const data = await r.json();
                 if (data.ok) {
